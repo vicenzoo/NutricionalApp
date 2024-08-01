@@ -21,7 +21,16 @@ namespace NutricionalApp
 
         private static NpgsqlConnection GetConnection()
         {
-            return new NpgsqlConnection(@"Server=localhost,Port=5432,User Id=postgres;Password=adm;Database=Nutricional;");
+
+            string host = Environment.GetEnvironmentVariable("DB_HOST") ?? "localhost";
+            string port = Environment.GetEnvironmentVariable("DB_PORT") ?? "5432";
+            string userId = Environment.GetEnvironmentVariable("DB_USER") ?? "postgres";
+            string password = Environment.GetEnvironmentVariable("DB_PASSWORD") ?? "adm";
+            string database = Environment.GetEnvironmentVariable("DB_NAME") ?? "postgres";
+
+            //Coneção SSL para o Banco
+            var connectionString = $"Server={host};Port={port};User Id={userId};Password={password};Database={database};SslMode=Require;Trust Server Certificate=true;";
+            return new NpgsqlConnection(connectionString);
         }
         
         private static void TestCon()
