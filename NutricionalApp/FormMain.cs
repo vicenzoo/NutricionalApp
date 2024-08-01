@@ -21,7 +21,7 @@ namespace NutricionalApp
 
         private static NpgsqlConnection GetConnection()
         {
-            return new NpgsqlConnection(@"Server=localhost,Port=5432,User Id=postgres;Password=mASTERKEY;Database=Nutricional;");
+            return new NpgsqlConnection(@"Server=localhost,Port=5432,User Id=postgres;Password=adm;Database=Nutricional;");
         }
         
         private static void TestCon()
