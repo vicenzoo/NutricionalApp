@@ -28,8 +28,8 @@ namespace NutricionalApp
             string password = Environment.GetEnvironmentVariable("DB_PASSWORD") ?? "adm";
             string database = Environment.GetEnvironmentVariable("DB_NAME") ?? "postgres";
 
-            //Coneção SSL para o Banco
-            var connectionString = $"Server={host};Port={port};User Id={userId};Password={password};Database={database};SslMode=Require;Trust Server Certificate=true;";
+            //Conexão SSL para o Banco
+            var connectionString = $"Server={host};Port={port};User Id={userId};Password={password};Database={database};SslMode=Prefer;";
             return new NpgsqlConnection(connectionString);
         }
         
@@ -40,7 +40,7 @@ namespace NutricionalApp
                 con.Open();
                 if (con.State==ConnectionState.Open)
                 {
-                    Console.WriteLine("Conectado!!");
+                    MessageBox.Show("Conectado!");
                 }
             }
         }

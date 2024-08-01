@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.bt_login = new System.Windows.Forms.Button();
             this.bt_resize = new System.Windows.Forms.Button();
             this.bt_Exit = new System.Windows.Forms.Button();
-            this.bt_login = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -50,6 +50,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 511);
             this.panel1.TabIndex = 10;
+            // 
+            // panel3
+            // 
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 37);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(200, 474);
+            this.panel3.TabIndex = 1;
             // 
             // label1
             // 
@@ -75,6 +83,18 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(52, 511);
             this.panel2.TabIndex = 11;
+            // 
+            // bt_login
+            // 
+            this.bt_login.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.bt_login.FlatAppearance.BorderSize = 0;
+            this.bt_login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_login.Image = ((System.Drawing.Image)(resources.GetObject("bt_login.Image")));
+            this.bt_login.Location = new System.Drawing.Point(0, 376);
+            this.bt_login.Name = "bt_login";
+            this.bt_login.Size = new System.Drawing.Size(52, 45);
+            this.bt_login.TabIndex = 14;
+            this.bt_login.UseVisualStyleBackColor = true;
             // 
             // bt_resize
             // 
@@ -102,26 +122,6 @@
             this.bt_Exit.TabIndex = 12;
             this.bt_Exit.UseVisualStyleBackColor = true;
             this.bt_Exit.Click += new System.EventHandler(this.bt_Exit_Click);
-            // 
-            // bt_login
-            // 
-            this.bt_login.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bt_login.FlatAppearance.BorderSize = 0;
-            this.bt_login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_login.Image = ((System.Drawing.Image)(resources.GetObject("bt_login.Image")));
-            this.bt_login.Location = new System.Drawing.Point(0, 376);
-            this.bt_login.Name = "bt_login";
-            this.bt_login.Size = new System.Drawing.Size(52, 45);
-            this.bt_login.TabIndex = 14;
-            this.bt_login.UseVisualStyleBackColor = true;
-            // 
-            // panel3
-            // 
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 37);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 474);
-            this.panel3.TabIndex = 1;
             // 
             // FormMain
             // 
