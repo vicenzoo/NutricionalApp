@@ -40,7 +40,12 @@ namespace NutricionalApp
                 con.Open();
                 if (con.State==ConnectionState.Open)
                 {
-                    MessageBox.Show("Conectado!");
+                    //MessageBox.Show("Conectado!");
+
+
+
+
+
                 }
             }
         }
@@ -63,6 +68,14 @@ namespace NutricionalApp
             {
                 this.WindowState = FormWindowState.Normal;
             }
+        }
+
+        private void bt_login_Click(object sender, EventArgs e)
+        {
+            CadUser FormPrin = new CadUser();
+            FormPrin.MdiParent = this;
+
+            FormPrin.Show();
         }
     }
 }

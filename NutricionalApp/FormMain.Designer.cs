@@ -95,6 +95,7 @@
             this.bt_login.Size = new System.Drawing.Size(52, 45);
             this.bt_login.TabIndex = 14;
             this.bt_login.UseVisualStyleBackColor = true;
+            this.bt_login.Click += new System.EventHandler(this.bt_login_Click);
             // 
             // bt_resize
             // 
