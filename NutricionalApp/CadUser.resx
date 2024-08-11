@@ -117,4 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btVisualizar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAANRJREFUOE/t
+        0c+KgVEch/FzDSxs2GliMY0VRpmrYDO5CimzNYtJWLEWaVbKwp8LsZdhYcGUpglZ8nx1TjGMG+CpT739
+        3s7pfc8x9y4WRgVDfFt61iyEf/PiEysUEIfPesY7tmjBg5Oe8IU+uhrQA0ZWUAPqYYAxHjVQMcyRwhs+
+        oHLYWVkNqIg80tCaKMwLFtAGGbSh9AVTTOC+oINXaAOtSeKQ+4UqlojgbwnMUMPJL7h0iA38YIMS/Aig
+        jDX0ro6zQzxO19jEL9wZ6FmbX73G28yYPT5xMOYtNJR0AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

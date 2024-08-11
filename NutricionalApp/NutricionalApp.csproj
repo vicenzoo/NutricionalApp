@@ -139,9 +139,20 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Icones\Male User_96.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Icones\General Warning Sign_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icones\Forward Button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icones\background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icones\Done 16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
