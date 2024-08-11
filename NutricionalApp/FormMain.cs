@@ -19,6 +19,18 @@ namespace NutricionalApp
             TestCon();
         }
 
+        private void panel2_MouseEnter(object sender, EventArgs e)
+        {
+            // Remove a transparência ao passar o mouse
+            panel2.BackColor = Color.FromArgb(255, panel2.BackColor.R, panel2.BackColor.G, panel2.BackColor.B);
+        }
+
+        private void panel2_MouseLeave(object sender, EventArgs e)
+        {
+            // Aplica a transparência ao tirar o mouse de cima
+            panel2.BackColor = Color.FromArgb(100, panel2.BackColor.R, panel2.BackColor.G, panel2.BackColor.B);
+        }
+
         private static NpgsqlConnection GetConnection()
         {
 
@@ -72,10 +84,11 @@ namespace NutricionalApp
 
         private void bt_login_Click(object sender, EventArgs e)
         {
-            CadUser FormPrin = new CadUser();
-            FormPrin.MdiParent = this;
+            CadNutri FormNutri = new CadNutri();
+            FormNutri.MdiParent = this;
 
-            FormPrin.Show();
+            FormNutri.Show();
         }
+
     }
 }

@@ -52,6 +52,38 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
+            this.bt_upload = new System.Windows.Forms.Button();
+            this.bt_remover = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label_IMC = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtPeso = new System.Windows.Forms.TextBox();
+            this.txtAltura = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label_complementoIMC = new System.Windows.Forms.Label();
+            this.bt_verifica = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.txt_repitaSenha = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label_confiraSenha = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.picCPF2 = new System.Windows.Forms.PictureBox();
             this.btVisualizar = new System.Windows.Forms.Button();
@@ -62,21 +94,13 @@
             this.PicCPF = new System.Windows.Forms.PictureBox();
             this.picSobre = new System.Windows.Forms.PictureBox();
             this.bt_Seguinte1 = new System.Windows.Forms.Button();
-            this.bt_upload = new System.Windows.Forms.Button();
-            this.bt_remover = new System.Windows.Forms.Button();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label_IMC = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.bt_Seguinte2 = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label_complementoIMC = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCPF2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picNome)).BeginInit();
@@ -101,10 +125,11 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.bt_verifica);
             this.tabPage2.Controls.Add(this.label_complementoIMC);
             this.tabPage2.Controls.Add(this.label10);
-            this.tabPage2.Controls.Add(this.textBox2);
-            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.txtAltura);
+            this.tabPage2.Controls.Add(this.txtPeso);
             this.tabPage2.Controls.Add(this.label12);
             this.tabPage2.Controls.Add(this.bt_Seguinte2);
             this.tabPage2.Controls.Add(this.label11);
@@ -119,6 +144,9 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.button1);
+            this.tabPage4.Controls.Add(this.groupBox2);
+            this.tabPage4.Controls.Add(this.groupBox1);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(744, 271);
@@ -140,6 +168,9 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage1.Controls.Add(this.label_confiraSenha);
+            this.tabPage1.Controls.Add(this.label27);
+            this.tabPage1.Controls.Add(this.txt_repitaSenha);
             this.tabPage1.Controls.Add(this.picCPF2);
             this.tabPage1.Controls.Add(this.btVisualizar);
             this.tabPage1.Controls.Add(this.label_obsSenha);
@@ -178,7 +209,7 @@
             // 
             this.label_obsSenha.AutoSize = true;
             this.label_obsSenha.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_obsSenha.Location = new System.Drawing.Point(294, 210);
+            this.label_obsSenha.Location = new System.Drawing.Point(294, 185);
             this.label_obsSenha.Name = "label_obsSenha";
             this.label_obsSenha.Size = new System.Drawing.Size(317, 42);
             this.label_obsSenha.TabIndex = 25;
@@ -353,6 +384,324 @@
             this.txtNome.TabIndex = 0;
             this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
+            // bt_upload
+            // 
+            this.bt_upload.Location = new System.Drawing.Point(132, 36);
+            this.bt_upload.Name = "bt_upload";
+            this.bt_upload.Size = new System.Drawing.Size(100, 36);
+            this.bt_upload.TabIndex = 28;
+            this.bt_upload.Text = "Enviar Imagem";
+            this.bt_upload.UseVisualStyleBackColor = true;
+            this.bt_upload.Click += new System.EventHandler(this.bt_upload_Click);
+            // 
+            // bt_remover
+            // 
+            this.bt_remover.Location = new System.Drawing.Point(132, 78);
+            this.bt_remover.Name = "bt_remover";
+            this.bt_remover.Size = new System.Drawing.Size(100, 23);
+            this.bt_remover.TabIndex = 29;
+            this.bt_remover.Text = "Remover Imagem";
+            this.bt_remover.UseVisualStyleBackColor = true;
+            this.bt_remover.Visible = false;
+            this.bt_remover.Click += new System.EventHandler(this.bt_remover_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(238, 40);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(114, 26);
+            this.label9.TabIndex = 30;
+            this.label9.Text = "Recomendável:\r\nImagem 96 x 96 pixels.";
+            // 
+            // label_IMC
+            // 
+            this.label_IMC.AutoSize = true;
+            this.label_IMC.Font = new System.Drawing.Font("Arial", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_IMC.Location = new System.Drawing.Point(332, 118);
+            this.label_IMC.Name = "label_IMC";
+            this.label_IMC.Size = new System.Drawing.Size(65, 32);
+            this.label_IMC.TabIndex = 2;
+            this.label_IMC.Text = "IMC";
+            this.label_IMC.Visible = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(212, 48);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(39, 14);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "Altura:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(40, 48);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(34, 14);
+            this.label12.TabIndex = 17;
+            this.label12.Text = "Peso:";
+            // 
+            // txtPeso
+            // 
+            this.txtPeso.Location = new System.Drawing.Point(80, 45);
+            this.txtPeso.Name = "txtPeso";
+            this.txtPeso.Size = new System.Drawing.Size(100, 20);
+            this.txtPeso.TabIndex = 18;
+            this.txtPeso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPeso_KeyPress);
+            // 
+            // txtAltura
+            // 
+            this.txtAltura.Location = new System.Drawing.Point(257, 45);
+            this.txtAltura.Name = "txtAltura";
+            this.txtAltura.Size = new System.Drawing.Size(100, 20);
+            this.txtAltura.TabIndex = 19;
+            this.txtAltura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPeso_KeyPress);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI Light", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(34, 113);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(292, 37);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "O IMC do Paciente é de:";
+            // 
+            // label_complementoIMC
+            // 
+            this.label_complementoIMC.AutoSize = true;
+            this.label_complementoIMC.Font = new System.Drawing.Font("Segoe UI Light", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_complementoIMC.Location = new System.Drawing.Point(514, 114);
+            this.label_complementoIMC.Name = "label_complementoIMC";
+            this.label_complementoIMC.Size = new System.Drawing.Size(75, 37);
+            this.label_complementoIMC.TabIndex = 21;
+            this.label_complementoIMC.Text = "BOM";
+            this.label_complementoIMC.Visible = false;
+            // 
+            // bt_verifica
+            // 
+            this.bt_verifica.Location = new System.Drawing.Point(366, 43);
+            this.bt_verifica.Name = "bt_verifica";
+            this.bt_verifica.Size = new System.Drawing.Size(75, 23);
+            this.bt_verifica.TabIndex = 22;
+            this.bt_verifica.Text = "Verificar IMC";
+            this.bt_verifica.UseVisualStyleBackColor = true;
+            this.bt_verifica.Click += new System.EventHandler(this.bt_verifica_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label26);
+            this.groupBox1.Controls.Add(this.label25);
+            this.groupBox1.Controls.Add(this.label24);
+            this.groupBox1.Controls.Add(this.label23);
+            this.groupBox1.Controls.Add(this.label18);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.label19);
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(370, 265);
+            this.groupBox1.TabIndex = 24;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Dados Básicos";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(16, 191);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(41, 14);
+            this.label13.TabIndex = 27;
+            this.label13.Text = "Senha:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(16, 154);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(34, 14);
+            this.label14.TabIndex = 26;
+            this.label14.Text = "Email:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(16, 58);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(91, 14);
+            this.label15.TabIndex = 25;
+            this.label15.Text = "Data Nascimento:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(16, 118);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(35, 14);
+            this.label16.TabIndex = 24;
+            this.label16.Text = "Sexo:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(16, 88);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(29, 14);
+            this.label17.TabIndex = 23;
+            this.label17.Text = "CPF:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(16, 29);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(37, 14);
+            this.label19.TabIndex = 21;
+            this.label19.Text = "Nome:";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label22);
+            this.groupBox2.Controls.Add(this.label20);
+            this.groupBox2.Controls.Add(this.label21);
+            this.groupBox2.Location = new System.Drawing.Point(379, 5);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(233, 263);
+            this.groupBox2.TabIndex = 25;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Sobre Você";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(6, 56);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(27, 14);
+            this.label22.TabIndex = 26;
+            this.label22.Text = "IMC:";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(6, 27);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(34, 14);
+            this.label20.TabIndex = 25;
+            this.label20.Text = "Peso:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(146, 27);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(39, 14);
+            this.label21.TabIndex = 24;
+            this.label21.Text = "Altura:";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(618, 208);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(123, 60);
+            this.button1.TabIndex = 26;
+            this.button1.Text = "Finalizar Cadastro";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(66, 30);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(41, 13);
+            this.label18.TabIndex = 28;
+            this.label18.Text = "label18";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(124, 58);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(41, 13);
+            this.label23.TabIndex = 29;
+            this.label23.Text = "label23";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(66, 88);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(41, 13);
+            this.label24.TabIndex = 30;
+            this.label24.Text = "label24";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(66, 119);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(41, 13);
+            this.label25.TabIndex = 31;
+            this.label25.Text = "label25";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(66, 155);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(41, 13);
+            this.label26.TabIndex = 32;
+            this.label26.Text = "label26";
+            // 
+            // txt_repitaSenha
+            // 
+            this.txt_repitaSenha.Location = new System.Drawing.Point(83, 244);
+            this.txt_repitaSenha.Name = "txt_repitaSenha";
+            this.txt_repitaSenha.PasswordChar = '*';
+            this.txt_repitaSenha.Size = new System.Drawing.Size(181, 20);
+            this.txt_repitaSenha.TabIndex = 28;
+            this.txt_repitaSenha.TextChanged += new System.EventHandler(this.txt_repitaSenha_TextChanged);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(28, 236);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(50, 28);
+            this.label27.TabIndex = 29;
+            this.label27.Text = "Repita \r\na Senha:";
+            // 
+            // label_confiraSenha
+            // 
+            this.label_confiraSenha.AutoSize = true;
+            this.label_confiraSenha.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_confiraSenha.Location = new System.Drawing.Point(270, 247);
+            this.label_confiraSenha.Name = "label_confiraSenha";
+            this.label_confiraSenha.Size = new System.Drawing.Size(155, 14);
+            this.label_confiraSenha.TabIndex = 30;
+            this.label_confiraSenha.Text = "As senhas devem Coicidir!\r\n";
+            this.label_confiraSenha.Visible = false;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::NutricionalApp.Properties.Resources.Male_User_96;
@@ -365,7 +714,7 @@
             // picCPF2
             // 
             this.picCPF2.Image = global::NutricionalApp.Properties.Resources.Done_16;
-            this.picCPF2.Location = new System.Drawing.Point(270, 113);
+            this.picCPF2.Location = new System.Drawing.Point(294, 113);
             this.picCPF2.Name = "picCPF2";
             this.picCPF2.Size = new System.Drawing.Size(18, 17);
             this.picCPF2.TabIndex = 27;
@@ -454,60 +803,6 @@
             this.bt_Seguinte1.UseVisualStyleBackColor = true;
             this.bt_Seguinte1.Click += new System.EventHandler(this.bt_Seguinte1_Click);
             // 
-            // bt_upload
-            // 
-            this.bt_upload.Location = new System.Drawing.Point(132, 36);
-            this.bt_upload.Name = "bt_upload";
-            this.bt_upload.Size = new System.Drawing.Size(100, 36);
-            this.bt_upload.TabIndex = 28;
-            this.bt_upload.Text = "Enviar Imagem";
-            this.bt_upload.UseVisualStyleBackColor = true;
-            this.bt_upload.Click += new System.EventHandler(this.bt_upload_Click);
-            // 
-            // bt_remover
-            // 
-            this.bt_remover.Location = new System.Drawing.Point(132, 78);
-            this.bt_remover.Name = "bt_remover";
-            this.bt_remover.Size = new System.Drawing.Size(100, 23);
-            this.bt_remover.TabIndex = 29;
-            this.bt_remover.Text = "Remover Imagem";
-            this.bt_remover.UseVisualStyleBackColor = true;
-            this.bt_remover.Visible = false;
-            this.bt_remover.Click += new System.EventHandler(this.bt_remover_Click);
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(238, 40);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(114, 26);
-            this.label9.TabIndex = 30;
-            this.label9.Text = "Recomendável:\r\nImagem 96 x 96 pixels.";
-            // 
-            // label_IMC
-            // 
-            this.label_IMC.AutoSize = true;
-            this.label_IMC.Font = new System.Drawing.Font("Arial", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_IMC.Location = new System.Drawing.Point(261, 110);
-            this.label_IMC.Name = "label_IMC";
-            this.label_IMC.Size = new System.Drawing.Size(65, 32);
-            this.label_IMC.TabIndex = 2;
-            this.label_IMC.Text = "IMC";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(212, 48);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(39, 14);
-            this.label11.TabIndex = 3;
-            this.label11.Text = "Altura:";
-            // 
             // bt_Seguinte2
             // 
             this.bt_Seguinte2.Enabled = false;
@@ -517,50 +812,7 @@
             this.bt_Seguinte2.Size = new System.Drawing.Size(75, 55);
             this.bt_Seguinte2.TabIndex = 16;
             this.bt_Seguinte2.UseVisualStyleBackColor = true;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(40, 48);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(34, 14);
-            this.label12.TabIndex = 17;
-            this.label12.Text = "Peso:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(80, 45);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 18;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(257, 45);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 19;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI Light", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(73, 105);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(173, 37);
-            this.label10.TabIndex = 20;
-            this.label10.Text = "Seu IMC é de:";
-            // 
-            // label_complementoIMC
-            // 
-            this.label_complementoIMC.AutoSize = true;
-            this.label_complementoIMC.Font = new System.Drawing.Font("Segoe UI Light", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_complementoIMC.Location = new System.Drawing.Point(359, 106);
-            this.label_complementoIMC.Name = "label_complementoIMC";
-            this.label_complementoIMC.Size = new System.Drawing.Size(75, 37);
-            this.label_complementoIMC.TabIndex = 21;
-            this.label_complementoIMC.Text = "BOM";
+            this.bt_Seguinte2.Click += new System.EventHandler(this.bt_Seguinte2_Click);
             // 
             // CadUser
             // 
@@ -581,8 +833,13 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCPF2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picNome)).EndInit();
@@ -638,9 +895,30 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button bt_Seguinte2;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtAltura;
+        private System.Windows.Forms.TextBox txtPeso;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label_complementoIMC;
+        private System.Windows.Forms.Button bt_verifica;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txt_repitaSenha;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label_confiraSenha;
     }
 }

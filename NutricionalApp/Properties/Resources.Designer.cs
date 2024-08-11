@@ -73,6 +73,16 @@ namespace NutricionalApp.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap background1 {
+            get {
+                object obj = ResourceManager.GetObject("background1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Done_16 {
             get {
                 object obj = ResourceManager.GetObject("Done 16", resourceCulture);
@@ -86,6 +96,16 @@ namespace NutricionalApp.Properties {
         internal static System.Drawing.Bitmap Forward_Button {
             get {
                 object obj = ResourceManager.GetObject("Forward Button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Forward_Button1 {
+            get {
+                object obj = ResourceManager.GetObject("Forward Button1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

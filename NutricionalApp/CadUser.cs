@@ -172,6 +172,8 @@ namespace NutricionalApp
             }
         }
 
+
+
         //Visualizar Senha
         private void btVisualizar_Click(object sender, EventArgs e)
         {
@@ -185,12 +187,20 @@ namespace NutricionalApp
             }
         }
 
+        private void txt_repitaSenha_TextChanged(object sender, EventArgs e)
+        {
+            if(txtSenha.Text != txt_repitaSenha.Text)
+            {
+                //la
+            }
+        }
+
         //Cancela Troca de Abas
         private void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
         {
             e.Cancel = true;
 
-            if(bt_Seguinte1.Enabled & bt_Seguinte2.Enabled)
+            if(bt_Seguinte1.Enabled)
             {
                 e.Cancel = false;
             }
@@ -287,12 +297,76 @@ namespace NutricionalApp
         }
 
 
-
         /// 
         /// Aba "Sobre Você"
         /// 
 
+        //Validar Apenas Numeros 
+        private void txtPeso_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+             (e.KeyChar != ','))
+            {
+                e.Handled = true;
+            }
 
+            // only allow one decimal point
+            if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        //Classificação IMC
+        static string ClassificarIMC(double imc)
+        {
+            if (imc < 18.5)
+            {
+                return "Abaixo do peso";
+            }
+            else if (imc >= 18.5 && imc < 24.9)
+            {
+                return "Peso normal";
+            }
+            else if (imc >= 25 && imc < 29.9)
+            {
+                return "Sobrepeso";
+            }
+            else if (imc >= 30 && imc < 34.9)
+            {
+                return "Obesidade Grau I";
+            }
+            else if (imc >= 35 && imc < 39.9)
+            {
+                return "Obesidade Grau II";
+            }
+            else
+            {
+                return "Obesidade Grau III";
+            }
+        }
+
+        private void bt_verifica_Click(object sender, EventArgs e)
+        {
+            if(txtAltura.Text.Length == 0 & txtPeso.Text.Length == 0)
+            {
+
+            }
+            else
+            {
+                double IMC = Convert.ToDouble(txtPeso.Text) / ((Convert.ToDouble(txtAltura.Text) * Convert.ToDouble(txtAltura.Text)));
+                label_IMC.Visible = true;
+                label_IMC.Text = Convert.ToString(IMC);
+                label_complementoIMC.Visible = true;
+                label_complementoIMC.Text =  ClassificarIMC(IMC);
+                bt_Seguinte2.Enabled = true;
+            }
+        }
+
+        private void bt_Seguinte2_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex = 2;
+        }
 
 
     }
