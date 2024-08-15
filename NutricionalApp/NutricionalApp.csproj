@@ -107,6 +107,7 @@
     <Compile Include="CadUser.Designer.cs">
       <DependentUpon>CadUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConnClass.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>

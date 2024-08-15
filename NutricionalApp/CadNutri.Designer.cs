@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadNutri));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ck_Confirmacao = new System.Windows.Forms.CheckBox();
             this.bt_finalizar = new System.Windows.Forms.Button();
             this.picsenha2 = new System.Windows.Forms.PictureBox();
             this.label_confiraSenha = new System.Windows.Forms.Label();
@@ -67,7 +68,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picsenha2)).BeginInit();
@@ -91,7 +91,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.checkBox1);
+            this.tabPage1.Controls.Add(this.ck_Confirmacao);
             this.tabPage1.Controls.Add(this.bt_finalizar);
             this.tabPage1.Controls.Add(this.picsenha2);
             this.tabPage1.Controls.Add(this.label_confiraSenha);
@@ -135,6 +135,17 @@
             this.tabPage1.Text = "Cadastre-se";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // ck_Confirmacao
+            // 
+            this.ck_Confirmacao.AutoSize = true;
+            this.ck_Confirmacao.Location = new System.Drawing.Point(22, 455);
+            this.ck_Confirmacao.Name = "ck_Confirmacao";
+            this.ck_Confirmacao.Size = new System.Drawing.Size(534, 30);
+            this.ck_Confirmacao.TabIndex = 71;
+            this.ck_Confirmacao.Text = "Ao Finalizar o Cadastro estou ciente que os meus dados \r\nincluindo Documento CRN " +
+    "serão submetidos a uma análise de um responsável para validar sua veracidade.\r\n";
+            this.ck_Confirmacao.UseVisualStyleBackColor = true;
+            // 
             // bt_finalizar
             // 
             this.bt_finalizar.Enabled = false;
@@ -144,6 +155,7 @@
             this.bt_finalizar.TabIndex = 70;
             this.bt_finalizar.Text = "Finalizar Cadastro";
             this.bt_finalizar.UseVisualStyleBackColor = true;
+            this.bt_finalizar.Click += new System.EventHandler(this.bt_finalizar_Click);
             // 
             // picsenha2
             // 
@@ -479,17 +491,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(22, 455);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(534, 30);
-            this.checkBox1.TabIndex = 71;
-            this.checkBox1.Text = "Ao Finalizar o Cadastro estou ciente que os meus dados \r\nincluindo Documento CRN " +
-    "serão submetidos a uma análise de um responsável para validar sua veracidade.\r\n";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
             // CadNutri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -554,6 +555,6 @@
         private System.Windows.Forms.PictureBox picsenha2;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button bt_finalizar;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox ck_Confirmacao;
     }
 }

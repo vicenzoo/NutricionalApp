@@ -1,19 +1,23 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace NutricionalApp
 {
     public partial class CadNutri : Form
     {
-        Image ImagemTemp;
+        System.Drawing.Image ImagemTemp;
         public CadNutri()
         {
             InitializeComponent();
@@ -28,7 +32,7 @@ namespace NutricionalApp
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                pictureBox1.Image = Image.FromFile(openFileDialog1.FileName);
+                pictureBox1.Image = System.Drawing.Image.FromFile(openFileDialog1.FileName);
             }
 
             bt_remover.Visible = true;
@@ -273,7 +277,68 @@ namespace NutricionalApp
             txtEmail_TextChanged(txtEmail.Text, EventArgs.Empty);
             txtSenha_TextChanged(txtSenha, EventArgs.Empty);
             mt_CPF_Leave(mt_CPF, EventArgs.Empty);
+        }
 
+        private void bt_finalizar_Click(object sender, EventArgs e)
+        {
+            ExecutaValidacoes();
+
+            if (ck_Confirmacao.Checked)
+            {
+                using (var db = new DatabaseConnection())
+                {
+
+                    db.OpenConnection();
+                    using (var comm = new NpgsqlCommand(
+                        "INSERT INTO public.nutricionista " +
+                        "(Nome, Sobrenome, CPF, CRN, Data_Nascimento, Data_Inclusao, Email, Senha, ativo, Nut_icon) " +
+                        "VALUES (@Nome, @Sobrenome, @CPF, @CRN, @Data_Nascimento, @Data_Inclusao, @Email, CRYPT(@Senha, GEN_SALT('bf')), @ativo, @Nut_icon)",
+                        db.GetConnection()))
+                    {
+
+                        comm.Parameters.AddWithValue("@Nome", txtNome.Text);
+                        comm.Parameters.AddWithValue("@Sobrenome", txtSobrenome.Text);
+                        comm.Parameters.AddWithValue("@CPF", mt_CPF.Text); 
+                        comm.Parameters.AddWithValue("@CRN", mt_CRN.Text);
+                        comm.Parameters.AddWithValue("@Data_Nascimento", dtNasc.Value);
+                        comm.Parameters.AddWithValue("@Data_Inclusao", DateTime.Now); // Data de inclusão
+                        comm.Parameters.AddWithValue("@Email", txtEmail.Text);
+                        comm.Parameters.AddWithValue("@Senha", txtSenha.Text); // Senha Encriptada
+                        comm.Parameters.AddWithValue("@ativo", 'N');
+
+                        byte[] imagemParaBytes;
+                        using (var ms = new System.IO.MemoryStream())
+                        {
+                            pictureBox1.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Png); // Salve a imagem no MemoryStream
+                            imagemParaBytes = ms.ToArray(); // Converta para array de bytes
+                        }
+
+
+                        comm.Parameters.AddWithValue("@Nut_icon", imagemParaBytes); // Icone Usuario
+
+
+
+                        try
+                        {
+                            comm.ExecuteNonQuery();
+                        }
+                        catch (Exception error)
+                        {
+                            MessageBox.Show($"Erro: {error}!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+
+
+                    }
+
+
+                }
+            else
+            {
+                MessageBox.Show("Para continuar, por favor marque a caixa de seleção para confirmar.", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ck_Confirmacao.Focus();
+            }
         }
 
     }
