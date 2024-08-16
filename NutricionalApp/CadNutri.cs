@@ -291,7 +291,7 @@ namespace NutricionalApp
                     db.OpenConnection();
                     using (var comm = new NpgsqlCommand(
                         "INSERT INTO public.nutricionista " +
-                        "(Nome, Sobrenome, CPF, CRN, Data_Nascimento, Data_Inclusao, Email, Senha, ativo, Nut_icon) " +
+                        "( \"Nome\", \"Sobrenome\", \"CPF\", \"CRN\", \"Data_Nascimento\", \"Data_Inclusao\", \"Email\", \"Senha\", \"ativo\", \"Nut_icon\") " +
                         "VALUES (@Nome, @Sobrenome, @CPF, @CRN, @Data_Nascimento, @Data_Inclusao, @Email, CRYPT(@Senha, GEN_SALT('bf')), @ativo, @Nut_icon)",
                         db.GetConnection()))
                     {
@@ -299,7 +299,7 @@ namespace NutricionalApp
                         comm.Parameters.AddWithValue("@Nome", txtNome.Text);
                         comm.Parameters.AddWithValue("@Sobrenome", txtSobrenome.Text);
                         comm.Parameters.AddWithValue("@CPF", mt_CPF.Text); 
-                        comm.Parameters.AddWithValue("@CRN", mt_CRN.Text);
+                        comm.Parameters.AddWithValue("@CRN", Convert.ToInt32(mt_CRN.Text));
                         comm.Parameters.AddWithValue("@Data_Nascimento", dtNasc.Value);
                         comm.Parameters.AddWithValue("@Data_Inclusao", DateTime.Now); // Data de inclusão
                         comm.Parameters.AddWithValue("@Email", txtEmail.Text);
@@ -313,14 +313,22 @@ namespace NutricionalApp
                             imagemParaBytes = ms.ToArray(); // Converta para array de bytes
                         }
 
-
-                        comm.Parameters.AddWithValue("@Nut_icon", imagemParaBytes); // Icone Usuario
+                        comm.Parameters.AddWithValue("@Nut_icon", imagemParaBytes); // Adicione a imagem como byte array
 
 
 
                         try
                         {
                             comm.ExecuteNonQuery();
+                            txtNome.Clear();
+                            txtSobrenome.Clear();
+                            mt_CPF.Clear();
+                            mt_CRN.Clear();
+                            dtNasc.Value = DateTime.Now;
+                            txtEmail.Clear();
+                            txtSenha.Clear();
+                            txt_repitaSenha.Clear();
+                            MessageBox.Show("Cadastrado com Sucesso! Confira sua Caixa de Emails!","Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
                         catch (Exception error)
                         {
