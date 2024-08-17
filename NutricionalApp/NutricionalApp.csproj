@@ -120,6 +120,18 @@
     <Compile Include="FormSplash.Designer.cs">
       <DependentUpon>FormSplash.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginAdmSist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginAdmSist.Designer.cs">
+      <DependentUpon>LoginAdmSist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginNutri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginNutri.Designer.cs">
+      <DependentUpon>LoginNutri.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CadNutri.resx">
@@ -133,6 +145,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSplash.resx">
       <DependentUpon>FormSplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginAdmSist.resx">
+      <DependentUpon>LoginAdmSist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginNutri.resx">
+      <DependentUpon>LoginNutri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -172,6 +190,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Icones\Done 16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icones\Administrator_96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icones\Administrator_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icones\Administrator_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icones\Plus_96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icones\Enter_96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icones\Hide Sidepanel_96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icones\Hide Sidepanel_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icones\Menu Squared_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icones\Customer_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icones\Sync_16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadNutri));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.bt_Revalidar = new System.Windows.Forms.Button();
             this.ck_Confirmacao = new System.Windows.Forms.CheckBox();
             this.bt_finalizar = new System.Windows.Forms.Button();
             this.picsenha2 = new System.Windows.Forms.PictureBox();
@@ -48,7 +49,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.mt_CRN = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label_idadeComplemento = new System.Windows.Forms.Label();
             this.label_idade = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dtNasc = new System.Windows.Forms.DateTimePicker();
@@ -91,6 +91,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.bt_Revalidar);
             this.tabPage1.Controls.Add(this.ck_Confirmacao);
             this.tabPage1.Controls.Add(this.bt_finalizar);
             this.tabPage1.Controls.Add(this.picsenha2);
@@ -108,7 +109,6 @@
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.mt_CRN);
             this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.label_idadeComplemento);
             this.tabPage1.Controls.Add(this.label_idade);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.dtNasc);
@@ -134,6 +134,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Cadastre-se";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // bt_Revalidar
+            // 
+            this.bt_Revalidar.Image = global::NutricionalApp.Properties.Resources.Sync_16;
+            this.bt_Revalidar.Location = new System.Drawing.Point(552, 459);
+            this.bt_Revalidar.Name = "bt_Revalidar";
+            this.bt_Revalidar.Size = new System.Drawing.Size(26, 23);
+            this.bt_Revalidar.TabIndex = 72;
+            this.bt_Revalidar.UseVisualStyleBackColor = true;
+            this.bt_Revalidar.Click += new System.EventHandler(this.bt_Revalidar_Click);
             // 
             // ck_Confirmacao
             // 
@@ -269,6 +279,7 @@
             this.label8.Size = new System.Drawing.Size(41, 14);
             this.label8.TabIndex = 59;
             this.label8.Text = "Senha:";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // txtEmail
             // 
@@ -305,17 +316,6 @@
             this.label1.TabIndex = 54;
             this.label1.Text = "CRN:";
             // 
-            // label_idadeComplemento
-            // 
-            this.label_idadeComplemento.AutoSize = true;
-            this.label_idadeComplemento.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_idadeComplemento.Location = new System.Drawing.Point(236, 314);
-            this.label_idadeComplemento.Name = "label_idadeComplemento";
-            this.label_idadeComplemento.Size = new System.Drawing.Size(34, 14);
-            this.label_idadeComplemento.TabIndex = 53;
-            this.label_idadeComplemento.Text = "anos";
-            this.label_idadeComplemento.Visible = false;
-            // 
             // label_idade
             // 
             this.label_idade.AutoSize = true;
@@ -344,6 +344,7 @@
             this.dtNasc.Size = new System.Drawing.Size(88, 20);
             this.dtNasc.TabIndex = 50;
             this.dtNasc.CloseUp += new System.EventHandler(this.dtNasc_CloseUp);
+            this.dtNasc.Leave += new System.EventHandler(this.dtNasc_CloseUp);
             // 
             // picCPF2
             // 
@@ -449,7 +450,7 @@
             // 
             // bt_remover
             // 
-            this.bt_remover.Location = new System.Drawing.Point(323, 199);
+            this.bt_remover.Location = new System.Drawing.Point(327, 199);
             this.bt_remover.Name = "bt_remover";
             this.bt_remover.Size = new System.Drawing.Size(100, 23);
             this.bt_remover.TabIndex = 38;
@@ -460,7 +461,7 @@
             // 
             // bt_upload
             // 
-            this.bt_upload.Location = new System.Drawing.Point(323, 157);
+            this.bt_upload.Location = new System.Drawing.Point(327, 157);
             this.bt_upload.Name = "bt_upload";
             this.bt_upload.Size = new System.Drawing.Size(100, 36);
             this.bt_upload.TabIndex = 37;
@@ -471,9 +472,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::NutricionalApp.Properties.Resources.Male_User_96;
-            this.pictureBox1.Location = new System.Drawing.Point(323, 62);
+            this.pictureBox1.Location = new System.Drawing.Point(327, 62);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 89);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 36;
             this.pictureBox1.TabStop = false;
             // 
@@ -534,7 +536,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.Label label_idadeComplemento;
         private System.Windows.Forms.Label label_idade;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dtNasc;
@@ -556,5 +557,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button bt_finalizar;
         private System.Windows.Forms.CheckBox ck_Confirmacao;
+        private System.Windows.Forms.Button bt_Revalidar;
     }
 }

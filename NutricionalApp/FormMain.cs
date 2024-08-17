@@ -11,25 +11,33 @@ using System.Windows.Forms;
 
 namespace NutricionalApp
 {
+
     public partial class FormMain : Form
     {
+        public static Image ImagemPerfil;
         public FormMain()
         {
             InitializeComponent();
             TestCon();
+            panel1.BackColor = Color.FromArgb(100, panel1.BackColor.R, panel1.BackColor.G, panel1.BackColor.B);
         }
 
-        private void panel2_MouseEnter(object sender, EventArgs e)
+        private void bt_Painel1Exibe_Click(object sender, EventArgs e)
         {
-            // Remove a transparência ao passar o mouse
-            panel2.BackColor = Color.FromArgb(255, panel2.BackColor.R, panel2.BackColor.G, panel2.BackColor.B);
+            if (panel1.Visible == true)
+            {
+                panel1.Visible = false;
+            }
+            else
+            {
+                panel1.Visible = true;
+            }
+
+            IsAdmSist();
+            IsNutricionista();
         }
 
-        private void panel2_MouseLeave(object sender, EventArgs e)
-        {
-            // Aplica a transparência ao tirar o mouse de cima
-            panel2.BackColor = Color.FromArgb(100, panel2.BackColor.R, panel2.BackColor.G, panel2.BackColor.B);
-        }
+
 
         private static NpgsqlConnection GetConnection()
         {
@@ -59,6 +67,10 @@ namespace NutricionalApp
 
 
                 }
+                else
+                {
+                    MessageBox.Show("Não Conectado!");           
+                }
             }
         }
 
@@ -84,10 +96,48 @@ namespace NutricionalApp
 
         private void bt_login_Click(object sender, EventArgs e)
         {
-            CadNutri FormNutri = new CadNutri();
-            FormNutri.MdiParent = this;
+            FormSplash splash = Application.OpenForms.OfType<FormSplash>().FirstOrDefault();
 
-            FormNutri.Show();
+            if (splash == null) // Se não estiver aberto
+            {
+                panel1.Visible = false;
+                splash = new FormSplash();
+                splash.MdiParent = this;
+                splash.Show();
+            }
+            else
+            {
+                splash.Focus(); // Se já estiver aberto, traz o formulário para frente
+            }
+
+        }
+
+        private void IsAdmSist()
+        {
+            if (LoginAdmSist.AdmSistOK) //Rotina Caso Seja um adminstrador do Sistema
+            {
+                toolStrip1.Items.RemoveAt(0); //Remove Botão Identifique-se
+
+                ToolStripButton gerenciaNutri = new ToolStripButton();
+
+                gerenciaNutri.Text = "Gerenciar Nutricionistas Cadastrados";
+                gerenciaNutri.ToolTipText = "Este é um novo botão";
+                gerenciaNutri.Image = gerenciaNutri.Image = Properties.Resources.background1;// (defina uma imagem, se necessário)
+
+                // Adicione o botão ao ToolStrip
+                toolStrip1.Items.Add(gerenciaNutri);
+
+            }
+        }
+
+        private void IsNutricionista()
+        {
+            if (LoginNutri.NutriOk) //Rotina Caso Seja um adminstrador do Sistema
+            {
+                toolStrip1.Items.RemoveAt(0); //Remove Botão Identifique-se
+                pictureBox1.Image = ImagemPerfil;
+            }
+
         }
 
     }

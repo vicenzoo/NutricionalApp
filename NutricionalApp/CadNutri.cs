@@ -132,7 +132,6 @@ namespace NutricionalApp
 
             label_idade.Text = "";
             label_idade.Text = Convert.ToString(idade);
-            label_idadeComplemento.Visible = true;
         }
 
         //Valida se a Senha é forte
@@ -279,6 +278,12 @@ namespace NutricionalApp
             mt_CPF_Leave(mt_CPF, EventArgs.Empty);
         }
 
+
+        private void bt_Revalidar_Click(object sender, EventArgs e)
+        {
+            ExecutaValidacoes();
+        }
+
         private void bt_finalizar_Click(object sender, EventArgs e)
         {
             ExecutaValidacoes();
@@ -292,14 +297,14 @@ namespace NutricionalApp
                     using (var comm = new NpgsqlCommand(
                         "INSERT INTO public.nutricionista " +
                         "( \"Nome\", \"Sobrenome\", \"CPF\", \"CRN\", \"Data_Nascimento\", \"Data_Inclusao\", \"Email\", \"Senha\", \"ativo\", \"Nut_icon\") " +
-                        "VALUES (@Nome, @Sobrenome, @CPF, @CRN, @Data_Nascimento, @Data_Inclusao, @Email, CRYPT(@Senha, GEN_SALT('bf')), @ativo, @Nut_icon)",
+                        "VALUES (@Nome, @Sobrenome, @CPF, @CRN, @Data_Nascimento, @Data_Inclusao, @Email, pgp_sym_encrypt(@Senha, 'password'), @ativo, @Nut_icon)",
                         db.GetConnection()))
                     {
 
                         comm.Parameters.AddWithValue("@Nome", txtNome.Text);
                         comm.Parameters.AddWithValue("@Sobrenome", txtSobrenome.Text);
                         comm.Parameters.AddWithValue("@CPF", mt_CPF.Text); 
-                        comm.Parameters.AddWithValue("@CRN", Convert.ToInt32(mt_CRN.Text));
+                        comm.Parameters.AddWithValue("@CRN", Convert.ToInt64(mt_CRN.Text));
                         comm.Parameters.AddWithValue("@Data_Nascimento", dtNasc.Value);
                         comm.Parameters.AddWithValue("@Data_Inclusao", DateTime.Now); // Data de inclusão
                         comm.Parameters.AddWithValue("@Email", txtEmail.Text);
@@ -328,6 +333,9 @@ namespace NutricionalApp
                             txtEmail.Clear();
                             txtSenha.Clear();
                             txt_repitaSenha.Clear();
+                            bt_finalizar.Enabled = false;
+                            picCPF2.Visible = false;
+                            PicCPF.Visible = false;
                             MessageBox.Show("Cadastrado com Sucesso! Confira sua Caixa de Emails!","Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
                         catch (Exception error)
@@ -347,6 +355,11 @@ namespace NutricionalApp
                 MessageBox.Show("Para continuar, por favor marque a caixa de seleção para confirmar.", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ck_Confirmacao.Focus();
             }
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

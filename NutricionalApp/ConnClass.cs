@@ -1,9 +1,12 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace NutricionalApp
 {
@@ -71,5 +74,94 @@ namespace NutricionalApp
             CloseConnection();
             _connection.Dispose();
         }
+
+        public string CheckUserAdm(string email, string pass)
+        {
+            using (var db = new DatabaseConnection())
+            {
+                db.OpenConnection();
+
+
+                using (var comm = new NpgsqlCommand("SELECT CheckUserAdm(@Email, @Pass);", db.GetConnection()))
+                {
+                    // Adicione os parâmetros para a função
+                    comm.Parameters.AddWithValue("@Email", email);
+                    comm.Parameters.AddWithValue("@Pass", pass);
+
+                    try
+                    {
+                        var result = comm.ExecuteScalar();
+                        return result.ToString(); // O resultado será 'true' ou 'false'
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao chamar a função: {ex.Message}");
+                        return null;
+                    }
+                }
+            }
+        }
+
+        public string CheckNutricionista(string email, string pass)
+        {
+            using (var db = new DatabaseConnection())
+            {
+                db.OpenConnection();
+
+
+                using (var comm = new NpgsqlCommand("SELECT CheckNutricionista(@Email, @Pass);", db.GetConnection()))
+                {
+                    // Adicione os parâmetros para a função
+                    comm.Parameters.AddWithValue("@Email", email);
+                    comm.Parameters.AddWithValue("@Pass", pass);
+
+                    try
+                    {
+                        var result = comm.ExecuteScalar();
+                        return result.ToString(); // O resultado será 'true' ou 'false'
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao chamar a função: {ex.Message}");
+                        return null;
+                    }
+                }
+            }
+        }
+
+        public Image RetornaImagemPerfil(string email)
+        {
+            using (var db = new DatabaseConnection())
+            {
+                db.OpenConnection();
+
+                using (var comm = new NpgsqlCommand("SELECT \"Nut_icon\" FROM nutricionista WHERE \"Email\" = @Email;", db.GetConnection()))
+                {
+
+                    comm.Parameters.AddWithValue("@Email", email);
+
+                    try
+                    {
+                        var result = comm.ExecuteScalar();
+                        if (result != null && result is byte[])
+                        {
+                            var imageBytes = (byte[])result;
+                            using (var ms = new MemoryStream(imageBytes))
+                            {
+                                return Image.FromStream(ms);
+                            }
+                        }
+                        return null;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao obter a imagem: {ex.Message}");
+                        return null;
+                    }
+                }
+            }
+        }
+
+
     }
 }
