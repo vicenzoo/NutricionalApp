@@ -129,6 +129,58 @@ namespace NutricionalApp
             }
         }
 
+        public string CheckEmailNutricionista(string email)
+        {
+            using (var db = new DatabaseConnection())
+            {
+                db.OpenConnection();
+
+
+                using (var comm = new NpgsqlCommand("SELECT verificar_email_cadastrado_nutricionista(@Email);", db.GetConnection()))
+                {
+                    // Adicione os parâmetros para a função
+                    comm.Parameters.AddWithValue("@Email", email);
+
+                    try
+                    {
+                        var result = comm.ExecuteScalar();
+                        return result.ToString(); // O resultado será 'true' ou 'false'
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao chamar a função: {ex.Message}");
+                        return null;
+                    }
+                }
+            }
+        }
+
+        public string CheckCadastroNutri(string id)
+        {
+            using (var db = new DatabaseConnection())
+            {
+                db.OpenConnection();
+
+
+                using (var comm = new NpgsqlCommand("SELECT verificar_cadastro_nutricionista(@id);", db.GetConnection()))
+                {
+                    // Adicione os parâmetros para a função
+                    comm.Parameters.AddWithValue("@id", id);
+
+                    try
+                    {
+                        var result = comm.ExecuteScalar();
+                        return result.ToString(); // O resultado será 'true' ou 'false'
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao chamar a função: {ex.Message}");
+                        return null;
+                    }
+                }
+            }
+        }
+
         public Image RetornaImagemPerfil(string email)
         {
             using (var db = new DatabaseConnection())

@@ -231,6 +231,35 @@ namespace NutricionalApp
             bt_finalizar.Enabled = false;
         }
 
+
+        //Valida se email é valido
+        static bool EmailExiste(string email)
+        {
+            using (var db = new DatabaseConnection())
+            {
+                db.OpenConnection();
+
+                string result = db.CheckEmailNutricionista(email);
+                //MessageBox.Show(result);
+                if (result == "True")
+                {
+                    MessageBox.Show("Esse Email já Esta cadastrado!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            bool emailExiste = EmailExiste(txtEmail.Text);
+            PicMail.Visible = emailExiste;
+            bt_finalizar.Enabled = false;
+        }
+
         //Valida Nome e Sobrenome
         static bool NomeSobrenomeValido(string nome, string sobrenome)
         {
@@ -275,6 +304,7 @@ namespace NutricionalApp
             txtNome_TextChanged(txtNome.Text, EventArgs.Empty);
             txtEmail_TextChanged(txtEmail.Text, EventArgs.Empty);
             txtSenha_TextChanged(txtSenha, EventArgs.Empty);
+            txtEmail_Leave(txtEmail.Text, EventArgs.Empty);
             mt_CPF_Leave(mt_CPF, EventArgs.Empty);
         }
 
