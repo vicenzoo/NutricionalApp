@@ -36,9 +36,10 @@ namespace NutricionalApp
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 pictureBox1.Image = Image.FromFile(openFileDialog1.FileName);
+                bt_remover.Visible = true;
             }
 
-            bt_remover.Visible = true;
+
         }
 
         //Remover imagem
