@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static NutricionalApp.DatabaseConnection;
 
 namespace NutricionalApp
 {
@@ -30,6 +31,8 @@ namespace NutricionalApp
             }
         }
 
+
+
         private void bt_login_Click(object sender, EventArgs e)
         {
             using (var db = new DatabaseConnection())
@@ -44,8 +47,27 @@ namespace NutricionalApp
                 if (result == "true")
                 {
                     MessageBox.Show("Login bem-sucedido!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    NutriOk = true;               
-                    FormMain.ImagemPerfil =  db.RetornaImagemPerfil(txtEmail.Text);
+                    NutriOk = true;
+
+                    FormMain formMainInstance = Application.OpenForms.OfType<FormMain>().FirstOrDefault();
+                    var perfil = db.RetornaPerfil(txtEmail.Text);
+
+                    if (perfil != null)
+                    {
+                        formMainInstance.PerfilNutricionista = perfil;
+                        formMainInstance.PerfilNutricionista = perfil;
+
+                        // Se necessário, use a imagem da instância do FormMain
+                        var imagem = perfil.Imagem;
+                        var nome = perfil.Nome;
+                        var id = perfil.Id;
+
+                        // Faça o que precisar com a imagem, nome e ID
+                    }
+                    else
+                    {
+                        MessageBox.Show("Perfil não encontrado.");
+                    }
                     this.Close();
                 }
                 else

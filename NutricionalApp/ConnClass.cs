@@ -181,33 +181,53 @@ namespace NutricionalApp
             }
         }
 
-        public Image RetornaImagemPerfil(string email)
+        public class Perfil
+        {
+            public Image Imagem { get; set; }
+            public string Nome { get; set; }
+            public int Id { get; set; }
+        }
+
+        public Perfil RetornaPerfil(string email)
         {
             using (var db = new DatabaseConnection())
             {
                 db.OpenConnection();
 
-                using (var comm = new NpgsqlCommand("SELECT \"Nut_icon\" FROM nutricionista WHERE \"Email\" = @Email;", db.GetConnection()))
+                using (var comm = new NpgsqlCommand("SELECT \"Nut_icon\", \"Nome\", \"id_nutricionista\" FROM nutricionista WHERE \"Email\" = @Email;", db.GetConnection()))
                 {
-
                     comm.Parameters.AddWithValue("@Email", email);
 
                     try
                     {
-                        var result = comm.ExecuteScalar();
-                        if (result != null && result is byte[])
+                        using (var reader = comm.ExecuteReader())
                         {
-                            var imageBytes = (byte[])result;
-                            using (var ms = new MemoryStream(imageBytes))
+                            if (reader.Read())
                             {
-                                return Image.FromStream(ms);
+                                var perfil = new Perfil
+                                {
+                                    Nome = reader["Nome"].ToString(),
+                                    Id = Convert.ToInt32(reader["id_nutricionista"])
+                                };
+
+                                var result = reader["Nut_icon"];
+                                if (result != DBNull.Value && result is byte[])
+                                {
+                                    var imageBytes = (byte[])result;
+                                    using (var ms = new MemoryStream(imageBytes))
+                                    {
+                                        perfil.Imagem = Image.FromStream(ms);
+                                    }
+                                }
+
+                                return perfil;
                             }
+                            return null;
                         }
-                        return null;
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Erro ao obter a imagem: {ex.Message}");
+                        MessageBox.Show($"Erro ao obter o perfil: {ex.Message}");
                         return null;
                     }
                 }

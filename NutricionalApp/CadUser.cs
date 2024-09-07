@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,8 @@ namespace NutricionalApp
     {
 
         Image ImagemTemp;
+        bool nomeSobreValido = false;
+        bool emailValid = false;
         public CadUser()
         {
             InitializeComponent();
@@ -91,22 +94,22 @@ namespace NutricionalApp
 
         private void maskedTextBox1_Leave(object sender, EventArgs e)
         {
-            maskedTextBox1.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-            if (IsCpf(maskedTextBox1.Text))
+            mt_CPF.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            if (IsCpf(mt_CPF.Text))
             {
                 //MessageBox.Show("valído");
-                bt_Seguinte1.Enabled = true;
+                bt_Revalidar_Click(sender,e);
                 PicCPF.Visible = false;
                 picCPF2.Visible = true;
             }
             else
             {
                 //MessageBox.Show("não valído");
-                bt_Seguinte1.Enabled = false;
+                bt_Revalidar_Click(sender, e);
                 PicCPF.Visible = true;
                 picCPF2.Visible = false;
             }
-            maskedTextBox1.Mask = "000.000.000-00";
+            mt_CPF.Mask = "000.000.000-00";
         }
 
         //Valida Idade
@@ -151,50 +154,6 @@ namespace NutricionalApp
             return true;
         }
 
-
-        private void txtSenha_TextChanged(object sender, EventArgs e)
-        {
-            if (SenhaForte(txtSenha.Text))
-            {
-                label_forcaSenha.Text = "Senha forte!";
-                label_forcaSenha.ForeColor = ColorTranslator.FromHtml("#66BB6A");
-                PicSenha.Visible = false;
-                label_obsSenha.Visible = false;
-                bt_Seguinte1.Enabled = true;
-            }
-            else
-            {
-                label_forcaSenha.Text = "Senha fraca!";
-                label_forcaSenha.ForeColor = ColorTranslator.FromHtml("#EF5350");
-                PicSenha.Visible = true;
-                label_obsSenha.Visible = true;
-                bt_Seguinte1.Enabled = false;
-            }
-        }
-
-
-
-        //Visualizar Senha
-        private void btVisualizar_Click(object sender, EventArgs e)
-        {
-            if (txtSenha.PasswordChar != '\0')
-            {
-                txtSenha.PasswordChar = '\0';
-            }
-            else
-            {
-                txtSenha.PasswordChar = '*';
-            }
-        }
-
-        private void txt_repitaSenha_TextChanged(object sender, EventArgs e)
-        {
-            if(txtSenha.Text != txt_repitaSenha.Text)
-            {
-                //la
-            }
-        }
-
         //Cancela Troca de Abas
         private void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
         {
@@ -208,7 +167,7 @@ namespace NutricionalApp
 
         private void maskedTextBox1_MouseClick(object sender, MouseEventArgs e)
         {
-            maskedTextBox1.Mask = "000.000.000-00";
+            mt_CPF.Mask = "000.000.000-00";
         }
 
 
@@ -216,37 +175,48 @@ namespace NutricionalApp
         static bool EmailValido(string email)
         {
             //Validação de Email nulo ou Invalido
-            if (email.Length == 0)
+            // Validação simples do e-mail
+            if (string.IsNullOrWhiteSpace(email))
+                return false;
+
+            // Verifica se o e-mail contém '@' e está em um formato válido
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return true;
+            }
+            catch
             {
                 return false;
             }
-
-            if(Regex.IsMatch(email, "@"))
-            {
-               return false;
-            }
-
-
-            return true;
         }
         private void txtEmail_TextChanged(object sender, EventArgs e)
         {
-            bool emailValido = EmailValido(txtEmail.Text);
-            PicMail.Visible = emailValido;
-            bt_Seguinte1.Enabled = false;
+            bool emailOk = EmailValido(txtEmail.Text);
+            PicMail.Visible = !emailOk;
+
+
+            if (emailOk)
+            {
+                emailValid = true;
+            }
+            else
+            {
+                emailValid = false;
+            }
+            bt_Revalidar_Click(sender, e);
         }
 
         static bool NomeSobrenomeValido(string nome, string sobrenome)
         {
-            string carcEsp = @"^[a-zA-Z0-9]+$";
-            //Validação de nome nulo ou menor que 4 Caracteres
+            string carcEsp = @"^[a-zA-Z0-9&&[^çÇ]]+$";
+            //Validação de nome e sobrenome nulo ou menor que 4 Caracteres
             if (nome.Length == 0 ^ nome.Length <= 4)
             {
                 return false;
             }
 
-            //Validação de sobrenome nulo ou menor que 4 Caracteres
-            if (sobrenome.Length == 0 ^ sobrenome.Length <= 4)
+            if (sobrenome.Length == 0 ^ sobrenome.Length <= 4 ^ sobrenome == null)
             {
                 return false;
             }
@@ -267,21 +237,31 @@ namespace NutricionalApp
 
         private void txtNome_TextChanged(object sender, EventArgs e)
         {
-            bool nomeSobreValido = NomeSobrenomeValido(txtNome.Text, txtSobrenome.Text);
-            picNome.Visible = nomeSobreValido;
-            picSobre.Visible = nomeSobreValido;
-            bt_Seguinte1.Enabled = false;
+            bool nomeOk = NomeSobrenomeValido(txtNome.Text, txtSobrenome.Text);
+            picNome.Visible = !nomeOk;
+            picSobre.Visible = !nomeOk;
+
+            if (nomeOk) {
+                nomeSobreValido = true;
+            }
+            else
+            {
+                nomeSobreValido = false;
+            }
         }
 
         private void ExecutaValidacoes()
         {
             txtNome_TextChanged(txtNome.Text, EventArgs.Empty);
             txtEmail_TextChanged(txtEmail.Text, EventArgs.Empty);
-            txtSenha_TextChanged(txtSenha, EventArgs.Empty);
-            maskedTextBox1_Leave(maskedTextBox1, EventArgs.Empty);
-
+            // Se ambos os campos forem válidos, habilita o botão
+            bt_Seguinte1.Enabled = nomeSobreValido && emailValid;
         }
-
+        private void bt_Revalidar_Click(object sender, EventArgs e)
+        {
+            dtNasc_CloseUp(sender, e); // "Força" Atualiza Idade
+            ExecutaValidacoes();
+        }
 
 
         private void bt_Seguinte1_Click(object sender, EventArgs e)
@@ -291,6 +271,13 @@ namespace NutricionalApp
             if (bt_Seguinte1.Enabled) 
             {
                 tabControl1.SelectedIndex = 1;
+                l_exibeNome.Text = txtNome.Text + " " + txtSobrenome.Text;
+                if (mt_CPF.Text.Length == 0) l_exibeCPF.Text = "CPF Não Informado";
+                else l_exibeCPF.Text = mt_CPF.Text;
+                l_exibeDataNasc.Text = Convert.ToString(dtNasc.Value);
+                l_exibeSexo.Text = cbSexo.SelectedText;
+                l_exibeIdade.Text = label_idade.Text;
+                l_exibeEmail.Text = txtEmail.Text;
             }
 
 
@@ -348,7 +335,7 @@ namespace NutricionalApp
 
         private void bt_verifica_Click(object sender, EventArgs e)
         {
-            if(txtAltura.Text.Length == 0 & txtPeso.Text.Length == 0)
+          /*  if(txtAltura.Text.Length == 0 & txtPeso.Text.Length == 0)
             {
 
             }
@@ -359,15 +346,67 @@ namespace NutricionalApp
                 label_IMC.Text = Convert.ToString(IMC);
                 label_complementoIMC.Visible = true;
                 label_complementoIMC.Text =  ClassificarIMC(IMC);
-                bt_Seguinte2.Enabled = true;
+                bt_Seguinte2.Enabled = true;}
+            } */
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (var db = new DatabaseConnection())
+            {
+                db.OpenConnection();
+                using (var comm = new NpgsqlCommand(
+                    "INSERT INTO public.paciente " +
+                    "(\"Nome\", \"Sobrenome\", \"CPF\", \"Sexo\", \"data_nascimento\", \"idade\", \"Data_Inclusao\", \"Email\", nutricionista_id, \"Data_Vinculo\", ativo, \"Pac_icon\") " +
+                    "VALUES (@Nome, @Sobrenome, @CPF, @Sexo, @data_nascimento, @idade, @Data_Inclusao, @Email, @nutricionista_id, @Data_Vinculo, @ativo, @Pac_icon)",
+                    db.GetConnection()))
+                {
+                    // Definindo os parâmetros
+                    comm.Parameters.AddWithValue("@Nome", txtNome.Text);
+                    comm.Parameters.AddWithValue("@Sobrenome", txtSobrenome.Text);
+                    comm.Parameters.AddWithValue("@CPF", mt_CPF.Text);
+                    comm.Parameters.AddWithValue("@Sexo", cbSexo.Text); ;
+                    comm.Parameters.AddWithValue("@data_nascimento", dtNasc.Value);
+                    comm.Parameters.AddWithValue("@idade", label_idade.Text);
+                    comm.Parameters.AddWithValue("@Email", txtEmail.Text);
+
+
+                    FormMain GetIDNutricionista = Application.OpenForms.OfType<FormMain>().FirstOrDefault(); //Função para Pegar o Numero de ID do Nutricionista
+
+                    comm.Parameters.AddWithValue("@nutricionista_id", GetIDNutricionista.IDLabel.Text.Substring(1));
+                    comm.Parameters.AddWithValue("@Data_Vinculo", DateTime.Now);
+                    comm.Parameters.AddWithValue("@ativo", 'S');  // Define como ativo
+
+                    // Conversão de imagem para byte array
+                    byte[] imagemParaBytes;
+                    using (var ms = new System.IO.MemoryStream())
+                    {
+                        pictureBox1.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Png); // Salva a imagem no MemoryStream
+                        imagemParaBytes = ms.ToArray(); // Converte para array de bytes
+                    }
+
+                    comm.Parameters.AddWithValue("@Pac_icon", imagemParaBytes); // Adiciona a imagem como byte array
+
+                    // Tentativa de execução do comando
+                    try
+                    {
+                        comm.ExecuteNonQuery();
+                        txtNome.Clear();
+                        txtSobrenome.Clear();
+                        mt_CPF.Clear();
+
+                        dtNasc.Value = DateTime.Now;
+                        txtEmail.Clear();
+                        MessageBox.Show("Paciente cadastrado com sucesso!", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    catch (Exception error)
+                    {
+                        MessageBox.Show($"Erro: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
             }
         }
-
-        private void bt_Seguinte2_Click(object sender, EventArgs e)
-        {
-            tabControl1.SelectedIndex = 2;
-        }
-
 
     }
 }

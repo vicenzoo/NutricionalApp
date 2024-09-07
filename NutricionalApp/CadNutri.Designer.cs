@@ -62,12 +62,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.bt_remover = new System.Windows.Forms.Button();
             this.bt_upload = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.ck_souEstudante = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picsenha2)).BeginInit();
@@ -91,6 +91,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.ck_souEstudante);
             this.tabPage1.Controls.Add(this.bt_Revalidar);
             this.tabPage1.Controls.Add(this.ck_Confirmacao);
             this.tabPage1.Controls.Add(this.bt_finalizar);
@@ -122,7 +123,6 @@
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.txtNome);
-            this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.bt_remover);
             this.tabPage1.Controls.Add(this.bt_upload);
             this.tabPage1.Controls.Add(this.pictureBox1);
@@ -440,15 +440,6 @@
             this.txtNome.Size = new System.Drawing.Size(181, 20);
             this.txtNome.TabIndex = 40;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(429, 162);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(114, 26);
-            this.label9.TabIndex = 39;
-            this.label9.Text = "Recomendável:\r\nImagem 96 x 96 pixels.";
-            // 
             // bt_remover
             // 
             this.bt_remover.Location = new System.Drawing.Point(327, 199);
@@ -494,6 +485,17 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // ck_souEstudante
+            // 
+            this.ck_souEstudante.AutoSize = true;
+            this.ck_souEstudante.Location = new System.Drawing.Point(618, 252);
+            this.ck_souEstudante.Name = "ck_souEstudante";
+            this.ck_souEstudante.Size = new System.Drawing.Size(84, 17);
+            this.ck_souEstudante.TabIndex = 73;
+            this.ck_souEstudante.Text = "É Estudante";
+            this.ck_souEstudante.UseVisualStyleBackColor = true;
+            this.ck_souEstudante.Click += new System.EventHandler(this.ck_souEstudante_Click);
+            // 
             // CadNutri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -523,7 +525,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button bt_remover;
         private System.Windows.Forms.Button bt_upload;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -559,5 +560,6 @@
         private System.Windows.Forms.Button bt_finalizar;
         private System.Windows.Forms.CheckBox ck_Confirmacao;
         private System.Windows.Forms.Button bt_Revalidar;
+        private System.Windows.Forms.CheckBox ck_souEstudante;
     }
 }

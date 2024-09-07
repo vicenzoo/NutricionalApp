@@ -120,6 +120,7 @@
     <Compile Include="FormSplash.Designer.cs">
       <DependentUpon>FormSplash.cs</DependentUpon>
     </Compile>
+    <Compile Include="Funcoes.cs" />
     <Compile Include="LoginAdmSist.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,6 +221,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Icones\Sync_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icones\Watermelon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icones\Watermelon_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icones\Person_16.png" />
+    <Content Include="Icones\Person_48.png" />
+    <Content Include="Icones\Watermelon_48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

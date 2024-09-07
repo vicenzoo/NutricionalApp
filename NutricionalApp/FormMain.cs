@@ -5,21 +5,48 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static NutricionalApp.DatabaseConnection;
 
 namespace NutricionalApp
 {
 
     public partial class FormMain : Form
     {
-        public static Image ImagemPerfil;
+        public Perfil PerfilNutricionista { get; set; }
+
+        public System.Windows.Forms.Label IDLabel
+        {
+            get { return label_idNutricionista; }
+        }
+
         public FormMain()
         {
             InitializeComponent();
             TestCon();
             panel1.BackColor = Color.FromArgb(100, panel1.BackColor.R, panel1.BackColor.G, panel1.BackColor.B);
+            
+            // Inicializa e configura o Timer para a l_hora
+            timer1 = new Timer();
+            timer1.Interval = 1000;
+            timer1.Tick += new EventHandler(Timer_Tick);
+            timer1.Start();
+
+            // Inicializa a exibição da hora
+            UpdateTime();
+        }
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            // Atualiza a exibição da hora a cada segundo
+            UpdateTime();
+        }
+
+        private void UpdateTime()
+        {
+            l_Hora.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 
         private void bt_Painel1Exibe_Click(object sender, EventArgs e)
@@ -61,11 +88,6 @@ namespace NutricionalApp
                 if (con.State==ConnectionState.Open)
                 {
                     //MessageBox.Show("Conectado!");
-
-
-
-
-
                 }
                 else
                 {
@@ -118,27 +140,53 @@ namespace NutricionalApp
             {
                 toolStrip1.Items.RemoveAt(0); //Remove Botão Identifique-se
 
-                ToolStripButton gerenciaNutri = new ToolStripButton();
-
-                gerenciaNutri.Text = "Gerenciar Nutricionistas Cadastrados";
-                gerenciaNutri.ToolTipText = "Este é um novo botão";
-                gerenciaNutri.Image = gerenciaNutri.Image = Properties.Resources.background1;// (defina uma imagem, se necessário)
-
-                // Adicione o botão ao ToolStrip
-                toolStrip1.Items.Add(gerenciaNutri);
-
+                Funcoes funcoes = new Funcoes();
+                //ToolStripButton botaoGerenciarNutricionistas = funcoes.CriarBotao("Gerenciar Nutricionistas Cadastrados", "Gerencia Acesso a Nutricionistas Cadastrados", Properties.Resources.Watermelon);
+                //toolStrip1.Items.Add(botaoGerenciarNutricionistas); // Adicione o botão ao ToolStrip
+                pictureBox1.Image = Properties.Resources.Male_User_96;
             }
         }
 
         private void IsNutricionista()
         {
-            if (LoginNutri.NutriOk) //Rotina Caso Seja um adminstrador do Sistema
+            if (LoginNutri.NutriOk) //Rotina Caso Seja um Nutricionista
             {
+                pictureBox1.Image = PerfilNutricionista.Imagem;
+                label_Nome.Text = PerfilNutricionista.Nome;
+                label_idNutricionista.Text = "#" + PerfilNutricionista.Id;
+                label_Nome.Visible = true;
+                label_idNutricionista.Visible = true;
+
                 toolStrip1.Items.RemoveAt(0); //Remove Botão Identifique-se
-                pictureBox1.Image = ImagemPerfil;
+                Funcoes funcoes = new Funcoes();
+                ToolStripButton botaoGerenciarNutricionistas = funcoes.CriarBotao(
+                    "Gerenciar Pacientes Cadastrados",
+                    "Adiciona Paciente",
+                    Properties.Resources.Person_48,
+                    BotaoGerenciarPacientes_Click
+                );
+
+                toolStrip1.Items.Add(botaoGerenciarNutricionistas); // Adicione o botão ao ToolStrip
+
             }
 
         }
 
+        private void BotaoGerenciarPacientes_Click(object sender, EventArgs e)
+        {
+            CadUser user = Application.OpenForms.OfType<CadUser>().FirstOrDefault();
+
+            if (user == null) // Se não estiver aberto
+            {
+                panel1.Visible = false;
+                user = new CadUser();
+                user.MdiParent = this;
+                user.Show();
+            }
+            else
+            {
+                user.Focus(); // Se já estiver aberto, traz o formulário para frente
+            }
+        }
     }
 }

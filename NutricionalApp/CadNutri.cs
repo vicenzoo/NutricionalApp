@@ -45,6 +45,21 @@ namespace NutricionalApp
             pictureBox1.Image = ImagemTemp;
         }
 
+        private void ck_souEstudante_Click(object sender, EventArgs e)
+        {
+            if (ck_souEstudante.Checked)
+            {
+                mt_CRN.Text = "0";
+                mt_CRN.Enabled = false;
+            }
+            else
+            {
+                mt_CRN.Clear();
+                mt_CRN.Enabled = true;
+            }
+
+        }
+
         //Valida CPF
         Func<string, bool> IsCpf = cpf =>
         {
@@ -263,7 +278,7 @@ namespace NutricionalApp
         //Valida Nome e Sobrenome
         static bool NomeSobrenomeValido(string nome, string sobrenome)
         {
-            string carcEsp = @"^[a-zA-Z0-9]+$";
+            string carcEsp = @"^[a-zA-Z0-9&&[^çÇ]]+$";
             //Validação de nome nulo ou menor que 4 Caracteres
             if (nome.Length == 0 ^ nome.Length <= 4)
             {
@@ -277,12 +292,12 @@ namespace NutricionalApp
             }
 
             //Validação de Caracteres Especiais
-            if (Regex.IsMatch(nome, carcEsp))
+            if (!Regex.IsMatch(nome, carcEsp))
             {
                 return false;
             }
 
-            if (Regex.IsMatch(sobrenome, carcEsp))
+            if (!Regex.IsMatch(sobrenome, carcEsp))
             {
                 return false;
             }
@@ -314,6 +329,7 @@ namespace NutricionalApp
             ExecutaValidacoes();
         }
 
+
         private void bt_finalizar_Click(object sender, EventArgs e)
         {
             ExecutaValidacoes();
@@ -326,8 +342,8 @@ namespace NutricionalApp
                     db.OpenConnection();
                     using (var comm = new NpgsqlCommand(
                         "INSERT INTO public.nutricionista " +
-                        "( \"Nome\", \"Sobrenome\", \"CPF\", \"CRN\", \"Data_Nascimento\", \"Data_Inclusao\", \"Email\", \"Senha\", \"ativo\", \"Nut_icon\") " +
-                        "VALUES (@Nome, @Sobrenome, @CPF, @CRN, @Data_Nascimento, @Data_Inclusao, @Email, pgp_sym_encrypt(@Senha, 'password'), @ativo, @Nut_icon)",
+                        "( \"Nome\", \"Sobrenome\", \"CPF\", \"CRN\", \"Data_Nascimento\", \"Data_Inclusao\", \"Email\", \"Senha\", \"ativo\",\"Estudante\", \"Nut_icon\") " +
+                        "VALUES (@Nome, @Sobrenome, @CPF, @CRN, @Data_Nascimento, @Data_Inclusao, @Email, pgp_sym_encrypt(@Senha, 'password'), @ativo,@Estudante, @Nut_icon)",
                         db.GetConnection()))
                     {
 
@@ -339,7 +355,9 @@ namespace NutricionalApp
                         comm.Parameters.AddWithValue("@Data_Inclusao", DateTime.Now); // Data de inclusão
                         comm.Parameters.AddWithValue("@Email", txtEmail.Text);
                         comm.Parameters.AddWithValue("@Senha", txtSenha.Text); // Senha Encriptada
-                        comm.Parameters.AddWithValue("@ativo", 'N');
+                        comm.Parameters.AddWithValue("@ativo", 'S');
+                        if (ck_Confirmacao.Checked) comm.Parameters.AddWithValue("@Estudante", 'S');
+                        else comm.Parameters.AddWithValue("@Estudante", 'N');
 
                         byte[] imagemParaBytes;
                         using (var ms = new System.IO.MemoryStream())
@@ -391,6 +409,7 @@ namespace NutricionalApp
         {
 
         }
+
 
     }
 }
