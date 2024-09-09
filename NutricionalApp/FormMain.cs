@@ -16,7 +16,24 @@ namespace NutricionalApp
 
     public partial class FormMain : Form
     {
-        public Perfil PerfilNutricionista { get; set; }
+        private static bool NutricionistaExecutado = false;
+        private static bool SistAdmExecutado = false;
+        public Button Logout
+        {
+          get { return bt_Logout; }
+        }
+
+        public PictureBox fotoPerfil
+        {
+
+            get { return pictureBox1;  }
+        
+        }
+
+        public System.Windows.Forms.Label NomeLabel
+        {
+            get { return label_Nome; }
+        }
 
         public System.Windows.Forms.Label IDLabel
         {
@@ -40,13 +57,12 @@ namespace NutricionalApp
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
-            // Atualiza a exibição da hora a cada segundo
-            UpdateTime();
+            UpdateTime(); // Atualiza a exibição da hora
         }
 
         private void UpdateTime()
         {
-            l_Hora.Text = DateTime.Now.ToString("HH:mm:ss");
+            l_Hora.Text = DateTime.Now.ToString("HH:mm");
         }
 
         private void bt_Painel1Exibe_Click(object sender, EventArgs e)
@@ -136,6 +152,12 @@ namespace NutricionalApp
 
         private void IsAdmSist()
         {
+            if (SistAdmExecutado)
+            {
+                return; // Já foi executado
+            }
+
+
             if (LoginAdmSist.AdmSistOK) //Rotina Caso Seja um adminstrador do Sistema
             {
                 toolStrip1.Items.RemoveAt(0); //Remove Botão Identifique-se
@@ -144,18 +166,23 @@ namespace NutricionalApp
                 //ToolStripButton botaoGerenciarNutricionistas = funcoes.CriarBotao("Gerenciar Nutricionistas Cadastrados", "Gerencia Acesso a Nutricionistas Cadastrados", Properties.Resources.Watermelon);
                 //toolStrip1.Items.Add(botaoGerenciarNutricionistas); // Adicione o botão ao ToolStrip
                 pictureBox1.Image = Properties.Resources.Male_User_96;
+
+
+                SistAdmExecutado = true;
             }
+
         }
 
         private void IsNutricionista()
         {
+            if (NutricionistaExecutado)
+            {
+                return; // Já foi executado
+            }
+
             if (LoginNutri.NutriOk) //Rotina Caso Seja um Nutricionista
             {
-                pictureBox1.Image = PerfilNutricionista.Imagem;
-                label_Nome.Text = PerfilNutricionista.Nome;
-                label_idNutricionista.Text = "#" + PerfilNutricionista.Id;
-                label_Nome.Visible = true;
-                label_idNutricionista.Visible = true;
+
 
                 toolStrip1.Items.RemoveAt(0); //Remove Botão Identifique-se
                 Funcoes funcoes = new Funcoes();
@@ -165,8 +192,17 @@ namespace NutricionalApp
                     Properties.Resources.Person_48,
                     BotaoGerenciarPacientes_Click
                 );
-
                 toolStrip1.Items.Add(botaoGerenciarNutricionistas); // Adicione o botão ao ToolStrip
+
+                ToolStripButton botaoRecordatorio = funcoes.CriarBotao(
+                    "Recordatorio 24 Horas",
+                    "Adiciona e Gerencia Recordatorios",
+                    Properties.Resources.Restaurant_48,
+                    bt_recordatorio_Click
+                );
+                toolStrip1.Items.Add(botaoRecordatorio); // Adicione o botão ao ToolStrip
+
+                NutricionistaExecutado = true;
 
             }
 
@@ -178,7 +214,6 @@ namespace NutricionalApp
 
             if (user == null) // Se não estiver aberto
             {
-                panel1.Visible = false;
                 user = new CadUser();
                 user.MdiParent = this;
                 user.Show();
@@ -188,5 +223,56 @@ namespace NutricionalApp
                 user.Focus(); // Se já estiver aberto, traz o formulário para frente
             }
         }
+
+        private void bt_Logout_Click(object sender, EventArgs e)
+        {
+
+            LoginNutri.NutriOk = false;
+            toolStrip1.Items.Clear();
+            toolStrip1.Refresh(); 
+
+            // Criar novamente o botão "Identifique-se"
+            Funcoes funcoes = new Funcoes();
+            ToolStripButton botaoIdentifique_se = funcoes.CriarBotao(
+                "Identifique-se",
+                "Identifique-se",
+                Properties.Resources.Customer_16,
+                bt_login_Click
+            );
+
+            toolStrip1.Items.Add(botaoIdentifique_se); 
+            toolStrip1.Refresh();
+
+
+            label_Nome.Text = "";
+            label_Nome.Visible = false;
+            label_idNutricionista.Text = "";
+            label_idNutricionista.Visible = false;
+            pictureBox1.Image = null;
+            bt_Logout.Visible = false;
+        }
+
+        private void bt_recordatorio_Click(object sender, EventArgs e)
+        {
+            ShowRecordatorio();
+        }
+
+        public void ShowRecordatorio()
+        {
+            CadRecordatorio recordatorio = Application.OpenForms.OfType<CadRecordatorio>().FirstOrDefault();
+
+            if (recordatorio == null)
+            {
+                recordatorio = new CadRecordatorio();
+                recordatorio.MdiParent = this;
+                recordatorio.Show();
+            }
+            else
+            {
+                recordatorio.Focus();
+            }
+        }
+
+
     }
 }

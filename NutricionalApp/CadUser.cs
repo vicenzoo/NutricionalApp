@@ -18,7 +18,7 @@ namespace NutricionalApp
 
         Image ImagemTemp;
         bool nomeSobreValido = false;
-        bool emailValid = false;
+        bool DataNasc = false;
         public CadUser()
         {
             InitializeComponent();
@@ -132,6 +132,7 @@ namespace NutricionalApp
             label_idade.Text = "";
             label_idade.Text = Convert.ToString(idade);
             label_idadeComplemento.Visible = true;
+            DataNasc =  true;
         }
 
         //Valida se A senha é forte
@@ -195,29 +196,18 @@ namespace NutricionalApp
         {
             bool emailOk = EmailValido(txtEmail.Text);
             PicMail.Visible = !emailOk;
-
-
-            if (emailOk)
-            {
-                emailValid = true;
-            }
-            else
-            {
-                emailValid = false;
-            }
-            bt_Revalidar_Click(sender, e);
         }
 
         static bool NomeSobrenomeValido(string nome, string sobrenome)
         {
             string carcEsp = @"^[a-zA-Z0-9&&[^çÇ]]+$";
             //Validação de nome e sobrenome nulo ou menor que 4 Caracteres
-            if (nome.Length == 0 ^ nome.Length <= 4)
+            if (nome.Length == 0 ^ nome.Length < 4)
             {
                 return false;
             }
 
-            if (sobrenome.Length == 0 ^ sobrenome.Length <= 4 ^ sobrenome == null)
+            if (sobrenome.Length == 0 ^ sobrenome.Length < 4 ^ sobrenome == null)
             {
                 return false;
             }
@@ -254,13 +244,12 @@ namespace NutricionalApp
         private void ExecutaValidacoes()
         {
             txtNome_TextChanged(txtNome.Text, EventArgs.Empty);
-            txtEmail_TextChanged(txtEmail.Text, EventArgs.Empty);
+
             // Se ambos os campos forem válidos, habilita o botão
-            bt_Seguinte1.Enabled = nomeSobreValido && emailValid;
+            bt_Seguinte1.Enabled = nomeSobreValido && DataNasc;
         }
         private void bt_Revalidar_Click(object sender, EventArgs e)
         {
-            dtNasc_CloseUp(sender, e); // "Força" Atualiza Idade
             ExecutaValidacoes();
         }
 
@@ -275,10 +264,11 @@ namespace NutricionalApp
                 l_exibeNome.Text = txtNome.Text + " " + txtSobrenome.Text;
                 if (mt_CPF.Text.Length == 0) l_exibeCPF.Text = "CPF Não Informado";
                 else l_exibeCPF.Text = mt_CPF.Text;
-                l_exibeDataNasc.Text = Convert.ToString(dtNasc.Value);
-                l_exibeSexo.Text = cbSexo.SelectedText;
+                l_exibeDataNasc.Text =  dtNasc.Value.ToString("dd/MM/yyyy");
+                l_exibeSexo.Text = cbSexo.Text;
                 l_exibeIdade.Text = label_idade.Text;
-                l_exibeEmail.Text = txtEmail.Text;
+                if (txtEmail.Text.Length > 0) l_exibeEmail.Text = txtEmail.Text;
+                else l_exibeEmail.Text = "Email Não Informado";
             }
 
 
@@ -334,23 +324,6 @@ namespace NutricionalApp
             }
         }
 
-        private void bt_verifica_Click(object sender, EventArgs e)
-        {
-          /*  if(txtAltura.Text.Length == 0 & txtPeso.Text.Length == 0)
-            {
-
-            }
-            else
-            {
-                double IMC = Convert.ToDouble(txtPeso.Text) / ((Convert.ToDouble(txtAltura.Text) * Convert.ToDouble(txtAltura.Text)));
-                label_IMC.Visible = true;
-                label_IMC.Text = Convert.ToString(IMC);
-                label_complementoIMC.Visible = true;
-                label_complementoIMC.Text =  ClassificarIMC(IMC);
-                bt_Seguinte2.Enabled = true;}
-            } */
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             using (var db = new DatabaseConnection())
@@ -358,23 +331,51 @@ namespace NutricionalApp
                 db.OpenConnection();
                 using (var comm = new NpgsqlCommand(
                     "INSERT INTO public.paciente " +
-                    "(\"Nome\", \"Sobrenome\", \"CPF\", \"Sexo\", \"data_nascimento\", \"idade\", \"Data_Inclusao\", \"Email\", nutricionista_id, \"Data_Vinculo\", ativo, \"Pac_icon\") " +
-                    "VALUES (@Nome, @Sobrenome, @CPF, @Sexo, @data_nascimento, @idade, @Data_Inclusao, @Email, @nutricionista_id, @Data_Vinculo, @ativo, @Pac_icon)",
+                    "(\"Nome\", \"Sobrenome\", \"CPF\", \"Sexo\", \"data_nascimento\", \"Data_Inclusao\", \"Email\", nutricionista_id, \"Data_Vinculo\", ativo, \"Pac_icon\") " +
+                    "VALUES (@Nome, @Sobrenome, @CPF, @Sexo, @data_nascimento, @Data_Inclusao, @Email, @nutricionista_id, @Data_Vinculo, @ativo, @Pac_icon)",
                     db.GetConnection()))
                 {
                     // Definindo os parâmetros
                     comm.Parameters.AddWithValue("@Nome", txtNome.Text);
                     comm.Parameters.AddWithValue("@Sobrenome", txtSobrenome.Text);
-                    comm.Parameters.AddWithValue("@CPF", mt_CPF.Text);
-                    comm.Parameters.AddWithValue("@Sexo", cbSexo.Text); ;
-                    comm.Parameters.AddWithValue("@data_nascimento", dtNasc.Value);
-                    comm.Parameters.AddWithValue("@idade", label_idade.Text);
-                    comm.Parameters.AddWithValue("@Email", txtEmail.Text);
 
+                    if (mt_CPF.Text.Length > 0)
+                    {
+                        comm.Parameters.AddWithValue("@CPF", mt_CPF.Text);
+                    }
+                    else
+                    {
+                        comm.Parameters.AddWithValue("@CPF", DBNull.Value);
+                    }
+
+                    if (cbSexo.Text == "Masculino") 
+                    {
+                        comm.Parameters.AddWithValue("@Sexo", "M");
+                    }
+                    else if (cbSexo.Text == "Feminino")
+                    {
+                        comm.Parameters.AddWithValue("@Sexo", "F");
+                    }
+                    else
+                    {
+                        comm.Parameters.AddWithValue("@Sexo", "O");
+                    }
+
+                    comm.Parameters.AddWithValue("@data_nascimento", dtNasc.Value);
+                    comm.Parameters.AddWithValue("@Data_Inclusao", DateTime.Now); // Data de inclusão Hoje
+                    if (txtEmail.Text.Length > 0)
+                    {
+                        comm.Parameters.AddWithValue("@Email", txtEmail.Text);
+                    } else
+                    {
+                        comm.Parameters.AddWithValue("@Email", DBNull.Value);
+
+                    }
 
                     FormMain GetIDNutricionista = Application.OpenForms.OfType<FormMain>().FirstOrDefault(); //Função para Pegar o Numero de ID do Nutricionista
-
-                    comm.Parameters.AddWithValue("@nutricionista_id", GetIDNutricionista.IDLabel.Text.Substring(1));
+                    int ID = 0;
+                    ID = Convert.ToInt32(GetIDNutricionista.IDLabel.Text.Substring(1));
+                    comm.Parameters.AddWithValue("@nutricionista_id", ID);
                     comm.Parameters.AddWithValue("@Data_Vinculo", DateTime.Now);
                     comm.Parameters.AddWithValue("@ativo", 'S');  // Define como ativo
 
@@ -392,22 +393,49 @@ namespace NutricionalApp
                     try
                     {
                         comm.ExecuteNonQuery();
+
+
+                       /* l_exibeNome.Text = "";
+                        l_exibeCPF.Text = "";
+                        l_exibeDataNasc.Text = "";
+                        l_exibeSexo.Text  = "";
+                        l_exibeIdade.Text  = "";
+                        l_exibeEmail.Text  = ""; */
+
                         txtNome.Clear();
                         txtSobrenome.Clear();
                         mt_CPF.Clear();
-
-                        dtNasc.Value = DateTime.Now;
                         txtEmail.Clear();
+                        bt_Seguinte1.Enabled = false;
+                        bt_Finalizar.Enabled = false;
+                        label_Adicionar.Visible = true;
+                        bt_AvAntropometrica.Visible = true;
+                        bt_Gastos.Visible = true;
+                        bt_Recordatorio.Visible = true;
+                        bt_PlanoAlimentar.Visible = true;
                         MessageBox.Show("Paciente cadastrado com sucesso!", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    catch (PostgresException pgError)
+                    {
+                        MessageBox.Show($"Erro PostgreSQL: {pgError.Message}\nColuna: {pgError.ColumnName}\nDetalhes: {pgError.Detail}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
                     catch (Exception error)
                     {
-                        MessageBox.Show($"Erro: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"Erro geral: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
             }
         }
 
+        private void bt_Recordatorio_Click(object sender, EventArgs e)
+        {
+            FormMain recordatorio = Application.OpenForms.OfType<FormMain>().FirstOrDefault();
+            if (recordatorio != null)
+            {
+                recordatorio.ShowRecordatorio(); // Chama o método público
+            }
+        }
     }
 }

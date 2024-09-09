@@ -84,6 +84,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -114,6 +115,12 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="CadRecordatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadRecordatorio.Designer.cs">
+      <DependentUpon>CadRecordatorio.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSplash.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadRecordatorio.resx">
+      <DependentUpon>CadRecordatorio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSplash.resx">
       <DependentUpon>FormSplash.cs</DependentUpon>
@@ -229,8 +239,16 @@
     <None Include="Icones\Watermelon_16px.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Icones\Exit Sign_16px.png" />
+    <None Include="Icones\Industrial Scales_16.png" />
+    <None Include="Icones\Industrial Scales_48.png" />
+    <None Include="Icones\Calculator_48.png" />
+    <None Include="Icones\Breakfast_48.png" />
+    <None Include="Icones\Add_48.png" />
+    <None Include="Icones\Add_16.png" />
     <Content Include="Icones\Person_16.png" />
     <Content Include="Icones\Person_48.png" />
+    <None Include="Icones\Restaurant_48.png" />
     <Content Include="Icones\Watermelon_48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

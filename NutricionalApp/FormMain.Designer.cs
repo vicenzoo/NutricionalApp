@@ -31,20 +31,21 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.panel4 = new System.Windows.Forms.Panel();
-            this.l_Hora = new System.Windows.Forms.Label();
+            this.label_Nome = new System.Windows.Forms.Label();
+            this.label_idNutricionista = new System.Windows.Forms.Label();
             this.splitter3 = new System.Windows.Forms.Splitter();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.bt_Exit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.bt_Painel1Exibe = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label_idNutricionista = new System.Windows.Forms.Label();
-            this.label_Nome = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.l_Hora = new System.Windows.Forms.Label();
             this.splitter2 = new System.Windows.Forms.Splitter();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.bt_Logout = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.bt_Exit = new System.Windows.Forms.Button();
+            this.bt_Painel1Exibe = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -54,10 +55,11 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.splitter2);
+            this.panel4.Controls.Add(this.bt_Logout);
+            this.panel4.Controls.Add(this.l_Hora);
             this.panel4.Controls.Add(this.pictureBox1);
             this.panel4.Controls.Add(this.label_Nome);
             this.panel4.Controls.Add(this.label_idNutricionista);
-            this.panel4.Controls.Add(this.l_Hora);
             this.panel4.Controls.Add(this.splitter3);
             this.panel4.Controls.Add(this.splitter1);
             this.panel4.Controls.Add(this.bt_Exit);
@@ -69,25 +71,40 @@
             this.panel4.Size = new System.Drawing.Size(1184, 31);
             this.panel4.TabIndex = 13;
             // 
-            // l_Hora
+            // label_Nome
             // 
-            this.l_Hora.AutoSize = true;
-            this.l_Hora.Dock = System.Windows.Forms.DockStyle.Left;
-            this.l_Hora.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_Hora.ForeColor = System.Drawing.Color.White;
-            this.l_Hora.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.l_Hora.Location = new System.Drawing.Point(200, 0);
-            this.l_Hora.Name = "l_Hora";
-            this.l_Hora.Size = new System.Drawing.Size(55, 28);
-            this.l_Hora.TabIndex = 30;
-            this.l_Hora.Text = "Hora";
+            this.label_Nome.AutoSize = true;
+            this.label_Nome.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label_Nome.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Nome.ForeColor = System.Drawing.Color.White;
+            this.label_Nome.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label_Nome.Location = new System.Drawing.Point(1010, 0);
+            this.label_Nome.Name = "label_Nome";
+            this.label_Nome.Size = new System.Drawing.Size(71, 28);
+            this.label_Nome.TabIndex = 33;
+            this.label_Nome.Text = "Nome";
+            this.label_Nome.Visible = false;
+            // 
+            // label_idNutricionista
+            // 
+            this.label_idNutricionista.AutoSize = true;
+            this.label_idNutricionista.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label_idNutricionista.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_idNutricionista.ForeColor = System.Drawing.Color.White;
+            this.label_idNutricionista.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label_idNutricionista.Location = new System.Drawing.Point(1081, 0);
+            this.label_idNutricionista.Name = "label_idNutricionista";
+            this.label_idNutricionista.Size = new System.Drawing.Size(51, 21);
+            this.label_idNutricionista.TabIndex = 31;
+            this.label_idNutricionista.Text = "Nome";
+            this.label_idNutricionista.Visible = false;
             // 
             // splitter3
             // 
             this.splitter3.Enabled = false;
             this.splitter3.Location = new System.Drawing.Point(29, 0);
             this.splitter3.Name = "splitter3";
-            this.splitter3.Size = new System.Drawing.Size(171, 31);
+            this.splitter3.Size = new System.Drawing.Size(26, 31);
             this.splitter3.TabIndex = 21;
             this.splitter3.TabStop = false;
             // 
@@ -101,21 +118,6 @@
             this.splitter1.TabIndex = 18;
             this.splitter1.TabStop = false;
             // 
-            // bt_Exit
-            // 
-            this.bt_Exit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.bt_Exit.FlatAppearance.BorderSize = 0;
-            this.bt_Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_Exit.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.bt_Exit.Image = ((System.Drawing.Image)(resources.GetObject("bt_Exit.Image")));
-            this.bt_Exit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.bt_Exit.Location = new System.Drawing.Point(1151, 0);
-            this.bt_Exit.Name = "bt_Exit";
-            this.bt_Exit.Size = new System.Drawing.Size(33, 31);
-            this.bt_Exit.TabIndex = 16;
-            this.bt_Exit.UseVisualStyleBackColor = true;
-            this.bt_Exit.Click += new System.EventHandler(this.bt_Exit_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -127,20 +129,6 @@
             this.label1.Size = new System.Drawing.Size(144, 28);
             this.label1.TabIndex = 15;
             this.label1.Text = "NutricionalAPP";
-            // 
-            // bt_Painel1Exibe
-            // 
-            this.bt_Painel1Exibe.Dock = System.Windows.Forms.DockStyle.Left;
-            this.bt_Painel1Exibe.FlatAppearance.BorderSize = 0;
-            this.bt_Painel1Exibe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_Painel1Exibe.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.bt_Painel1Exibe.Image = global::NutricionalApp.Properties.Resources.Menu_Squared_16;
-            this.bt_Painel1Exibe.Location = new System.Drawing.Point(0, 0);
-            this.bt_Painel1Exibe.Name = "bt_Painel1Exibe";
-            this.bt_Painel1Exibe.Size = new System.Drawing.Size(29, 31);
-            this.bt_Painel1Exibe.TabIndex = 14;
-            this.bt_Painel1Exibe.UseVisualStyleBackColor = true;
-            this.bt_Painel1Exibe.Click += new System.EventHandler(this.bt_Painel1Exibe_Click);
             // 
             // panel1
             // 
@@ -164,6 +152,29 @@
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // l_Hora
+            // 
+            this.l_Hora.AutoSize = true;
+            this.l_Hora.Dock = System.Windows.Forms.DockStyle.Left;
+            this.l_Hora.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l_Hora.ForeColor = System.Drawing.Color.White;
+            this.l_Hora.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.l_Hora.Location = new System.Drawing.Point(55, 0);
+            this.l_Hora.Name = "l_Hora";
+            this.l_Hora.Size = new System.Drawing.Size(55, 28);
+            this.l_Hora.TabIndex = 37;
+            this.l_Hora.Text = "Hora";
+            // 
+            // splitter2
+            // 
+            this.splitter2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.splitter2.Enabled = false;
+            this.splitter2.Location = new System.Drawing.Point(928, 0);
+            this.splitter2.Name = "splitter2";
+            this.splitter2.Size = new System.Drawing.Size(19, 31);
+            this.splitter2.TabIndex = 39;
+            this.splitter2.TabStop = false;
+            // 
             // toolStripButton1
             // 
             this.toolStripButton1.Image = global::NutricionalApp.Properties.Resources.Customer_16;
@@ -176,33 +187,20 @@
             this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.toolStripButton1.Click += new System.EventHandler(this.bt_login_Click);
             // 
-            // label_idNutricionista
+            // bt_Logout
             // 
-            this.label_idNutricionista.AutoSize = true;
-            this.label_idNutricionista.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label_idNutricionista.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_idNutricionista.ForeColor = System.Drawing.Color.White;
-            this.label_idNutricionista.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label_idNutricionista.Location = new System.Drawing.Point(1081, 0);
-            this.label_idNutricionista.Name = "label_idNutricionista";
-            this.label_idNutricionista.Size = new System.Drawing.Size(51, 21);
-            this.label_idNutricionista.TabIndex = 31;
-            this.label_idNutricionista.Text = "Nome";
-            this.label_idNutricionista.Visible = false;
-            // 
-            // label_Nome
-            // 
-            this.label_Nome.AutoSize = true;
-            this.label_Nome.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label_Nome.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Nome.ForeColor = System.Drawing.Color.White;
-            this.label_Nome.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label_Nome.Location = new System.Drawing.Point(1010, 0);
-            this.label_Nome.Name = "label_Nome";
-            this.label_Nome.Size = new System.Drawing.Size(71, 28);
-            this.label_Nome.TabIndex = 33;
-            this.label_Nome.Text = "Nome";
-            this.label_Nome.Visible = false;
+            this.bt_Logout.Dock = System.Windows.Forms.DockStyle.Right;
+            this.bt_Logout.FlatAppearance.BorderSize = 0;
+            this.bt_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_Logout.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.bt_Logout.Image = global::NutricionalApp.Properties.Resources.Exit_Sign_16px;
+            this.bt_Logout.Location = new System.Drawing.Point(947, 0);
+            this.bt_Logout.Name = "bt_Logout";
+            this.bt_Logout.Size = new System.Drawing.Size(29, 31);
+            this.bt_Logout.TabIndex = 38;
+            this.bt_Logout.UseVisualStyleBackColor = true;
+            this.bt_Logout.Visible = false;
+            this.bt_Logout.Click += new System.EventHandler(this.bt_Logout_Click);
             // 
             // pictureBox1
             // 
@@ -214,15 +212,34 @@
             this.pictureBox1.TabIndex = 35;
             this.pictureBox1.TabStop = false;
             // 
-            // splitter2
+            // bt_Exit
             // 
-            this.splitter2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter2.Enabled = false;
-            this.splitter2.Location = new System.Drawing.Point(957, 0);
-            this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(19, 31);
-            this.splitter2.TabIndex = 36;
-            this.splitter2.TabStop = false;
+            this.bt_Exit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.bt_Exit.FlatAppearance.BorderSize = 0;
+            this.bt_Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_Exit.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.bt_Exit.Image = ((System.Drawing.Image)(resources.GetObject("bt_Exit.Image")));
+            this.bt_Exit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bt_Exit.Location = new System.Drawing.Point(1151, 0);
+            this.bt_Exit.Name = "bt_Exit";
+            this.bt_Exit.Size = new System.Drawing.Size(33, 31);
+            this.bt_Exit.TabIndex = 16;
+            this.bt_Exit.UseVisualStyleBackColor = true;
+            this.bt_Exit.Click += new System.EventHandler(this.bt_Exit_Click);
+            // 
+            // bt_Painel1Exibe
+            // 
+            this.bt_Painel1Exibe.Dock = System.Windows.Forms.DockStyle.Left;
+            this.bt_Painel1Exibe.FlatAppearance.BorderSize = 0;
+            this.bt_Painel1Exibe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_Painel1Exibe.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.bt_Painel1Exibe.Image = global::NutricionalApp.Properties.Resources.Menu_Squared_16;
+            this.bt_Painel1Exibe.Location = new System.Drawing.Point(0, 0);
+            this.bt_Painel1Exibe.Name = "bt_Painel1Exibe";
+            this.bt_Painel1Exibe.Size = new System.Drawing.Size(29, 31);
+            this.bt_Painel1Exibe.TabIndex = 14;
+            this.bt_Painel1Exibe.UseVisualStyleBackColor = true;
+            this.bt_Painel1Exibe.Click += new System.EventHandler(this.bt_Painel1Exibe_Click);
             // 
             // FormMain
             // 
@@ -262,11 +279,12 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label l_Hora;
         private System.Windows.Forms.Label label_idNutricionista;
         private System.Windows.Forms.Label label_Nome;
-        private System.Windows.Forms.Splitter splitter2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label l_Hora;
+        private System.Windows.Forms.Splitter splitter2;
+        private System.Windows.Forms.Button bt_Logout;
     }
 }
 

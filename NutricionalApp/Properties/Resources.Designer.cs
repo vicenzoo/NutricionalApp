@@ -63,6 +63,26 @@ namespace NutricionalApp.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Add_16 {
+            get {
+                object obj = ResourceManager.GetObject("Add_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Add_48 {
+            get {
+                object obj = ResourceManager.GetObject("Add_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Administrator_16 {
             get {
                 object obj = ResourceManager.GetObject("Administrator_16", resourceCulture);
@@ -113,6 +133,26 @@ namespace NutricionalApp.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Breakfast_48 {
+            get {
+                object obj = ResourceManager.GetObject("Breakfast_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Calculator_48 {
+            get {
+                object obj = ResourceManager.GetObject("Calculator_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Customer_16 {
             get {
                 object obj = ResourceManager.GetObject("Customer_16", resourceCulture);
@@ -136,6 +176,16 @@ namespace NutricionalApp.Properties {
         internal static System.Drawing.Bitmap Enter_96 {
             get {
                 object obj = ResourceManager.GetObject("Enter_96", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Exit_Sign_16px {
+            get {
+                object obj = ResourceManager.GetObject("Exit Sign_16px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,6 +243,26 @@ namespace NutricionalApp.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Industrial_Scales_16 {
+            get {
+                object obj = ResourceManager.GetObject("Industrial Scales_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Industrial_Scales_48 {
+            get {
+                object obj = ResourceManager.GetObject("Industrial Scales_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Male_User_96 {
             get {
                 object obj = ResourceManager.GetObject("Male User_96", resourceCulture);
@@ -236,6 +306,16 @@ namespace NutricionalApp.Properties {
         internal static System.Drawing.Bitmap Plus_96 {
             get {
                 object obj = ResourceManager.GetObject("Plus_96", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Restaurant_48 {
+            get {
+                object obj = ResourceManager.GetObject("Restaurant_48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

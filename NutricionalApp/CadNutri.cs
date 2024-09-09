@@ -356,7 +356,7 @@ namespace NutricionalApp
                         comm.Parameters.AddWithValue("@Email", txtEmail.Text);
                         comm.Parameters.AddWithValue("@Senha", txtSenha.Text); // Senha Encriptada
                         comm.Parameters.AddWithValue("@ativo", 'S');
-                        if (ck_Confirmacao.Checked) comm.Parameters.AddWithValue("@Estudante", 'S');
+                        if (ck_souEstudante.Checked) comm.Parameters.AddWithValue("@Estudante", 'S');
                         else comm.Parameters.AddWithValue("@Estudante", 'N');
 
                         byte[] imagemParaBytes;

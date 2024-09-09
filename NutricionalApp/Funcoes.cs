@@ -17,6 +17,10 @@ namespace NutricionalApp
             botao.Text = texto;
             botao.ToolTipText = toolTipText;
             botao.Image = imagem;
+            botao.Size = new Size(371, 52); 
+            botao.Padding = new Padding(5); 
+            botao.Margin = new Padding(5);
+            botao.ImageScaling = ToolStripItemImageScaling.None;
 
             if (eventoClique != null)
             {
