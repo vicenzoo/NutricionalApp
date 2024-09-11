@@ -285,9 +285,11 @@
     <None Include="Icones\Breakfast_48.png" />
     <None Include="Icones\Add_48.png" />
     <None Include="Icones\Add_16.png" />
+    <None Include="Icones\Add File_16px.png" />
     <Content Include="Icones\Person_16.png" />
     <Content Include="Icones\Person_48.png" />
     <None Include="Icones\Restaurant_48.png" />
+    <None Include="Icones\Search_16px.png" />
     <Content Include="Icones\Watermelon_48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

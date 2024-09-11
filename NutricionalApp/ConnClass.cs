@@ -206,7 +206,7 @@ namespace NutricionalApp
                 db.OpenConnection();
 
 
-                using (var comm = new NpgsqlCommand("SELECT id_paciente, nome FROM public.paciente where nutricionista_id = @idNutri", db.GetConnection()))
+                using (var comm = new NpgsqlCommand("SELECT id_paciente,  nome ||' ' || sobrenome as NomeCompleto  FROM public.paciente where nutricionista_id = @idNutri", db.GetConnection()))
                 {
                     comm.Parameters.AddWithValue("@idNutri", Id_Nutricionista);
 
@@ -220,7 +220,7 @@ namespace NutricionalApp
                             {
 
                                 int idPaciente = Convert.ToInt32(reader["id_paciente"]);
-                                string nomePaciente = reader["nome"].ToString();
+                                string nomePaciente = reader["NomeCompleto"].ToString();
 
                                 comboBox.Items.Add(new Paciente(idPaciente, nomePaciente));
                             }
