@@ -181,6 +181,70 @@ namespace NutricionalApp
             }
         }
 
+        public class Paciente
+        {
+            public int Id { get; set; }
+            public string Nome { get; set; }
+
+            public Paciente(int id, string nome)
+            {
+                Id = id;
+                Nome = nome;
+            }
+
+            // Sobrescreva o método ToString para que o ComboBox exiba o nome do paciente
+            public override string ToString()
+            {
+                return Nome;
+            }
+        }
+
+        public void GetPacientes(int Id_Nutricionista, ComboBox comboBox)
+        {
+            using (var db = new DatabaseConnection())
+            {
+                db.OpenConnection();
+
+
+                using (var comm = new NpgsqlCommand("SELECT id_paciente, nome FROM public.paciente where nutricionista_id = @idNutri", db.GetConnection()))
+                {
+                    comm.Parameters.AddWithValue("@idNutri", Id_Nutricionista);
+
+                    try
+                    {
+                        using (var reader = comm.ExecuteReader())
+                        {
+                            comboBox.Items.Clear();
+
+                            while (reader.Read())
+                            {
+
+                                int idPaciente = Convert.ToInt32(reader["id_paciente"]);
+                                string nomePaciente = reader["nome"].ToString();
+
+                                comboBox.Items.Add(new Paciente(idPaciente, nomePaciente));
+                            }
+
+                            // Verifica se encontrou pacientes
+                            if (comboBox.Items.Count > 0)
+                            {
+
+                                comboBox.SelectedIndex = 0;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Nenhum paciente encontrado.");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao obter os pacientes: {ex.Message}");
+                    }
+                }
+            }
+        }
+
         public class Perfil
         {
             public Image Imagem { get; set; }

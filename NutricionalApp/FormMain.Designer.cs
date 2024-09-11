@@ -31,31 +31,32 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.panel4 = new System.Windows.Forms.Panel();
+            this.bt_Logout = new System.Windows.Forms.Button();
+            this.splitter2 = new System.Windows.Forms.Splitter();
+            this.l_Hora = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label_Nome = new System.Windows.Forms.Label();
             this.label_idNutricionista = new System.Windows.Forms.Label();
             this.splitter3 = new System.Windows.Forms.Splitter();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.bt_Exit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.bt_Painel1Exibe = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.l_Hora = new System.Windows.Forms.Label();
-            this.splitter2 = new System.Windows.Forms.Splitter();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.bt_Logout = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.bt_Exit = new System.Windows.Forms.Button();
-            this.bt_Painel1Exibe = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.queryTransformer1 = new ActiveQueryBuilder.Core.QueryTransformer.QueryTransformer(this.components);
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.splitter2);
             this.panel4.Controls.Add(this.bt_Logout);
+            this.panel4.Controls.Add(this.splitter2);
             this.panel4.Controls.Add(this.l_Hora);
             this.panel4.Controls.Add(this.pictureBox1);
             this.panel4.Controls.Add(this.label_Nome);
@@ -70,6 +71,54 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1184, 31);
             this.panel4.TabIndex = 13;
+            // 
+            // bt_Logout
+            // 
+            this.bt_Logout.Dock = System.Windows.Forms.DockStyle.Right;
+            this.bt_Logout.FlatAppearance.BorderSize = 0;
+            this.bt_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_Logout.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.bt_Logout.Image = global::NutricionalApp.Properties.Resources.Exit_Sign_16px;
+            this.bt_Logout.Location = new System.Drawing.Point(928, 0);
+            this.bt_Logout.Name = "bt_Logout";
+            this.bt_Logout.Size = new System.Drawing.Size(29, 31);
+            this.bt_Logout.TabIndex = 40;
+            this.bt_Logout.UseVisualStyleBackColor = true;
+            this.bt_Logout.Visible = false;
+            this.bt_Logout.Click += new System.EventHandler(this.bt_Logout_Click);
+            // 
+            // splitter2
+            // 
+            this.splitter2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.splitter2.Enabled = false;
+            this.splitter2.Location = new System.Drawing.Point(957, 0);
+            this.splitter2.Name = "splitter2";
+            this.splitter2.Size = new System.Drawing.Size(19, 31);
+            this.splitter2.TabIndex = 39;
+            this.splitter2.TabStop = false;
+            // 
+            // l_Hora
+            // 
+            this.l_Hora.AutoSize = true;
+            this.l_Hora.Dock = System.Windows.Forms.DockStyle.Left;
+            this.l_Hora.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l_Hora.ForeColor = System.Drawing.Color.White;
+            this.l_Hora.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.l_Hora.Location = new System.Drawing.Point(55, 0);
+            this.l_Hora.Name = "l_Hora";
+            this.l_Hora.Size = new System.Drawing.Size(55, 28);
+            this.l_Hora.TabIndex = 37;
+            this.l_Hora.Text = "Hora";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pictureBox1.Location = new System.Drawing.Point(976, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(34, 31);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 35;
+            this.pictureBox1.TabStop = false;
             // 
             // label_Nome
             // 
@@ -118,6 +167,21 @@
             this.splitter1.TabIndex = 18;
             this.splitter1.TabStop = false;
             // 
+            // bt_Exit
+            // 
+            this.bt_Exit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.bt_Exit.FlatAppearance.BorderSize = 0;
+            this.bt_Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_Exit.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.bt_Exit.Image = ((System.Drawing.Image)(resources.GetObject("bt_Exit.Image")));
+            this.bt_Exit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bt_Exit.Location = new System.Drawing.Point(1151, 0);
+            this.bt_Exit.Name = "bt_Exit";
+            this.bt_Exit.Size = new System.Drawing.Size(33, 31);
+            this.bt_Exit.TabIndex = 16;
+            this.bt_Exit.UseVisualStyleBackColor = true;
+            this.bt_Exit.Click += new System.EventHandler(this.bt_Exit_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -129,6 +193,20 @@
             this.label1.Size = new System.Drawing.Size(144, 28);
             this.label1.TabIndex = 15;
             this.label1.Text = "NutricionalAPP";
+            // 
+            // bt_Painel1Exibe
+            // 
+            this.bt_Painel1Exibe.Dock = System.Windows.Forms.DockStyle.Left;
+            this.bt_Painel1Exibe.FlatAppearance.BorderSize = 0;
+            this.bt_Painel1Exibe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_Painel1Exibe.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.bt_Painel1Exibe.Image = global::NutricionalApp.Properties.Resources.Menu_Squared_16;
+            this.bt_Painel1Exibe.Location = new System.Drawing.Point(0, 0);
+            this.bt_Painel1Exibe.Name = "bt_Painel1Exibe";
+            this.bt_Painel1Exibe.Size = new System.Drawing.Size(29, 31);
+            this.bt_Painel1Exibe.TabIndex = 14;
+            this.bt_Painel1Exibe.UseVisualStyleBackColor = true;
+            this.bt_Painel1Exibe.Click += new System.EventHandler(this.bt_Painel1Exibe_Click);
             // 
             // panel1
             // 
@@ -152,29 +230,6 @@
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // l_Hora
-            // 
-            this.l_Hora.AutoSize = true;
-            this.l_Hora.Dock = System.Windows.Forms.DockStyle.Left;
-            this.l_Hora.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_Hora.ForeColor = System.Drawing.Color.White;
-            this.l_Hora.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.l_Hora.Location = new System.Drawing.Point(55, 0);
-            this.l_Hora.Name = "l_Hora";
-            this.l_Hora.Size = new System.Drawing.Size(55, 28);
-            this.l_Hora.TabIndex = 37;
-            this.l_Hora.Text = "Hora";
-            // 
-            // splitter2
-            // 
-            this.splitter2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter2.Enabled = false;
-            this.splitter2.Location = new System.Drawing.Point(928, 0);
-            this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(19, 31);
-            this.splitter2.TabIndex = 39;
-            this.splitter2.TabStop = false;
-            // 
             // toolStripButton1
             // 
             this.toolStripButton1.Image = global::NutricionalApp.Properties.Resources.Customer_16;
@@ -187,59 +242,15 @@
             this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.toolStripButton1.Click += new System.EventHandler(this.bt_login_Click);
             // 
-            // bt_Logout
+            // queryTransformer1
             // 
-            this.bt_Logout.Dock = System.Windows.Forms.DockStyle.Right;
-            this.bt_Logout.FlatAppearance.BorderSize = 0;
-            this.bt_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_Logout.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.bt_Logout.Image = global::NutricionalApp.Properties.Resources.Exit_Sign_16px;
-            this.bt_Logout.Location = new System.Drawing.Point(947, 0);
-            this.bt_Logout.Name = "bt_Logout";
-            this.bt_Logout.Size = new System.Drawing.Size(29, 31);
-            this.bt_Logout.TabIndex = 38;
-            this.bt_Logout.UseVisualStyleBackColor = true;
-            this.bt_Logout.Visible = false;
-            this.bt_Logout.Click += new System.EventHandler(this.bt_Logout_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBox1.Location = new System.Drawing.Point(976, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(34, 31);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 35;
-            this.pictureBox1.TabStop = false;
-            // 
-            // bt_Exit
-            // 
-            this.bt_Exit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.bt_Exit.FlatAppearance.BorderSize = 0;
-            this.bt_Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_Exit.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.bt_Exit.Image = ((System.Drawing.Image)(resources.GetObject("bt_Exit.Image")));
-            this.bt_Exit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.bt_Exit.Location = new System.Drawing.Point(1151, 0);
-            this.bt_Exit.Name = "bt_Exit";
-            this.bt_Exit.Size = new System.Drawing.Size(33, 31);
-            this.bt_Exit.TabIndex = 16;
-            this.bt_Exit.UseVisualStyleBackColor = true;
-            this.bt_Exit.Click += new System.EventHandler(this.bt_Exit_Click);
-            // 
-            // bt_Painel1Exibe
-            // 
-            this.bt_Painel1Exibe.Dock = System.Windows.Forms.DockStyle.Left;
-            this.bt_Painel1Exibe.FlatAppearance.BorderSize = 0;
-            this.bt_Painel1Exibe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_Painel1Exibe.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.bt_Painel1Exibe.Image = global::NutricionalApp.Properties.Resources.Menu_Squared_16;
-            this.bt_Painel1Exibe.Location = new System.Drawing.Point(0, 0);
-            this.bt_Painel1Exibe.Name = "bt_Painel1Exibe";
-            this.bt_Painel1Exibe.Size = new System.Drawing.Size(29, 31);
-            this.bt_Painel1Exibe.TabIndex = 14;
-            this.bt_Painel1Exibe.UseVisualStyleBackColor = true;
-            this.bt_Painel1Exibe.Click += new System.EventHandler(this.bt_Painel1Exibe_Click);
+            this.queryTransformer1.AlwaysExpandColumnsInQuery = false;
+            this.queryTransformer1.AlwaysWrapInSubQuery = false;
+            this.queryTransformer1.Query = null;
+            this.queryTransformer1.QueryProvider = null;
+            this.queryTransformer1.RenameDuplicatedColumns = false;
+            this.queryTransformer1.SQLGenerationOptions = null;
+            this.queryTransformer1.Tag = null;
             // 
             // FormMain
             // 
@@ -259,11 +270,11 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -285,6 +296,7 @@
         private System.Windows.Forms.Label l_Hora;
         private System.Windows.Forms.Splitter splitter2;
         private System.Windows.Forms.Button bt_Logout;
+        private ActiveQueryBuilder.Core.QueryTransformer.QueryTransformer queryTransformer1;
     }
 }
 

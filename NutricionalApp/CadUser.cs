@@ -331,7 +331,7 @@ namespace NutricionalApp
                 db.OpenConnection();
                 using (var comm = new NpgsqlCommand(
                     "INSERT INTO public.paciente " +
-                    "(\"Nome\", \"Sobrenome\", \"CPF\", \"Sexo\", \"data_nascimento\", \"Data_Inclusao\", \"Email\", nutricionista_id, \"Data_Vinculo\", ativo, \"Pac_icon\") " +
+                    "(\"nome\", \"sobrenome\", \"cpf\", \"sexo\", \"data_nascimento\", \"data_inclusao\", \"email\", nutricionista_id, \"data_vinculo\", ativo, \"pac_icon\") " +
                     "VALUES (@Nome, @Sobrenome, @CPF, @Sexo, @data_nascimento, @Data_Inclusao, @Email, @nutricionista_id, @Data_Vinculo, @ativo, @Pac_icon)",
                     db.GetConnection()))
                 {
