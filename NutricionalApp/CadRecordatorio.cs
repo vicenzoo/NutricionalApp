@@ -107,5 +107,15 @@ namespace NutricionalApp
                 bt_adicionarRec.Focus();
             }
         }
+
+        private void txt_QuantidadeItens_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) //Aceita apenas Numeros
+            {
+                e.Handled = true;   
+            }
+
+        }
     }
 }

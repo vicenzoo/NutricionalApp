@@ -183,6 +183,16 @@ namespace NutricionalApp.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Edit_Text_File_16 {
+            get {
+                object obj = ResourceManager.GetObject("Edit Text File_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Enter_96 {
             get {
                 object obj = ResourceManager.GetObject("Enter_96", resourceCulture);

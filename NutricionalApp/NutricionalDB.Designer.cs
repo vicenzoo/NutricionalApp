@@ -2950,6 +2950,8 @@ namespace NutricionalApp {
             
             private global::System.Data.DataColumn columnativo;
             
+            private global::System.Data.DataColumn columndescricao_nome;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public recordatorio_24hDataTable() {
@@ -3025,6 +3027,14 @@ namespace NutricionalApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn descricao_nomeColumn {
+                get {
+                    return this.columndescricao_nome;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3060,14 +3070,15 @@ namespace NutricionalApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public recordatorio_24hRow Addrecordatorio_24hRow(System.DateTime Data_Inclusao, int paciente_id, int nutricionista_id, string ativo) {
+            public recordatorio_24hRow Addrecordatorio_24hRow(System.DateTime Data_Inclusao, int paciente_id, int nutricionista_id, string ativo, string descricao_nome) {
                 recordatorio_24hRow rowrecordatorio_24hRow = ((recordatorio_24hRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Data_Inclusao,
                         paciente_id,
                         nutricionista_id,
-                        ativo};
+                        ativo,
+                        descricao_nome};
                 rowrecordatorio_24hRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowrecordatorio_24hRow);
                 return rowrecordatorio_24hRow;
@@ -3102,6 +3113,7 @@ namespace NutricionalApp {
                 this.columnpaciente_id = base.Columns["paciente_id"];
                 this.columnnutricionista_id = base.Columns["nutricionista_id"];
                 this.columnativo = base.Columns["ativo"];
+                this.columndescricao_nome = base.Columns["descricao_nome"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3117,6 +3129,8 @@ namespace NutricionalApp {
                 base.Columns.Add(this.columnnutricionista_id);
                 this.columnativo = new global::System.Data.DataColumn("ativo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnativo);
+                this.columndescricao_nome = new global::System.Data.DataColumn("descricao_nome", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndescricao_nome);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid_rec}, true));
                 this.columnid_rec.AutoIncrement = true;
@@ -3129,6 +3143,8 @@ namespace NutricionalApp {
                 this.columnnutricionista_id.AllowDBNull = false;
                 this.columnativo.AllowDBNull = false;
                 this.columnativo.MaxLength = 1;
+                this.columndescricao_nome.AllowDBNull = false;
+                this.columndescricao_nome.MaxLength = 150;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5357,6 +5373,17 @@ namespace NutricionalApp {
                 }
                 set {
                     this[this.tablerecordatorio_24h.ativoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string descricao_nome {
+                get {
+                    return ((string)(this[this.tablerecordatorio_24h.descricao_nomeColumn]));
+                }
+                set {
+                    this[this.tablerecordatorio_24h.descricao_nomeColumn] = value;
                 }
             }
         }
@@ -9263,43 +9290,45 @@ namespace NutricionalApp.NutricionalDBTableAdapters {
             tableMapping.ColumnMappings.Add("paciente_id", "paciente_id");
             tableMapping.ColumnMappings.Add("nutricionista_id", "nutricionista_id");
             tableMapping.ColumnMappings.Add("ativo", "ativo");
+            tableMapping.ColumnMappings.Add("descricao_nome", "descricao_nome");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.Odbc.OdbcCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = "DELETE FROM \"postgres\".\"public\".\"recordatorio_24h\" WHERE ((\"id_rec\" = ?) AND (\"Da" +
                 "ta_Inclusao\" = ?) AND (\"paciente_id\" = ?) AND (\"nutricionista_id\" = ?) AND (\"ati" +
-                "vo\" = ?))";
+                "vo\" = ?) AND (\"descricao_nome\" = ?))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_id_rec", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id_rec", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_Data_Inclusao", global::System.Data.Odbc.OdbcType.DateTime, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Data_Inclusao", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_paciente_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "paciente_id", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_nutricionista_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nutricionista_id", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_ativo", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ativo", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_descricao_nome", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "descricao_nome", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.Odbc.OdbcCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO \"postgres\".\"public\".\"recordatorio_24h\" (\"Data_Inclusao\", \"paciente_id" +
-                "\", \"nutricionista_id\", \"ativo\") VALUES (?, ?, ?, ?)";
+                "\", \"nutricionista_id\", \"ativo\", \"descricao_nome\") VALUES (?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Data_Inclusao", global::System.Data.Odbc.OdbcType.DateTime, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Data_Inclusao", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("paciente_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "paciente_id", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nutricionista_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nutricionista_id", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("ativo", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ativo", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("descricao_nome", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "descricao_nome", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.Odbc.OdbcCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE \"postgres\".\"public\".\"recordatorio_24h\" SET \"Data_Inclusao\" = ?, \"paciente_" +
-                "id\" = ?, \"nutricionista_id\" = ?, \"ativo\" = ? WHERE ((\"id_rec\" = ?) AND (\"Data_In" +
-                "clusao\" = ?) AND (\"paciente_id\" = ?) AND (\"nutricionista_id\" = ?) AND (\"ativo\" =" +
-                " ?))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE ""postgres"".""public"".""recordatorio_24h"" SET ""Data_Inclusao"" = ?, ""paciente_id"" = ?, ""nutricionista_id"" = ?, ""ativo"" = ?, ""descricao_nome"" = ? WHERE ((""id_rec"" = ?) AND (""Data_Inclusao"" = ?) AND (""paciente_id"" = ?) AND (""nutricionista_id"" = ?) AND (""ativo"" = ?) AND (""descricao_nome"" = ?))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Data_Inclusao", global::System.Data.Odbc.OdbcType.DateTime, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Data_Inclusao", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("paciente_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "paciente_id", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nutricionista_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nutricionista_id", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("ativo", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ativo", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("descricao_nome", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "descricao_nome", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_id_rec", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id_rec", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_Data_Inclusao", global::System.Data.Odbc.OdbcType.DateTime, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Data_Inclusao", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_paciente_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "paciente_id", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_nutricionista_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nutricionista_id", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_ativo", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ativo", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_descricao_nome", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "descricao_nome", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9315,8 +9344,8 @@ namespace NutricionalApp.NutricionalDBTableAdapters {
             this._commandCollection = new global::System.Data.Odbc.OdbcCommand[1];
             this._commandCollection[0] = new global::System.Data.Odbc.OdbcCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT \"id_rec\", \"Data_Inclusao\", \"paciente_id\", \"nutricionista_id\", \"ativo\" FROM" +
-                " \"public\".\"recordatorio_24h\"";
+            this._commandCollection[0].CommandText = "SELECT \"id_rec\", \"Data_Inclusao\", \"paciente_id\", \"nutricionista_id\", \"ativo\", \"de" +
+                "scricao_nome\" FROM \"public\".\"recordatorio_24h\"";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -9377,7 +9406,7 @@ namespace NutricionalApp.NutricionalDBTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id_rec, System.DateTime Original_Data_Inclusao, int Original_paciente_id, int Original_nutricionista_id, string Original_ativo) {
+        public virtual int Delete(int Original_id_rec, System.DateTime Original_Data_Inclusao, int Original_paciente_id, int Original_nutricionista_id, string Original_ativo, string Original_descricao_nome) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id_rec));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((System.DateTime)(Original_Data_Inclusao));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_paciente_id));
@@ -9387,6 +9416,12 @@ namespace NutricionalApp.NutricionalDBTableAdapters {
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_ativo));
+            }
+            if ((Original_descricao_nome == null)) {
+                throw new global::System.ArgumentNullException("Original_descricao_nome");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_descricao_nome));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -9408,7 +9443,7 @@ namespace NutricionalApp.NutricionalDBTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(System.DateTime Data_Inclusao, int paciente_id, int nutricionista_id, string ativo) {
+        public virtual int Insert(System.DateTime Data_Inclusao, int paciente_id, int nutricionista_id, string ativo, string descricao_nome) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(Data_Inclusao));
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(paciente_id));
             this.Adapter.InsertCommand.Parameters[2].Value = ((int)(nutricionista_id));
@@ -9417,6 +9452,12 @@ namespace NutricionalApp.NutricionalDBTableAdapters {
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((string)(ativo));
+            }
+            if ((descricao_nome == null)) {
+                throw new global::System.ArgumentNullException("descricao_nome");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(descricao_nome));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -9438,7 +9479,7 @@ namespace NutricionalApp.NutricionalDBTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(System.DateTime Data_Inclusao, int paciente_id, int nutricionista_id, string ativo, int Original_id_rec, System.DateTime Original_Data_Inclusao, int Original_paciente_id, int Original_nutricionista_id, string Original_ativo) {
+        public virtual int Update(System.DateTime Data_Inclusao, int paciente_id, int nutricionista_id, string ativo, string descricao_nome, int Original_id_rec, System.DateTime Original_Data_Inclusao, int Original_paciente_id, int Original_nutricionista_id, string Original_ativo, string Original_descricao_nome) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((System.DateTime)(Data_Inclusao));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(paciente_id));
             this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(nutricionista_id));
@@ -9448,15 +9489,27 @@ namespace NutricionalApp.NutricionalDBTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(ativo));
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_id_rec));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(Original_Data_Inclusao));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_paciente_id));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_nutricionista_id));
+            if ((descricao_nome == null)) {
+                throw new global::System.ArgumentNullException("descricao_nome");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(descricao_nome));
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_id_rec));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(Original_Data_Inclusao));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_paciente_id));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_nutricionista_id));
             if ((Original_ativo == null)) {
                 throw new global::System.ArgumentNullException("Original_ativo");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_ativo));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_ativo));
+            }
+            if ((Original_descricao_nome == null)) {
+                throw new global::System.ArgumentNullException("Original_descricao_nome");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_descricao_nome));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
