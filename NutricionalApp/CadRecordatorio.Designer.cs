@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea21 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend21 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series21 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.bt_EditarRec = new System.Windows.Forms.Button();
@@ -39,7 +39,13 @@
             this.txt_DescricaoNome = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.gr_itens = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.vwitensrecordatoriodetalhadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nutricionalDB = new NutricionalApp.NutricionalDB();
             this.gr_selecao = new System.Windows.Forms.GroupBox();
+            this.cb_NomeDescricao = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.bt_adicionarItemRec = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txt_Medida = new System.Windows.Forms.TextBox();
             this.txt_QuantidadeItens = new System.Windows.Forms.TextBox();
@@ -55,29 +61,26 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.bt_adicionarItemRec = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.nutricionalDB = new NutricionalApp.NutricionalDB();
-            this.vwitensrecordatoriodetalhadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vw_itensrecordatorio_detalhadoTableAdapter = new NutricionalApp.NutricionalDBTableAdapters.vw_itensrecordatorio_detalhadoTableAdapter();
-            this.recordatoriodescricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label9 = new System.Windows.Forms.Label();
+            this.protocolosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.protocolosTableAdapter = new NutricionalApp.NutricionalDBTableAdapters.protocolosTableAdapter();
+            this.descricaoperiodo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datarecDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.horaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.medidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descricaoalimentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cb_NomeDescricao = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gr_itens.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vwitensrecordatoriodetalhadoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nutricionalDB)).BeginInit();
             this.gr_selecao.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nutricionalDB)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vwitensrecordatoriodetalhadoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.protocolosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -94,6 +97,7 @@
             // 
             this.tabPage1.AutoScroll = true;
             this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.bt_EditarRec);
             this.tabPage1.Controls.Add(this.cb_Recordatorios);
             this.tabPage1.Controls.Add(this.txt_DescricaoNome);
@@ -114,7 +118,7 @@
             // 
             this.bt_EditarRec.Enabled = false;
             this.bt_EditarRec.Image = global::NutricionalApp.Properties.Resources.Edit_Text_File_16;
-            this.bt_EditarRec.Location = new System.Drawing.Point(684, 101);
+            this.bt_EditarRec.Location = new System.Drawing.Point(571, 67);
             this.bt_EditarRec.Name = "bt_EditarRec";
             this.bt_EditarRec.Size = new System.Drawing.Size(75, 30);
             this.bt_EditarRec.TabIndex = 11;
@@ -127,7 +131,7 @@
             // 
             this.cb_Recordatorios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_Recordatorios.FormattingEnabled = true;
-            this.cb_Recordatorios.Location = new System.Drawing.Point(19, 49);
+            this.cb_Recordatorios.Location = new System.Drawing.Point(211, 73);
             this.cb_Recordatorios.Name = "cb_Recordatorios";
             this.cb_Recordatorios.Size = new System.Drawing.Size(354, 21);
             this.cb_Recordatorios.TabIndex = 10;
@@ -135,15 +139,15 @@
             // 
             // txt_DescricaoNome
             // 
-            this.txt_DescricaoNome.Location = new System.Drawing.Point(19, 110);
+            this.txt_DescricaoNome.Location = new System.Drawing.Point(379, 23);
             this.txt_DescricaoNome.Name = "txt_DescricaoNome";
-            this.txt_DescricaoNome.Size = new System.Drawing.Size(354, 20);
+            this.txt_DescricaoNome.Size = new System.Drawing.Size(299, 20);
             this.txt_DescricaoNome.TabIndex = 8;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 94);
+            this.label2.Location = new System.Drawing.Point(376, 7);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 7;
@@ -152,13 +156,46 @@
             // gr_itens
             // 
             this.gr_itens.Controls.Add(this.dataGridView1);
-            this.gr_itens.Location = new System.Drawing.Point(19, 296);
+            this.gr_itens.Location = new System.Drawing.Point(19, 259);
             this.gr_itens.Name = "gr_itens";
-            this.gr_itens.Size = new System.Drawing.Size(740, 136);
+            this.gr_itens.Size = new System.Drawing.Size(740, 173);
             this.gr_itens.TabIndex = 5;
             this.gr_itens.TabStop = false;
             this.gr_itens.Text = "Itens:";
             this.gr_itens.Visible = false;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.descricaoperiodo,
+            this.datarecDataGridViewTextBoxColumn,
+            this.horaDataGridViewTextBoxColumn,
+            this.quantidadeDataGridViewTextBoxColumn,
+            this.medidaDataGridViewTextBoxColumn,
+            this.descricaoalimentoDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.vwitensrecordatoriodetalhadoBindingSource;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 16);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 40;
+            this.dataGridView1.Size = new System.Drawing.Size(734, 154);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // vwitensrecordatoriodetalhadoBindingSource
+            // 
+            this.vwitensrecordatoriodetalhadoBindingSource.DataMember = "vw_itensrecordatorio_detalhado";
+            this.vwitensrecordatoriodetalhadoBindingSource.DataSource = this.nutricionalDB;
+            // 
+            // nutricionalDB
+            // 
+            this.nutricionalDB.DataSetName = "NutricionalDB";
+            this.nutricionalDB.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gr_selecao
             // 
@@ -174,13 +211,50 @@
             this.gr_selecao.Controls.Add(this.label3);
             this.gr_selecao.Controls.Add(this.cb_Taco);
             this.gr_selecao.Controls.Add(this.dt_DataHoraRec);
-            this.gr_selecao.Location = new System.Drawing.Point(19, 136);
+            this.gr_selecao.Location = new System.Drawing.Point(19, 103);
             this.gr_selecao.Name = "gr_selecao";
-            this.gr_selecao.Size = new System.Drawing.Size(740, 154);
+            this.gr_selecao.Size = new System.Drawing.Size(740, 150);
             this.gr_selecao.TabIndex = 4;
             this.gr_selecao.TabStop = false;
             this.gr_selecao.Text = "Seleção:";
             this.gr_selecao.Visible = false;
+            // 
+            // cb_NomeDescricao
+            // 
+            this.cb_NomeDescricao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_NomeDescricao.FormattingEnabled = true;
+            this.cb_NomeDescricao.Items.AddRange(new object[] {
+            "Café da Manhã",
+            "Almoço",
+            "Lanche da Manhã",
+            "Lanche da Tarde",
+            "Jantar",
+            "Ceia"});
+            this.cb_NomeDescricao.Location = new System.Drawing.Point(20, 37);
+            this.cb_NomeDescricao.Name = "cb_NomeDescricao";
+            this.cb_NomeDescricao.Size = new System.Drawing.Size(166, 21);
+            this.cb_NomeDescricao.TabIndex = 11;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(18, 21);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(31, 13);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Tipo:";
+            // 
+            // bt_adicionarItemRec
+            // 
+            this.bt_adicionarItemRec.Image = global::NutricionalApp.Properties.Resources.Add_16;
+            this.bt_adicionarItemRec.Location = new System.Drawing.Point(634, 76);
+            this.bt_adicionarItemRec.Name = "bt_adicionarItemRec";
+            this.bt_adicionarItemRec.Size = new System.Drawing.Size(103, 59);
+            this.bt_adicionarItemRec.TabIndex = 9;
+            this.bt_adicionarItemRec.Text = "Adicionar ao Recordatório";
+            this.bt_adicionarItemRec.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bt_adicionarItemRec.UseVisualStyleBackColor = true;
+            this.bt_adicionarItemRec.Click += new System.EventHandler(this.bt_adicionarItemRec_Click);
             // 
             // label7
             // 
@@ -265,7 +339,7 @@
             // bt_adicionarRec
             // 
             this.bt_adicionarRec.Image = global::NutricionalApp.Properties.Resources.Add_File_16px;
-            this.bt_adicionarRec.Location = new System.Drawing.Point(684, 65);
+            this.bt_adicionarRec.Location = new System.Drawing.Point(684, 16);
             this.bt_adicionarRec.Name = "bt_adicionarRec";
             this.bt_adicionarRec.Size = new System.Drawing.Size(75, 30);
             this.bt_adicionarRec.TabIndex = 3;
@@ -316,83 +390,51 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea21.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea21);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            legend21.Name = "Legend1";
+            this.chart1.Legends.Add(legend21);
             this.chart1.Location = new System.Drawing.Point(3, 16);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
-            series1.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            series1.BorderColor = System.Drawing.Color.Black;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Font = new System.Drawing.Font("Arial", 10F);
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series21.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            series21.BorderColor = System.Drawing.Color.Black;
+            series21.ChartArea = "ChartArea1";
+            series21.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series21.Font = new System.Drawing.Font("Arial", 10F);
+            series21.Legend = "Legend1";
+            series21.Name = "Series1";
+            this.chart1.Series.Add(series21);
             this.chart1.Size = new System.Drawing.Size(356, 177);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
             this.chart1.Visible = false;
             // 
-            // bt_adicionarItemRec
+            // label9
             // 
-            this.bt_adicionarItemRec.Image = global::NutricionalApp.Properties.Resources.Add_16;
-            this.bt_adicionarItemRec.Location = new System.Drawing.Point(631, 89);
-            this.bt_adicionarItemRec.Name = "bt_adicionarItemRec";
-            this.bt_adicionarItemRec.Size = new System.Drawing.Size(103, 59);
-            this.bt_adicionarItemRec.TabIndex = 9;
-            this.bt_adicionarItemRec.Text = "Adicionar ao Recordatório";
-            this.bt_adicionarItemRec.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.bt_adicionarItemRec.UseVisualStyleBackColor = true;
-            this.bt_adicionarItemRec.Click += new System.EventHandler(this.bt_adicionarItemRec_Click);
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(208, 57);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(136, 13);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "Recordatorios do Paciente:";
             // 
-            // dataGridView1
+            // protocolosBindingSource
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.recordatoriodescricaoDataGridViewTextBoxColumn,
-            this.datarecDataGridViewTextBoxColumn,
-            this.horaDataGridViewTextBoxColumn,
-            this.quantidadeDataGridViewTextBoxColumn,
-            this.medidaDataGridViewTextBoxColumn,
-            this.descricaoalimentoDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.vwitensrecordatoriodetalhadoBindingSource;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 16);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 40;
-            this.dataGridView1.Size = new System.Drawing.Size(734, 117);
-            this.dataGridView1.TabIndex = 0;
+            this.protocolosBindingSource.DataMember = "protocolos";
+            this.protocolosBindingSource.DataSource = this.nutricionalDB;
             // 
-            // nutricionalDB
+            // protocolosTableAdapter
             // 
-            this.nutricionalDB.DataSetName = "NutricionalDB";
-            this.nutricionalDB.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.protocolosTableAdapter.ClearBeforeFill = true;
             // 
-            // vwitensrecordatoriodetalhadoBindingSource
+            // descricaoperiodo
             // 
-            this.vwitensrecordatoriodetalhadoBindingSource.DataMember = "vw_itensrecordatorio_detalhado";
-            this.vwitensrecordatoriodetalhadoBindingSource.DataSource = this.nutricionalDB;
-            // 
-            // vw_itensrecordatorio_detalhadoTableAdapter
-            // 
-            this.vw_itensrecordatorio_detalhadoTableAdapter.ClearBeforeFill = true;
-            // 
-            // recordatoriodescricaoDataGridViewTextBoxColumn
-            // 
-            this.recordatoriodescricaoDataGridViewTextBoxColumn.DataPropertyName = "recordatorio_descricao";
-            this.recordatoriodescricaoDataGridViewTextBoxColumn.HeaderText = "Descrição";
-            this.recordatoriodescricaoDataGridViewTextBoxColumn.Name = "recordatoriodescricaoDataGridViewTextBoxColumn";
-            this.recordatoriodescricaoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.recordatoriodescricaoDataGridViewTextBoxColumn.Width = 150;
+            this.descricaoperiodo.DataPropertyName = "descricaoperiodo";
+            this.descricaoperiodo.HeaderText = "Período";
+            this.descricaoperiodo.Name = "descricaoperiodo";
+            this.descricaoperiodo.ReadOnly = true;
             // 
             // datarecDataGridViewTextBoxColumn
             // 
@@ -400,7 +442,7 @@
             this.datarecDataGridViewTextBoxColumn.HeaderText = "Data";
             this.datarecDataGridViewTextBoxColumn.Name = "datarecDataGridViewTextBoxColumn";
             this.datarecDataGridViewTextBoxColumn.ReadOnly = true;
-            this.datarecDataGridViewTextBoxColumn.Width = 50;
+            this.datarecDataGridViewTextBoxColumn.Width = 75;
             // 
             // horaDataGridViewTextBoxColumn
             // 
@@ -431,37 +473,7 @@
             this.descricaoalimentoDataGridViewTextBoxColumn.HeaderText = "Taco4";
             this.descricaoalimentoDataGridViewTextBoxColumn.Name = "descricaoalimentoDataGridViewTextBoxColumn";
             this.descricaoalimentoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descricaoalimentoDataGridViewTextBoxColumn.Width = 325;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(18, 21);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(31, 13);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "Tipo:";
-            // 
-            // cb_NomeDescricao
-            // 
-            this.cb_NomeDescricao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_NomeDescricao.FormattingEnabled = true;
-            this.cb_NomeDescricao.Items.AddRange(new object[] {
-            "Café da Manhã",
-            "Almoço",
-            "",
-            "",
-            "Lanche da Manhã",
-            "",
-            "Lanche da Tarde",
-            "",
-            "Jantar",
-            "",
-            "Ceia"});
-            this.cb_NomeDescricao.Location = new System.Drawing.Point(20, 37);
-            this.cb_NomeDescricao.Name = "cb_NomeDescricao";
-            this.cb_NomeDescricao.Size = new System.Drawing.Size(166, 21);
-            this.cb_NomeDescricao.TabIndex = 11;
+            this.descricaoalimentoDataGridViewTextBoxColumn.Width = 350;
             // 
             // CadRecordatorio
             // 
@@ -477,14 +489,15 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.gr_itens.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vwitensrecordatoriodetalhadoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nutricionalDB)).EndInit();
             this.gr_selecao.ResumeLayout(false);
             this.gr_selecao.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nutricionalDB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vwitensrecordatoriodetalhadoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.protocolosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -518,14 +531,16 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private NutricionalDB nutricionalDB;
         private System.Windows.Forms.BindingSource vwitensrecordatoriodetalhadoBindingSource;
-        private NutricionalDBTableAdapters.vw_itensrecordatorio_detalhadoTableAdapter vw_itensrecordatorio_detalhadoTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn recordatoriodescricaoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cb_NomeDescricao;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.BindingSource protocolosBindingSource;
+        private NutricionalDBTableAdapters.protocolosTableAdapter protocolosTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descricaoperiodo;
         private System.Windows.Forms.DataGridViewTextBoxColumn datarecDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn horaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantidadeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn medidaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descricaoalimentoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox cb_NomeDescricao;
     }
 }

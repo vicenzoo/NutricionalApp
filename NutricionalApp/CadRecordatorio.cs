@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -32,8 +33,6 @@ namespace NutricionalApp
 
         private void CadRecordatorio_Load(object sender, EventArgs e)
         {
-            // TODO: esta linha de código carrega dados na tabela 'nutricionalDB.vw_itensrecordatorio_detalhado'. Você pode movê-la ou removê-la conforme necessário.
-            this.vw_itensrecordatorio_detalhadoTableAdapter.Fill(this.nutricionalDB.vw_itensrecordatorio_detalhado);
             FormMain GetIDNutricionista = Application.OpenForms.OfType<FormMain>().FirstOrDefault(); //Função para Pegar o Numero de ID do Nutricionista
             NutricionistaID = Convert.ToInt32(GetIDNutricionista.IDLabel.Text.Substring(1));
 
@@ -148,7 +147,7 @@ namespace NutricionalApp
                 // Exibe ou usa o id do paciente selecionado
                 int idTaco = TacoSelecionado.Id;
                 TacoID = idTaco;
-                MessageBox.Show($"ID da TACO selecionada: {idTaco}");
+                //MessageBox.Show($"ID da TACO selecionada: {idTaco}");
             }
         }
 
@@ -179,16 +178,26 @@ namespace NutricionalApp
             {
                 try
                 {
+                    // Preenche o ComboBox Taco com os dados vindos do banco
                     db.GetTacoCombo(cb_Taco);
                 }
                 catch (Exception error)
                 {
-                    MessageBox.Show($"Erro: {error}!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Erro: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+
+               string query = "SELECT descricaoperiodo,data_rec,hora,quantidade,medida,descricao_alimento FROM vw_itensrecordatorio_detalhado WHERE recordatorio_id = @Filtro";
+
+               db.CarregarDados(query, RecordatorioID, dataGridView1);
             }
+
+            bt_adicionarRec.Enabled = false;
+            cb_Pacientes.Enabled = false;
+            txt_DescricaoNome.Text = "";
             gr_selecao.Visible = true;
             gr_itens.Visible = true;
+
         }
 
         private void bt_adicionarItemRec_Click(object sender, EventArgs e)
@@ -207,16 +216,15 @@ namespace NutricionalApp
                         // Adicionando os parâmetros com seus respectivos valores
                         comm.Parameters.AddWithValue("@recordatorio_id", RecordatorioID); 
                         comm.Parameters.AddWithValue("@data_rec", dt_DataHoraRec.Value.Date); // Data atual
-                        comm.Parameters.AddWithValue("@hora", dt_DataHoraRec.Value.ToString("HH:mm:ss")); // Hora atual
+                        comm.Parameters.AddWithValue("@hora", dt_DataHoraRec.Value.TimeOfDay); // Hora atual
                         comm.Parameters.AddWithValue("@taco_id", TacoID); // Substitua por sua variável ou campo correspondente
-                        comm.Parameters.AddWithValue("@descricao", txt_DescricaoNome); // Substitua por sua variável ou campo correspondente
-                        comm.Parameters.AddWithValue("@quantidade", Quantidade); // Substitua por sua variável ou campo correspondente
-                        comm.Parameters.AddWithValue("@medida", ); // Substitua por sua variável ou campo correspondente
+                        comm.Parameters.AddWithValue("@descricao", cb_NomeDescricao.Text); // Substitua por sua variável ou campo correspondente
+                        comm.Parameters.AddWithValue("@quantidade", Convert.ToInt32(txt_QuantidadeItens.Text)); // Substitua por sua variável ou campo correspondente
+                        comm.Parameters.AddWithValue("@medida",txt_Medida.Text ); // Substitua por sua variável ou campo correspondente
 
                         try
                         {
                             comm.ExecuteNonQuery();
-                            dataGridView1.Refresh(); // Atualiza o DataGridView
                         }
                         catch (Exception error)
                         {
@@ -230,7 +238,8 @@ namespace NutricionalApp
             {
                 cb_Taco.Focus();
             }
-
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = this.vwitensrecordatoriodetalhadoBindingSource;
         }
     }
 }

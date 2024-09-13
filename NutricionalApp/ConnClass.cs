@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -425,6 +426,42 @@ namespace NutricionalApp
             }
         }
 
+        public void CarregarDados(string query, int filtro, DataGridView dataGridView)
+        {
+            try
+            {
+                using (var db = new DatabaseConnection())
+                {
+                    using (NpgsqlConnection connection = db.GetConnection())
+                    {
+                        connection.Open();
 
+                        using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
+                        {
+                            // Passa o filtro como inteiro
+                            command.Parameters.AddWithValue("@Filtro", filtro);
+
+                            NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(command);
+
+                            DataTable dataTable = new DataTable();
+                            dataAdapter.Fill(dataTable);
+
+                            if (dataTable.Rows.Count > 0)
+                            {
+                                dataGridView.DataSource = dataTable;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Nenhum item encontrado.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao carregar dados: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

@@ -24,8 +24,6 @@ namespace NutricionalApp {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class NutricionalDB : global::System.Data.DataSet {
         
-        private vw_itensrecordatorio_detalhadoDataTable tablevw_itensrecordatorio_detalhado;
-        
         private gastos_caloricosDataTable tablegastos_caloricos;
         
         private itens_recordatorioDataTable tableitens_recordatorio;
@@ -43,6 +41,8 @@ namespace NutricionalApp {
         private sist_admDataTable tablesist_adm;
         
         private tabela_taco4DataTable tabletabela_taco4;
+        
+        private vw_itensrecordatorio_detalhadoDataTable tablevw_itensrecordatorio_detalhado;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -72,9 +72,6 @@ namespace NutricionalApp {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["vw_itensrecordatorio_detalhado"] != null)) {
-                    base.Tables.Add(new vw_itensrecordatorio_detalhadoDataTable(ds.Tables["vw_itensrecordatorio_detalhado"]));
-                }
                 if ((ds.Tables["gastos_caloricos"] != null)) {
                     base.Tables.Add(new gastos_caloricosDataTable(ds.Tables["gastos_caloricos"]));
                 }
@@ -102,6 +99,9 @@ namespace NutricionalApp {
                 if ((ds.Tables["tabela_taco4"] != null)) {
                     base.Tables.Add(new tabela_taco4DataTable(ds.Tables["tabela_taco4"]));
                 }
+                if ((ds.Tables["vw_itensrecordatorio_detalhado"] != null)) {
+                    base.Tables.Add(new vw_itensrecordatorio_detalhadoDataTable(ds.Tables["vw_itensrecordatorio_detalhado"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -118,16 +118,6 @@ namespace NutricionalApp {
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
             base.Tables.CollectionChanged += schemaChangedHandler;
             this.Relations.CollectionChanged += schemaChangedHandler;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public vw_itensrecordatorio_detalhadoDataTable vw_itensrecordatorio_detalhado {
-            get {
-                return this.tablevw_itensrecordatorio_detalhado;
-            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -222,6 +212,16 @@ namespace NutricionalApp {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public vw_itensrecordatorio_detalhadoDataTable vw_itensrecordatorio_detalhado {
+            get {
+                return this.tablevw_itensrecordatorio_detalhado;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -287,9 +287,6 @@ namespace NutricionalApp {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["vw_itensrecordatorio_detalhado"] != null)) {
-                    base.Tables.Add(new vw_itensrecordatorio_detalhadoDataTable(ds.Tables["vw_itensrecordatorio_detalhado"]));
-                }
                 if ((ds.Tables["gastos_caloricos"] != null)) {
                     base.Tables.Add(new gastos_caloricosDataTable(ds.Tables["gastos_caloricos"]));
                 }
@@ -316,6 +313,9 @@ namespace NutricionalApp {
                 }
                 if ((ds.Tables["tabela_taco4"] != null)) {
                     base.Tables.Add(new tabela_taco4DataTable(ds.Tables["tabela_taco4"]));
+                }
+                if ((ds.Tables["vw_itensrecordatorio_detalhado"] != null)) {
+                    base.Tables.Add(new vw_itensrecordatorio_detalhadoDataTable(ds.Tables["vw_itensrecordatorio_detalhado"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -350,12 +350,6 @@ namespace NutricionalApp {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablevw_itensrecordatorio_detalhado = ((vw_itensrecordatorio_detalhadoDataTable)(base.Tables["vw_itensrecordatorio_detalhado"]));
-            if ((initTable == true)) {
-                if ((this.tablevw_itensrecordatorio_detalhado != null)) {
-                    this.tablevw_itensrecordatorio_detalhado.InitVars();
-                }
-            }
             this.tablegastos_caloricos = ((gastos_caloricosDataTable)(base.Tables["gastos_caloricos"]));
             if ((initTable == true)) {
                 if ((this.tablegastos_caloricos != null)) {
@@ -410,6 +404,12 @@ namespace NutricionalApp {
                     this.tabletabela_taco4.InitVars();
                 }
             }
+            this.tablevw_itensrecordatorio_detalhado = ((vw_itensrecordatorio_detalhadoDataTable)(base.Tables["vw_itensrecordatorio_detalhado"]));
+            if ((initTable == true)) {
+                if ((this.tablevw_itensrecordatorio_detalhado != null)) {
+                    this.tablevw_itensrecordatorio_detalhado.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -420,8 +420,6 @@ namespace NutricionalApp {
             this.Namespace = "http://tempuri.org/NutricionalDB.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablevw_itensrecordatorio_detalhado = new vw_itensrecordatorio_detalhadoDataTable();
-            base.Tables.Add(this.tablevw_itensrecordatorio_detalhado);
             this.tablegastos_caloricos = new gastos_caloricosDataTable();
             base.Tables.Add(this.tablegastos_caloricos);
             this.tableitens_recordatorio = new itens_recordatorioDataTable();
@@ -440,12 +438,8 @@ namespace NutricionalApp {
             base.Tables.Add(this.tablesist_adm);
             this.tabletabela_taco4 = new tabela_taco4DataTable();
             base.Tables.Add(this.tabletabela_taco4);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializevw_itensrecordatorio_detalhado() {
-            return false;
+            this.tablevw_itensrecordatorio_detalhado = new vw_itensrecordatorio_detalhadoDataTable();
+            base.Tables.Add(this.tablevw_itensrecordatorio_detalhado);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -499,6 +493,12 @@ namespace NutricionalApp {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializetabela_taco4() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializevw_itensrecordatorio_detalhado() {
             return false;
         }
         
@@ -558,9 +558,6 @@ namespace NutricionalApp {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void vw_itensrecordatorio_detalhadoRowChangeEventHandler(object sender, vw_itensrecordatorio_detalhadoRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void gastos_caloricosRowChangeEventHandler(object sender, gastos_caloricosRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -587,410 +584,8 @@ namespace NutricionalApp {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void tabela_taco4RowChangeEventHandler(object sender, tabela_taco4RowChangeEvent e);
         
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class vw_itensrecordatorio_detalhadoDataTable : global::System.Data.TypedTableBase<vw_itensrecordatorio_detalhadoRow> {
-            
-            private global::System.Data.DataColumn columnid_itensrec;
-            
-            private global::System.Data.DataColumn columnrecordatorio_id;
-            
-            private global::System.Data.DataColumn columnrecordatorio_descricao;
-            
-            private global::System.Data.DataColumn columnnome_paciente;
-            
-            private global::System.Data.DataColumn columndata_rec;
-            
-            private global::System.Data.DataColumn columnhora;
-            
-            private global::System.Data.DataColumn columnquantidade;
-            
-            private global::System.Data.DataColumn columnmedida;
-            
-            private global::System.Data.DataColumn columndescricao_alimento;
-            
-            private global::System.Data.DataColumn columncarboidrato;
-            
-            private global::System.Data.DataColumn columnproteina;
-            
-            private global::System.Data.DataColumn columnlipideos;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public vw_itensrecordatorio_detalhadoDataTable() {
-                this.TableName = "vw_itensrecordatorio_detalhado";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal vw_itensrecordatorio_detalhadoDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected vw_itensrecordatorio_detalhadoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn id_itensrecColumn {
-                get {
-                    return this.columnid_itensrec;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn recordatorio_idColumn {
-                get {
-                    return this.columnrecordatorio_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn recordatorio_descricaoColumn {
-                get {
-                    return this.columnrecordatorio_descricao;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn nome_pacienteColumn {
-                get {
-                    return this.columnnome_paciente;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn data_recColumn {
-                get {
-                    return this.columndata_rec;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn horaColumn {
-                get {
-                    return this.columnhora;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn quantidadeColumn {
-                get {
-                    return this.columnquantidade;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn medidaColumn {
-                get {
-                    return this.columnmedida;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn descricao_alimentoColumn {
-                get {
-                    return this.columndescricao_alimento;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn carboidratoColumn {
-                get {
-                    return this.columncarboidrato;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn proteinaColumn {
-                get {
-                    return this.columnproteina;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn lipideosColumn {
-                get {
-                    return this.columnlipideos;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public vw_itensrecordatorio_detalhadoRow this[int index] {
-                get {
-                    return ((vw_itensrecordatorio_detalhadoRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event vw_itensrecordatorio_detalhadoRowChangeEventHandler vw_itensrecordatorio_detalhadoRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event vw_itensrecordatorio_detalhadoRowChangeEventHandler vw_itensrecordatorio_detalhadoRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event vw_itensrecordatorio_detalhadoRowChangeEventHandler vw_itensrecordatorio_detalhadoRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event vw_itensrecordatorio_detalhadoRowChangeEventHandler vw_itensrecordatorio_detalhadoRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Addvw_itensrecordatorio_detalhadoRow(vw_itensrecordatorio_detalhadoRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public vw_itensrecordatorio_detalhadoRow Addvw_itensrecordatorio_detalhadoRow(int id_itensrec, int recordatorio_id, string recordatorio_descricao, string nome_paciente, System.DateTime data_rec, System.TimeSpan hora, short quantidade, string medida, string descricao_alimento, decimal carboidrato, decimal proteina, decimal lipideos) {
-                vw_itensrecordatorio_detalhadoRow rowvw_itensrecordatorio_detalhadoRow = ((vw_itensrecordatorio_detalhadoRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        id_itensrec,
-                        recordatorio_id,
-                        recordatorio_descricao,
-                        nome_paciente,
-                        data_rec,
-                        hora,
-                        quantidade,
-                        medida,
-                        descricao_alimento,
-                        carboidrato,
-                        proteina,
-                        lipideos};
-                rowvw_itensrecordatorio_detalhadoRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowvw_itensrecordatorio_detalhadoRow);
-                return rowvw_itensrecordatorio_detalhadoRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                vw_itensrecordatorio_detalhadoDataTable cln = ((vw_itensrecordatorio_detalhadoDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new vw_itensrecordatorio_detalhadoDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal void InitVars() {
-                this.columnid_itensrec = base.Columns["id_itensrec"];
-                this.columnrecordatorio_id = base.Columns["recordatorio_id"];
-                this.columnrecordatorio_descricao = base.Columns["recordatorio_descricao"];
-                this.columnnome_paciente = base.Columns["nome_paciente"];
-                this.columndata_rec = base.Columns["data_rec"];
-                this.columnhora = base.Columns["hora"];
-                this.columnquantidade = base.Columns["quantidade"];
-                this.columnmedida = base.Columns["medida"];
-                this.columndescricao_alimento = base.Columns["descricao_alimento"];
-                this.columncarboidrato = base.Columns["carboidrato"];
-                this.columnproteina = base.Columns["proteina"];
-                this.columnlipideos = base.Columns["lipideos"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            private void InitClass() {
-                this.columnid_itensrec = new global::System.Data.DataColumn("id_itensrec", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid_itensrec);
-                this.columnrecordatorio_id = new global::System.Data.DataColumn("recordatorio_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnrecordatorio_id);
-                this.columnrecordatorio_descricao = new global::System.Data.DataColumn("recordatorio_descricao", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnrecordatorio_descricao);
-                this.columnnome_paciente = new global::System.Data.DataColumn("nome_paciente", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnome_paciente);
-                this.columndata_rec = new global::System.Data.DataColumn("data_rec", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndata_rec);
-                this.columnhora = new global::System.Data.DataColumn("hora", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnhora);
-                this.columnquantidade = new global::System.Data.DataColumn("quantidade", typeof(short), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnquantidade);
-                this.columnmedida = new global::System.Data.DataColumn("medida", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnmedida);
-                this.columndescricao_alimento = new global::System.Data.DataColumn("descricao_alimento", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndescricao_alimento);
-                this.columncarboidrato = new global::System.Data.DataColumn("carboidrato", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncarboidrato);
-                this.columnproteina = new global::System.Data.DataColumn("proteina", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnproteina);
-                this.columnlipideos = new global::System.Data.DataColumn("lipideos", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnlipideos);
-                this.columnrecordatorio_descricao.MaxLength = 150;
-                this.columnnome_paciente.MaxLength = 280;
-                this.columnmedida.MaxLength = 150;
-                this.columndescricao_alimento.MaxLength = 255;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public vw_itensrecordatorio_detalhadoRow Newvw_itensrecordatorio_detalhadoRow() {
-                return ((vw_itensrecordatorio_detalhadoRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new vw_itensrecordatorio_detalhadoRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(vw_itensrecordatorio_detalhadoRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.vw_itensrecordatorio_detalhadoRowChanged != null)) {
-                    this.vw_itensrecordatorio_detalhadoRowChanged(this, new vw_itensrecordatorio_detalhadoRowChangeEvent(((vw_itensrecordatorio_detalhadoRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.vw_itensrecordatorio_detalhadoRowChanging != null)) {
-                    this.vw_itensrecordatorio_detalhadoRowChanging(this, new vw_itensrecordatorio_detalhadoRowChangeEvent(((vw_itensrecordatorio_detalhadoRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.vw_itensrecordatorio_detalhadoRowDeleted != null)) {
-                    this.vw_itensrecordatorio_detalhadoRowDeleted(this, new vw_itensrecordatorio_detalhadoRowChangeEvent(((vw_itensrecordatorio_detalhadoRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.vw_itensrecordatorio_detalhadoRowDeleting != null)) {
-                    this.vw_itensrecordatorio_detalhadoRowDeleting(this, new vw_itensrecordatorio_detalhadoRowChangeEvent(((vw_itensrecordatorio_detalhadoRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Removevw_itensrecordatorio_detalhadoRow(vw_itensrecordatorio_detalhadoRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                NutricionalDB ds = new NutricionalDB();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "vw_itensrecordatorio_detalhadoDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void vw_itensrecordatorio_detalhadoRowChangeEventHandler(object sender, vw_itensrecordatorio_detalhadoRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -4720,363 +4315,422 @@ namespace NutricionalApp {
         }
         
         /// <summary>
-        ///Represents strongly named DataRow class.
+        ///Represents the strongly named DataTable class.
         ///</summary>
-        public partial class vw_itensrecordatorio_detalhadoRow : global::System.Data.DataRow {
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class vw_itensrecordatorio_detalhadoDataTable : global::System.Data.TypedTableBase<vw_itensrecordatorio_detalhadoRow> {
             
-            private vw_itensrecordatorio_detalhadoDataTable tablevw_itensrecordatorio_detalhado;
+            private global::System.Data.DataColumn columnid_itensrec;
+            
+            private global::System.Data.DataColumn columnrecordatorio_id;
+            
+            private global::System.Data.DataColumn columnrecordatorio_descricao;
+            
+            private global::System.Data.DataColumn columndescricaoperiodo;
+            
+            private global::System.Data.DataColumn columnnome_paciente;
+            
+            private global::System.Data.DataColumn columndata_rec;
+            
+            private global::System.Data.DataColumn columnhora;
+            
+            private global::System.Data.DataColumn columnquantidade;
+            
+            private global::System.Data.DataColumn columnmedida;
+            
+            private global::System.Data.DataColumn columndescricao_alimento;
+            
+            private global::System.Data.DataColumn columncarboidrato;
+            
+            private global::System.Data.DataColumn columnproteina;
+            
+            private global::System.Data.DataColumn columnlipideos;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal vw_itensrecordatorio_detalhadoRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tablevw_itensrecordatorio_detalhado = ((vw_itensrecordatorio_detalhadoDataTable)(this.Table));
+            public vw_itensrecordatorio_detalhadoDataTable() {
+                this.TableName = "vw_itensrecordatorio_detalhado";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int id_itensrec {
+            internal vw_itensrecordatorio_detalhadoDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected vw_itensrecordatorio_detalhadoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_itensrecColumn {
                 get {
-                    try {
-                        return ((int)(this[this.tablevw_itensrecordatorio_detalhado.id_itensrecColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'id_itensrec\' na tabela \'vw_itensrecordatorio_detalhado\' é DBNu" +
-                                "ll.", e);
-                    }
-                }
-                set {
-                    this[this.tablevw_itensrecordatorio_detalhado.id_itensrecColumn] = value;
+                    return this.columnid_itensrec;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int recordatorio_id {
+            public global::System.Data.DataColumn recordatorio_idColumn {
                 get {
-                    try {
-                        return ((int)(this[this.tablevw_itensrecordatorio_detalhado.recordatorio_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'recordatorio_id\' na tabela \'vw_itensrecordatorio_detalhado\' é " +
-                                "DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablevw_itensrecordatorio_detalhado.recordatorio_idColumn] = value;
+                    return this.columnrecordatorio_id;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string recordatorio_descricao {
+            public global::System.Data.DataColumn recordatorio_descricaoColumn {
                 get {
-                    try {
-                        return ((string)(this[this.tablevw_itensrecordatorio_detalhado.recordatorio_descricaoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'recordatorio_descricao\' na tabela \'vw_itensrecordatorio_detalh" +
-                                "ado\' é DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablevw_itensrecordatorio_detalhado.recordatorio_descricaoColumn] = value;
+                    return this.columnrecordatorio_descricao;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string nome_paciente {
+            public global::System.Data.DataColumn descricaoperiodoColumn {
                 get {
-                    try {
-                        return ((string)(this[this.tablevw_itensrecordatorio_detalhado.nome_pacienteColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'nome_paciente\' na tabela \'vw_itensrecordatorio_detalhado\' é DB" +
-                                "Null.", e);
-                    }
-                }
-                set {
-                    this[this.tablevw_itensrecordatorio_detalhado.nome_pacienteColumn] = value;
+                    return this.columndescricaoperiodo;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime data_rec {
+            public global::System.Data.DataColumn nome_pacienteColumn {
                 get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tablevw_itensrecordatorio_detalhado.data_recColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'data_rec\' na tabela \'vw_itensrecordatorio_detalhado\' é DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablevw_itensrecordatorio_detalhado.data_recColumn] = value;
+                    return this.columnnome_paciente;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.TimeSpan hora {
+            public global::System.Data.DataColumn data_recColumn {
                 get {
-                    try {
-                        return ((global::System.TimeSpan)(this[this.tablevw_itensrecordatorio_detalhado.horaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'hora\' na tabela \'vw_itensrecordatorio_detalhado\' é DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablevw_itensrecordatorio_detalhado.horaColumn] = value;
+                    return this.columndata_rec;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public short quantidade {
+            public global::System.Data.DataColumn horaColumn {
                 get {
-                    try {
-                        return ((short)(this[this.tablevw_itensrecordatorio_detalhado.quantidadeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'quantidade\' na tabela \'vw_itensrecordatorio_detalhado\' é DBNul" +
-                                "l.", e);
-                    }
-                }
-                set {
-                    this[this.tablevw_itensrecordatorio_detalhado.quantidadeColumn] = value;
+                    return this.columnhora;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string medida {
+            public global::System.Data.DataColumn quantidadeColumn {
                 get {
-                    try {
-                        return ((string)(this[this.tablevw_itensrecordatorio_detalhado.medidaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'medida\' na tabela \'vw_itensrecordatorio_detalhado\' é DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablevw_itensrecordatorio_detalhado.medidaColumn] = value;
+                    return this.columnquantidade;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string descricao_alimento {
+            public global::System.Data.DataColumn medidaColumn {
                 get {
-                    try {
-                        return ((string)(this[this.tablevw_itensrecordatorio_detalhado.descricao_alimentoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'descricao_alimento\' na tabela \'vw_itensrecordatorio_detalhado\'" +
-                                " é DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablevw_itensrecordatorio_detalhado.descricao_alimentoColumn] = value;
+                    return this.columnmedida;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal carboidrato {
+            public global::System.Data.DataColumn descricao_alimentoColumn {
                 get {
-                    try {
-                        return ((decimal)(this[this.tablevw_itensrecordatorio_detalhado.carboidratoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'carboidrato\' na tabela \'vw_itensrecordatorio_detalhado\' é DBNu" +
-                                "ll.", e);
-                    }
-                }
-                set {
-                    this[this.tablevw_itensrecordatorio_detalhado.carboidratoColumn] = value;
+                    return this.columndescricao_alimento;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal proteina {
+            public global::System.Data.DataColumn carboidratoColumn {
                 get {
-                    try {
-                        return ((decimal)(this[this.tablevw_itensrecordatorio_detalhado.proteinaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'proteina\' na tabela \'vw_itensrecordatorio_detalhado\' é DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablevw_itensrecordatorio_detalhado.proteinaColumn] = value;
+                    return this.columncarboidrato;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal lipideos {
+            public global::System.Data.DataColumn proteinaColumn {
                 get {
+                    return this.columnproteina;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn lipideosColumn {
+                get {
+                    return this.columnlipideos;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public vw_itensrecordatorio_detalhadoRow this[int index] {
+                get {
+                    return ((vw_itensrecordatorio_detalhadoRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event vw_itensrecordatorio_detalhadoRowChangeEventHandler vw_itensrecordatorio_detalhadoRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event vw_itensrecordatorio_detalhadoRowChangeEventHandler vw_itensrecordatorio_detalhadoRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event vw_itensrecordatorio_detalhadoRowChangeEventHandler vw_itensrecordatorio_detalhadoRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event vw_itensrecordatorio_detalhadoRowChangeEventHandler vw_itensrecordatorio_detalhadoRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Addvw_itensrecordatorio_detalhadoRow(vw_itensrecordatorio_detalhadoRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public vw_itensrecordatorio_detalhadoRow Addvw_itensrecordatorio_detalhadoRow(int id_itensrec, int recordatorio_id, string recordatorio_descricao, string descricaoperiodo, string nome_paciente, System.DateTime data_rec, System.TimeSpan hora, short quantidade, string medida, string descricao_alimento, decimal carboidrato, decimal proteina, decimal lipideos) {
+                vw_itensrecordatorio_detalhadoRow rowvw_itensrecordatorio_detalhadoRow = ((vw_itensrecordatorio_detalhadoRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        id_itensrec,
+                        recordatorio_id,
+                        recordatorio_descricao,
+                        descricaoperiodo,
+                        nome_paciente,
+                        data_rec,
+                        hora,
+                        quantidade,
+                        medida,
+                        descricao_alimento,
+                        carboidrato,
+                        proteina,
+                        lipideos};
+                rowvw_itensrecordatorio_detalhadoRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowvw_itensrecordatorio_detalhadoRow);
+                return rowvw_itensrecordatorio_detalhadoRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                vw_itensrecordatorio_detalhadoDataTable cln = ((vw_itensrecordatorio_detalhadoDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new vw_itensrecordatorio_detalhadoDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnid_itensrec = base.Columns["id_itensrec"];
+                this.columnrecordatorio_id = base.Columns["recordatorio_id"];
+                this.columnrecordatorio_descricao = base.Columns["recordatorio_descricao"];
+                this.columndescricaoperiodo = base.Columns["descricaoperiodo"];
+                this.columnnome_paciente = base.Columns["nome_paciente"];
+                this.columndata_rec = base.Columns["data_rec"];
+                this.columnhora = base.Columns["hora"];
+                this.columnquantidade = base.Columns["quantidade"];
+                this.columnmedida = base.Columns["medida"];
+                this.columndescricao_alimento = base.Columns["descricao_alimento"];
+                this.columncarboidrato = base.Columns["carboidrato"];
+                this.columnproteina = base.Columns["proteina"];
+                this.columnlipideos = base.Columns["lipideos"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnid_itensrec = new global::System.Data.DataColumn("id_itensrec", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_itensrec);
+                this.columnrecordatorio_id = new global::System.Data.DataColumn("recordatorio_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnrecordatorio_id);
+                this.columnrecordatorio_descricao = new global::System.Data.DataColumn("recordatorio_descricao", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnrecordatorio_descricao);
+                this.columndescricaoperiodo = new global::System.Data.DataColumn("descricaoperiodo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndescricaoperiodo);
+                this.columnnome_paciente = new global::System.Data.DataColumn("nome_paciente", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnome_paciente);
+                this.columndata_rec = new global::System.Data.DataColumn("data_rec", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndata_rec);
+                this.columnhora = new global::System.Data.DataColumn("hora", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnhora);
+                this.columnquantidade = new global::System.Data.DataColumn("quantidade", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnquantidade);
+                this.columnmedida = new global::System.Data.DataColumn("medida", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmedida);
+                this.columndescricao_alimento = new global::System.Data.DataColumn("descricao_alimento", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndescricao_alimento);
+                this.columncarboidrato = new global::System.Data.DataColumn("carboidrato", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncarboidrato);
+                this.columnproteina = new global::System.Data.DataColumn("proteina", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnproteina);
+                this.columnlipideos = new global::System.Data.DataColumn("lipideos", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlipideos);
+                this.columnrecordatorio_descricao.MaxLength = 150;
+                this.columndescricaoperiodo.MaxLength = 500;
+                this.columnnome_paciente.MaxLength = 280;
+                this.columnmedida.MaxLength = 150;
+                this.columndescricao_alimento.MaxLength = 255;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public vw_itensrecordatorio_detalhadoRow Newvw_itensrecordatorio_detalhadoRow() {
+                return ((vw_itensrecordatorio_detalhadoRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new vw_itensrecordatorio_detalhadoRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(vw_itensrecordatorio_detalhadoRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.vw_itensrecordatorio_detalhadoRowChanged != null)) {
+                    this.vw_itensrecordatorio_detalhadoRowChanged(this, new vw_itensrecordatorio_detalhadoRowChangeEvent(((vw_itensrecordatorio_detalhadoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.vw_itensrecordatorio_detalhadoRowChanging != null)) {
+                    this.vw_itensrecordatorio_detalhadoRowChanging(this, new vw_itensrecordatorio_detalhadoRowChangeEvent(((vw_itensrecordatorio_detalhadoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.vw_itensrecordatorio_detalhadoRowDeleted != null)) {
+                    this.vw_itensrecordatorio_detalhadoRowDeleted(this, new vw_itensrecordatorio_detalhadoRowChangeEvent(((vw_itensrecordatorio_detalhadoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.vw_itensrecordatorio_detalhadoRowDeleting != null)) {
+                    this.vw_itensrecordatorio_detalhadoRowDeleting(this, new vw_itensrecordatorio_detalhadoRowChangeEvent(((vw_itensrecordatorio_detalhadoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Removevw_itensrecordatorio_detalhadoRow(vw_itensrecordatorio_detalhadoRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                NutricionalDB ds = new NutricionalDB();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "vw_itensrecordatorio_detalhadoDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
                     try {
-                        return ((decimal)(this[this.tablevw_itensrecordatorio_detalhado.lipideosColumn]));
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'lipideos\' na tabela \'vw_itensrecordatorio_detalhado\' é DBNull." +
-                                "", e);
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
                     }
                 }
-                set {
-                    this[this.tablevw_itensrecordatorio_detalhado.lipideosColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isid_itensrecNull() {
-                return this.IsNull(this.tablevw_itensrecordatorio_detalhado.id_itensrecColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setid_itensrecNull() {
-                this[this.tablevw_itensrecordatorio_detalhado.id_itensrecColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isrecordatorio_idNull() {
-                return this.IsNull(this.tablevw_itensrecordatorio_detalhado.recordatorio_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setrecordatorio_idNull() {
-                this[this.tablevw_itensrecordatorio_detalhado.recordatorio_idColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isrecordatorio_descricaoNull() {
-                return this.IsNull(this.tablevw_itensrecordatorio_detalhado.recordatorio_descricaoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setrecordatorio_descricaoNull() {
-                this[this.tablevw_itensrecordatorio_detalhado.recordatorio_descricaoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isnome_pacienteNull() {
-                return this.IsNull(this.tablevw_itensrecordatorio_detalhado.nome_pacienteColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setnome_pacienteNull() {
-                this[this.tablevw_itensrecordatorio_detalhado.nome_pacienteColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isdata_recNull() {
-                return this.IsNull(this.tablevw_itensrecordatorio_detalhado.data_recColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setdata_recNull() {
-                this[this.tablevw_itensrecordatorio_detalhado.data_recColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IshoraNull() {
-                return this.IsNull(this.tablevw_itensrecordatorio_detalhado.horaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SethoraNull() {
-                this[this.tablevw_itensrecordatorio_detalhado.horaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsquantidadeNull() {
-                return this.IsNull(this.tablevw_itensrecordatorio_detalhado.quantidadeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetquantidadeNull() {
-                this[this.tablevw_itensrecordatorio_detalhado.quantidadeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsmedidaNull() {
-                return this.IsNull(this.tablevw_itensrecordatorio_detalhado.medidaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetmedidaNull() {
-                this[this.tablevw_itensrecordatorio_detalhado.medidaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isdescricao_alimentoNull() {
-                return this.IsNull(this.tablevw_itensrecordatorio_detalhado.descricao_alimentoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setdescricao_alimentoNull() {
-                this[this.tablevw_itensrecordatorio_detalhado.descricao_alimentoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IscarboidratoNull() {
-                return this.IsNull(this.tablevw_itensrecordatorio_detalhado.carboidratoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetcarboidratoNull() {
-                this[this.tablevw_itensrecordatorio_detalhado.carboidratoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsproteinaNull() {
-                return this.IsNull(this.tablevw_itensrecordatorio_detalhado.proteinaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetproteinaNull() {
-                this[this.tablevw_itensrecordatorio_detalhado.proteinaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IslipideosNull() {
-                return this.IsNull(this.tablevw_itensrecordatorio_detalhado.lipideosColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetlipideosNull() {
-                this[this.tablevw_itensrecordatorio_detalhado.lipideosColumn] = global::System.Convert.DBNull;
+                xs.Add(dsSchema);
+                return type;
             }
         }
         
@@ -7070,36 +6724,392 @@ namespace NutricionalApp {
         }
         
         /// <summary>
-        ///Row event argument class
+        ///Represents strongly named DataRow class.
         ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class vw_itensrecordatorio_detalhadoRowChangeEvent : global::System.EventArgs {
+        public partial class vw_itensrecordatorio_detalhadoRow : global::System.Data.DataRow {
             
-            private vw_itensrecordatorio_detalhadoRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
+            private vw_itensrecordatorio_detalhadoDataTable tablevw_itensrecordatorio_detalhado;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public vw_itensrecordatorio_detalhadoRowChangeEvent(vw_itensrecordatorio_detalhadoRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
+            internal vw_itensrecordatorio_detalhadoRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablevw_itensrecordatorio_detalhado = ((vw_itensrecordatorio_detalhadoDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public vw_itensrecordatorio_detalhadoRow Row {
+            public int id_itensrec {
                 get {
-                    return this.eventRow;
+                    try {
+                        return ((int)(this[this.tablevw_itensrecordatorio_detalhado.id_itensrecColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'id_itensrec\' na tabela \'vw_itensrecordatorio_detalhado\' é DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tablevw_itensrecordatorio_detalhado.id_itensrecColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataRowAction Action {
+            public int recordatorio_id {
                 get {
-                    return this.eventAction;
+                    try {
+                        return ((int)(this[this.tablevw_itensrecordatorio_detalhado.recordatorio_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'recordatorio_id\' na tabela \'vw_itensrecordatorio_detalhado\' é " +
+                                "DBNull.", e);
+                    }
                 }
+                set {
+                    this[this.tablevw_itensrecordatorio_detalhado.recordatorio_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string recordatorio_descricao {
+                get {
+                    try {
+                        return ((string)(this[this.tablevw_itensrecordatorio_detalhado.recordatorio_descricaoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'recordatorio_descricao\' na tabela \'vw_itensrecordatorio_detalh" +
+                                "ado\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevw_itensrecordatorio_detalhado.recordatorio_descricaoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string descricaoperiodo {
+                get {
+                    try {
+                        return ((string)(this[this.tablevw_itensrecordatorio_detalhado.descricaoperiodoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'descricaoperiodo\' na tabela \'vw_itensrecordatorio_detalhado\' é" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevw_itensrecordatorio_detalhado.descricaoperiodoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string nome_paciente {
+                get {
+                    try {
+                        return ((string)(this[this.tablevw_itensrecordatorio_detalhado.nome_pacienteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'nome_paciente\' na tabela \'vw_itensrecordatorio_detalhado\' é DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tablevw_itensrecordatorio_detalhado.nome_pacienteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime data_rec {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablevw_itensrecordatorio_detalhado.data_recColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'data_rec\' na tabela \'vw_itensrecordatorio_detalhado\' é DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablevw_itensrecordatorio_detalhado.data_recColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.TimeSpan hora {
+                get {
+                    try {
+                        return ((global::System.TimeSpan)(this[this.tablevw_itensrecordatorio_detalhado.horaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'hora\' na tabela \'vw_itensrecordatorio_detalhado\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevw_itensrecordatorio_detalhado.horaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public short quantidade {
+                get {
+                    try {
+                        return ((short)(this[this.tablevw_itensrecordatorio_detalhado.quantidadeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'quantidade\' na tabela \'vw_itensrecordatorio_detalhado\' é DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tablevw_itensrecordatorio_detalhado.quantidadeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string medida {
+                get {
+                    try {
+                        return ((string)(this[this.tablevw_itensrecordatorio_detalhado.medidaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'medida\' na tabela \'vw_itensrecordatorio_detalhado\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevw_itensrecordatorio_detalhado.medidaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string descricao_alimento {
+                get {
+                    try {
+                        return ((string)(this[this.tablevw_itensrecordatorio_detalhado.descricao_alimentoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'descricao_alimento\' na tabela \'vw_itensrecordatorio_detalhado\'" +
+                                " é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevw_itensrecordatorio_detalhado.descricao_alimentoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal carboidrato {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablevw_itensrecordatorio_detalhado.carboidratoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'carboidrato\' na tabela \'vw_itensrecordatorio_detalhado\' é DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tablevw_itensrecordatorio_detalhado.carboidratoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal proteina {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablevw_itensrecordatorio_detalhado.proteinaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'proteina\' na tabela \'vw_itensrecordatorio_detalhado\' é DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablevw_itensrecordatorio_detalhado.proteinaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal lipideos {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablevw_itensrecordatorio_detalhado.lipideosColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'lipideos\' na tabela \'vw_itensrecordatorio_detalhado\' é DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablevw_itensrecordatorio_detalhado.lipideosColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isid_itensrecNull() {
+                return this.IsNull(this.tablevw_itensrecordatorio_detalhado.id_itensrecColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setid_itensrecNull() {
+                this[this.tablevw_itensrecordatorio_detalhado.id_itensrecColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isrecordatorio_idNull() {
+                return this.IsNull(this.tablevw_itensrecordatorio_detalhado.recordatorio_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setrecordatorio_idNull() {
+                this[this.tablevw_itensrecordatorio_detalhado.recordatorio_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isrecordatorio_descricaoNull() {
+                return this.IsNull(this.tablevw_itensrecordatorio_detalhado.recordatorio_descricaoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setrecordatorio_descricaoNull() {
+                this[this.tablevw_itensrecordatorio_detalhado.recordatorio_descricaoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsdescricaoperiodoNull() {
+                return this.IsNull(this.tablevw_itensrecordatorio_detalhado.descricaoperiodoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetdescricaoperiodoNull() {
+                this[this.tablevw_itensrecordatorio_detalhado.descricaoperiodoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isnome_pacienteNull() {
+                return this.IsNull(this.tablevw_itensrecordatorio_detalhado.nome_pacienteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setnome_pacienteNull() {
+                this[this.tablevw_itensrecordatorio_detalhado.nome_pacienteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isdata_recNull() {
+                return this.IsNull(this.tablevw_itensrecordatorio_detalhado.data_recColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setdata_recNull() {
+                this[this.tablevw_itensrecordatorio_detalhado.data_recColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IshoraNull() {
+                return this.IsNull(this.tablevw_itensrecordatorio_detalhado.horaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SethoraNull() {
+                this[this.tablevw_itensrecordatorio_detalhado.horaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsquantidadeNull() {
+                return this.IsNull(this.tablevw_itensrecordatorio_detalhado.quantidadeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetquantidadeNull() {
+                this[this.tablevw_itensrecordatorio_detalhado.quantidadeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsmedidaNull() {
+                return this.IsNull(this.tablevw_itensrecordatorio_detalhado.medidaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetmedidaNull() {
+                this[this.tablevw_itensrecordatorio_detalhado.medidaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isdescricao_alimentoNull() {
+                return this.IsNull(this.tablevw_itensrecordatorio_detalhado.descricao_alimentoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setdescricao_alimentoNull() {
+                this[this.tablevw_itensrecordatorio_detalhado.descricao_alimentoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IscarboidratoNull() {
+                return this.IsNull(this.tablevw_itensrecordatorio_detalhado.carboidratoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetcarboidratoNull() {
+                this[this.tablevw_itensrecordatorio_detalhado.carboidratoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsproteinaNull() {
+                return this.IsNull(this.tablevw_itensrecordatorio_detalhado.proteinaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetproteinaNull() {
+                this[this.tablevw_itensrecordatorio_detalhado.proteinaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IslipideosNull() {
+                return this.IsNull(this.tablevw_itensrecordatorio_detalhado.lipideosColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetlipideosNull() {
+                this[this.tablevw_itensrecordatorio_detalhado.lipideosColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -7408,190 +7418,44 @@ namespace NutricionalApp {
                 }
             }
         }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class vw_itensrecordatorio_detalhadoRowChangeEvent : global::System.EventArgs {
+            
+            private vw_itensrecordatorio_detalhadoRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public vw_itensrecordatorio_detalhadoRowChangeEvent(vw_itensrecordatorio_detalhadoRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public vw_itensrecordatorio_detalhadoRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
     }
 }
 namespace NutricionalApp.NutricionalDBTableAdapters {
     
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class vw_itensrecordatorio_detalhadoTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.Odbc.OdbcDataAdapter _adapter;
-        
-        private global::System.Data.Odbc.OdbcConnection _connection;
-        
-        private global::System.Data.Odbc.OdbcTransaction _transaction;
-        
-        private global::System.Data.Odbc.OdbcCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public vw_itensrecordatorio_detalhadoTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected internal global::System.Data.Odbc.OdbcDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.Odbc.OdbcConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.Odbc.OdbcCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.Odbc.OdbcTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected global::System.Data.Odbc.OdbcCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.Odbc.OdbcDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "vw_itensrecordatorio_detalhado";
-            tableMapping.ColumnMappings.Add("id_itensrec", "id_itensrec");
-            tableMapping.ColumnMappings.Add("recordatorio_id", "recordatorio_id");
-            tableMapping.ColumnMappings.Add("recordatorio_descricao", "recordatorio_descricao");
-            tableMapping.ColumnMappings.Add("nome_paciente", "nome_paciente");
-            tableMapping.ColumnMappings.Add("data_rec", "data_rec");
-            tableMapping.ColumnMappings.Add("hora", "hora");
-            tableMapping.ColumnMappings.Add("quantidade", "quantidade");
-            tableMapping.ColumnMappings.Add("medida", "medida");
-            tableMapping.ColumnMappings.Add("descricao_alimento", "descricao_alimento");
-            tableMapping.ColumnMappings.Add("carboidrato", "carboidrato");
-            tableMapping.ColumnMappings.Add("proteina", "proteina");
-            tableMapping.ColumnMappings.Add("lipideos", "lipideos");
-            this._adapter.TableMappings.Add(tableMapping);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.Odbc.OdbcConnection();
-            this._connection.ConnectionString = global::NutricionalApp.Properties.Settings.Default.ConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.Odbc.OdbcCommand[1];
-            this._commandCollection[0] = new global::System.Data.Odbc.OdbcCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT \"id_itensrec\", \"recordatorio_id\", \"recordatorio_descricao\", \"nome_paciente" +
-                "\", \"data_rec\", \"hora\", \"quantidade\", \"medida\", \"descricao_alimento\", \"carboidrat" +
-                "o\", \"proteina\", \"lipideos\" FROM \"public\".\"vw_itensrecordatorio_detalhado\"";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(NutricionalDB.vw_itensrecordatorio_detalhadoDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual NutricionalDB.vw_itensrecordatorio_detalhadoDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            NutricionalDB.vw_itensrecordatorio_detalhadoDataTable dataTable = new NutricionalDB.vw_itensrecordatorio_detalhadoDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-    }
     
     /// <summary>
     ///Represents the connection and commands used to retrieve and save data.
@@ -11763,6 +11627,188 @@ namespace NutricionalApp.NutricionalDBTableAdapters {
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class vw_itensrecordatorio_detalhadoTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.Odbc.OdbcDataAdapter _adapter;
+        
+        private global::System.Data.Odbc.OdbcConnection _connection;
+        
+        private global::System.Data.Odbc.OdbcTransaction _transaction;
+        
+        private global::System.Data.Odbc.OdbcCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public vw_itensrecordatorio_detalhadoTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.Odbc.OdbcDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.Odbc.OdbcConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.Odbc.OdbcCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.Odbc.OdbcTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.Odbc.OdbcCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.Odbc.OdbcDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "vw_itensrecordatorio_detalhado";
+            tableMapping.ColumnMappings.Add("id_itensrec", "id_itensrec");
+            tableMapping.ColumnMappings.Add("recordatorio_id", "recordatorio_id");
+            tableMapping.ColumnMappings.Add("recordatorio_descricao", "recordatorio_descricao");
+            tableMapping.ColumnMappings.Add("descricaoperiodo", "descricaoperiodo");
+            tableMapping.ColumnMappings.Add("nome_paciente", "nome_paciente");
+            tableMapping.ColumnMappings.Add("data_rec", "data_rec");
+            tableMapping.ColumnMappings.Add("hora", "hora");
+            tableMapping.ColumnMappings.Add("quantidade", "quantidade");
+            tableMapping.ColumnMappings.Add("medida", "medida");
+            tableMapping.ColumnMappings.Add("descricao_alimento", "descricao_alimento");
+            tableMapping.ColumnMappings.Add("carboidrato", "carboidrato");
+            tableMapping.ColumnMappings.Add("proteina", "proteina");
+            tableMapping.ColumnMappings.Add("lipideos", "lipideos");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.Odbc.OdbcConnection();
+            this._connection.ConnectionString = global::NutricionalApp.Properties.Settings.Default.ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.Odbc.OdbcCommand[1];
+            this._commandCollection[0] = new global::System.Data.Odbc.OdbcCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT \"id_itensrec\", \"recordatorio_id\", \"recordatorio_descricao\", \"descricaoperi" +
+                "odo\", \"nome_paciente\", \"data_rec\", \"hora\", \"quantidade\", \"medida\", \"descricao_al" +
+                "imento\", \"carboidrato\", \"proteina\", \"lipideos\" FROM \"public\".\"vw_itensrecordator" +
+                "io_detalhado\"";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(NutricionalDB.vw_itensrecordatorio_detalhadoDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual NutricionalDB.vw_itensrecordatorio_detalhadoDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            NutricionalDB.vw_itensrecordatorio_detalhadoDataTable dataTable = new NutricionalDB.vw_itensrecordatorio_detalhadoDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
         }
     }
     
