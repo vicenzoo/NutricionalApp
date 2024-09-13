@@ -7,6 +7,33 @@
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (Settings)" PropertyReference="ApplicationSettings.NutricionalApp.Properties.Settings.GlobalReference.Default.ConnectionString" Provider="System.Data.Odbc" />
         </Connections>
         <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vw_itensrecordatorio_detalhadoTableAdapter" GeneratorDataComponentClassName="vw_itensrecordatorio_detalhadoTableAdapter" Name="vw_itensrecordatorio_detalhado" UserDataComponentName="vw_itensrecordatorio_detalhadoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT "id_itensrec", "recordatorio_id", "recordatorio_descricao", "nome_paciente", "data_rec", "hora", "quantidade", "medida", "descricao_alimento", "carboidrato", "proteina", "lipideos" FROM "public"."vw_itensrecordatorio_detalhado"</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id_itensrec" DataSetColumn="id_itensrec" />
+              <Mapping SourceColumn="recordatorio_id" DataSetColumn="recordatorio_id" />
+              <Mapping SourceColumn="recordatorio_descricao" DataSetColumn="recordatorio_descricao" />
+              <Mapping SourceColumn="nome_paciente" DataSetColumn="nome_paciente" />
+              <Mapping SourceColumn="data_rec" DataSetColumn="data_rec" />
+              <Mapping SourceColumn="hora" DataSetColumn="hora" />
+              <Mapping SourceColumn="quantidade" DataSetColumn="quantidade" />
+              <Mapping SourceColumn="medida" DataSetColumn="medida" />
+              <Mapping SourceColumn="descricao_alimento" DataSetColumn="descricao_alimento" />
+              <Mapping SourceColumn="carboidrato" DataSetColumn="carboidrato" />
+              <Mapping SourceColumn="proteina" DataSetColumn="proteina" />
+              <Mapping SourceColumn="lipideos" DataSetColumn="lipideos" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="gastos_caloricosTableAdapter" GeneratorDataComponentClassName="gastos_caloricosTableAdapter" Name="gastos_caloricos" UserDataComponentName="gastos_caloricosTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectName="postgres.gastos_caloricos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
@@ -104,56 +131,56 @@
               <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectName="postgres.itens_recordatorio" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM "postgres"."public"."itens_recordatorio" WHERE (("id_itensrec" = ?) AND ("recordatorio_id" = ?) AND ("Data" = ?) AND ("hora" = ?) AND ("taco_id" = ?) AND ("quantidade" = ?) AND ("Medida" = ?))</CommandText>
+                    <CommandText>DELETE FROM "postgres"."public"."itens_recordatorio" WHERE (("id_itensrec" = ?) AND ("recordatorio_id" = ?) AND ("data_rec" = ?) AND ("hora" = ?) AND ("taco_id" = ?) AND ("quantidade" = ?) AND ("medida" = ?))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_id_itensrec" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_itensrec" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_recordatorio_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="recordatorio_id" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="Original_Data" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Data" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="Original_data_rec" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="data_rec" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Time" Direction="Input" ParameterName="Original_hora" Precision="0" ProviderType="Time" Scale="0" Size="0" SourceColumn="hora" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_taco_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="taco_id" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="Original_quantidade" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="quantidade" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_Medida" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Medida" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_medida" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="medida" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO "postgres"."public"."itens_recordatorio" ("recordatorio_id", "Data", "hora", "taco_id", "descricao", "quantidade", "Medida") VALUES (?, ?, ?, ?, ?, ?, ?)</CommandText>
+                    <CommandText>INSERT INTO "postgres"."public"."itens_recordatorio" ("recordatorio_id", "data_rec", "hora", "taco_id", "descricao", "quantidade", "medida") VALUES (?, ?, ?, ?, ?, ?, ?)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="recordatorio_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="recordatorio_id" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="Data" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Data" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="data_rec" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="data_rec" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Time" Direction="Input" ParameterName="hora" Precision="0" ProviderType="Time" Scale="0" Size="0" SourceColumn="hora" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="taco_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="taco_id" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="descricao" Precision="0" ProviderType="NText" Scale="0" Size="0" SourceColumn="descricao" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="quantidade" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="quantidade" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Medida" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Medida" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="medida" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="medida" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT "id_itensrec", "recordatorio_id", "Data", "hora", "taco_id", "descricao", "quantidade", "Medida" FROM "public"."itens_recordatorio"</CommandText>
+                    <CommandText>SELECT "id_itensrec", "recordatorio_id", "data_rec", "hora", "taco_id", "descricao", "quantidade", "medida" FROM "public"."itens_recordatorio"</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE "postgres"."public"."itens_recordatorio" SET "recordatorio_id" = ?, "Data" = ?, "hora" = ?, "taco_id" = ?, "descricao" = ?, "quantidade" = ?, "Medida" = ? WHERE (("id_itensrec" = ?) AND ("recordatorio_id" = ?) AND ("Data" = ?) AND ("hora" = ?) AND ("taco_id" = ?) AND ("quantidade" = ?) AND ("Medida" = ?))</CommandText>
+                    <CommandText>UPDATE "postgres"."public"."itens_recordatorio" SET "recordatorio_id" = ?, "data_rec" = ?, "hora" = ?, "taco_id" = ?, "descricao" = ?, "quantidade" = ?, "medida" = ? WHERE (("id_itensrec" = ?) AND ("recordatorio_id" = ?) AND ("data_rec" = ?) AND ("hora" = ?) AND ("taco_id" = ?) AND ("quantidade" = ?) AND ("medida" = ?))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="recordatorio_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="recordatorio_id" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="Data" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Data" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="data_rec" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="data_rec" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Time" Direction="Input" ParameterName="hora" Precision="0" ProviderType="Time" Scale="0" Size="0" SourceColumn="hora" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="taco_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="taco_id" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="descricao" Precision="0" ProviderType="NText" Scale="0" Size="0" SourceColumn="descricao" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="quantidade" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="quantidade" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Medida" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Medida" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="medida" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="medida" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_id_itensrec" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_itensrec" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_recordatorio_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="recordatorio_id" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="Original_Data" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Data" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="Original_data_rec" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="data_rec" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Time" Direction="Input" ParameterName="Original_hora" Precision="0" ProviderType="Time" Scale="0" Size="0" SourceColumn="hora" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_taco_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="taco_id" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="Original_quantidade" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="quantidade" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_Medida" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Medida" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_medida" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="medida" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </UpdateCommand>
@@ -162,12 +189,12 @@
             <Mappings>
               <Mapping SourceColumn="id_itensrec" DataSetColumn="id_itensrec" />
               <Mapping SourceColumn="recordatorio_id" DataSetColumn="recordatorio_id" />
-              <Mapping SourceColumn="Data" DataSetColumn="Data" />
+              <Mapping SourceColumn="data_rec" DataSetColumn="data_rec" />
               <Mapping SourceColumn="hora" DataSetColumn="hora" />
               <Mapping SourceColumn="taco_id" DataSetColumn="taco_id" />
               <Mapping SourceColumn="descricao" DataSetColumn="descricao" />
               <Mapping SourceColumn="quantidade" DataSetColumn="quantidade" />
-              <Mapping SourceColumn="Medida" DataSetColumn="Medida" />
+              <Mapping SourceColumn="medida" DataSetColumn="medida" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -513,10 +540,10 @@
               <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectName="postgres.recordatorio_24h" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM "postgres"."public"."recordatorio_24h" WHERE (("id_rec" = ?) AND ("Data_Inclusao" = ?) AND ("paciente_id" = ?) AND ("nutricionista_id" = ?) AND ("ativo" = ?) AND ("descricao_nome" = ?))</CommandText>
+                    <CommandText>DELETE FROM "postgres"."public"."recordatorio_24h" WHERE (("id_rec" = ?) AND ("data_inclusao" = ?) AND ("paciente_id" = ?) AND ("nutricionista_id" = ?) AND ("ativo" = ?) AND ("descricao_nome" = ?))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_id_rec" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_rec" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="Original_Data_Inclusao" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="Data_Inclusao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="Original_data_inclusao" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="data_inclusao" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_paciente_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="paciente_id" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_nutricionista_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nutricionista_id" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="Original_ativo" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ativo" SourceColumnNullMapping="false" SourceVersion="Original" />
@@ -526,9 +553,9 @@
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO "postgres"."public"."recordatorio_24h" ("Data_Inclusao", "paciente_id", "nutricionista_id", "ativo", "descricao_nome") VALUES (?, ?, ?, ?, ?)</CommandText>
+                    <CommandText>INSERT INTO "postgres"."public"."recordatorio_24h" ("data_inclusao", "paciente_id", "nutricionista_id", "ativo", "descricao_nome") VALUES (?, ?, ?, ?, ?)</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="Data_Inclusao" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="Data_Inclusao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="data_inclusao" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="data_inclusao" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="paciente_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="paciente_id" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="nutricionista_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nutricionista_id" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="ativo" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ativo" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -538,21 +565,21 @@
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT "id_rec", "Data_Inclusao", "paciente_id", "nutricionista_id", "ativo", "descricao_nome" FROM "public"."recordatorio_24h"</CommandText>
+                    <CommandText>SELECT "id_rec", "data_inclusao", "paciente_id", "nutricionista_id", "ativo", "descricao_nome" FROM "public"."recordatorio_24h"</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE "postgres"."public"."recordatorio_24h" SET "Data_Inclusao" = ?, "paciente_id" = ?, "nutricionista_id" = ?, "ativo" = ?, "descricao_nome" = ? WHERE (("id_rec" = ?) AND ("Data_Inclusao" = ?) AND ("paciente_id" = ?) AND ("nutricionista_id" = ?) AND ("ativo" = ?) AND ("descricao_nome" = ?))</CommandText>
+                    <CommandText>UPDATE "postgres"."public"."recordatorio_24h" SET "data_inclusao" = ?, "paciente_id" = ?, "nutricionista_id" = ?, "ativo" = ?, "descricao_nome" = ? WHERE (("id_rec" = ?) AND ("data_inclusao" = ?) AND ("paciente_id" = ?) AND ("nutricionista_id" = ?) AND ("ativo" = ?) AND ("descricao_nome" = ?))</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="Data_Inclusao" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="Data_Inclusao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="data_inclusao" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="data_inclusao" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="paciente_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="paciente_id" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="nutricionista_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nutricionista_id" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="ativo" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ativo" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="descricao_nome" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="descricao_nome" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_id_rec" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_rec" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="Original_Data_Inclusao" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="Data_Inclusao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="Original_data_inclusao" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="data_inclusao" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_paciente_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="paciente_id" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_nutricionista_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nutricionista_id" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="Original_ativo" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ativo" SourceColumnNullMapping="false" SourceVersion="Original" />
@@ -564,7 +591,7 @@
             </MainSource>
             <Mappings>
               <Mapping SourceColumn="id_rec" DataSetColumn="id_rec" />
-              <Mapping SourceColumn="Data_Inclusao" DataSetColumn="Data_Inclusao" />
+              <Mapping SourceColumn="data_inclusao" DataSetColumn="data_inclusao" />
               <Mapping SourceColumn="paciente_id" DataSetColumn="paciente_id" />
               <Mapping SourceColumn="nutricionista_id" DataSetColumn="nutricionista_id" />
               <Mapping SourceColumn="ativo" DataSetColumn="ativo" />
@@ -872,6 +899,48 @@
   <xs:element name="NutricionalDB" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="NutricionalDB" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="NutricionalDB">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="vw_itensrecordatorio_detalhado" msprop:Generator_RowEvHandlerName="vw_itensrecordatorio_detalhadoRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_itensrecordatorio_detalhadoRowDeleted" msprop:Generator_RowDeletingName="vw_itensrecordatorio_detalhadoRowDeleting" msprop:Generator_RowEvArgName="vw_itensrecordatorio_detalhadoRowChangeEvent" msprop:Generator_TablePropName="vw_itensrecordatorio_detalhado" msprop:Generator_RowChangedName="vw_itensrecordatorio_detalhadoRowChanged" msprop:Generator_RowChangingName="vw_itensrecordatorio_detalhadoRowChanging" msprop:Generator_TableClassName="vw_itensrecordatorio_detalhadoDataTable" msprop:Generator_RowClassName="vw_itensrecordatorio_detalhadoRow" msprop:Generator_TableVarName="tablevw_itensrecordatorio_detalhado" msprop:Generator_UserTableName="vw_itensrecordatorio_detalhado">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_itensrec" msprop:Generator_ColumnPropNameInRow="id_itensrec" msprop:Generator_ColumnPropNameInTable="id_itensrecColumn" msprop:Generator_ColumnVarNameInTable="columnid_itensrec" msprop:Generator_UserColumnName="id_itensrec" type="xs:int" minOccurs="0" />
+              <xs:element name="recordatorio_id" msprop:Generator_ColumnPropNameInRow="recordatorio_id" msprop:Generator_ColumnPropNameInTable="recordatorio_idColumn" msprop:Generator_ColumnVarNameInTable="columnrecordatorio_id" msprop:Generator_UserColumnName="recordatorio_id" type="xs:int" minOccurs="0" />
+              <xs:element name="recordatorio_descricao" msprop:Generator_ColumnPropNameInRow="recordatorio_descricao" msprop:Generator_ColumnPropNameInTable="recordatorio_descricaoColumn" msprop:Generator_ColumnVarNameInTable="columnrecordatorio_descricao" msprop:Generator_UserColumnName="recordatorio_descricao" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nome_paciente" msprop:Generator_ColumnPropNameInRow="nome_paciente" msprop:Generator_ColumnPropNameInTable="nome_pacienteColumn" msprop:Generator_ColumnVarNameInTable="columnnome_paciente" msprop:Generator_UserColumnName="nome_paciente" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="280" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="data_rec" msprop:Generator_ColumnPropNameInRow="data_rec" msprop:Generator_ColumnPropNameInTable="data_recColumn" msprop:Generator_ColumnVarNameInTable="columndata_rec" msprop:Generator_UserColumnName="data_rec" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="hora" msprop:Generator_ColumnPropNameInRow="hora" msprop:Generator_ColumnPropNameInTable="horaColumn" msprop:Generator_ColumnVarNameInTable="columnhora" msprop:Generator_UserColumnName="hora" type="xs:duration" minOccurs="0" />
+              <xs:element name="quantidade" msprop:Generator_ColumnPropNameInRow="quantidade" msprop:Generator_ColumnPropNameInTable="quantidadeColumn" msprop:Generator_ColumnVarNameInTable="columnquantidade" msprop:Generator_UserColumnName="quantidade" type="xs:short" minOccurs="0" />
+              <xs:element name="medida" msprop:Generator_ColumnPropNameInRow="medida" msprop:Generator_ColumnPropNameInTable="medidaColumn" msprop:Generator_ColumnVarNameInTable="columnmedida" msprop:Generator_UserColumnName="medida" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="descricao_alimento" msprop:Generator_ColumnPropNameInRow="descricao_alimento" msprop:Generator_ColumnPropNameInTable="descricao_alimentoColumn" msprop:Generator_ColumnVarNameInTable="columndescricao_alimento" msprop:Generator_UserColumnName="descricao_alimento" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="carboidrato" msprop:Generator_ColumnPropNameInRow="carboidrato" msprop:Generator_ColumnPropNameInTable="carboidratoColumn" msprop:Generator_ColumnVarNameInTable="columncarboidrato" msprop:Generator_UserColumnName="carboidrato" type="xs:decimal" minOccurs="0" />
+              <xs:element name="proteina" msprop:Generator_ColumnPropNameInRow="proteina" msprop:Generator_ColumnPropNameInTable="proteinaColumn" msprop:Generator_ColumnVarNameInTable="columnproteina" msprop:Generator_UserColumnName="proteina" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lipideos" msprop:Generator_ColumnPropNameInRow="lipideos" msprop:Generator_ColumnPropNameInTable="lipideosColumn" msprop:Generator_ColumnVarNameInTable="columnlipideos" msprop:Generator_UserColumnName="lipideos" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
         <xs:element name="gastos_caloricos" msprop:Generator_RowEvHandlerName="gastos_caloricosRowChangeEventHandler" msprop:Generator_RowDeletedName="gastos_caloricosRowDeleted" msprop:Generator_RowDeletingName="gastos_caloricosRowDeleting" msprop:Generator_RowEvArgName="gastos_caloricosRowChangeEvent" msprop:Generator_TablePropName="gastos_caloricos" msprop:Generator_RowChangedName="gastos_caloricosRowChanged" msprop:Generator_RowChangingName="gastos_caloricosRowChanging" msprop:Generator_TableClassName="gastos_caloricosDataTable" msprop:Generator_RowClassName="gastos_caloricosRow" msprop:Generator_TableVarName="tablegastos_caloricos" msprop:Generator_UserTableName="gastos_caloricos">
           <xs:complexType>
             <xs:sequence>
@@ -913,7 +982,7 @@
             <xs:sequence>
               <xs:element name="id_itensrec" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="id_itensrec" msprop:Generator_ColumnPropNameInTable="id_itensrecColumn" msprop:Generator_ColumnVarNameInTable="columnid_itensrec" msprop:Generator_UserColumnName="id_itensrec" type="xs:int" />
               <xs:element name="recordatorio_id" msprop:Generator_ColumnPropNameInRow="recordatorio_id" msprop:Generator_ColumnPropNameInTable="recordatorio_idColumn" msprop:Generator_ColumnVarNameInTable="columnrecordatorio_id" msprop:Generator_UserColumnName="recordatorio_id" type="xs:int" />
-              <xs:element name="Data" msprop:Generator_ColumnPropNameInRow="Data" msprop:Generator_ColumnPropNameInTable="DataColumn" msprop:Generator_ColumnVarNameInTable="columnData" msprop:Generator_UserColumnName="Data" type="xs:dateTime" />
+              <xs:element name="data_rec" msprop:Generator_ColumnPropNameInRow="data_rec" msprop:Generator_ColumnPropNameInTable="data_recColumn" msprop:Generator_ColumnVarNameInTable="columndata_rec" msprop:Generator_UserColumnName="data_rec" type="xs:dateTime" />
               <xs:element name="hora" msprop:Generator_ColumnPropNameInRow="hora" msprop:Generator_ColumnPropNameInTable="horaColumn" msprop:Generator_ColumnVarNameInTable="columnhora" msprop:Generator_UserColumnName="hora" type="xs:duration" />
               <xs:element name="taco_id" msprop:Generator_ColumnPropNameInRow="taco_id" msprop:Generator_ColumnPropNameInTable="taco_idColumn" msprop:Generator_ColumnVarNameInTable="columntaco_id" msprop:Generator_UserColumnName="taco_id" type="xs:int" />
               <xs:element name="descricao" msprop:Generator_ColumnPropNameInRow="descricao" msprop:Generator_ColumnPropNameInTable="descricaoColumn" msprop:Generator_ColumnVarNameInTable="columndescricao" msprop:Generator_UserColumnName="descricao">
@@ -924,7 +993,7 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="quantidade" msprop:Generator_ColumnPropNameInRow="quantidade" msprop:Generator_ColumnPropNameInTable="quantidadeColumn" msprop:Generator_ColumnVarNameInTable="columnquantidade" msprop:Generator_UserColumnName="quantidade" type="xs:short" />
-              <xs:element name="Medida" msprop:Generator_ColumnPropNameInRow="Medida" msprop:Generator_ColumnPropNameInTable="MedidaColumn" msprop:Generator_ColumnVarNameInTable="columnMedida" msprop:Generator_UserColumnName="Medida">
+              <xs:element name="medida" msprop:Generator_ColumnPropNameInRow="medida" msprop:Generator_ColumnPropNameInTable="medidaColumn" msprop:Generator_ColumnVarNameInTable="columnmedida" msprop:Generator_UserColumnName="medida">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="150" />
@@ -1091,7 +1160,7 @@
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_rec" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="id_rec" msprop:Generator_ColumnPropNameInTable="id_recColumn" msprop:Generator_ColumnVarNameInTable="columnid_rec" msprop:Generator_UserColumnName="id_rec" type="xs:int" />
-              <xs:element name="Data_Inclusao" msprop:Generator_ColumnPropNameInRow="Data_Inclusao" msprop:Generator_ColumnPropNameInTable="Data_InclusaoColumn" msprop:Generator_ColumnVarNameInTable="columnData_Inclusao" msprop:Generator_UserColumnName="Data_Inclusao" type="xs:dateTime" />
+              <xs:element name="data_inclusao" msprop:Generator_ColumnPropNameInRow="data_inclusao" msprop:Generator_ColumnPropNameInTable="data_inclusaoColumn" msprop:Generator_ColumnVarNameInTable="columndata_inclusao" msprop:Generator_UserColumnName="data_inclusao" type="xs:dateTime" />
               <xs:element name="paciente_id" msprop:Generator_ColumnPropNameInRow="paciente_id" msprop:Generator_ColumnPropNameInTable="paciente_idColumn" msprop:Generator_ColumnVarNameInTable="columnpaciente_id" msprop:Generator_UserColumnName="paciente_id" type="xs:int" />
               <xs:element name="nutricionista_id" msprop:Generator_ColumnPropNameInRow="nutricionista_id" msprop:Generator_ColumnPropNameInTable="nutricionista_idColumn" msprop:Generator_ColumnVarNameInTable="columnnutricionista_id" msprop:Generator_UserColumnName="nutricionista_id" type="xs:int" />
               <xs:element name="ativo" msprop:Generator_ColumnPropNameInRow="ativo" msprop:Generator_ColumnPropNameInTable="ativoColumn" msprop:Generator_ColumnVarNameInTable="columnativo" msprop:Generator_UserColumnName="ativo">

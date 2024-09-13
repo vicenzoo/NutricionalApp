@@ -263,14 +263,14 @@ namespace NutricionalApp
             }
         }
 
-        public void GetTaco(ComboBox comboBox)
+        public void GetTacoCombo(ComboBox comboBox)
         {
             using (var db = new DatabaseConnection())
             {
                 db.OpenConnection();
 
 
-                using (var comm = new NpgsqlCommand("SELECT id_paciente,  nome ||' ' || sobrenome as NomeCompleto  FROM public.paciente where nutricionista_id = @idNutri", db.GetConnection()))
+                using (var comm = new NpgsqlCommand("SELECT id, grupo, descricao, umidade, energia_kcal, energia_kj, proteina, lipideos, colesterol, fibra_alimentar, cinzas, calcio, magnesio, manganes, fosforo, ferro, sodio, potassio, cobre, zinco, retinol, re, rae, tiamina, riboflavina, piridoxina, niacina, vitamina_c, ativo, carboidrato FROM public.tabela_taco4;", db.GetConnection()))
                 {
 
                     try
@@ -282,13 +282,13 @@ namespace NutricionalApp
                             while (reader.Read())
                             {
 
-                                int idPaciente = Convert.ToInt32(reader["id_paciente"]);
-                                string nomePaciente = reader["NomeCompleto"].ToString();
+                                int idTaco = Convert.ToInt32(reader["id"]);
+                                string descrição = reader["descricao"].ToString();
 
-                                comboBox.Items.Add(new Paciente(idPaciente, nomePaciente));
+                                comboBox.Items.Add(new TacoCombo(idTaco, descrição));
                             }
 
-                            // Verifica se encontrou pacientes
+                            // Verifica se encontrou Alimentos
                             if (comboBox.Items.Count > 0)
                             {
 
@@ -296,13 +296,77 @@ namespace NutricionalApp
                             }
                             else
                             {
-                                MessageBox.Show("Nenhum paciente encontrado.");
+                                MessageBox.Show("Nenhum alimento encontrado.");
                             }
                         }
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show($"Erro ao obter os pacientes: {ex.Message}");
+                    }
+                }
+            }
+        }
+
+        public class Recordatorio
+        {
+            public int Id { get; set; }
+            public string RecordatorioDesc { get; set; }
+
+            public Recordatorio(int id, string recordatorioDesc)
+            {
+                Id = id;
+                RecordatorioDesc = recordatorioDesc;
+            }
+
+            // Sobrescreva o método ToString para que o ComboBox exiba a descrição da tabela TACO
+            public override string ToString()
+            {
+                return RecordatorioDesc;
+            }
+        }
+
+        public void GetRecordatorioCombobox(int Id_Paciente, ComboBox comboBox)
+        {
+            using (var db = new DatabaseConnection())
+            {
+                db.OpenConnection();
+
+
+                using (var comm = new NpgsqlCommand("SELECT id_rec, paciente_id, nutricionista_id, ativo, descricao_nome FROM public.recordatorio_24h where paciente_id = @paciente_id", db.GetConnection()))
+                {
+                    comm.Parameters.AddWithValue("@paciente_id", Id_Paciente);
+
+                    try
+                    {
+                        using (var reader = comm.ExecuteReader())
+                        {
+                            comboBox.Items.Clear();
+
+                            while (reader.Read())
+                            {
+
+                                int idrec = Convert.ToInt32(reader["id_rec"]);
+                                string descricaoRecordatorio = reader["descricao_nome"].ToString();
+
+                                comboBox.Items.Add(new Recordatorio(idrec, descricaoRecordatorio));
+                            }
+
+                            // Verifica se encontrou
+                            if (comboBox.Items.Count > 0)
+                            {
+
+                                comboBox.SelectedIndex = 0;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Nenhum Recordatorio encontrado para esse Paciente.");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao obter os Recordatorio: {ex.Message}");
                     }
                 }
             }

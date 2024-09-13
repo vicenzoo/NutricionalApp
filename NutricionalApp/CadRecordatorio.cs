@@ -19,6 +19,9 @@ namespace NutricionalApp
     {
         int PacienteId;
         int NutricionistaID = 0;
+        int TacoID = 0;
+        int RecordatorioID = 0;
+
         public CadRecordatorio()
         {
             InitializeComponent();
@@ -29,6 +32,8 @@ namespace NutricionalApp
 
         private void CadRecordatorio_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'nutricionalDB.vw_itensrecordatorio_detalhado'. Você pode movê-la ou removê-la conforme necessário.
+            this.vw_itensrecordatorio_detalhadoTableAdapter.Fill(this.nutricionalDB.vw_itensrecordatorio_detalhado);
             FormMain GetIDNutricionista = Application.OpenForms.OfType<FormMain>().FirstOrDefault(); //Função para Pegar o Numero de ID do Nutricionista
             NutricionistaID = Convert.ToInt32(GetIDNutricionista.IDLabel.Text.Substring(1));
 
@@ -53,7 +58,15 @@ namespace NutricionalApp
 
                 txt_DescricaoNome.Clear();
                 txt_DescricaoNome.Text = "Recordatório para " + cb_Pacientes.Text;
+                bt_adicionarRec.Enabled = true;
             }
+
+            using (var db = new DatabaseConnection())
+            {
+                db.OpenConnection();
+                db.GetRecordatorioCombobox(PacienteId, cb_Recordatorios);
+            }
+
         }
 
         private void bt_adicionarRec_Click(object sender, EventArgs e)
@@ -72,23 +85,22 @@ namespace NutricionalApp
                     db.OpenConnection();
                     using (var comm = new NpgsqlCommand(
                      "INSERT INTO public.recordatorio_24h " +
-                        "( \"Data_Inclusao\",descricao_nome, paciente_id, nutricionista_id, ativo) " +
-                        "VALUES (@Data_Inclusao,@descricao_nome, @paciente_id, @nutricionista_id, @ativo)",
+                        "(data_inclusao,descricao_nome, paciente_id, nutricionista_id, ativo) " +
+                        "VALUES (@data_inclusao,@descricao_nome, @paciente_id, @nutricionista_id, @ativo)",
                         db.GetConnection()))
                     {
 
-                        comm.Parameters.AddWithValue("@Data_Inclusao", DateTime.Now); // Data de inclusão
+                        comm.Parameters.AddWithValue("@data_inclusao", DateTime.Now); // Data de inclusão
                         comm.Parameters.AddWithValue("@descricao_nome",txt_DescricaoNome.Text);
                         comm.Parameters.AddWithValue("@paciente_id", PacienteId);
                         comm.Parameters.AddWithValue("@nutricionista_id", NutricionistaID); 
                         comm.Parameters.AddWithValue("@ativo", 'S');
                         gr_selecao.Visible = true;
-                        gr_Resultados.Visible = true;
-
+                        gr_itens.Visible = true;
+                        bt_adicionarRec.Enabled = false;
                         try
                         {
                             comm.ExecuteNonQuery();
-                          
                         }
                         catch (Exception error)
                         {
@@ -97,7 +109,15 @@ namespace NutricionalApp
                         }
                     }
 
-
+                    try //Preenche combobox com os alimentos para inclusão
+                    {
+                        db.GetTacoCombo(cb_Taco);
+                    }
+                    catch (Exception error)
+                    {
+                        MessageBox.Show($"Erro: {error}!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
 
 
@@ -114,6 +134,101 @@ namespace NutricionalApp
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) //Aceita apenas Numeros
             {
                 e.Handled = true;   
+            }
+
+        }
+
+        private void cb_Taco_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Obtenha o paciente selecionado
+            TacoCombo TacoSelecionado = (TacoCombo)cb_Taco.SelectedItem;
+
+            if (TacoSelecionado != null)
+            {
+                // Exibe ou usa o id do paciente selecionado
+                int idTaco = TacoSelecionado.Id;
+                TacoID = idTaco;
+                MessageBox.Show($"ID da TACO selecionada: {idTaco}");
+            }
+        }
+
+        private void cb_Recordatorios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+            // Obtenha o paciente selecionado
+            Recordatorio possuiRecordatorio = (Recordatorio)cb_Recordatorios.SelectedItem;
+
+            if (possuiRecordatorio != null)
+            {
+                // Exibe ou usa o id do paciente selecionado
+                int idRecordatorio = possuiRecordatorio.Id;
+                RecordatorioID = idRecordatorio;
+
+                txt_DescricaoNome.Clear();
+                txt_DescricaoNome.Text = possuiRecordatorio.RecordatorioDesc;
+
+                bt_EditarRec.Enabled = true;
+
+            }
+        }
+
+        private void bt_EditarRec_Click(object sender, EventArgs e)
+        {
+            using (var db = new DatabaseConnection())
+            {
+                try
+                {
+                    db.GetTacoCombo(cb_Taco);
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show($"Erro: {error}!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            gr_selecao.Visible = true;
+            gr_itens.Visible = true;
+        }
+
+        private void bt_adicionarItemRec_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja adicionar esse item ao Recordatório?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                using (var db = new DatabaseConnection())
+                {
+                    db.OpenConnection();
+                    using (var comm = new NpgsqlCommand(
+                         "INSERT INTO public.itens_recordatorio " +
+                         "(recordatorio_id, data_rec, hora, taco_id, descricao, quantidade, medida) " +
+                         "VALUES (@recordatorio_id, @data_rec, @hora, @taco_id, @descricao, @quantidade, @medida)",
+                         db.GetConnection()))
+                    {
+                        // Adicionando os parâmetros com seus respectivos valores
+                        comm.Parameters.AddWithValue("@recordatorio_id", RecordatorioID); 
+                        comm.Parameters.AddWithValue("@data_rec", dt_DataHoraRec.Value.Date); // Data atual
+                        comm.Parameters.AddWithValue("@hora", dt_DataHoraRec.Value.ToString("HH:mm:ss")); // Hora atual
+                        comm.Parameters.AddWithValue("@taco_id", TacoID); // Substitua por sua variável ou campo correspondente
+                        comm.Parameters.AddWithValue("@descricao", txt_DescricaoNome); // Substitua por sua variável ou campo correspondente
+                        comm.Parameters.AddWithValue("@quantidade", Quantidade); // Substitua por sua variável ou campo correspondente
+                        comm.Parameters.AddWithValue("@medida", ); // Substitua por sua variável ou campo correspondente
+
+                        try
+                        {
+                            comm.ExecuteNonQuery();
+                            dataGridView1.Refresh(); // Atualiza o DataGridView
+                        }
+                        catch (Exception error)
+                        {
+                            MessageBox.Show($"Erro: {error.Message}!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                cb_Taco.Focus();
             }
 
         }

@@ -30,7 +30,15 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.bt_Revalidar = new System.Windows.Forms.Button();
+            this.picCPF2 = new System.Windows.Forms.PictureBox();
             this.label_idadeComplemento = new System.Windows.Forms.Label();
+            this.picNome = new System.Windows.Forms.PictureBox();
+            this.PicMail = new System.Windows.Forms.PictureBox();
+            this.PicSexo = new System.Windows.Forms.PictureBox();
+            this.PicCPF = new System.Windows.Forms.PictureBox();
+            this.picSobre = new System.Windows.Forms.PictureBox();
+            this.bt_Seguinte1 = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label_idade = new System.Windows.Forms.Label();
@@ -45,6 +53,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.bt_PlanoAlimentar = new System.Windows.Forms.Button();
+            this.label_Adicionar = new System.Windows.Forms.Label();
+            this.bt_Gastos = new System.Windows.Forms.Button();
+            this.bt_Recordatorio = new System.Windows.Forms.Button();
+            this.bt_AvAntropometrica = new System.Windows.Forms.Button();
             this.bt_Finalizar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -64,31 +77,18 @@
             this.bt_upload = new System.Windows.Forms.Button();
             this.bt_remover = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.label_Adicionar = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.bt_Revalidar = new System.Windows.Forms.Button();
-            this.picCPF2 = new System.Windows.Forms.PictureBox();
-            this.picNome = new System.Windows.Forms.PictureBox();
-            this.PicMail = new System.Windows.Forms.PictureBox();
-            this.PicSexo = new System.Windows.Forms.PictureBox();
-            this.PicCPF = new System.Windows.Forms.PictureBox();
-            this.picSobre = new System.Windows.Forms.PictureBox();
-            this.bt_Seguinte1 = new System.Windows.Forms.Button();
-            this.bt_PlanoAlimentar = new System.Windows.Forms.Button();
-            this.bt_Gastos = new System.Windows.Forms.Button();
-            this.bt_Recordatorio = new System.Windows.Forms.Button();
-            this.bt_AvAntropometrica = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage4.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCPF2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picNome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicMail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicSexo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicCPF)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSobre)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -134,6 +134,26 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Dados Básicos";
             // 
+            // bt_Revalidar
+            // 
+            this.bt_Revalidar.Image = global::NutricionalApp.Properties.Resources.Sync_16;
+            this.bt_Revalidar.Location = new System.Drawing.Point(621, 226);
+            this.bt_Revalidar.Name = "bt_Revalidar";
+            this.bt_Revalidar.Size = new System.Drawing.Size(26, 23);
+            this.bt_Revalidar.TabIndex = 73;
+            this.bt_Revalidar.UseVisualStyleBackColor = true;
+            this.bt_Revalidar.Click += new System.EventHandler(this.bt_Revalidar_Click);
+            // 
+            // picCPF2
+            // 
+            this.picCPF2.Image = global::NutricionalApp.Properties.Resources.Done_16;
+            this.picCPF2.Location = new System.Drawing.Point(307, 113);
+            this.picCPF2.Name = "picCPF2";
+            this.picCPF2.Size = new System.Drawing.Size(18, 17);
+            this.picCPF2.TabIndex = 27;
+            this.picCPF2.TabStop = false;
+            this.picCPF2.Visible = false;
+            // 
             // label_idadeComplemento
             // 
             this.label_idadeComplemento.AutoSize = true;
@@ -144,6 +164,67 @@
             this.label_idadeComplemento.TabIndex = 24;
             this.label_idadeComplemento.Text = "anos";
             this.label_idadeComplemento.Visible = false;
+            // 
+            // picNome
+            // 
+            this.picNome.Image = global::NutricionalApp.Properties.Resources.General_Warning_Sign_16;
+            this.picNome.Location = new System.Drawing.Point(283, 59);
+            this.picNome.Name = "picNome";
+            this.picNome.Size = new System.Drawing.Size(18, 17);
+            this.picNome.TabIndex = 21;
+            this.picNome.TabStop = false;
+            this.picNome.Visible = false;
+            // 
+            // PicMail
+            // 
+            this.PicMail.Image = global::NutricionalApp.Properties.Resources.General_Warning_Sign_16;
+            this.PicMail.Location = new System.Drawing.Point(283, 172);
+            this.PicMail.Name = "PicMail";
+            this.PicMail.Size = new System.Drawing.Size(18, 17);
+            this.PicMail.TabIndex = 19;
+            this.PicMail.TabStop = false;
+            this.PicMail.Visible = false;
+            // 
+            // PicSexo
+            // 
+            this.PicSexo.Image = global::NutricionalApp.Properties.Resources.General_Warning_Sign_16;
+            this.PicSexo.Location = new System.Drawing.Point(200, 142);
+            this.PicSexo.Name = "PicSexo";
+            this.PicSexo.Size = new System.Drawing.Size(18, 17);
+            this.PicSexo.TabIndex = 18;
+            this.PicSexo.TabStop = false;
+            this.PicSexo.Visible = false;
+            // 
+            // PicCPF
+            // 
+            this.PicCPF.Image = global::NutricionalApp.Properties.Resources.General_Warning_Sign_16;
+            this.PicCPF.Location = new System.Drawing.Point(283, 113);
+            this.PicCPF.Name = "PicCPF";
+            this.PicCPF.Size = new System.Drawing.Size(18, 17);
+            this.PicCPF.TabIndex = 17;
+            this.PicCPF.TabStop = false;
+            this.PicCPF.Visible = false;
+            // 
+            // picSobre
+            // 
+            this.picSobre.Image = global::NutricionalApp.Properties.Resources.General_Warning_Sign_16;
+            this.picSobre.Location = new System.Drawing.Point(283, 87);
+            this.picSobre.Name = "picSobre";
+            this.picSobre.Size = new System.Drawing.Size(18, 17);
+            this.picSobre.TabIndex = 16;
+            this.picSobre.TabStop = false;
+            this.picSobre.Visible = false;
+            // 
+            // bt_Seguinte1
+            // 
+            this.bt_Seguinte1.Enabled = false;
+            this.bt_Seguinte1.Image = global::NutricionalApp.Properties.Resources.Forward_Button;
+            this.bt_Seguinte1.Location = new System.Drawing.Point(653, 210);
+            this.bt_Seguinte1.Name = "bt_Seguinte1";
+            this.bt_Seguinte1.Size = new System.Drawing.Size(75, 55);
+            this.bt_Seguinte1.TabIndex = 15;
+            this.bt_Seguinte1.UseVisualStyleBackColor = true;
+            this.bt_Seguinte1.Click += new System.EventHandler(this.bt_Seguinte1_Click);
             // 
             // txtEmail
             // 
@@ -286,6 +367,67 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Finalizar";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // bt_PlanoAlimentar
+            // 
+            this.bt_PlanoAlimentar.Image = global::NutricionalApp.Properties.Resources.Breakfast_48;
+            this.bt_PlanoAlimentar.Location = new System.Drawing.Point(379, 208);
+            this.bt_PlanoAlimentar.Name = "bt_PlanoAlimentar";
+            this.bt_PlanoAlimentar.Size = new System.Drawing.Size(198, 54);
+            this.bt_PlanoAlimentar.TabIndex = 31;
+            this.bt_PlanoAlimentar.Text = "Plano Alimentar";
+            this.bt_PlanoAlimentar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bt_PlanoAlimentar.UseVisualStyleBackColor = true;
+            this.bt_PlanoAlimentar.Visible = false;
+            // 
+            // label_Adicionar
+            // 
+            this.label_Adicionar.AutoSize = true;
+            this.label_Adicionar.Font = new System.Drawing.Font("Segoe UI Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Adicionar.Location = new System.Drawing.Point(379, 10);
+            this.label_Adicionar.Name = "label_Adicionar";
+            this.label_Adicionar.Size = new System.Drawing.Size(72, 19);
+            this.label_Adicionar.TabIndex = 30;
+            this.label_Adicionar.Text = "Adicionar...";
+            this.label_Adicionar.Visible = false;
+            // 
+            // bt_Gastos
+            // 
+            this.bt_Gastos.Image = global::NutricionalApp.Properties.Resources.Calculator_48;
+            this.bt_Gastos.Location = new System.Drawing.Point(379, 151);
+            this.bt_Gastos.Name = "bt_Gastos";
+            this.bt_Gastos.Size = new System.Drawing.Size(198, 54);
+            this.bt_Gastos.TabIndex = 29;
+            this.bt_Gastos.Text = "Gastos Enérgicos";
+            this.bt_Gastos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bt_Gastos.UseVisualStyleBackColor = true;
+            this.bt_Gastos.Visible = false;
+            // 
+            // bt_Recordatorio
+            // 
+            this.bt_Recordatorio.Image = global::NutricionalApp.Properties.Resources.Restaurant_48;
+            this.bt_Recordatorio.Location = new System.Drawing.Point(379, 33);
+            this.bt_Recordatorio.Name = "bt_Recordatorio";
+            this.bt_Recordatorio.Size = new System.Drawing.Size(198, 54);
+            this.bt_Recordatorio.TabIndex = 28;
+            this.bt_Recordatorio.Text = "Recordatório Alimentar ";
+            this.bt_Recordatorio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bt_Recordatorio.UseVisualStyleBackColor = true;
+            this.bt_Recordatorio.Visible = false;
+            this.bt_Recordatorio.Click += new System.EventHandler(this.bt_Recordatorio_Click);
+            // 
+            // bt_AvAntropometrica
+            // 
+            this.bt_AvAntropometrica.Image = global::NutricionalApp.Properties.Resources.Industrial_Scales_48;
+            this.bt_AvAntropometrica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_AvAntropometrica.Location = new System.Drawing.Point(379, 91);
+            this.bt_AvAntropometrica.Name = "bt_AvAntropometrica";
+            this.bt_AvAntropometrica.Size = new System.Drawing.Size(198, 54);
+            this.bt_AvAntropometrica.TabIndex = 27;
+            this.bt_AvAntropometrica.Text = "Avaliação Antropométrica";
+            this.bt_AvAntropometrica.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bt_AvAntropometrica.UseVisualStyleBackColor = true;
+            this.bt_AvAntropometrica.Visible = false;
             // 
             // bt_Finalizar
             // 
@@ -480,17 +622,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // label_Adicionar
-            // 
-            this.label_Adicionar.AutoSize = true;
-            this.label_Adicionar.Font = new System.Drawing.Font("Segoe UI Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Adicionar.Location = new System.Drawing.Point(379, 10);
-            this.label_Adicionar.Name = "label_Adicionar";
-            this.label_Adicionar.Size = new System.Drawing.Size(72, 19);
-            this.label_Adicionar.TabIndex = 30;
-            this.label_Adicionar.Text = "Adicionar...";
-            this.label_Adicionar.Visible = false;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::NutricionalApp.Properties.Resources.Male_User_96;
@@ -500,137 +631,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
-            // 
-            // bt_Revalidar
-            // 
-            this.bt_Revalidar.Image = global::NutricionalApp.Properties.Resources.Sync_16;
-            this.bt_Revalidar.Location = new System.Drawing.Point(621, 226);
-            this.bt_Revalidar.Name = "bt_Revalidar";
-            this.bt_Revalidar.Size = new System.Drawing.Size(26, 23);
-            this.bt_Revalidar.TabIndex = 73;
-            this.bt_Revalidar.UseVisualStyleBackColor = true;
-            this.bt_Revalidar.Click += new System.EventHandler(this.bt_Revalidar_Click);
-            // 
-            // picCPF2
-            // 
-            this.picCPF2.Image = global::NutricionalApp.Properties.Resources.Done_16;
-            this.picCPF2.Location = new System.Drawing.Point(307, 113);
-            this.picCPF2.Name = "picCPF2";
-            this.picCPF2.Size = new System.Drawing.Size(18, 17);
-            this.picCPF2.TabIndex = 27;
-            this.picCPF2.TabStop = false;
-            this.picCPF2.Visible = false;
-            // 
-            // picNome
-            // 
-            this.picNome.Image = global::NutricionalApp.Properties.Resources.General_Warning_Sign_16;
-            this.picNome.Location = new System.Drawing.Point(283, 59);
-            this.picNome.Name = "picNome";
-            this.picNome.Size = new System.Drawing.Size(18, 17);
-            this.picNome.TabIndex = 21;
-            this.picNome.TabStop = false;
-            this.picNome.Visible = false;
-            // 
-            // PicMail
-            // 
-            this.PicMail.Image = global::NutricionalApp.Properties.Resources.General_Warning_Sign_16;
-            this.PicMail.Location = new System.Drawing.Point(283, 172);
-            this.PicMail.Name = "PicMail";
-            this.PicMail.Size = new System.Drawing.Size(18, 17);
-            this.PicMail.TabIndex = 19;
-            this.PicMail.TabStop = false;
-            this.PicMail.Visible = false;
-            // 
-            // PicSexo
-            // 
-            this.PicSexo.Image = global::NutricionalApp.Properties.Resources.General_Warning_Sign_16;
-            this.PicSexo.Location = new System.Drawing.Point(200, 142);
-            this.PicSexo.Name = "PicSexo";
-            this.PicSexo.Size = new System.Drawing.Size(18, 17);
-            this.PicSexo.TabIndex = 18;
-            this.PicSexo.TabStop = false;
-            this.PicSexo.Visible = false;
-            // 
-            // PicCPF
-            // 
-            this.PicCPF.Image = global::NutricionalApp.Properties.Resources.General_Warning_Sign_16;
-            this.PicCPF.Location = new System.Drawing.Point(283, 113);
-            this.PicCPF.Name = "PicCPF";
-            this.PicCPF.Size = new System.Drawing.Size(18, 17);
-            this.PicCPF.TabIndex = 17;
-            this.PicCPF.TabStop = false;
-            this.PicCPF.Visible = false;
-            // 
-            // picSobre
-            // 
-            this.picSobre.Image = global::NutricionalApp.Properties.Resources.General_Warning_Sign_16;
-            this.picSobre.Location = new System.Drawing.Point(283, 87);
-            this.picSobre.Name = "picSobre";
-            this.picSobre.Size = new System.Drawing.Size(18, 17);
-            this.picSobre.TabIndex = 16;
-            this.picSobre.TabStop = false;
-            this.picSobre.Visible = false;
-            // 
-            // bt_Seguinte1
-            // 
-            this.bt_Seguinte1.Enabled = false;
-            this.bt_Seguinte1.Image = global::NutricionalApp.Properties.Resources.Forward_Button;
-            this.bt_Seguinte1.Location = new System.Drawing.Point(653, 210);
-            this.bt_Seguinte1.Name = "bt_Seguinte1";
-            this.bt_Seguinte1.Size = new System.Drawing.Size(75, 55);
-            this.bt_Seguinte1.TabIndex = 15;
-            this.bt_Seguinte1.UseVisualStyleBackColor = true;
-            this.bt_Seguinte1.Click += new System.EventHandler(this.bt_Seguinte1_Click);
-            // 
-            // bt_PlanoAlimentar
-            // 
-            this.bt_PlanoAlimentar.Image = global::NutricionalApp.Properties.Resources.Breakfast_48;
-            this.bt_PlanoAlimentar.Location = new System.Drawing.Point(379, 208);
-            this.bt_PlanoAlimentar.Name = "bt_PlanoAlimentar";
-            this.bt_PlanoAlimentar.Size = new System.Drawing.Size(198, 54);
-            this.bt_PlanoAlimentar.TabIndex = 31;
-            this.bt_PlanoAlimentar.Text = "Gastos Enérgicos";
-            this.bt_PlanoAlimentar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.bt_PlanoAlimentar.UseVisualStyleBackColor = true;
-            this.bt_PlanoAlimentar.Visible = false;
-            // 
-            // bt_Gastos
-            // 
-            this.bt_Gastos.Image = global::NutricionalApp.Properties.Resources.Calculator_48;
-            this.bt_Gastos.Location = new System.Drawing.Point(379, 151);
-            this.bt_Gastos.Name = "bt_Gastos";
-            this.bt_Gastos.Size = new System.Drawing.Size(198, 54);
-            this.bt_Gastos.TabIndex = 29;
-            this.bt_Gastos.Text = "Gastos Enérgicos";
-            this.bt_Gastos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.bt_Gastos.UseVisualStyleBackColor = true;
-            this.bt_Gastos.Visible = false;
-            // 
-            // bt_Recordatorio
-            // 
-            this.bt_Recordatorio.Image = global::NutricionalApp.Properties.Resources.Restaurant_48;
-            this.bt_Recordatorio.Location = new System.Drawing.Point(379, 33);
-            this.bt_Recordatorio.Name = "bt_Recordatorio";
-            this.bt_Recordatorio.Size = new System.Drawing.Size(198, 54);
-            this.bt_Recordatorio.TabIndex = 28;
-            this.bt_Recordatorio.Text = "Recordatório Alimentar ";
-            this.bt_Recordatorio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.bt_Recordatorio.UseVisualStyleBackColor = true;
-            this.bt_Recordatorio.Visible = false;
-            this.bt_Recordatorio.Click += new System.EventHandler(this.bt_Recordatorio_Click);
-            // 
-            // bt_AvAntropometrica
-            // 
-            this.bt_AvAntropometrica.Image = global::NutricionalApp.Properties.Resources.Industrial_Scales_48;
-            this.bt_AvAntropometrica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_AvAntropometrica.Location = new System.Drawing.Point(379, 91);
-            this.bt_AvAntropometrica.Name = "bt_AvAntropometrica";
-            this.bt_AvAntropometrica.Size = new System.Drawing.Size(198, 54);
-            this.bt_AvAntropometrica.TabIndex = 27;
-            this.bt_AvAntropometrica.Text = "Avaliação Antropométrica";
-            this.bt_AvAntropometrica.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.bt_AvAntropometrica.UseVisualStyleBackColor = true;
-            this.bt_AvAntropometrica.Visible = false;
             // 
             // CadUser
             // 
@@ -649,17 +649,17 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCPF2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picNome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicMail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicSexo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicCPF)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSobre)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
