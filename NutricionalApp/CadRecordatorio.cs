@@ -26,9 +26,8 @@ namespace NutricionalApp
         public CadRecordatorio()
         {
             InitializeComponent();
-            dt_DataHoraRec.CustomFormat = "dd/MM/yyyy HH:mm";
+            dt_DataHoraRec.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             dt_DataHoraRec.Value = DateTime.Now;
-            dt_DataHoraRec.MaxDate = DateTime.Now;
         }
 
         private void CadRecordatorio_Load(object sender, EventArgs e)
@@ -72,7 +71,7 @@ namespace NutricionalApp
         {
             if (cb_Pacientes.SelectedItem == null)
             {
-                MessageBox.Show("Selecione um Paciente!","Atenção",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Selecione um Paciente!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -90,16 +89,22 @@ namespace NutricionalApp
                     {
 
                         comm.Parameters.AddWithValue("@data_inclusao", DateTime.Now); // Data de inclusão
-                        comm.Parameters.AddWithValue("@descricao_nome",txt_DescricaoNome.Text);
+                        comm.Parameters.AddWithValue("@descricao_nome", txt_DescricaoNome.Text);
                         comm.Parameters.AddWithValue("@paciente_id", PacienteId);
-                        comm.Parameters.AddWithValue("@nutricionista_id", NutricionistaID); 
+                        comm.Parameters.AddWithValue("@nutricionista_id", NutricionistaID);
                         comm.Parameters.AddWithValue("@ativo", 'S');
                         gr_selecao.Visible = true;
                         gr_itens.Visible = true;
                         bt_adicionarRec.Enabled = false;
                         try
                         {
-                            comm.ExecuteNonQuery();
+                            var recId = comm.ExecuteScalar();
+
+                            if (recId != null)
+                            {
+                                RecordatorioID = Convert.ToInt32(recId); // Converte o valor para int se não for null
+                                //MessageBox.Show($"Recordatório adicionado com ID: {RecordatorioID}", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
                         }
                         catch (Exception error)
                         {
@@ -119,6 +124,7 @@ namespace NutricionalApp
                     }
                 }
 
+                cb_Pacientes_SelectedIndexChanged(sender,e);
 
             }
             else
@@ -132,7 +138,7 @@ namespace NutricionalApp
 
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) //Aceita apenas Numeros
             {
-                e.Handled = true;   
+                e.Handled = true;
             }
 
         }
@@ -164,9 +170,6 @@ namespace NutricionalApp
                 int idRecordatorio = possuiRecordatorio.Id;
                 RecordatorioID = idRecordatorio;
 
-                txt_DescricaoNome.Clear();
-                txt_DescricaoNome.Text = possuiRecordatorio.RecordatorioDesc;
-
                 bt_EditarRec.Enabled = true;
 
             }
@@ -187,9 +190,9 @@ namespace NutricionalApp
                     return;
                 }
 
-               string query = "SELECT descricaoperiodo,data_rec,hora,quantidade,medida,descricao_alimento FROM vw_itensrecordatorio_detalhado WHERE recordatorio_id = @Filtro";
+                string query = "SELECT descricaoperiodo,data_rec,hora,quantidade,medida,descricao_alimento FROM vw_itensrecordatorio_detalhado WHERE recordatorio_id = @Filtro";
 
-               db.CarregarDados(query, RecordatorioID, dataGridView1);
+                db.CarregarDados(query, RecordatorioID, dataGridView1);
             }
 
             bt_adicionarRec.Enabled = false;
@@ -214,13 +217,13 @@ namespace NutricionalApp
                          db.GetConnection()))
                     {
                         // Adicionando os parâmetros com seus respectivos valores
-                        comm.Parameters.AddWithValue("@recordatorio_id", RecordatorioID); 
+                        comm.Parameters.AddWithValue("@recordatorio_id", RecordatorioID);
                         comm.Parameters.AddWithValue("@data_rec", dt_DataHoraRec.Value.Date); // Data atual
                         comm.Parameters.AddWithValue("@hora", dt_DataHoraRec.Value.TimeOfDay); // Hora atual
                         comm.Parameters.AddWithValue("@taco_id", TacoID); // Substitua por sua variável ou campo correspondente
                         comm.Parameters.AddWithValue("@descricao", cb_NomeDescricao.Text); // Substitua por sua variável ou campo correspondente
                         comm.Parameters.AddWithValue("@quantidade", Convert.ToInt32(txt_QuantidadeItens.Text)); // Substitua por sua variável ou campo correspondente
-                        comm.Parameters.AddWithValue("@medida",txt_Medida.Text ); // Substitua por sua variável ou campo correspondente
+                        comm.Parameters.AddWithValue("@medida", txt_Medida.Text); // Substitua por sua variável ou campo correspondente
 
                         try
                         {
@@ -233,13 +236,32 @@ namespace NutricionalApp
                         }
                     }
                 }
+
+                AtualizarDataGridView();
             }
             else
             {
                 cb_Taco.Focus();
             }
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = this.vwitensrecordatoriodetalhadoBindingSource;
+
+        }
+
+        private void AtualizarDataGridView()
+        {
+            using (var db = new DatabaseConnection())
+            {
+                try
+                {
+                    // Recarregar os dados no DataGridView
+                    string query = "SELECT descricaoperiodo, data_rec, hora, quantidade, medida, descricao_alimento FROM vw_itensrecordatorio_detalhado WHERE recordatorio_id = @Filtro";
+                    db.CarregarDados(query, RecordatorioID, dataGridView1);
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show($"Erro ao atualizar a lista: {error.Message}!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
         }
     }
 }

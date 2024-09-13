@@ -29,17 +29,24 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea21 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend21 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series21 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
             this.bt_EditarRec = new System.Windows.Forms.Button();
             this.cb_Recordatorios = new System.Windows.Forms.ComboBox();
             this.txt_DescricaoNome = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.gr_itens = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.descricaoperiodo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datarecDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.horaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricaoalimentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vwitensrecordatoriodetalhadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nutricionalDB = new NutricionalApp.NutricionalDB();
             this.gr_selecao = new System.Windows.Forms.GroupBox();
@@ -61,15 +68,8 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label9 = new System.Windows.Forms.Label();
             this.protocolosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.protocolosTableAdapter = new NutricionalApp.NutricionalDBTableAdapters.protocolosTableAdapter();
-            this.descricaoperiodo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datarecDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.horaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descricaoalimentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gr_itens.SuspendLayout();
@@ -113,6 +113,15 @@
             this.tabPage1.Size = new System.Drawing.Size(768, 438);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Dados";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(208, 57);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(136, 13);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "Recordatorios do Paciente:";
             // 
             // bt_EditarRec
             // 
@@ -184,8 +193,55 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 40;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(734, 154);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // descricaoperiodo
+            // 
+            this.descricaoperiodo.DataPropertyName = "descricaoperiodo";
+            this.descricaoperiodo.HeaderText = "Período";
+            this.descricaoperiodo.Name = "descricaoperiodo";
+            this.descricaoperiodo.ReadOnly = true;
+            // 
+            // datarecDataGridViewTextBoxColumn
+            // 
+            this.datarecDataGridViewTextBoxColumn.DataPropertyName = "data_rec";
+            this.datarecDataGridViewTextBoxColumn.HeaderText = "Data";
+            this.datarecDataGridViewTextBoxColumn.Name = "datarecDataGridViewTextBoxColumn";
+            this.datarecDataGridViewTextBoxColumn.ReadOnly = true;
+            this.datarecDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // horaDataGridViewTextBoxColumn
+            // 
+            this.horaDataGridViewTextBoxColumn.DataPropertyName = "hora";
+            this.horaDataGridViewTextBoxColumn.HeaderText = "Hora";
+            this.horaDataGridViewTextBoxColumn.Name = "horaDataGridViewTextBoxColumn";
+            this.horaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.horaDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // quantidadeDataGridViewTextBoxColumn
+            // 
+            this.quantidadeDataGridViewTextBoxColumn.DataPropertyName = "quantidade";
+            this.quantidadeDataGridViewTextBoxColumn.HeaderText = "Qnt.";
+            this.quantidadeDataGridViewTextBoxColumn.Name = "quantidadeDataGridViewTextBoxColumn";
+            this.quantidadeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.quantidadeDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // medidaDataGridViewTextBoxColumn
+            // 
+            this.medidaDataGridViewTextBoxColumn.DataPropertyName = "medida";
+            this.medidaDataGridViewTextBoxColumn.HeaderText = "Tipo Medida";
+            this.medidaDataGridViewTextBoxColumn.Name = "medidaDataGridViewTextBoxColumn";
+            this.medidaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // descricaoalimentoDataGridViewTextBoxColumn
+            // 
+            this.descricaoalimentoDataGridViewTextBoxColumn.DataPropertyName = "descricao_alimento";
+            this.descricaoalimentoDataGridViewTextBoxColumn.HeaderText = "Taco4";
+            this.descricaoalimentoDataGridViewTextBoxColumn.Name = "descricaoalimentoDataGridViewTextBoxColumn";
+            this.descricaoalimentoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descricaoalimentoDataGridViewTextBoxColumn.Width = 350;
             // 
             // vwitensrecordatoriodetalhadoBindingSource
             // 
@@ -390,35 +446,26 @@
             // 
             // chart1
             // 
-            chartArea21.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea21);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend21.Name = "Legend1";
-            this.chart1.Legends.Add(legend21);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(3, 16);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
-            series21.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            series21.BorderColor = System.Drawing.Color.Black;
-            series21.ChartArea = "ChartArea1";
-            series21.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series21.Font = new System.Drawing.Font("Arial", 10F);
-            series21.Legend = "Legend1";
-            series21.Name = "Series1";
-            this.chart1.Series.Add(series21);
+            series1.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            series1.BorderColor = System.Drawing.Color.Black;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Font = new System.Drawing.Font("Arial", 10F);
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(356, 177);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
             this.chart1.Visible = false;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(208, 57);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(136, 13);
-            this.label9.TabIndex = 12;
-            this.label9.Text = "Recordatorios do Paciente:";
             // 
             // protocolosBindingSource
             // 
@@ -428,52 +475,6 @@
             // protocolosTableAdapter
             // 
             this.protocolosTableAdapter.ClearBeforeFill = true;
-            // 
-            // descricaoperiodo
-            // 
-            this.descricaoperiodo.DataPropertyName = "descricaoperiodo";
-            this.descricaoperiodo.HeaderText = "Período";
-            this.descricaoperiodo.Name = "descricaoperiodo";
-            this.descricaoperiodo.ReadOnly = true;
-            // 
-            // datarecDataGridViewTextBoxColumn
-            // 
-            this.datarecDataGridViewTextBoxColumn.DataPropertyName = "data_rec";
-            this.datarecDataGridViewTextBoxColumn.HeaderText = "Data";
-            this.datarecDataGridViewTextBoxColumn.Name = "datarecDataGridViewTextBoxColumn";
-            this.datarecDataGridViewTextBoxColumn.ReadOnly = true;
-            this.datarecDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // horaDataGridViewTextBoxColumn
-            // 
-            this.horaDataGridViewTextBoxColumn.DataPropertyName = "hora";
-            this.horaDataGridViewTextBoxColumn.HeaderText = "Hora";
-            this.horaDataGridViewTextBoxColumn.Name = "horaDataGridViewTextBoxColumn";
-            this.horaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.horaDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // quantidadeDataGridViewTextBoxColumn
-            // 
-            this.quantidadeDataGridViewTextBoxColumn.DataPropertyName = "quantidade";
-            this.quantidadeDataGridViewTextBoxColumn.HeaderText = "Qnt.";
-            this.quantidadeDataGridViewTextBoxColumn.Name = "quantidadeDataGridViewTextBoxColumn";
-            this.quantidadeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.quantidadeDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // medidaDataGridViewTextBoxColumn
-            // 
-            this.medidaDataGridViewTextBoxColumn.DataPropertyName = "medida";
-            this.medidaDataGridViewTextBoxColumn.HeaderText = "Tipo Medida";
-            this.medidaDataGridViewTextBoxColumn.Name = "medidaDataGridViewTextBoxColumn";
-            this.medidaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // descricaoalimentoDataGridViewTextBoxColumn
-            // 
-            this.descricaoalimentoDataGridViewTextBoxColumn.DataPropertyName = "descricao_alimento";
-            this.descricaoalimentoDataGridViewTextBoxColumn.HeaderText = "Taco4";
-            this.descricaoalimentoDataGridViewTextBoxColumn.Name = "descricaoalimentoDataGridViewTextBoxColumn";
-            this.descricaoalimentoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descricaoalimentoDataGridViewTextBoxColumn.Width = 350;
             // 
             // CadRecordatorio
             // 
