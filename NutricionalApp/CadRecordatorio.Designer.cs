@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label9 = new System.Windows.Forms.Label();
@@ -68,8 +68,10 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.protocolosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.protocolosTableAdapter = new NutricionalApp.NutricionalDBTableAdapters.protocolosTableAdapter();
+            this.gr_Resultados = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gr_itens.SuspendLayout();
@@ -80,7 +82,7 @@
             this.tabPage4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.protocolosBindingSource)).BeginInit();
+            this.gr_Resultados.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -425,6 +427,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.gr_Resultados);
             this.tabPage4.Controls.Add(this.groupBox1);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
@@ -436,45 +439,75 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.chart1);
-            this.groupBox1.Location = new System.Drawing.Point(375, 3);
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(362, 196);
+            this.groupBox1.Size = new System.Drawing.Size(762, 196);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Grafico:";
-            this.groupBox1.Visible = false;
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea5.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea5);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            legend5.Name = "Legend1";
+            this.chart1.Legends.Add(legend5);
             this.chart1.Location = new System.Drawing.Point(3, 16);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
-            series1.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            series1.BorderColor = System.Drawing.Color.Black;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Font = new System.Drawing.Font("Arial", 10F);
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(356, 177);
+            series5.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            series5.BorderColor = System.Drawing.Color.Black;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series5.Font = new System.Drawing.Font("Arial", 10F);
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.chart1.Series.Add(series5);
+            this.chart1.Size = new System.Drawing.Size(756, 177);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
             this.chart1.Visible = false;
             // 
-            // protocolosBindingSource
+            // gr_Resultados
             // 
-            this.protocolosBindingSource.DataMember = "protocolos";
-            this.protocolosBindingSource.DataSource = this.nutricionalDB;
+            this.gr_Resultados.Controls.Add(this.label12);
+            this.gr_Resultados.Controls.Add(this.label11);
+            this.gr_Resultados.Controls.Add(this.label10);
+            this.gr_Resultados.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gr_Resultados.Location = new System.Drawing.Point(0, 332);
+            this.gr_Resultados.Name = "gr_Resultados";
+            this.gr_Resultados.Size = new System.Drawing.Size(768, 106);
+            this.gr_Resultados.TabIndex = 2;
+            this.gr_Resultados.TabStop = false;
+            this.gr_Resultados.Text = "Resultados:";
             // 
-            // protocolosTableAdapter
+            // label10
             // 
-            this.protocolosTableAdapter.ClearBeforeFill = true;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(76, 34);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(41, 13);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "label10";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(348, 34);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(41, 13);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "label11";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(657, 34);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(41, 13);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "label12";
             // 
             // CadRecordatorio
             // 
@@ -498,7 +531,8 @@
             this.tabPage4.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.protocolosBindingSource)).EndInit();
+            this.gr_Resultados.ResumeLayout(false);
+            this.gr_Resultados.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -535,13 +569,15 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cb_NomeDescricao;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.BindingSource protocolosBindingSource;
-        private NutricionalDBTableAdapters.protocolosTableAdapter protocolosTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn descricaoperiodo;
         private System.Windows.Forms.DataGridViewTextBoxColumn datarecDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn horaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantidadeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn medidaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descricaoalimentoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.GroupBox gr_Resultados;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
     }
 }
