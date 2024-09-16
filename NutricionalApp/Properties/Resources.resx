@@ -217,4 +217,10 @@
   <data name="Close_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icones\Close_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Edit_Property_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icones\Edit Property_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Healthy_Food_Calories_Calculator_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icones\Healthy Food Calories Calculator_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

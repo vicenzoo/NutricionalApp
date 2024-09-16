@@ -297,6 +297,8 @@
     <None Include="Icones\Add File_16px.png" />
     <None Include="Icones\Edit Text File_16.png" />
     <None Include="Icones\Close_16.png" />
+    <None Include="Icones\Healthy Food Calories Calculator_48.png" />
+    <None Include="Icones\Edit Property_48.png" />
     <Content Include="Icones\Person_16.png" />
     <Content Include="Icones\Person_48.png" />
     <None Include="Icones\Restaurant_48.png" />

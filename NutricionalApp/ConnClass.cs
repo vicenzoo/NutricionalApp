@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace NutricionalApp
 {
@@ -249,12 +250,66 @@ namespace NutricionalApp
         public class TacoCombo
         {
             public int Id { get; set; }
+            public int Grupo_id { get; set; }
             public string Descricao { get; set; }
 
-            public TacoCombo(int id, string descricao)
+            /* Carboidrato Totais */
+
+            public float Carboidrato { get; set; }
+
+            /* Calorias Totais */
+
+            public float Energia_kcal { get; set; }
+            public float Proteinas { get; set; }
+
+            /* Gorduras Totais */
+
+            public float Lipidios { get; set; }
+
+            /* Fibras Totais */
+
+            public float FibraAlimentar { get; set; }
+
+            /* Vitaminas Totais */
+
+            public float Re { get; set; }
+            public float Vitamina_C { get; set; }
+
+            /* Minerais Totais */
+
+            public float Calcio { get; set; }
+            public float Ferro { get; set; }
+            public float Magnesio { get; set; }
+
+
+            public TacoCombo(int id,int grupo_id, string descricao,float carboidrato, float energia_kcal, float proteinas, float lipidios,float fibra_alimentar,float re, float vitamina_c,float calcio, float ferro, float magnesio)
             {
                 Id = id;
+                Grupo_id = grupo_id;
                 Descricao = descricao;
+
+                /* Carboidrato Totais */
+                Carboidrato = carboidrato;
+
+                /* Calorias Totais */
+                Energia_kcal = energia_kcal;
+                Proteinas = proteinas;
+
+                /* Gorduras Totais */
+                Lipidios = lipidios;
+
+                /* Fibras Totais */
+                FibraAlimentar = fibra_alimentar;
+
+                /* Vitaminas Totais */
+                Re = re;
+                Vitamina_C = vitamina_c;
+
+                /* Minerais Totais */
+                Calcio = calcio;
+                Ferro = ferro;
+                Magnesio = magnesio;
+
             }
 
             // Sobrescreva o método ToString para que o ComboBox exiba a descrição da tabela TACO
@@ -269,9 +324,7 @@ namespace NutricionalApp
             using (var db = new DatabaseConnection())
             {
                 db.OpenConnection();
-
-
-                using (var comm = new NpgsqlCommand("SELECT id, grupo, descricao, umidade, energia_kcal, energia_kj, proteina, lipideos, colesterol, fibra_alimentar, cinzas, calcio, magnesio, manganes, fosforo, ferro, sodio, potassio, cobre, zinco, retinol, re, rae, tiamina, riboflavina, piridoxina, niacina, vitamina_c, ativo, carboidrato FROM public.tabela_taco4;", db.GetConnection()))
+                using (var comm = new NpgsqlCommand("SELECT id, grupo, descricao, umidade, energia_kcal, energia_kj, proteina, lipideos, colesterol, fibra_alimentar, cinzas, calcio, magnesio, manganes, fosforo, ferro, sodio, potassio, cobre, zinco, retinol, re, rae, tiamina, riboflavina, piridoxina, niacina, vitamina_c, ativo,grupo_id, carboidrato FROM public.tabela_taco4;", db.GetConnection()))
                 {
 
                     try
@@ -284,9 +337,46 @@ namespace NutricionalApp
                             {
 
                                 int idTaco = Convert.ToInt32(reader["id"]);
+                                int idgrupo = reader["grupo_id"] != DBNull.Value ? Convert.ToInt32(reader["grupo_id"]) : 0;
                                 string descrição = reader["descricao"].ToString();
 
-                                comboBox.Items.Add(new TacoCombo(idTaco, descrição));
+                                /* Carboidrato Totais */
+                                float carboidrato = reader["carboidrato"] != DBNull.Value ? Convert.ToInt32(reader["carboidrato"]) : 0;
+
+                                /* Calorias Totais */
+                                float energiaKcal = reader["energia_kcal"] != DBNull.Value ? Convert.ToInt32(reader["energia_kcal"]) : 0;
+                                float proteinas = reader["proteina"] != DBNull.Value ? Convert.ToInt32(reader["proteina"]) : 0;
+
+                                /* Gorduras Totais */
+                                float lipidio = reader["lipideos"] != DBNull.Value ? Convert.ToInt32(reader["lipideos"]) : 0;
+
+                                /* Fibras Totais */
+                                float fibra = reader["fibra_alimentar"] != DBNull.Value ? Convert.ToInt32(reader["fibra_alimentar"]) : 0;
+
+                                /* Vitaminas Totais */
+                                float vitamina_a = reader["re"] != DBNull.Value ? Convert.ToInt32(reader["re"]) : 0;
+                                float vitamina_c = reader["vitamina_c"] != DBNull.Value ? Convert.ToInt32(reader["vitamina_c"]) : 0;
+
+                                /* Minerais Totais */
+                                float calcio = reader["calcio"] != DBNull.Value ? Convert.ToInt32(reader["calcio"]) : 0;
+                                float ferro = reader["ferro"] != DBNull.Value ? Convert.ToInt32(reader["ferro"]) : 0;
+                                float magnesio = reader["magnesio"] != DBNull.Value ? Convert.ToInt32(reader["magnesio"]) : 0;
+
+
+                                comboBox.Items.Add(new TacoCombo(
+                                    idTaco, 
+                                    idgrupo, 
+                                    descrição,
+                                    carboidrato,
+                                    energiaKcal,
+                                    proteinas,
+                                    lipidio, 
+                                    fibra, 
+                                    vitamina_a, 
+                                    vitamina_c,
+                                    calcio,
+                                    ferro,
+                                    magnesio));
                             }
 
                             // Verifica se encontrou Alimentos
@@ -303,7 +393,7 @@ namespace NutricionalApp
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Erro ao obter os pacientes: {ex.Message}");
+                        MessageBox.Show($"Erro ao obter os Taco: {ex.Message}");
                     }
                 }
             }
@@ -527,5 +617,137 @@ namespace NutricionalApp
 
             }
         }
+
+        public class TacoGrupos
+        {
+            public int Id { get; set; }
+            public string Grupo { get; set; }
+
+            public TacoGrupos(int id, string grupo)
+            {
+                Id = id;
+                Grupo = grupo;
+            }
+
+            // Sobrescreva o método ToString para que o ComboBox exiba a descrição da tabela TACO
+            public override string ToString()
+            {
+                return Grupo;
+            }
+        }
+
+        public void GetTacoGrupoCombobox(ComboBox comboBox)
+        {
+            using (var db = new DatabaseConnection())
+            {
+                db.OpenConnection();
+
+
+                using (var comm = new NpgsqlCommand("SELECT grupo_id,grupo FROM public.taco_grupos", db.GetConnection()))
+                {
+
+                    try
+                    {
+                        using (var reader = comm.ExecuteReader())
+                        {
+                            comboBox.Items.Clear();
+
+                            while (reader.Read())
+                            {
+
+                                int idgrupo = Convert.ToInt32(reader["grupo_id"]);
+                                string grupo = reader["grupo"].ToString();
+
+                                comboBox.Items.Add(new TacoGrupos(idgrupo, grupo));
+                            }
+
+                            // Verifica se encontrou
+                            if (comboBox.Items.Count > 0)
+                            {
+
+                                comboBox.SelectedIndex = 0;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Nenhum Grupo encontrado.");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao obter os Grupos: {ex.Message}");
+                    }
+                }
+            }
+        }
+
+        public class TacoMedidas
+        {
+            public int Id { get; set; }
+            public string MedidaCaseira { get; set; }
+            public float Grama { get; set; }
+
+            public TacoMedidas(int id, string medidaCaseira, float grama)
+            {
+                Id = id;
+                MedidaCaseira=medidaCaseira;
+                Grama=grama;
+            }
+
+            // Sobrescreva o método ToString para que o ComboBox exiba a descrição da tabela TACO
+            public override string ToString()
+            {
+                return MedidaCaseira;
+            }
+        }
+
+        public void GetMedidas(int id_grupo,ComboBox comboBox,Label gramas)
+        {
+            using (var db = new DatabaseConnection())
+            {
+                db.OpenConnection();
+
+
+                using (var comm = new NpgsqlCommand("SELECT me.id,grama,me.medida_caseira,me.grupo_id FROM public.taco_medidas me where grupo_id = @grupo_id", db.GetConnection()))
+                {
+                    comm.Parameters.AddWithValue("@grupo_id", id_grupo);
+
+                    try
+                    {
+                        using (var reader = comm.ExecuteReader())
+                        {
+                            comboBox.Items.Clear();
+
+                            while (reader.Read())
+                            {
+
+                                int idgrupo = Convert.ToInt32(reader["grupo_id"]);
+                                string medida_caseira = reader["medida_caseira"].ToString();
+                                float grama = Convert.ToInt64(reader["grama"]);
+
+                                comboBox.Items.Add(new TacoMedidas(idgrupo,medida_caseira,grama));
+                                gramas.Text = Convert.ToString(grama);
+                            }
+
+                            // Verifica se encontrou
+                            if (comboBox.Items.Count > 0)
+                            {
+
+                                comboBox.SelectedIndex = 0;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Nenhum Grupo encontrado.");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao obter os Grupos: {ex.Message}");
+                    }
+                }
+            }
+        }
+
     }
 }

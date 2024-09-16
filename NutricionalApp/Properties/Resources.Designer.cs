@@ -193,6 +193,16 @@ namespace NutricionalApp.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Edit_Property_48 {
+            get {
+                object obj = ResourceManager.GetObject("Edit_Property_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Edit_Text_File_16 {
             get {
                 object obj = ResourceManager.GetObject("Edit Text File_16", resourceCulture);
@@ -246,6 +256,16 @@ namespace NutricionalApp.Properties {
         internal static System.Drawing.Bitmap General_Warning_Sign_16 {
             get {
                 object obj = ResourceManager.GetObject("General Warning Sign_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Healthy_Food_Calories_Calculator_48 {
+            get {
+                object obj = ResourceManager.GetObject("Healthy_Food_Calories_Calculator_48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
