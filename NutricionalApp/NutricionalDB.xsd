@@ -966,7 +966,18 @@
               <Mapping SourceColumn="medida_caseira" DataSetColumn="medida_caseira" />
               <Mapping SourceColumn="grupo_id" DataSetColumn="grupo_id" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="CadMedidas" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="CadMedidas" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="CadMedidas">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        me.id, me.grama, me.medida_caseira, gr.grupo
+FROM            "public".taco_medidas me, "public".taco_grupos gr
+WHERE        gr.grupo_id = me.grupo_id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vw_itensrecordatorio_detalhadoTableAdapter" GeneratorDataComponentClassName="vw_itensrecordatorio_detalhadoTableAdapter" Name="vw_itensrecordatorio_detalhado" UserDataComponentName="vw_itensrecordatorio_detalhadoTableAdapter">
             <MainSource>
@@ -1238,85 +1249,85 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="itens_recordatorio" msprop:Generator_RowEvHandlerName="itens_recordatorioRowChangeEventHandler" msprop:Generator_RowDeletedName="itens_recordatorioRowDeleted" msprop:Generator_RowDeletingName="itens_recordatorioRowDeleting" msprop:Generator_RowEvArgName="itens_recordatorioRowChangeEvent" msprop:Generator_TablePropName="itens_recordatorio" msprop:Generator_RowChangedName="itens_recordatorioRowChanged" msprop:Generator_RowChangingName="itens_recordatorioRowChanging" msprop:Generator_TableClassName="itens_recordatorioDataTable" msprop:Generator_RowClassName="itens_recordatorioRow" msprop:Generator_TableVarName="tableitens_recordatorio" msprop:Generator_UserTableName="itens_recordatorio">
+        <xs:element name="itens_recordatorio" msprop:Generator_RowClassName="itens_recordatorioRow" msprop:Generator_RowEvHandlerName="itens_recordatorioRowChangeEventHandler" msprop:Generator_RowDeletedName="itens_recordatorioRowDeleted" msprop:Generator_RowDeletingName="itens_recordatorioRowDeleting" msprop:Generator_RowEvArgName="itens_recordatorioRowChangeEvent" msprop:Generator_TablePropName="itens_recordatorio" msprop:Generator_RowChangedName="itens_recordatorioRowChanged" msprop:Generator_UserTableName="itens_recordatorio" msprop:Generator_RowChangingName="itens_recordatorioRowChanging" msprop:Generator_TableClassName="itens_recordatorioDataTable" msprop:Generator_TableVarName="tableitens_recordatorio">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id_itensrec" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="id_itensrec" msprop:Generator_ColumnPropNameInTable="id_itensrecColumn" msprop:Generator_ColumnVarNameInTable="columnid_itensrec" msprop:Generator_UserColumnName="id_itensrec" type="xs:int" />
-              <xs:element name="recordatorio_id" msprop:Generator_ColumnPropNameInRow="recordatorio_id" msprop:Generator_ColumnPropNameInTable="recordatorio_idColumn" msprop:Generator_ColumnVarNameInTable="columnrecordatorio_id" msprop:Generator_UserColumnName="recordatorio_id" type="xs:int" />
-              <xs:element name="data_rec" msprop:Generator_ColumnPropNameInRow="data_rec" msprop:Generator_ColumnPropNameInTable="data_recColumn" msprop:Generator_ColumnVarNameInTable="columndata_rec" msprop:Generator_UserColumnName="data_rec" type="xs:dateTime" />
-              <xs:element name="hora" msprop:Generator_ColumnPropNameInRow="hora" msprop:Generator_ColumnPropNameInTable="horaColumn" msprop:Generator_ColumnVarNameInTable="columnhora" msprop:Generator_UserColumnName="hora" type="xs:duration" />
-              <xs:element name="taco_id" msprop:Generator_ColumnPropNameInRow="taco_id" msprop:Generator_ColumnPropNameInTable="taco_idColumn" msprop:Generator_ColumnVarNameInTable="columntaco_id" msprop:Generator_UserColumnName="taco_id" type="xs:int" />
-              <xs:element name="descricao" msprop:Generator_ColumnPropNameInRow="descricao" msprop:Generator_ColumnPropNameInTable="descricaoColumn" msprop:Generator_ColumnVarNameInTable="columndescricao" msprop:Generator_UserColumnName="descricao">
+              <xs:element name="id_itensrec" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="id_itensrec" msprop:Generator_ColumnPropNameInTable="id_itensrecColumn" msprop:Generator_ColumnPropNameInRow="id_itensrec" msprop:Generator_ColumnVarNameInTable="columnid_itensrec" type="xs:int" />
+              <xs:element name="recordatorio_id" msprop:Generator_UserColumnName="recordatorio_id" msprop:Generator_ColumnPropNameInTable="recordatorio_idColumn" msprop:Generator_ColumnPropNameInRow="recordatorio_id" msprop:Generator_ColumnVarNameInTable="columnrecordatorio_id" type="xs:int" />
+              <xs:element name="data_rec" msprop:Generator_UserColumnName="data_rec" msprop:Generator_ColumnPropNameInTable="data_recColumn" msprop:Generator_ColumnPropNameInRow="data_rec" msprop:Generator_ColumnVarNameInTable="columndata_rec" type="xs:dateTime" />
+              <xs:element name="hora" msprop:Generator_UserColumnName="hora" msprop:Generator_ColumnPropNameInTable="horaColumn" msprop:Generator_ColumnPropNameInRow="hora" msprop:Generator_ColumnVarNameInTable="columnhora" type="xs:duration" />
+              <xs:element name="taco_id" msprop:Generator_UserColumnName="taco_id" msprop:Generator_ColumnPropNameInTable="taco_idColumn" msprop:Generator_ColumnPropNameInRow="taco_id" msprop:Generator_ColumnVarNameInTable="columntaco_id" type="xs:int" />
+              <xs:element name="descricao" msprop:Generator_UserColumnName="descricao" msprop:Generator_ColumnPropNameInTable="descricaoColumn" msprop:Generator_ColumnPropNameInRow="descricao" msprop:Generator_ColumnVarNameInTable="columndescricao">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="500" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="quantidade" msprop:Generator_ColumnPropNameInRow="quantidade" msprop:Generator_ColumnPropNameInTable="quantidadeColumn" msprop:Generator_ColumnVarNameInTable="columnquantidade" msprop:Generator_UserColumnName="quantidade" type="xs:short" />
+              <xs:element name="quantidade" msprop:Generator_UserColumnName="quantidade" msprop:Generator_ColumnPropNameInTable="quantidadeColumn" msprop:Generator_ColumnPropNameInRow="quantidade" msprop:Generator_ColumnVarNameInTable="columnquantidade" type="xs:short" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="tabela_taco4" msprop:Generator_RowEvHandlerName="tabela_taco4RowChangeEventHandler" msprop:Generator_RowDeletedName="tabela_taco4RowDeleted" msprop:Generator_RowDeletingName="tabela_taco4RowDeleting" msprop:Generator_RowEvArgName="tabela_taco4RowChangeEvent" msprop:Generator_TablePropName="tabela_taco4" msprop:Generator_RowChangedName="tabela_taco4RowChanged" msprop:Generator_RowChangingName="tabela_taco4RowChanging" msprop:Generator_TableClassName="tabela_taco4DataTable" msprop:Generator_RowClassName="tabela_taco4Row" msprop:Generator_TableVarName="tabletabela_taco4" msprop:Generator_UserTableName="tabela_taco4">
+        <xs:element name="tabela_taco4" msprop:Generator_RowClassName="tabela_taco4Row" msprop:Generator_RowEvHandlerName="tabela_taco4RowChangeEventHandler" msprop:Generator_RowDeletedName="tabela_taco4RowDeleted" msprop:Generator_RowDeletingName="tabela_taco4RowDeleting" msprop:Generator_RowEvArgName="tabela_taco4RowChangeEvent" msprop:Generator_TablePropName="tabela_taco4" msprop:Generator_RowChangedName="tabela_taco4RowChanged" msprop:Generator_UserTableName="tabela_taco4" msprop:Generator_RowChangingName="tabela_taco4RowChanging" msprop:Generator_TableClassName="tabela_taco4DataTable" msprop:Generator_TableVarName="tabletabela_taco4">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_UserColumnName="id" type="xs:int" />
-              <xs:element name="grupo" msprop:Generator_ColumnPropNameInRow="grupo" msprop:Generator_ColumnPropNameInTable="grupoColumn" msprop:Generator_ColumnVarNameInTable="columngrupo" msprop:Generator_UserColumnName="grupo" minOccurs="0">
+              <xs:element name="id" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:int" />
+              <xs:element name="grupo" msprop:Generator_UserColumnName="grupo" msprop:Generator_ColumnPropNameInTable="grupoColumn" msprop:Generator_ColumnPropNameInRow="grupo" msprop:Generator_ColumnVarNameInTable="columngrupo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="80" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="descricao" msprop:Generator_ColumnPropNameInRow="descricao" msprop:Generator_ColumnPropNameInTable="descricaoColumn" msprop:Generator_ColumnVarNameInTable="columndescricao" msprop:Generator_UserColumnName="descricao" minOccurs="0">
+              <xs:element name="descricao" msprop:Generator_UserColumnName="descricao" msprop:Generator_ColumnPropNameInTable="descricaoColumn" msprop:Generator_ColumnPropNameInRow="descricao" msprop:Generator_ColumnVarNameInTable="columndescricao" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="umidade" msprop:Generator_ColumnPropNameInRow="umidade" msprop:Generator_ColumnPropNameInTable="umidadeColumn" msprop:Generator_ColumnVarNameInTable="columnumidade" msprop:Generator_UserColumnName="umidade" type="xs:decimal" minOccurs="0" />
-              <xs:element name="energia_kcal" msprop:Generator_ColumnPropNameInRow="energia_kcal" msprop:Generator_ColumnPropNameInTable="energia_kcalColumn" msprop:Generator_ColumnVarNameInTable="columnenergia_kcal" msprop:Generator_UserColumnName="energia_kcal" type="xs:decimal" minOccurs="0" />
-              <xs:element name="energia_kj" msprop:Generator_ColumnPropNameInRow="energia_kj" msprop:Generator_ColumnPropNameInTable="energia_kjColumn" msprop:Generator_ColumnVarNameInTable="columnenergia_kj" msprop:Generator_UserColumnName="energia_kj" type="xs:decimal" minOccurs="0" />
-              <xs:element name="proteina" msprop:Generator_ColumnPropNameInRow="proteina" msprop:Generator_ColumnPropNameInTable="proteinaColumn" msprop:Generator_ColumnVarNameInTable="columnproteina" msprop:Generator_UserColumnName="proteina" type="xs:decimal" minOccurs="0" />
-              <xs:element name="lipideos" msprop:Generator_ColumnPropNameInRow="lipideos" msprop:Generator_ColumnPropNameInTable="lipideosColumn" msprop:Generator_ColumnVarNameInTable="columnlipideos" msprop:Generator_UserColumnName="lipideos" type="xs:decimal" minOccurs="0" />
-              <xs:element name="colesterol" msprop:Generator_ColumnPropNameInRow="colesterol" msprop:Generator_ColumnPropNameInTable="colesterolColumn" msprop:Generator_ColumnVarNameInTable="columncolesterol" msprop:Generator_UserColumnName="colesterol" type="xs:decimal" minOccurs="0" />
-              <xs:element name="fibra_alimentar" msprop:Generator_ColumnPropNameInRow="fibra_alimentar" msprop:Generator_ColumnPropNameInTable="fibra_alimentarColumn" msprop:Generator_ColumnVarNameInTable="columnfibra_alimentar" msprop:Generator_UserColumnName="fibra_alimentar" type="xs:decimal" minOccurs="0" />
-              <xs:element name="cinzas" msprop:Generator_ColumnPropNameInRow="cinzas" msprop:Generator_ColumnPropNameInTable="cinzasColumn" msprop:Generator_ColumnVarNameInTable="columncinzas" msprop:Generator_UserColumnName="cinzas" type="xs:decimal" minOccurs="0" />
-              <xs:element name="calcio" msprop:Generator_ColumnPropNameInRow="calcio" msprop:Generator_ColumnPropNameInTable="calcioColumn" msprop:Generator_ColumnVarNameInTable="columncalcio" msprop:Generator_UserColumnName="calcio" type="xs:decimal" minOccurs="0" />
-              <xs:element name="magnesio" msprop:Generator_ColumnPropNameInRow="magnesio" msprop:Generator_ColumnPropNameInTable="magnesioColumn" msprop:Generator_ColumnVarNameInTable="columnmagnesio" msprop:Generator_UserColumnName="magnesio" type="xs:decimal" minOccurs="0" />
-              <xs:element name="manganes" msprop:Generator_ColumnPropNameInRow="manganes" msprop:Generator_ColumnPropNameInTable="manganesColumn" msprop:Generator_ColumnVarNameInTable="columnmanganes" msprop:Generator_UserColumnName="manganes" type="xs:decimal" minOccurs="0" />
-              <xs:element name="fosforo" msprop:Generator_ColumnPropNameInRow="fosforo" msprop:Generator_ColumnPropNameInTable="fosforoColumn" msprop:Generator_ColumnVarNameInTable="columnfosforo" msprop:Generator_UserColumnName="fosforo" type="xs:decimal" minOccurs="0" />
-              <xs:element name="ferro" msprop:Generator_ColumnPropNameInRow="ferro" msprop:Generator_ColumnPropNameInTable="ferroColumn" msprop:Generator_ColumnVarNameInTable="columnferro" msprop:Generator_UserColumnName="ferro" type="xs:decimal" minOccurs="0" />
-              <xs:element name="sodio" msprop:Generator_ColumnPropNameInRow="sodio" msprop:Generator_ColumnPropNameInTable="sodioColumn" msprop:Generator_ColumnVarNameInTable="columnsodio" msprop:Generator_UserColumnName="sodio" type="xs:decimal" minOccurs="0" />
-              <xs:element name="potassio" msprop:Generator_ColumnPropNameInRow="potassio" msprop:Generator_ColumnPropNameInTable="potassioColumn" msprop:Generator_ColumnVarNameInTable="columnpotassio" msprop:Generator_UserColumnName="potassio" type="xs:decimal" minOccurs="0" />
-              <xs:element name="cobre" msprop:Generator_ColumnPropNameInRow="cobre" msprop:Generator_ColumnPropNameInTable="cobreColumn" msprop:Generator_ColumnVarNameInTable="columncobre" msprop:Generator_UserColumnName="cobre" type="xs:decimal" minOccurs="0" />
-              <xs:element name="zinco" msprop:Generator_ColumnPropNameInRow="zinco" msprop:Generator_ColumnPropNameInTable="zincoColumn" msprop:Generator_ColumnVarNameInTable="columnzinco" msprop:Generator_UserColumnName="zinco" type="xs:decimal" minOccurs="0" />
-              <xs:element name="retinol" msprop:Generator_ColumnPropNameInRow="retinol" msprop:Generator_ColumnPropNameInTable="retinolColumn" msprop:Generator_ColumnVarNameInTable="columnretinol" msprop:Generator_UserColumnName="retinol" type="xs:decimal" minOccurs="0" />
-              <xs:element name="re" msprop:Generator_ColumnPropNameInRow="re" msprop:Generator_ColumnPropNameInTable="reColumn" msprop:Generator_ColumnVarNameInTable="columnre" msprop:Generator_UserColumnName="re" type="xs:decimal" minOccurs="0" />
-              <xs:element name="rae" msprop:Generator_ColumnPropNameInRow="rae" msprop:Generator_ColumnPropNameInTable="raeColumn" msprop:Generator_ColumnVarNameInTable="columnrae" msprop:Generator_UserColumnName="rae" type="xs:decimal" minOccurs="0" />
-              <xs:element name="tiamina" msprop:Generator_ColumnPropNameInRow="tiamina" msprop:Generator_ColumnPropNameInTable="tiaminaColumn" msprop:Generator_ColumnVarNameInTable="columntiamina" msprop:Generator_UserColumnName="tiamina" type="xs:decimal" minOccurs="0" />
-              <xs:element name="riboflavina" msprop:Generator_ColumnPropNameInRow="riboflavina" msprop:Generator_ColumnPropNameInTable="riboflavinaColumn" msprop:Generator_ColumnVarNameInTable="columnriboflavina" msprop:Generator_UserColumnName="riboflavina" type="xs:decimal" minOccurs="0" />
-              <xs:element name="piridoxina" msprop:Generator_ColumnPropNameInRow="piridoxina" msprop:Generator_ColumnPropNameInTable="piridoxinaColumn" msprop:Generator_ColumnVarNameInTable="columnpiridoxina" msprop:Generator_UserColumnName="piridoxina" type="xs:decimal" minOccurs="0" />
-              <xs:element name="niacina" msprop:Generator_ColumnPropNameInRow="niacina" msprop:Generator_ColumnPropNameInTable="niacinaColumn" msprop:Generator_ColumnVarNameInTable="columnniacina" msprop:Generator_UserColumnName="niacina" type="xs:decimal" minOccurs="0" />
-              <xs:element name="vitamina_c" msprop:Generator_ColumnPropNameInRow="vitamina_c" msprop:Generator_ColumnPropNameInTable="vitamina_cColumn" msprop:Generator_ColumnVarNameInTable="columnvitamina_c" msprop:Generator_UserColumnName="vitamina_c" type="xs:decimal" minOccurs="0" />
-              <xs:element name="ativo" msprop:Generator_ColumnPropNameInRow="ativo" msprop:Generator_ColumnPropNameInTable="ativoColumn" msprop:Generator_ColumnVarNameInTable="columnativo" msprop:Generator_UserColumnName="ativo">
+              <xs:element name="umidade" msprop:Generator_UserColumnName="umidade" msprop:Generator_ColumnPropNameInTable="umidadeColumn" msprop:Generator_ColumnPropNameInRow="umidade" msprop:Generator_ColumnVarNameInTable="columnumidade" type="xs:decimal" minOccurs="0" />
+              <xs:element name="energia_kcal" msprop:Generator_UserColumnName="energia_kcal" msprop:Generator_ColumnPropNameInTable="energia_kcalColumn" msprop:Generator_ColumnPropNameInRow="energia_kcal" msprop:Generator_ColumnVarNameInTable="columnenergia_kcal" type="xs:decimal" minOccurs="0" />
+              <xs:element name="energia_kj" msprop:Generator_UserColumnName="energia_kj" msprop:Generator_ColumnPropNameInTable="energia_kjColumn" msprop:Generator_ColumnPropNameInRow="energia_kj" msprop:Generator_ColumnVarNameInTable="columnenergia_kj" type="xs:decimal" minOccurs="0" />
+              <xs:element name="proteina" msprop:Generator_UserColumnName="proteina" msprop:Generator_ColumnPropNameInTable="proteinaColumn" msprop:Generator_ColumnPropNameInRow="proteina" msprop:Generator_ColumnVarNameInTable="columnproteina" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lipideos" msprop:Generator_UserColumnName="lipideos" msprop:Generator_ColumnPropNameInTable="lipideosColumn" msprop:Generator_ColumnPropNameInRow="lipideos" msprop:Generator_ColumnVarNameInTable="columnlipideos" type="xs:decimal" minOccurs="0" />
+              <xs:element name="colesterol" msprop:Generator_UserColumnName="colesterol" msprop:Generator_ColumnPropNameInTable="colesterolColumn" msprop:Generator_ColumnPropNameInRow="colesterol" msprop:Generator_ColumnVarNameInTable="columncolesterol" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fibra_alimentar" msprop:Generator_UserColumnName="fibra_alimentar" msprop:Generator_ColumnPropNameInTable="fibra_alimentarColumn" msprop:Generator_ColumnPropNameInRow="fibra_alimentar" msprop:Generator_ColumnVarNameInTable="columnfibra_alimentar" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cinzas" msprop:Generator_UserColumnName="cinzas" msprop:Generator_ColumnPropNameInTable="cinzasColumn" msprop:Generator_ColumnPropNameInRow="cinzas" msprop:Generator_ColumnVarNameInTable="columncinzas" type="xs:decimal" minOccurs="0" />
+              <xs:element name="calcio" msprop:Generator_UserColumnName="calcio" msprop:Generator_ColumnPropNameInTable="calcioColumn" msprop:Generator_ColumnPropNameInRow="calcio" msprop:Generator_ColumnVarNameInTable="columncalcio" type="xs:decimal" minOccurs="0" />
+              <xs:element name="magnesio" msprop:Generator_UserColumnName="magnesio" msprop:Generator_ColumnPropNameInTable="magnesioColumn" msprop:Generator_ColumnPropNameInRow="magnesio" msprop:Generator_ColumnVarNameInTable="columnmagnesio" type="xs:decimal" minOccurs="0" />
+              <xs:element name="manganes" msprop:Generator_UserColumnName="manganes" msprop:Generator_ColumnPropNameInTable="manganesColumn" msprop:Generator_ColumnPropNameInRow="manganes" msprop:Generator_ColumnVarNameInTable="columnmanganes" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fosforo" msprop:Generator_UserColumnName="fosforo" msprop:Generator_ColumnPropNameInTable="fosforoColumn" msprop:Generator_ColumnPropNameInRow="fosforo" msprop:Generator_ColumnVarNameInTable="columnfosforo" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ferro" msprop:Generator_UserColumnName="ferro" msprop:Generator_ColumnPropNameInTable="ferroColumn" msprop:Generator_ColumnPropNameInRow="ferro" msprop:Generator_ColumnVarNameInTable="columnferro" type="xs:decimal" minOccurs="0" />
+              <xs:element name="sodio" msprop:Generator_UserColumnName="sodio" msprop:Generator_ColumnPropNameInTable="sodioColumn" msprop:Generator_ColumnPropNameInRow="sodio" msprop:Generator_ColumnVarNameInTable="columnsodio" type="xs:decimal" minOccurs="0" />
+              <xs:element name="potassio" msprop:Generator_UserColumnName="potassio" msprop:Generator_ColumnPropNameInTable="potassioColumn" msprop:Generator_ColumnPropNameInRow="potassio" msprop:Generator_ColumnVarNameInTable="columnpotassio" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cobre" msprop:Generator_UserColumnName="cobre" msprop:Generator_ColumnPropNameInTable="cobreColumn" msprop:Generator_ColumnPropNameInRow="cobre" msprop:Generator_ColumnVarNameInTable="columncobre" type="xs:decimal" minOccurs="0" />
+              <xs:element name="zinco" msprop:Generator_UserColumnName="zinco" msprop:Generator_ColumnPropNameInTable="zincoColumn" msprop:Generator_ColumnPropNameInRow="zinco" msprop:Generator_ColumnVarNameInTable="columnzinco" type="xs:decimal" minOccurs="0" />
+              <xs:element name="retinol" msprop:Generator_UserColumnName="retinol" msprop:Generator_ColumnPropNameInTable="retinolColumn" msprop:Generator_ColumnPropNameInRow="retinol" msprop:Generator_ColumnVarNameInTable="columnretinol" type="xs:decimal" minOccurs="0" />
+              <xs:element name="re" msprop:Generator_UserColumnName="re" msprop:Generator_ColumnPropNameInTable="reColumn" msprop:Generator_ColumnPropNameInRow="re" msprop:Generator_ColumnVarNameInTable="columnre" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rae" msprop:Generator_UserColumnName="rae" msprop:Generator_ColumnPropNameInTable="raeColumn" msprop:Generator_ColumnPropNameInRow="rae" msprop:Generator_ColumnVarNameInTable="columnrae" type="xs:decimal" minOccurs="0" />
+              <xs:element name="tiamina" msprop:Generator_UserColumnName="tiamina" msprop:Generator_ColumnPropNameInTable="tiaminaColumn" msprop:Generator_ColumnPropNameInRow="tiamina" msprop:Generator_ColumnVarNameInTable="columntiamina" type="xs:decimal" minOccurs="0" />
+              <xs:element name="riboflavina" msprop:Generator_UserColumnName="riboflavina" msprop:Generator_ColumnPropNameInTable="riboflavinaColumn" msprop:Generator_ColumnPropNameInRow="riboflavina" msprop:Generator_ColumnVarNameInTable="columnriboflavina" type="xs:decimal" minOccurs="0" />
+              <xs:element name="piridoxina" msprop:Generator_UserColumnName="piridoxina" msprop:Generator_ColumnPropNameInTable="piridoxinaColumn" msprop:Generator_ColumnPropNameInRow="piridoxina" msprop:Generator_ColumnVarNameInTable="columnpiridoxina" type="xs:decimal" minOccurs="0" />
+              <xs:element name="niacina" msprop:Generator_UserColumnName="niacina" msprop:Generator_ColumnPropNameInTable="niacinaColumn" msprop:Generator_ColumnPropNameInRow="niacina" msprop:Generator_ColumnVarNameInTable="columnniacina" type="xs:decimal" minOccurs="0" />
+              <xs:element name="vitamina_c" msprop:Generator_UserColumnName="vitamina_c" msprop:Generator_ColumnPropNameInTable="vitamina_cColumn" msprop:Generator_ColumnPropNameInRow="vitamina_c" msprop:Generator_ColumnVarNameInTable="columnvitamina_c" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ativo" msprop:Generator_UserColumnName="ativo" msprop:Generator_ColumnPropNameInTable="ativoColumn" msprop:Generator_ColumnPropNameInRow="ativo" msprop:Generator_ColumnVarNameInTable="columnativo">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="1" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="carboidrato" msprop:Generator_ColumnPropNameInRow="carboidrato" msprop:Generator_ColumnPropNameInTable="carboidratoColumn" msprop:Generator_ColumnVarNameInTable="columncarboidrato" msprop:Generator_UserColumnName="carboidrato" type="xs:decimal" minOccurs="0" />
-              <xs:element name="grupo_id" msprop:Generator_ColumnPropNameInRow="grupo_id" msprop:Generator_ColumnPropNameInTable="grupo_idColumn" msprop:Generator_ColumnVarNameInTable="columngrupo_id" msprop:Generator_UserColumnName="grupo_id" type="xs:int" minOccurs="0" />
+              <xs:element name="carboidrato" msprop:Generator_UserColumnName="carboidrato" msprop:Generator_ColumnPropNameInTable="carboidratoColumn" msprop:Generator_ColumnPropNameInRow="carboidrato" msprop:Generator_ColumnVarNameInTable="columncarboidrato" type="xs:decimal" minOccurs="0" />
+              <xs:element name="grupo_id" msprop:Generator_UserColumnName="grupo_id" msprop:Generator_ColumnPropNameInTable="grupo_idColumn" msprop:Generator_ColumnPropNameInRow="grupo_id" msprop:Generator_ColumnVarNameInTable="columngrupo_id" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="taco_grupos" msprop:Generator_RowEvHandlerName="taco_gruposRowChangeEventHandler" msprop:Generator_RowDeletedName="taco_gruposRowDeleted" msprop:Generator_RowDeletingName="taco_gruposRowDeleting" msprop:Generator_RowEvArgName="taco_gruposRowChangeEvent" msprop:Generator_TablePropName="taco_grupos" msprop:Generator_RowChangedName="taco_gruposRowChanged" msprop:Generator_RowChangingName="taco_gruposRowChanging" msprop:Generator_TableClassName="taco_gruposDataTable" msprop:Generator_RowClassName="taco_gruposRow" msprop:Generator_TableVarName="tabletaco_grupos" msprop:Generator_UserTableName="taco_grupos">
+        <xs:element name="taco_grupos" msprop:Generator_RowClassName="taco_gruposRow" msprop:Generator_RowEvHandlerName="taco_gruposRowChangeEventHandler" msprop:Generator_RowDeletedName="taco_gruposRowDeleted" msprop:Generator_RowDeletingName="taco_gruposRowDeleting" msprop:Generator_RowEvArgName="taco_gruposRowChangeEvent" msprop:Generator_TablePropName="taco_grupos" msprop:Generator_RowChangedName="taco_gruposRowChanged" msprop:Generator_UserTableName="taco_grupos" msprop:Generator_RowChangingName="taco_gruposRowChanging" msprop:Generator_TableClassName="taco_gruposDataTable" msprop:Generator_TableVarName="tabletaco_grupos">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="grupo_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="grupo_id" msprop:Generator_ColumnPropNameInTable="grupo_idColumn" msprop:Generator_ColumnVarNameInTable="columngrupo_id" msprop:Generator_UserColumnName="grupo_id" type="xs:int" />
-              <xs:element name="grupo" msprop:Generator_ColumnPropNameInRow="grupo" msprop:Generator_ColumnPropNameInTable="grupoColumn" msprop:Generator_ColumnVarNameInTable="columngrupo" msprop:Generator_UserColumnName="grupo">
+              <xs:element name="grupo_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="grupo_id" msprop:Generator_ColumnPropNameInTable="grupo_idColumn" msprop:Generator_ColumnPropNameInRow="grupo_id" msprop:Generator_ColumnVarNameInTable="columngrupo_id" type="xs:int" />
+              <xs:element name="grupo" msprop:Generator_UserColumnName="grupo" msprop:Generator_ColumnPropNameInTable="grupoColumn" msprop:Generator_ColumnPropNameInRow="grupo" msprop:Generator_ColumnVarNameInTable="columngrupo">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="80" />
@@ -1326,61 +1337,61 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="taco_medidas" msprop:Generator_RowEvHandlerName="taco_medidasRowChangeEventHandler" msprop:Generator_RowDeletedName="taco_medidasRowDeleted" msprop:Generator_RowDeletingName="taco_medidasRowDeleting" msprop:Generator_RowEvArgName="taco_medidasRowChangeEvent" msprop:Generator_TablePropName="taco_medidas" msprop:Generator_RowChangedName="taco_medidasRowChanged" msprop:Generator_RowChangingName="taco_medidasRowChanging" msprop:Generator_TableClassName="taco_medidasDataTable" msprop:Generator_RowClassName="taco_medidasRow" msprop:Generator_TableVarName="tabletaco_medidas" msprop:Generator_UserTableName="taco_medidas">
+        <xs:element name="taco_medidas" msprop:Generator_RowClassName="taco_medidasRow" msprop:Generator_RowEvHandlerName="taco_medidasRowChangeEventHandler" msprop:Generator_RowDeletedName="taco_medidasRowDeleted" msprop:Generator_RowDeletingName="taco_medidasRowDeleting" msprop:Generator_RowEvArgName="taco_medidasRowChangeEvent" msprop:Generator_TablePropName="taco_medidas" msprop:Generator_RowChangedName="taco_medidasRowChanged" msprop:Generator_UserTableName="taco_medidas" msprop:Generator_RowChangingName="taco_medidasRowChanging" msprop:Generator_TableClassName="taco_medidasDataTable" msprop:Generator_TableVarName="tabletaco_medidas">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_UserColumnName="id" type="xs:int" />
-              <xs:element name="grama" msprop:Generator_ColumnPropNameInRow="grama" msprop:Generator_ColumnPropNameInTable="gramaColumn" msprop:Generator_ColumnVarNameInTable="columngrama" msprop:Generator_UserColumnName="grama" type="xs:decimal" />
-              <xs:element name="medida_caseira" msprop:Generator_ColumnPropNameInRow="medida_caseira" msprop:Generator_ColumnPropNameInTable="medida_caseiraColumn" msprop:Generator_ColumnVarNameInTable="columnmedida_caseira" msprop:Generator_UserColumnName="medida_caseira">
+              <xs:element name="id" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:int" />
+              <xs:element name="grama" msprop:Generator_UserColumnName="grama" msprop:Generator_ColumnPropNameInTable="gramaColumn" msprop:Generator_ColumnPropNameInRow="grama" msprop:Generator_ColumnVarNameInTable="columngrama" type="xs:decimal" />
+              <xs:element name="medida_caseira" msprop:Generator_UserColumnName="medida_caseira" msprop:Generator_ColumnPropNameInTable="medida_caseiraColumn" msprop:Generator_ColumnPropNameInRow="medida_caseira" msprop:Generator_ColumnVarNameInTable="columnmedida_caseira">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="150" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="grupo_id" msprop:Generator_ColumnPropNameInRow="grupo_id" msprop:Generator_ColumnPropNameInTable="grupo_idColumn" msprop:Generator_ColumnVarNameInTable="columngrupo_id" msprop:Generator_UserColumnName="grupo_id" type="xs:int" />
+              <xs:element name="grupo_id" msprop:Generator_UserColumnName="grupo_id" msprop:Generator_ColumnPropNameInTable="grupo_idColumn" msprop:Generator_ColumnPropNameInRow="grupo_id" msprop:Generator_ColumnVarNameInTable="columngrupo_id" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="vw_itensrecordatorio_detalhado" msprop:Generator_RowEvHandlerName="vw_itensrecordatorio_detalhadoRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_itensrecordatorio_detalhadoRowDeleted" msprop:Generator_RowDeletingName="vw_itensrecordatorio_detalhadoRowDeleting" msprop:Generator_RowEvArgName="vw_itensrecordatorio_detalhadoRowChangeEvent" msprop:Generator_TablePropName="vw_itensrecordatorio_detalhado" msprop:Generator_RowChangedName="vw_itensrecordatorio_detalhadoRowChanged" msprop:Generator_RowChangingName="vw_itensrecordatorio_detalhadoRowChanging" msprop:Generator_TableClassName="vw_itensrecordatorio_detalhadoDataTable" msprop:Generator_RowClassName="vw_itensrecordatorio_detalhadoRow" msprop:Generator_TableVarName="tablevw_itensrecordatorio_detalhado" msprop:Generator_UserTableName="vw_itensrecordatorio_detalhado">
+        <xs:element name="vw_itensrecordatorio_detalhado" msprop:Generator_RowClassName="vw_itensrecordatorio_detalhadoRow" msprop:Generator_RowEvHandlerName="vw_itensrecordatorio_detalhadoRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_itensrecordatorio_detalhadoRowDeleted" msprop:Generator_RowDeletingName="vw_itensrecordatorio_detalhadoRowDeleting" msprop:Generator_RowEvArgName="vw_itensrecordatorio_detalhadoRowChangeEvent" msprop:Generator_TablePropName="vw_itensrecordatorio_detalhado" msprop:Generator_RowChangedName="vw_itensrecordatorio_detalhadoRowChanged" msprop:Generator_UserTableName="vw_itensrecordatorio_detalhado" msprop:Generator_RowChangingName="vw_itensrecordatorio_detalhadoRowChanging" msprop:Generator_TableClassName="vw_itensrecordatorio_detalhadoDataTable" msprop:Generator_TableVarName="tablevw_itensrecordatorio_detalhado">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id_itensrec" msprop:Generator_ColumnPropNameInRow="id_itensrec" msprop:Generator_ColumnPropNameInTable="id_itensrecColumn" msprop:Generator_ColumnVarNameInTable="columnid_itensrec" msprop:Generator_UserColumnName="id_itensrec" type="xs:int" minOccurs="0" />
-              <xs:element name="recordatorio_id" msprop:Generator_ColumnPropNameInRow="recordatorio_id" msprop:Generator_ColumnPropNameInTable="recordatorio_idColumn" msprop:Generator_ColumnVarNameInTable="columnrecordatorio_id" msprop:Generator_UserColumnName="recordatorio_id" type="xs:int" minOccurs="0" />
-              <xs:element name="recordatorio_descricao" msprop:Generator_ColumnPropNameInRow="recordatorio_descricao" msprop:Generator_ColumnPropNameInTable="recordatorio_descricaoColumn" msprop:Generator_ColumnVarNameInTable="columnrecordatorio_descricao" msprop:Generator_UserColumnName="recordatorio_descricao" minOccurs="0">
+              <xs:element name="id_itensrec" msprop:Generator_UserColumnName="id_itensrec" msprop:Generator_ColumnPropNameInTable="id_itensrecColumn" msprop:Generator_ColumnPropNameInRow="id_itensrec" msprop:Generator_ColumnVarNameInTable="columnid_itensrec" type="xs:int" minOccurs="0" />
+              <xs:element name="recordatorio_id" msprop:Generator_UserColumnName="recordatorio_id" msprop:Generator_ColumnPropNameInTable="recordatorio_idColumn" msprop:Generator_ColumnPropNameInRow="recordatorio_id" msprop:Generator_ColumnVarNameInTable="columnrecordatorio_id" type="xs:int" minOccurs="0" />
+              <xs:element name="recordatorio_descricao" msprop:Generator_UserColumnName="recordatorio_descricao" msprop:Generator_ColumnPropNameInTable="recordatorio_descricaoColumn" msprop:Generator_ColumnPropNameInRow="recordatorio_descricao" msprop:Generator_ColumnVarNameInTable="columnrecordatorio_descricao" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="150" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="descricaoperiodo" msprop:Generator_ColumnPropNameInRow="descricaoperiodo" msprop:Generator_ColumnPropNameInTable="descricaoperiodoColumn" msprop:Generator_ColumnVarNameInTable="columndescricaoperiodo" msprop:Generator_UserColumnName="descricaoperiodo" minOccurs="0">
+              <xs:element name="descricaoperiodo" msprop:Generator_UserColumnName="descricaoperiodo" msprop:Generator_ColumnPropNameInTable="descricaoperiodoColumn" msprop:Generator_ColumnPropNameInRow="descricaoperiodo" msprop:Generator_ColumnVarNameInTable="columndescricaoperiodo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="500" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="nome_paciente" msprop:Generator_ColumnPropNameInRow="nome_paciente" msprop:Generator_ColumnPropNameInTable="nome_pacienteColumn" msprop:Generator_ColumnVarNameInTable="columnnome_paciente" msprop:Generator_UserColumnName="nome_paciente" minOccurs="0">
+              <xs:element name="nome_paciente" msprop:Generator_UserColumnName="nome_paciente" msprop:Generator_ColumnPropNameInTable="nome_pacienteColumn" msprop:Generator_ColumnPropNameInRow="nome_paciente" msprop:Generator_ColumnVarNameInTable="columnnome_paciente" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="280" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="data_rec" msprop:Generator_ColumnPropNameInRow="data_rec" msprop:Generator_ColumnPropNameInTable="data_recColumn" msprop:Generator_ColumnVarNameInTable="columndata_rec" msprop:Generator_UserColumnName="data_rec" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="hora" msprop:Generator_ColumnPropNameInRow="hora" msprop:Generator_ColumnPropNameInTable="horaColumn" msprop:Generator_ColumnVarNameInTable="columnhora" msprop:Generator_UserColumnName="hora" type="xs:duration" minOccurs="0" />
-              <xs:element name="quantidade" msprop:Generator_ColumnPropNameInRow="quantidade" msprop:Generator_ColumnPropNameInTable="quantidadeColumn" msprop:Generator_ColumnVarNameInTable="columnquantidade" msprop:Generator_UserColumnName="quantidade" type="xs:short" minOccurs="0" />
-              <xs:element name="descricao_alimento" msprop:Generator_ColumnPropNameInRow="descricao_alimento" msprop:Generator_ColumnPropNameInTable="descricao_alimentoColumn" msprop:Generator_ColumnVarNameInTable="columndescricao_alimento" msprop:Generator_UserColumnName="descricao_alimento" minOccurs="0">
+              <xs:element name="data_rec" msprop:Generator_UserColumnName="data_rec" msprop:Generator_ColumnPropNameInTable="data_recColumn" msprop:Generator_ColumnPropNameInRow="data_rec" msprop:Generator_ColumnVarNameInTable="columndata_rec" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="hora" msprop:Generator_UserColumnName="hora" msprop:Generator_ColumnPropNameInTable="horaColumn" msprop:Generator_ColumnPropNameInRow="hora" msprop:Generator_ColumnVarNameInTable="columnhora" type="xs:duration" minOccurs="0" />
+              <xs:element name="quantidade" msprop:Generator_UserColumnName="quantidade" msprop:Generator_ColumnPropNameInTable="quantidadeColumn" msprop:Generator_ColumnPropNameInRow="quantidade" msprop:Generator_ColumnVarNameInTable="columnquantidade" type="xs:short" minOccurs="0" />
+              <xs:element name="descricao_alimento" msprop:Generator_UserColumnName="descricao_alimento" msprop:Generator_ColumnPropNameInTable="descricao_alimentoColumn" msprop:Generator_ColumnPropNameInRow="descricao_alimento" msprop:Generator_ColumnVarNameInTable="columndescricao_alimento" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="carboidrato" msprop:Generator_ColumnPropNameInRow="carboidrato" msprop:Generator_ColumnPropNameInTable="carboidratoColumn" msprop:Generator_ColumnVarNameInTable="columncarboidrato" msprop:Generator_UserColumnName="carboidrato" type="xs:decimal" minOccurs="0" />
-              <xs:element name="proteina" msprop:Generator_ColumnPropNameInRow="proteina" msprop:Generator_ColumnPropNameInTable="proteinaColumn" msprop:Generator_ColumnVarNameInTable="columnproteina" msprop:Generator_UserColumnName="proteina" type="xs:decimal" minOccurs="0" />
-              <xs:element name="lipideos" msprop:Generator_ColumnPropNameInRow="lipideos" msprop:Generator_ColumnPropNameInTable="lipideosColumn" msprop:Generator_ColumnVarNameInTable="columnlipideos" msprop:Generator_UserColumnName="lipideos" type="xs:decimal" minOccurs="0" />
+              <xs:element name="carboidrato" msprop:Generator_UserColumnName="carboidrato" msprop:Generator_ColumnPropNameInTable="carboidratoColumn" msprop:Generator_ColumnPropNameInRow="carboidrato" msprop:Generator_ColumnVarNameInTable="columncarboidrato" type="xs:decimal" minOccurs="0" />
+              <xs:element name="proteina" msprop:Generator_UserColumnName="proteina" msprop:Generator_ColumnPropNameInTable="proteinaColumn" msprop:Generator_ColumnPropNameInRow="proteina" msprop:Generator_ColumnVarNameInTable="columnproteina" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lipideos" msprop:Generator_UserColumnName="lipideos" msprop:Generator_ColumnPropNameInTable="lipideosColumn" msprop:Generator_ColumnPropNameInRow="lipideos" msprop:Generator_ColumnVarNameInTable="columnlipideos" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

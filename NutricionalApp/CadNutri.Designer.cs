@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadNutri));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ck_souEstudante = new System.Windows.Forms.CheckBox();
             this.bt_Revalidar = new System.Windows.Forms.Button();
             this.ck_Confirmacao = new System.Windows.Forms.CheckBox();
             this.bt_finalizar = new System.Windows.Forms.Button();
@@ -67,7 +68,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.ck_souEstudante = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picsenha2)).BeginInit();
@@ -134,6 +134,17 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Cadastre-se";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // ck_souEstudante
+            // 
+            this.ck_souEstudante.AutoSize = true;
+            this.ck_souEstudante.Location = new System.Drawing.Point(618, 252);
+            this.ck_souEstudante.Name = "ck_souEstudante";
+            this.ck_souEstudante.Size = new System.Drawing.Size(84, 17);
+            this.ck_souEstudante.TabIndex = 73;
+            this.ck_souEstudante.Text = "É Estudante";
+            this.ck_souEstudante.UseVisualStyleBackColor = true;
+            this.ck_souEstudante.Click += new System.EventHandler(this.ck_souEstudante_Click);
             // 
             // bt_Revalidar
             // 
@@ -485,17 +496,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // ck_souEstudante
-            // 
-            this.ck_souEstudante.AutoSize = true;
-            this.ck_souEstudante.Location = new System.Drawing.Point(618, 252);
-            this.ck_souEstudante.Name = "ck_souEstudante";
-            this.ck_souEstudante.Size = new System.Drawing.Size(84, 17);
-            this.ck_souEstudante.TabIndex = 73;
-            this.ck_souEstudante.Text = "É Estudante";
-            this.ck_souEstudante.UseVisualStyleBackColor = true;
-            this.ck_souEstudante.Click += new System.EventHandler(this.ck_souEstudante_Click);
-            // 
             // CadNutri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -505,7 +505,6 @@
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "CadNutri";
-            this.Text = "CadNutri";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

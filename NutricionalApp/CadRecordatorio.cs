@@ -282,7 +282,7 @@ namespace NutricionalApp
                 try
                 {
                     // Recarregar os dados no DataGridView2
-                    string query = "SELECT ir.id_itensrec, ir.descricao, ir.quantidade, ir.medida,tt.carboidrato,tt.lipideos,tt.proteina,tt.energia_kcal,tt.energia_kj FROM public.itens_recordatorio ir JOIN tabela_taco4 tt on tt.id = ir.taco_id WHERE recordatorio_id = @Filtro";
+                    string query = "SELECT ir.id_itensrec, ir.descricao, ir.quantidade,tt.carboidrato,tt.lipideos,tt.proteina,tt.energia_kcal,tt.energia_kj FROM public.itens_recordatorio ir JOIN tabela_taco4 tt on tt.id = ir.taco_id WHERE recordatorio_id = @Filtro";
                     db.CarregarDados(query, RecordatorioID, dataGridView2);
                     dataGridView2.Columns["id_itensrec"].Width  = 50;
                     dataGridView2.Columns["id_itensrec"].HeaderText = "ID";
@@ -290,8 +290,6 @@ namespace NutricionalApp
                     dataGridView2.Columns["descricao"].HeaderText = "Descrição";
                     dataGridView2.Columns["quantidade"].Width  = 50;
                     dataGridView2.Columns["quantidade"].HeaderText = "Qnt.";
-                    dataGridView2.Columns["medida"].Width  = 150;
-                    dataGridView2.Columns["medida"].HeaderText = "Tipo Medida";
                     dataGridView2.Columns["carboidrato"].HeaderText = "Carboidrato";
                     dataGridView2.Columns["carboidrato"].Width  = 75;
                     dataGridView2.Columns["lipideos"].HeaderText = "Lipideos";
