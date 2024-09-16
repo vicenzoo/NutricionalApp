@@ -29,19 +29,46 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label9 = new System.Windows.Forms.Label();
-            this.bt_EditarRec = new System.Windows.Forms.Button();
             this.cb_Recordatorios = new System.Windows.Forms.ComboBox();
             this.txt_DescricaoNome = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.gr_itens = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.descricaoperiodo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gr_selecao = new System.Windows.Forms.GroupBox();
+            this.cb_NomeDescricao = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txt_QuantidadeItens = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cb_Taco = new System.Windows.Forms.ComboBox();
+            this.dt_DataHoraRec = new System.Windows.Forms.DateTimePicker();
+            this.cb_Pacientes = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.gr_Resultados = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.l_Proteinas = new System.Windows.Forms.Label();
+            this.l_Qnt = new System.Windows.Forms.Label();
+            this.l_Calorias = new System.Windows.Forms.Label();
+            this.l_Lipidios = new System.Windows.Forms.Label();
+            this.l_Carboidratos = new System.Windows.Forms.Label();
+            this.l_totalKcal = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.datarecDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.horaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,40 +76,22 @@
             this.descricaoalimentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vwitensrecordatoriodetalhadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nutricionalDB = new NutricionalApp.NutricionalDB();
-            this.gr_selecao = new System.Windows.Forms.GroupBox();
-            this.cb_NomeDescricao = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.bt_EditarRec = new System.Windows.Forms.Button();
             this.bt_adicionarItemRec = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txt_Medida = new System.Windows.Forms.TextBox();
-            this.txt_QuantidadeItens = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cb_Taco = new System.Windows.Forms.ComboBox();
-            this.dt_DataHoraRec = new System.Windows.Forms.DateTimePicker();
             this.bt_adicionarRec = new System.Windows.Forms.Button();
-            this.cb_Pacientes = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.gr_Resultados = new System.Windows.Forms.GroupBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.bt_ExcluirIntem = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gr_itens.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vwitensrecordatoriodetalhadoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nutricionalDB)).BeginInit();
             this.gr_selecao.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.gr_Resultados.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            this.gr_Resultados.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vwitensrecordatoriodetalhadoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nutricionalDB)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -94,6 +103,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(776, 464);
             this.tabControl1.TabIndex = 2;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -124,19 +134,6 @@
             this.label9.Size = new System.Drawing.Size(136, 13);
             this.label9.TabIndex = 12;
             this.label9.Text = "Recordatorios do Paciente:";
-            // 
-            // bt_EditarRec
-            // 
-            this.bt_EditarRec.Enabled = false;
-            this.bt_EditarRec.Image = global::NutricionalApp.Properties.Resources.Edit_Text_File_16;
-            this.bt_EditarRec.Location = new System.Drawing.Point(571, 67);
-            this.bt_EditarRec.Name = "bt_EditarRec";
-            this.bt_EditarRec.Size = new System.Drawing.Size(75, 30);
-            this.bt_EditarRec.TabIndex = 11;
-            this.bt_EditarRec.Text = "Editar";
-            this.bt_EditarRec.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.bt_EditarRec.UseVisualStyleBackColor = true;
-            this.bt_EditarRec.Click += new System.EventHandler(this.bt_EditarRec_Click);
             // 
             // cb_Recordatorios
             // 
@@ -206,6 +203,320 @@
             this.descricaoperiodo.Name = "descricaoperiodo";
             this.descricaoperiodo.ReadOnly = true;
             // 
+            // gr_selecao
+            // 
+            this.gr_selecao.Controls.Add(this.cb_NomeDescricao);
+            this.gr_selecao.Controls.Add(this.label8);
+            this.gr_selecao.Controls.Add(this.bt_adicionarItemRec);
+            this.gr_selecao.Controls.Add(this.txt_QuantidadeItens);
+            this.gr_selecao.Controls.Add(this.label5);
+            this.gr_selecao.Controls.Add(this.label4);
+            this.gr_selecao.Controls.Add(this.label3);
+            this.gr_selecao.Controls.Add(this.cb_Taco);
+            this.gr_selecao.Controls.Add(this.dt_DataHoraRec);
+            this.gr_selecao.Location = new System.Drawing.Point(19, 103);
+            this.gr_selecao.Name = "gr_selecao";
+            this.gr_selecao.Size = new System.Drawing.Size(740, 150);
+            this.gr_selecao.TabIndex = 4;
+            this.gr_selecao.TabStop = false;
+            this.gr_selecao.Text = "Seleção:";
+            this.gr_selecao.Visible = false;
+            // 
+            // cb_NomeDescricao
+            // 
+            this.cb_NomeDescricao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_NomeDescricao.FormattingEnabled = true;
+            this.cb_NomeDescricao.Items.AddRange(new object[] {
+            "Café da Manhã",
+            "Almoço",
+            "Lanche da Manhã",
+            "Lanche da Tarde",
+            "Jantar",
+            "Ceia"});
+            this.cb_NomeDescricao.Location = new System.Drawing.Point(20, 37);
+            this.cb_NomeDescricao.Name = "cb_NomeDescricao";
+            this.cb_NomeDescricao.Size = new System.Drawing.Size(166, 21);
+            this.cb_NomeDescricao.TabIndex = 11;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(18, 21);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(31, 13);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Tipo:";
+            // 
+            // txt_QuantidadeItens
+            // 
+            this.txt_QuantidadeItens.Location = new System.Drawing.Point(20, 119);
+            this.txt_QuantidadeItens.Name = "txt_QuantidadeItens";
+            this.txt_QuantidadeItens.Size = new System.Drawing.Size(65, 20);
+            this.txt_QuantidadeItens.TabIndex = 6;
+            this.txt_QuantidadeItens.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_QuantidadeItens_KeyPress);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(20, 103);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Quantidade:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(189, 61);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Taco:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(17, 61);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Data e Hora:";
+            // 
+            // cb_Taco
+            // 
+            this.cb_Taco.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cb_Taco.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cb_Taco.FormattingEnabled = true;
+            this.cb_Taco.Location = new System.Drawing.Point(192, 79);
+            this.cb_Taco.Name = "cb_Taco";
+            this.cb_Taco.Size = new System.Drawing.Size(433, 21);
+            this.cb_Taco.TabIndex = 1;
+            this.cb_Taco.SelectedIndexChanged += new System.EventHandler(this.cb_Taco_SelectedIndexChanged);
+            // 
+            // dt_DataHoraRec
+            // 
+            this.dt_DataHoraRec.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dt_DataHoraRec.Location = new System.Drawing.Point(20, 80);
+            this.dt_DataHoraRec.Name = "dt_DataHoraRec";
+            this.dt_DataHoraRec.Size = new System.Drawing.Size(166, 20);
+            this.dt_DataHoraRec.TabIndex = 0;
+            // 
+            // cb_Pacientes
+            // 
+            this.cb_Pacientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_Pacientes.FormattingEnabled = true;
+            this.cb_Pacientes.Location = new System.Drawing.Point(19, 22);
+            this.cb_Pacientes.Name = "cb_Pacientes";
+            this.cb_Pacientes.Size = new System.Drawing.Size(354, 21);
+            this.cb_Pacientes.TabIndex = 2;
+            this.cb_Pacientes.SelectedIndexChanged += new System.EventHandler(this.cb_Pacientes_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Paciente:";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.AutoScroll = true;
+            this.tabPage4.Controls.Add(this.gr_Resultados);
+            this.tabPage4.Controls.Add(this.groupBox1);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(768, 438);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Resultados Gerais";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // gr_Resultados
+            // 
+            this.gr_Resultados.Controls.Add(this.bt_ExcluirIntem);
+            this.gr_Resultados.Controls.Add(this.l_totalKcal);
+            this.gr_Resultados.Controls.Add(this.label21);
+            this.gr_Resultados.Controls.Add(this.l_Qnt);
+            this.gr_Resultados.Controls.Add(this.l_Calorias);
+            this.gr_Resultados.Controls.Add(this.l_Lipidios);
+            this.gr_Resultados.Controls.Add(this.l_Carboidratos);
+            this.gr_Resultados.Controls.Add(this.l_Proteinas);
+            this.gr_Resultados.Controls.Add(this.dataGridView2);
+            this.gr_Resultados.Controls.Add(this.label14);
+            this.gr_Resultados.Controls.Add(this.label13);
+            this.gr_Resultados.Controls.Add(this.label12);
+            this.gr_Resultados.Controls.Add(this.label11);
+            this.gr_Resultados.Controls.Add(this.label10);
+            this.gr_Resultados.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gr_Resultados.Location = new System.Drawing.Point(0, 205);
+            this.gr_Resultados.Name = "gr_Resultados";
+            this.gr_Resultados.Size = new System.Drawing.Size(768, 233);
+            this.gr_Resultados.TabIndex = 2;
+            this.gr_Resultados.TabStop = false;
+            this.gr_Resultados.Text = "Resultados:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(348, 184);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(44, 13);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "Lípidios";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(276, 184);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(66, 13);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Carboidratos";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(217, 184);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(53, 13);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Proteínas";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.chart1);
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(762, 196);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Grafico:";
+            // 
+            // chart1
+            // 
+            chartArea9.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea9);
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend9.Name = "Legend1";
+            this.chart1.Legends.Add(legend9);
+            this.chart1.Location = new System.Drawing.Point(3, 16);
+            this.chart1.Name = "chart1";
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
+            series9.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            series9.BorderColor = System.Drawing.Color.Black;
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series9.Font = new System.Drawing.Font("Arial", 10F);
+            series9.Legend = "Legend1";
+            series9.Name = "Series1";
+            this.chart1.Series.Add(series9);
+            this.chart1.Size = new System.Drawing.Size(756, 177);
+            this.chart1.TabIndex = 1;
+            this.chart1.Text = "chart1";
+            this.chart1.Visible = false;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(398, 184);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(44, 13);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "Calorias";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(448, 184);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(62, 13);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "Quantidade";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridView2.Location = new System.Drawing.Point(3, 16);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView2.RowHeadersWidth = 40;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView2.Size = new System.Drawing.Size(762, 118);
+            this.dataGridView2.TabIndex = 5;
+            // 
+            // l_Proteinas
+            // 
+            this.l_Proteinas.AutoSize = true;
+            this.l_Proteinas.Location = new System.Drawing.Point(217, 207);
+            this.l_Proteinas.Name = "l_Proteinas";
+            this.l_Proteinas.Size = new System.Drawing.Size(53, 13);
+            this.l_Proteinas.TabIndex = 6;
+            this.l_Proteinas.Text = "Proteínas";
+            this.l_Proteinas.Visible = false;
+            // 
+            // l_Qnt
+            // 
+            this.l_Qnt.AutoSize = true;
+            this.l_Qnt.Location = new System.Drawing.Point(448, 207);
+            this.l_Qnt.Name = "l_Qnt";
+            this.l_Qnt.Size = new System.Drawing.Size(62, 13);
+            this.l_Qnt.TabIndex = 10;
+            this.l_Qnt.Text = "Quantidade";
+            this.l_Qnt.Visible = false;
+            // 
+            // l_Calorias
+            // 
+            this.l_Calorias.AutoSize = true;
+            this.l_Calorias.Location = new System.Drawing.Point(398, 207);
+            this.l_Calorias.Name = "l_Calorias";
+            this.l_Calorias.Size = new System.Drawing.Size(44, 13);
+            this.l_Calorias.TabIndex = 9;
+            this.l_Calorias.Text = "Calorias";
+            this.l_Calorias.Visible = false;
+            // 
+            // l_Lipidios
+            // 
+            this.l_Lipidios.AutoSize = true;
+            this.l_Lipidios.Location = new System.Drawing.Point(348, 207);
+            this.l_Lipidios.Name = "l_Lipidios";
+            this.l_Lipidios.Size = new System.Drawing.Size(44, 13);
+            this.l_Lipidios.TabIndex = 8;
+            this.l_Lipidios.Text = "Lípidios";
+            this.l_Lipidios.Visible = false;
+            // 
+            // l_Carboidratos
+            // 
+            this.l_Carboidratos.AutoSize = true;
+            this.l_Carboidratos.Location = new System.Drawing.Point(276, 207);
+            this.l_Carboidratos.Name = "l_Carboidratos";
+            this.l_Carboidratos.Size = new System.Drawing.Size(66, 13);
+            this.l_Carboidratos.TabIndex = 7;
+            this.l_Carboidratos.Text = "Carboidratos";
+            this.l_Carboidratos.Visible = false;
+            // 
+            // l_totalKcal
+            // 
+            this.l_totalKcal.AutoSize = true;
+            this.l_totalKcal.Location = new System.Drawing.Point(516, 207);
+            this.l_totalKcal.Name = "l_totalKcal";
+            this.l_totalKcal.Size = new System.Drawing.Size(31, 13);
+            this.l_totalKcal.TabIndex = 12;
+            this.l_totalKcal.Text = "Total";
+            this.l_totalKcal.Visible = false;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(516, 184);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(58, 13);
+            this.label21.TabIndex = 11;
+            this.label21.Text = "Total Kcal.";
+            // 
             // datarecDataGridViewTextBoxColumn
             // 
             this.datarecDataGridViewTextBoxColumn.DataPropertyName = "data_rec";
@@ -255,52 +566,18 @@
             this.nutricionalDB.DataSetName = "NutricionalDB";
             this.nutricionalDB.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // gr_selecao
+            // bt_EditarRec
             // 
-            this.gr_selecao.Controls.Add(this.cb_NomeDescricao);
-            this.gr_selecao.Controls.Add(this.label8);
-            this.gr_selecao.Controls.Add(this.bt_adicionarItemRec);
-            this.gr_selecao.Controls.Add(this.label7);
-            this.gr_selecao.Controls.Add(this.txt_Medida);
-            this.gr_selecao.Controls.Add(this.txt_QuantidadeItens);
-            this.gr_selecao.Controls.Add(this.label6);
-            this.gr_selecao.Controls.Add(this.label5);
-            this.gr_selecao.Controls.Add(this.label4);
-            this.gr_selecao.Controls.Add(this.label3);
-            this.gr_selecao.Controls.Add(this.cb_Taco);
-            this.gr_selecao.Controls.Add(this.dt_DataHoraRec);
-            this.gr_selecao.Location = new System.Drawing.Point(19, 103);
-            this.gr_selecao.Name = "gr_selecao";
-            this.gr_selecao.Size = new System.Drawing.Size(740, 150);
-            this.gr_selecao.TabIndex = 4;
-            this.gr_selecao.TabStop = false;
-            this.gr_selecao.Text = "Seleção:";
-            this.gr_selecao.Visible = false;
-            // 
-            // cb_NomeDescricao
-            // 
-            this.cb_NomeDescricao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_NomeDescricao.FormattingEnabled = true;
-            this.cb_NomeDescricao.Items.AddRange(new object[] {
-            "Café da Manhã",
-            "Almoço",
-            "Lanche da Manhã",
-            "Lanche da Tarde",
-            "Jantar",
-            "Ceia"});
-            this.cb_NomeDescricao.Location = new System.Drawing.Point(20, 37);
-            this.cb_NomeDescricao.Name = "cb_NomeDescricao";
-            this.cb_NomeDescricao.Size = new System.Drawing.Size(166, 21);
-            this.cb_NomeDescricao.TabIndex = 11;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(18, 21);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(31, 13);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "Tipo:";
+            this.bt_EditarRec.Enabled = false;
+            this.bt_EditarRec.Image = global::NutricionalApp.Properties.Resources.Edit_Text_File_16;
+            this.bt_EditarRec.Location = new System.Drawing.Point(571, 67);
+            this.bt_EditarRec.Name = "bt_EditarRec";
+            this.bt_EditarRec.Size = new System.Drawing.Size(75, 30);
+            this.bt_EditarRec.TabIndex = 11;
+            this.bt_EditarRec.Text = "Editar";
+            this.bt_EditarRec.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bt_EditarRec.UseVisualStyleBackColor = true;
+            this.bt_EditarRec.Click += new System.EventHandler(this.bt_EditarRec_Click);
             // 
             // bt_adicionarItemRec
             // 
@@ -314,86 +591,6 @@
             this.bt_adicionarItemRec.UseVisualStyleBackColor = true;
             this.bt_adicionarItemRec.Click += new System.EventHandler(this.bt_adicionarItemRec_Click);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(225, 122);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(121, 13);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Exemplo: Colher, Fatia...";
-            // 
-            // txt_Medida
-            // 
-            this.txt_Medida.AccessibleDescription = "";
-            this.txt_Medida.Location = new System.Drawing.Point(91, 119);
-            this.txt_Medida.Name = "txt_Medida";
-            this.txt_Medida.Size = new System.Drawing.Size(128, 20);
-            this.txt_Medida.TabIndex = 7;
-            // 
-            // txt_QuantidadeItens
-            // 
-            this.txt_QuantidadeItens.Location = new System.Drawing.Point(20, 119);
-            this.txt_QuantidadeItens.Name = "txt_QuantidadeItens";
-            this.txt_QuantidadeItens.Size = new System.Drawing.Size(65, 20);
-            this.txt_QuantidadeItens.TabIndex = 6;
-            this.txt_QuantidadeItens.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_QuantidadeItens_KeyPress);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(88, 103);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Medida:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 103);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Quantidade:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(189, 61);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Taco:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 61);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Data e Hora:";
-            // 
-            // cb_Taco
-            // 
-            this.cb_Taco.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cb_Taco.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cb_Taco.FormattingEnabled = true;
-            this.cb_Taco.Location = new System.Drawing.Point(192, 79);
-            this.cb_Taco.Name = "cb_Taco";
-            this.cb_Taco.Size = new System.Drawing.Size(433, 21);
-            this.cb_Taco.TabIndex = 1;
-            this.cb_Taco.SelectedIndexChanged += new System.EventHandler(this.cb_Taco_SelectedIndexChanged);
-            // 
-            // dt_DataHoraRec
-            // 
-            this.dt_DataHoraRec.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dt_DataHoraRec.Location = new System.Drawing.Point(20, 80);
-            this.dt_DataHoraRec.Name = "dt_DataHoraRec";
-            this.dt_DataHoraRec.Size = new System.Drawing.Size(166, 20);
-            this.dt_DataHoraRec.TabIndex = 0;
-            // 
             // bt_adicionarRec
             // 
             this.bt_adicionarRec.Image = global::NutricionalApp.Properties.Resources.Add_File_16px;
@@ -406,108 +603,17 @@
             this.bt_adicionarRec.UseVisualStyleBackColor = true;
             this.bt_adicionarRec.Click += new System.EventHandler(this.bt_adicionarRec_Click);
             // 
-            // cb_Pacientes
+            // bt_ExcluirIntem
             // 
-            this.cb_Pacientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_Pacientes.FormattingEnabled = true;
-            this.cb_Pacientes.Location = new System.Drawing.Point(19, 22);
-            this.cb_Pacientes.Name = "cb_Pacientes";
-            this.cb_Pacientes.Size = new System.Drawing.Size(354, 21);
-            this.cb_Pacientes.TabIndex = 2;
-            this.cb_Pacientes.SelectedIndexChanged += new System.EventHandler(this.cb_Pacientes_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Paciente:";
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.gr_Resultados);
-            this.tabPage4.Controls.Add(this.groupBox1);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(768, 438);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Resultados Gerais";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.chart1);
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(762, 196);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Grafico:";
-            // 
-            // chart1
-            // 
-            chartArea5.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea5);
-            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend5.Name = "Legend1";
-            this.chart1.Legends.Add(legend5);
-            this.chart1.Location = new System.Drawing.Point(3, 16);
-            this.chart1.Name = "chart1";
-            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
-            series5.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            series5.BorderColor = System.Drawing.Color.Black;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series5.Font = new System.Drawing.Font("Arial", 10F);
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            this.chart1.Series.Add(series5);
-            this.chart1.Size = new System.Drawing.Size(756, 177);
-            this.chart1.TabIndex = 1;
-            this.chart1.Text = "chart1";
-            this.chart1.Visible = false;
-            // 
-            // gr_Resultados
-            // 
-            this.gr_Resultados.Controls.Add(this.label12);
-            this.gr_Resultados.Controls.Add(this.label11);
-            this.gr_Resultados.Controls.Add(this.label10);
-            this.gr_Resultados.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gr_Resultados.Location = new System.Drawing.Point(0, 332);
-            this.gr_Resultados.Name = "gr_Resultados";
-            this.gr_Resultados.Size = new System.Drawing.Size(768, 106);
-            this.gr_Resultados.TabIndex = 2;
-            this.gr_Resultados.TabStop = false;
-            this.gr_Resultados.Text = "Resultados:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(76, 34);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 13);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "label10";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(348, 34);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(41, 13);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "label11";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(657, 34);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(41, 13);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "label12";
+            this.bt_ExcluirIntem.Image = global::NutricionalApp.Properties.Resources.Close_16;
+            this.bt_ExcluirIntem.Location = new System.Drawing.Point(304, 140);
+            this.bt_ExcluirIntem.Name = "bt_ExcluirIntem";
+            this.bt_ExcluirIntem.Size = new System.Drawing.Size(154, 27);
+            this.bt_ExcluirIntem.TabIndex = 13;
+            this.bt_ExcluirIntem.Text = "Excluir Item Selecionado";
+            this.bt_ExcluirIntem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bt_ExcluirIntem.UseVisualStyleBackColor = true;
+            this.bt_ExcluirIntem.Click += new System.EventHandler(this.bt_ExcluirIntem_Click);
             // 
             // CadRecordatorio
             // 
@@ -524,15 +630,16 @@
             this.tabPage1.PerformLayout();
             this.gr_itens.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vwitensrecordatoriodetalhadoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nutricionalDB)).EndInit();
             this.gr_selecao.ResumeLayout(false);
             this.gr_selecao.PerformLayout();
             this.tabPage4.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.gr_Resultados.ResumeLayout(false);
             this.gr_Resultados.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vwitensrecordatoriodetalhadoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nutricionalDB)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -558,10 +665,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.TextBox txt_QuantidadeItens;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txt_Medida;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button bt_adicionarItemRec;
         private System.Windows.Forms.DataGridView dataGridView1;
         private NutricionalDB nutricionalDB;
@@ -579,5 +683,16 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Label l_totalKcal;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label l_Qnt;
+        private System.Windows.Forms.Label l_Calorias;
+        private System.Windows.Forms.Label l_Lipidios;
+        private System.Windows.Forms.Label l_Carboidratos;
+        private System.Windows.Forms.Label l_Proteinas;
+        private System.Windows.Forms.Button bt_ExcluirIntem;
     }
 }

@@ -463,5 +463,33 @@ namespace NutricionalApp
                 MessageBox.Show($"Erro ao carregar dados: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public void ExcluirItemRecordatorio(int id)
+        {
+            using (var db = new DatabaseConnection())
+            {
+                using (NpgsqlConnection connection = db.GetConnection())
+                {
+                    try
+                    {
+                        connection.Open();
+                        string query = "DELETE FROM itens_recordatorio WHERE id_itensrec = @id_itensrec";
+
+                        using (NpgsqlCommand cmd = new NpgsqlCommand(query, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@id_itensrec", id);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Tratar exceção conforme necessário
+                        Console.WriteLine("Erro ao excluir item: " + ex.Message);
+                        throw;
+                    }
+                }
+
+            }
+        }
     }
 }

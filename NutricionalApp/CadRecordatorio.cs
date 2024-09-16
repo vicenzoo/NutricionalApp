@@ -28,6 +28,7 @@ namespace NutricionalApp
             InitializeComponent();
             dt_DataHoraRec.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             dt_DataHoraRec.Value = DateTime.Now;
+            dt_DataHoraRec.MaxDate = DateTime.Now;
         }
 
         private void CadRecordatorio_Load(object sender, EventArgs e)
@@ -40,6 +41,9 @@ namespace NutricionalApp
                 db.OpenConnection();
                 db.GetPacientes(NutricionistaID, cb_Pacientes);
             }
+
+
+
         }
 
         private void cb_Pacientes_SelectedIndexChanged(object sender, EventArgs e)
@@ -212,8 +216,8 @@ namespace NutricionalApp
                     db.OpenConnection();
                     using (var comm = new NpgsqlCommand(
                          "INSERT INTO public.itens_recordatorio " +
-                         "(recordatorio_id, data_rec, hora, taco_id, descricao, quantidade, medida) " +
-                         "VALUES (@recordatorio_id, @data_rec, @hora, @taco_id, @descricao, @quantidade, @medida)",
+                         "(recordatorio_id, data_rec, hora, taco_id, descricao, quantidade) " +
+                         "VALUES (@recordatorio_id, @data_rec, @hora, @taco_id, @descricao, @quantidade)",
                          db.GetConnection()))
                     {
                         // Adicionando os parâmetros com seus respectivos valores
@@ -223,7 +227,6 @@ namespace NutricionalApp
                         comm.Parameters.AddWithValue("@taco_id", TacoID); // Substitua por sua variável ou campo correspondente
                         comm.Parameters.AddWithValue("@descricao", cb_NomeDescricao.Text); // Substitua por sua variável ou campo correspondente
                         comm.Parameters.AddWithValue("@quantidade", Convert.ToInt32(txt_QuantidadeItens.Text)); // Substitua por sua variável ou campo correspondente
-                        comm.Parameters.AddWithValue("@medida", txt_Medida.Text); // Substitua por sua variável ou campo correspondente
 
                         try
                         {
@@ -253,7 +256,7 @@ namespace NutricionalApp
                 try
                 {
                     // Recarregar os dados no DataGridView
-                    string query = "SELECT descricaoperiodo, data_rec, hora, quantidade, medida, descricao_alimento FROM vw_itensrecordatorio_detalhado WHERE recordatorio_id = @Filtro";
+                    string query = "SELECT descricaoperiodo, data_rec, hora, quantidade, descricao_alimento FROM vw_itensrecordatorio_detalhado WHERE recordatorio_id = @Filtro";
                     db.CarregarDados(query, RecordatorioID, dataGridView1);
                 }
                 catch (Exception error)
@@ -262,6 +265,78 @@ namespace NutricionalApp
                 }
             }
 
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.TabIndex == 2)
+            {
+                AtualizarDataGridView2();
+            }
+        }
+
+        public void AtualizarDataGridView2()
+        {
+            using (var db = new DatabaseConnection())
+            {
+                try
+                {
+                    // Recarregar os dados no DataGridView2
+                    string query = "SELECT ir.id_itensrec, ir.descricao, ir.quantidade, ir.medida,tt.carboidrato,tt.lipideos,tt.proteina,tt.energia_kcal,tt.energia_kj FROM public.itens_recordatorio ir JOIN tabela_taco4 tt on tt.id = ir.taco_id WHERE recordatorio_id = @Filtro";
+                    db.CarregarDados(query, RecordatorioID, dataGridView2);
+                    dataGridView2.Columns["id_itensrec"].Width  = 50;
+                    dataGridView2.Columns["id_itensrec"].HeaderText = "ID";
+                    dataGridView2.Columns["descricao"].Width  = 150;
+                    dataGridView2.Columns["descricao"].HeaderText = "Descrição";
+                    dataGridView2.Columns["quantidade"].Width  = 50;
+                    dataGridView2.Columns["quantidade"].HeaderText = "Qnt.";
+                    dataGridView2.Columns["medida"].Width  = 150;
+                    dataGridView2.Columns["medida"].HeaderText = "Tipo Medida";
+                    dataGridView2.Columns["carboidrato"].HeaderText = "Carboidrato";
+                    dataGridView2.Columns["carboidrato"].Width  = 75;
+                    dataGridView2.Columns["lipideos"].HeaderText = "Lipideos";
+                    dataGridView2.Columns["lipideos"].Width  = 75;
+                    dataGridView2.Columns["proteina"].HeaderText = "Proteina";
+                    dataGridView2.Columns["proteina"].Width  = 75;
+                    dataGridView2.Columns["energia_kcal"].HeaderText = "Total Kcal.";
+                    dataGridView2.Columns["energia_kcal"].Width  = 75;
+
+                    if (dataGridView2.Columns.Contains("energia_kj"))
+                    {
+                        dataGridView2.Columns.Remove("energia_kj");
+                    }
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show($"Erro ao atualizar a lista: {error.Message}!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void bt_ExcluirIntem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja excluir esse item ao Recordatório?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                if (dataGridView2.SelectedRows.Count > 0)
+                {
+                    // Obter o índice da linha selecionada
+                    int rowIndex = dataGridView2.SelectedRows[0].Index;
+                    int id = (int)dataGridView2.Rows[rowIndex].Cells["id_itensrec"].Value;
+
+                    using (var db = new DatabaseConnection())
+                    {
+                        db.ExcluirItemRecordatorio(id);
+                        MessageBox.Show("Item Excluido com Sucesso!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+                    dataGridView2.Rows.RemoveAt(rowIndex);
+                    AtualizarDataGridView();
+                }
+            }
+            else
+            {
+                dataGridView2.Focus();
+            }
         }
     }
 }
