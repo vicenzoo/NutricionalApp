@@ -22,8 +22,7 @@ namespace NutricionalApp
         int NutricionistaID = 0;
         int TacoID = 0;
         int RecordatorioID = 0;
-        int MedidasID = 0;
-        float MedidasGramas = 0;
+        float TACOGramas = 0;
         float TACOcarboidrato = 0; //Carboidratos
         float TACOEnergiaKcal = 0, TACOProteinas = 0; //Calorias
         float TACOLipidios = 0; //Gorduras
@@ -51,8 +50,6 @@ namespace NutricionalApp
                 db.OpenConnection();
                 db.GetPacientes(NutricionistaID, cb_Pacientes);
             }
-
-
 
         }
 
@@ -168,8 +165,9 @@ namespace NutricionalApp
                 int idTaco = TacoSelecionado.Id;
                 TacoID = idTaco;
 
-                int grupoId = TacoSelecionado.Grupo_id;
-                MedidasID = grupoId;
+                float gramas = TacoSelecionado.Gramas;
+                TACOGramas = gramas;
+                l_gramas.Text = Convert.ToString(TACOGramas) + "g";
 
                 //Para Calculo do Recordatorio:
 
@@ -208,19 +206,6 @@ namespace NutricionalApp
 
                 float mangnesio = TacoSelecionado.Magnesio;
                 TACOmagensio = mangnesio;
-
-                using (var db = new DatabaseConnection())
-                {
-                    try
-                    {
-                        db.GetMedidas(MedidasID,cb_MedidasCaseiras,l_gramas);
-                    }
-                    catch (Exception error)
-                    {
-                        MessageBox.Show($"Erro: {error}!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                }
 
             }
 
@@ -290,17 +275,17 @@ namespace NutricionalApp
                          db.GetConnection()))
                     {
 
-                        float totalgramas = Convert.ToInt64(txt_QuantidadeItens.Text)*MedidasGramas;
-                        float totalcalorias = (TACOEnergiaKcal/100)*MedidasGramas;
-                        float totalcarboidratos = (TACOcarboidrato/100)*MedidasGramas;
-                        float totalproteinas = (TACOProteinas/100)*MedidasGramas;
-                        float toalGorduras = (TACOLipidios/100)*MedidasGramas;
-                        float totalFibras = (TACOfibras/100)*MedidasGramas;
-                        float totalvitamina_a = (TACOvitamina_a/100)*MedidasGramas;
-                        float totalvitamina_c = (TACOvitamina_c/100)*MedidasGramas;
-                        float totalCalcio = (TACOCalcio/100)*MedidasGramas;
-                        float totalferro = (TACOferro/100)*MedidasGramas;
-                        float totalmagnesio = (TACOmagensio/100)*MedidasGramas;
+                        float totalgramas = Convert.ToInt64(txt_QuantidadeItens.Text)*TACOGramas;
+                        float totalcalorias = (TACOEnergiaKcal/100)*TACOGramas;
+                        float totalcarboidratos = (TACOcarboidrato/100)*TACOGramas;
+                        float totalproteinas = (TACOProteinas/100)*TACOGramas;
+                        float toalGorduras = (TACOLipidios/100)*TACOGramas;
+                        float totalFibras = (TACOfibras/100)*TACOGramas;
+                        float totalvitamina_a = (TACOvitamina_a/100)*TACOGramas;
+                        float totalvitamina_c = (TACOvitamina_c/100)*TACOGramas;
+                        float totalCalcio = (TACOCalcio/100)*TACOGramas;
+                        float totalferro = (TACOferro/100)*TACOGramas;
+                        float totalmagnesio = (TACOmagensio/100)*TACOGramas;
 
                         // Adicionando os parâmetros com seus respectivos valores
                         comm.Parameters.AddWithValue("@recordatorio_id", RecordatorioID);
@@ -342,6 +327,74 @@ namespace NutricionalApp
 
         }
 
+        private void cb_MeiaPorcao_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cb_MeiaPorcao.Checked)
+            {
+                cb_MeiaPorcao.Text = "Porção Inteira";
+                TACOGramas = TACOGramas/2;
+                l_gramas.Text = Convert.ToString(TACOGramas) + "g";
+            }
+            else
+            {
+                cb_MeiaPorcao.Text = "Meia Porção";
+                TACOGramas = TACOGramas*2;
+                l_gramas.Text = Convert.ToString(TACOGramas) + "g";
+            }
+        }
+
+
+        private void cb_filtro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb_filtro.Text != "")
+            {
+                try
+                {
+                    using (var db = new DatabaseConnection())
+                    {
+                        using (NpgsqlConnection connection = db.GetConnection())
+                        {
+                            connection.Open();
+
+                            string query = "SELECT data_rec, hora, quantidade, descricao_alimento " +
+                                             "FROM vw_itensrecordatorio_detalhado " +
+                                              "WHERE recordatorio_id = @Filtro " +
+                                              "AND descricaoperiodo LIKE @DescricaoPeriodo";
+
+                            using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
+                            {
+                                // Passa o filtro como inteiro
+                                command.Parameters.AddWithValue("@Filtro", RecordatorioID);
+                                command.Parameters.AddWithValue("@DescricaoPeriodo", cb_filtro.Text);
+
+                                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(command);
+
+                                DataTable dataTable = new DataTable();
+                                dataAdapter.Fill(dataTable);
+
+                                if (dataTable.Rows.Count > 0)
+                                {
+                                    dataGridView1.DataSource = dataTable;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Nenhum item encontrado.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro ao carregar dados: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                AtualizarDataGridView();
+            }
+        }
+
         private void AtualizarDataGridView()
         {
             using (var db = new DatabaseConnection())
@@ -349,7 +402,7 @@ namespace NutricionalApp
                 try
                 {
                     // Recarregar os dados no DataGridView
-                    string query = "SELECT descricaoperiodo, data_rec, hora, quantidade, descricao_alimento FROM vw_itensrecordatorio_detalhado WHERE recordatorio_id = @Filtro";
+                    string query = "SELECT data_rec, hora, quantidade, descricao_alimento FROM vw_itensrecordatorio_detalhado WHERE recordatorio_id = @Filtro";
                     db.CarregarDados(query, RecordatorioID, dataGridView1);
                 }
                 catch (Exception error)
@@ -383,23 +436,23 @@ namespace NutricionalApp
                     dataGridView2.Columns["descricao"].HeaderText = "Descrição";
                     dataGridView2.Columns["quantidade"].Width  = 50;
                     dataGridView2.Columns["quantidade"].HeaderText = "Qnt.";
-                    dataGridView2.Columns["carboidratos_totais"].HeaderText = "Carboidrato";
+                    dataGridView2.Columns["carboidratos_totais"].HeaderText = "Carboidrato  (%)";
                     dataGridView2.Columns["carboidratos_totais"].Width  = 75;
-                    dataGridView2.Columns["gorduras_totais"].HeaderText = "Lipideos";
+                    dataGridView2.Columns["gorduras_totais"].HeaderText = "Lipideos (%)";
                     dataGridView2.Columns["gorduras_totais"].Width  = 75;
-                    dataGridView2.Columns["proteinas_totais"].HeaderText = "Proteina";
+                    dataGridView2.Columns["proteinas_totais"].HeaderText = "Proteina  (%)";
                     dataGridView2.Columns["proteinas_totais"].Width  = 75;
-                    dataGridView2.Columns["calorias_totais"].HeaderText = "Total Kcal.";
+                    dataGridView2.Columns["calorias_totais"].HeaderText = "Total Kcal.  (%)";
                     dataGridView2.Columns["calorias_totais"].Width  = 75;
-                    dataGridView2.Columns["vitamina_a"].HeaderText = "Vitamina A";
+                    dataGridView2.Columns["vitamina_a"].HeaderText = "Vitamina A  (%)";
                     dataGridView2.Columns["vitamina_a"].Width  = 75;
-                    dataGridView2.Columns["vitamina_c"].HeaderText = "Vitamina C";
+                    dataGridView2.Columns["vitamina_c"].HeaderText = "Vitamina C  (%)";
                     dataGridView2.Columns["vitamina_c"].Width  = 75;
-                    dataGridView2.Columns["calcio_total"].HeaderText = "Calcio";
+                    dataGridView2.Columns["calcio_total"].HeaderText = "Calcio  (%)";
                     dataGridView2.Columns["calcio_total"].Width  = 75;
-                    dataGridView2.Columns["ferro_total"].HeaderText = "Ferro";
+                    dataGridView2.Columns["ferro_total"].HeaderText = "Ferro  (%)";
                     dataGridView2.Columns["ferro_total"].Width  = 75;
-                    dataGridView2.Columns["magnesio_total"].HeaderText = "Magnesio";
+                    dataGridView2.Columns["magnesio_total"].HeaderText = "Magnesio  (%)";
                     dataGridView2.Columns["magnesio_total"].Width  = 75;
 
                     decimal SomaCalorias = 0,SomaCarboidratos = 0,SomaGorduras = 0,SomaProteinas = 0;
@@ -487,20 +540,6 @@ namespace NutricionalApp
             else
             {
                 dataGridView2.Focus();
-            }
-        }
-
-        private void cb_MedidasCaseiras_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            TacoMedidas TacoMedidas = (TacoMedidas)cb_MedidasCaseiras.SelectedItem;
-
-            if (TacoMedidas != null)
-            {
-                // Exibe ou usa o id do paciente selecionado
-                int idMedidas = TacoMedidas.Id;
-                MedidasID  = idMedidas;
-                MedidasGramas = TacoMedidas.Grama;
-                //MessageBox.Show($"ID da TACO selecionada: {idTaco}");
             }
         }
     }

@@ -201,13 +201,6 @@ namespace NutricionalApp
                 );
                 toolStrip1.Items.Add(botaoRecordatorio); // Adicione o botão ao ToolStrip
 
-                ToolStripButton botaoGereciarMedidas = funcoes.CriarBotao(
-                "Tabela TACO 4 edição e Gerenciar Medidas Caseiras",
-                "Consulta Tabela TACO, adiciona e gerencia medidas caseiras. ",
-                Properties.Resources.Edit_Property_48,
-                bt_medidas_Click
-                );
-                toolStrip1.Items.Add(botaoGereciarMedidas); // Adicione o botão ao ToolStrip
 
                 NutricionistaExecutado = true;
 
@@ -277,27 +270,6 @@ namespace NutricionalApp
             else
             {
                 recordatorio.Focus();
-            }
-        }
-
-        private void bt_medidas_Click(object sender, EventArgs e)
-        {
-            ShowMedidas();
-        }
-
-        public void ShowMedidas()
-        {
-            CadMedidas GerenciaMedidas = Application.OpenForms.OfType<CadMedidas>().FirstOrDefault();
-
-            if (GerenciaMedidas == null)
-            {
-                GerenciaMedidas = new CadMedidas();
-                GerenciaMedidas.MdiParent = this;
-                GerenciaMedidas.Show();
-            }
-            else
-            {
-                GerenciaMedidas.Focus();
             }
         }
 
