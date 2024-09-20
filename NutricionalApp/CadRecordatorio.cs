@@ -107,6 +107,7 @@ namespace NutricionalApp
                         gr_selecao.Visible = true;
                         gr_itens.Visible = true;
                         bt_adicionarRec.Enabled = false;
+                        bt_EditarRec.Enabled = false;
                         try
                         {
                             var recId = comm.ExecuteScalar();
@@ -327,22 +328,6 @@ namespace NutricionalApp
 
         }
 
-        private void cb_MeiaPorcao_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cb_MeiaPorcao.Checked)
-            {
-                cb_MeiaPorcao.Text = "Porção Inteira";
-                TACOGramas = TACOGramas/2;
-                l_gramas.Text = Convert.ToString(TACOGramas) + "g";
-            }
-            else
-            {
-                cb_MeiaPorcao.Text = "Meia Porção";
-                TACOGramas = TACOGramas*2;
-                l_gramas.Text = Convert.ToString(TACOGramas) + "g";
-            }
-        }
-
 
         private void cb_filtro_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -395,6 +380,64 @@ namespace NutricionalApp
             }
         }
 
+        private void rb_gramaInt_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rb_gramaInt.Checked) 
+            {
+                cb_Taco_SelectedIndexChanged(sender, e);
+                l_gramas.Text = Convert.ToString(TACOGramas) + "g";
+
+
+                txt_gramaPersonalizado.Clear();
+                txt_gramaPersonalizado.Visible = false;
+                bt_grPersonaliza.Visible = false;
+            }
+        }
+
+        private void rb_grMeia_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rb_grMeia.Checked) 
+            {
+                cb_Taco_SelectedIndexChanged(sender, e);
+                TACOGramas = TACOGramas/2;
+                l_gramas.Text = Convert.ToString(TACOGramas) + "g";
+
+                txt_gramaPersonalizado.Clear();
+                txt_gramaPersonalizado.Visible = false;
+                bt_grPersonaliza.Visible = false;
+            }
+        }
+
+        private void rb_grPersonalizado_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rb_grPersonalizado.Checked)
+            {
+                txt_gramaPersonalizado.Visible = true;
+                bt_grPersonaliza.Visible = true;
+            }
+        }
+
+        private void bt_grPersonaliza_Click(object sender, EventArgs e)
+        {
+            if (rb_grPersonalizado.Checked)
+            {
+                if ((txt_gramaPersonalizado.Text != null) || (txt_gramaPersonalizado.Text != ""))
+                {
+                    TACOGramas = Convert.ToInt32(txt_gramaPersonalizado.Text);
+                    l_gramas.Text = Convert.ToString(TACOGramas) + "g";
+                }
+
+            }
+        }
+
+        private void txt_gramaPersonalizado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) //Aceita apenas Numeros
+            {
+                e.Handled = true;
+            }
+        }
+
         private void AtualizarDataGridView()
         {
             using (var db = new DatabaseConnection())
@@ -436,48 +479,53 @@ namespace NutricionalApp
                     dataGridView2.Columns["descricao"].HeaderText = "Descrição";
                     dataGridView2.Columns["quantidade"].Width  = 50;
                     dataGridView2.Columns["quantidade"].HeaderText = "Qnt.";
-                    dataGridView2.Columns["carboidratos_totais"].HeaderText = "Carboidrato  (%)";
+                    dataGridView2.Columns["carboidratos_totais"].HeaderText = "Carboidrato  (g)";
                     dataGridView2.Columns["carboidratos_totais"].Width  = 75;
-                    dataGridView2.Columns["gorduras_totais"].HeaderText = "Lipideos (%)";
+                    dataGridView2.Columns["gorduras_totais"].HeaderText = "Lipideos (g)";
                     dataGridView2.Columns["gorduras_totais"].Width  = 75;
-                    dataGridView2.Columns["proteinas_totais"].HeaderText = "Proteina  (%)";
+                    dataGridView2.Columns["proteinas_totais"].HeaderText = "Proteina  (g)";
                     dataGridView2.Columns["proteinas_totais"].Width  = 75;
-                    dataGridView2.Columns["calorias_totais"].HeaderText = "Total Kcal.  (%)";
+                    dataGridView2.Columns["calorias_totais"].HeaderText = "Total Kcal. (kcal)";
                     dataGridView2.Columns["calorias_totais"].Width  = 75;
-                    dataGridView2.Columns["vitamina_a"].HeaderText = "Vitamina A  (%)";
+                    dataGridView2.Columns["vitamina_a"].HeaderText = "Vitamina A  (g)";
                     dataGridView2.Columns["vitamina_a"].Width  = 75;
-                    dataGridView2.Columns["vitamina_c"].HeaderText = "Vitamina C  (%)";
+                    dataGridView2.Columns["vitamina_c"].HeaderText = "Vitamina C  (g)";
                     dataGridView2.Columns["vitamina_c"].Width  = 75;
-                    dataGridView2.Columns["calcio_total"].HeaderText = "Calcio  (%)";
+                    dataGridView2.Columns["calcio_total"].HeaderText = "Calcio  (g)";
                     dataGridView2.Columns["calcio_total"].Width  = 75;
-                    dataGridView2.Columns["ferro_total"].HeaderText = "Ferro  (%)";
+                    dataGridView2.Columns["ferro_total"].HeaderText = "Ferro  (g)";
                     dataGridView2.Columns["ferro_total"].Width  = 75;
-                    dataGridView2.Columns["magnesio_total"].HeaderText = "Magnesio  (%)";
+                    dataGridView2.Columns["magnesio_total"].HeaderText = "Magnesio  (g)";
                     dataGridView2.Columns["magnesio_total"].Width  = 75;
 
-                    decimal SomaCalorias = 0,SomaCarboidratos = 0,SomaGorduras = 0,SomaProteinas = 0;
+                    decimal SomaCalorias = 0, SomaCarboidratos = 0, SomaGorduras = 0, SomaProteinas = 0, SomaQnt = 0;
 
                     foreach (DataGridViewRow row in dataGridView2.Rows)
                     {
                         if (row.Cells["calorias_totais"].Value != null)
                         {
                             SomaCalorias += Convert.ToDecimal(row.Cells["calorias_totais"].Value);
-                            l_Calorias.Text = Convert.ToString(SomaCalorias);
+                            l_Calorias.Text = Convert.ToString(SomaCalorias) + " kcal";
                         }
                         if (row.Cells["carboidratos_totais"].Value != null)
                         {
                             SomaCarboidratos += Convert.ToDecimal(row.Cells["carboidratos_totais"].Value);
-                            l_Carboidratos.Text = Convert.ToString(SomaCarboidratos);
+                            l_Carboidratos.Text = Convert.ToString(SomaCarboidratos) + "g";
                         }
                         if (row.Cells["gorduras_totais"].Value != null)
                         {
                             SomaGorduras += Convert.ToDecimal(row.Cells["gorduras_totais"].Value);
-                            l_Lipidios.Text = Convert.ToString(SomaGorduras);
+                            l_Lipidios.Text = Convert.ToString(SomaGorduras) + " g";
                         }
                         if (row.Cells["proteinas_totais"].Value != null)
                         {
                             SomaProteinas += Convert.ToDecimal(row.Cells["proteinas_totais"].Value);
-                            l_Proteinas.Text = Convert.ToString(SomaProteinas);
+                            l_Proteinas.Text = Convert.ToString(SomaProteinas) + " g";
+                        }
+                        if (row.Cells["gramas"].Value != null)
+                        {
+                            SomaQnt += Convert.ToDecimal(row.Cells["gramas"].Value);
+                            l_Qnt.Text = Convert.ToString(SomaQnt) + " g";
                         }
                     }
 
