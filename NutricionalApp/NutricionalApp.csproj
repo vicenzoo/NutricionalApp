@@ -122,6 +122,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CadGastosEnergeticos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadGastosEnergeticos.Designer.cs">
+      <DependentUpon>CadGastosEnergeticos.cs</DependentUpon>
+    </Compile>
     <Compile Include="CadNutri.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +179,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CadGastosEnergeticos.resx">
+      <DependentUpon>CadGastosEnergeticos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CadNutri.resx">
       <DependentUpon>CadNutri.cs</DependentUpon>
     </EmbeddedResource>

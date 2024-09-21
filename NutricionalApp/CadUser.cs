@@ -437,5 +437,14 @@ namespace NutricionalApp
                 recordatorio.ShowRecordatorio(); // Chama o método público
             }
         }
+
+        private void bt_Gastos_Click(object sender, EventArgs e)
+        {
+            FormMain GastoEnergico = Application.OpenForms.OfType<FormMain>().FirstOrDefault();
+            if (GastoEnergico != null)
+            {
+                GastoEnergico.ShowGastosEnergico(); // Chama o método público
+            }
+        }
     }
 }

@@ -19,14 +19,14 @@ namespace NutricionalApp
         private static bool SistAdmExecutado = false;
         public Button Logout
         {
-          get { return bt_Logout; }
+            get { return bt_Logout; }
         }
 
         public PictureBox fotoPerfil
         {
 
-            get { return pictureBox1;  }
-        
+            get { return pictureBox1; }
+
         }
 
         public System.Windows.Forms.Label NomeLabel
@@ -44,7 +44,7 @@ namespace NutricionalApp
             InitializeComponent();
             TestCon();
             panel1.BackColor = Color.FromArgb(100, panel1.BackColor.R, panel1.BackColor.G, panel1.BackColor.B);
-            
+
             // Inicializa e configura o Timer para a l_hora
             timer1 = new Timer();
             timer1.Interval = 1000;
@@ -94,10 +94,10 @@ namespace NutricionalApp
             var connectionString = $"Server={host};Port={port};User Id={userId};Password={password};Database={database};SslMode=Prefer;";
             return new NpgsqlConnection(connectionString);
         }
-        
+
         private static void TestCon()
         {
-            using(NpgsqlConnection con = GetConnection())
+            using (NpgsqlConnection con = GetConnection())
             {
                 con.Open();
                 if (con.State==ConnectionState.Open)
@@ -106,7 +106,7 @@ namespace NutricionalApp
                 }
                 else
                 {
-                    MessageBox.Show("Não Conectado!");           
+                    MessageBox.Show("Não Conectado!");
                 }
             }
         }
@@ -115,7 +115,7 @@ namespace NutricionalApp
         {
             if (MessageBox.Show("Deseja Sair?", "Sair", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                    this.Close();
+                this.Close();
             }
         }
 
@@ -201,6 +201,14 @@ namespace NutricionalApp
                 );
                 toolStrip1.Items.Add(botaoRecordatorio); // Adicione o botão ao ToolStrip
 
+                ToolStripButton botaoGastoEnergetico = funcoes.CriarBotao(
+                 "Gerenciar Gastos Energeticos",
+                 "Adiciona e Gerencia Gastos Energeticos do Paciente",
+                  Properties.Resources.Calculator_48,
+                  bt_GastoEnergetico_Click
+);
+                toolStrip1.Items.Add(botaoGastoEnergetico); // Adicione o botão ao ToolStrip
+
 
                 NutricionistaExecutado = true;
 
@@ -229,7 +237,7 @@ namespace NutricionalApp
 
             LoginNutri.NutriOk = false;
             toolStrip1.Items.Clear();
-            toolStrip1.Refresh(); 
+            toolStrip1.Refresh();
 
             // Criar novamente o botão "Identifique-se"
             Funcoes funcoes = new Funcoes();
@@ -240,7 +248,7 @@ namespace NutricionalApp
                 bt_login_Click
             );
 
-            toolStrip1.Items.Add(botaoIdentifique_se); 
+            toolStrip1.Items.Add(botaoIdentifique_se);
             toolStrip1.Refresh();
 
 
@@ -273,6 +281,26 @@ namespace NutricionalApp
             }
         }
 
+        public void bt_GastoEnergetico_Click(object sender, EventArgs e)
+        {
+            ShowGastosEnergico();
+        }
+
+        public void ShowGastosEnergico()
+        {
+            CadGastosEnergeticos GastoEnergetico = Application.OpenForms.OfType<CadGastosEnergeticos>().FirstOrDefault();
+
+            if (GastoEnergetico == null)
+            {
+                GastoEnergetico = new CadGastosEnergeticos();
+                GastoEnergetico.MdiParent = this;
+                GastoEnergetico.Show();
+            }
+            else
+            {
+                GastoEnergetico.Focus();
+            }
+        }
 
     }
 }

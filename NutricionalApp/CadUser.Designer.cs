@@ -402,6 +402,7 @@
             this.bt_Gastos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_Gastos.UseVisualStyleBackColor = true;
             this.bt_Gastos.Visible = false;
+            this.bt_Gastos.Click += new System.EventHandler(this.bt_Gastos_Click);
             // 
             // bt_Recordatorio
             // 
