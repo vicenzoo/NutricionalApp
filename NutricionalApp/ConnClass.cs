@@ -620,5 +620,300 @@ namespace NutricionalApp
 
             }
         }
+
+        public class GastoEnergetico
+        {
+            public int Id { get; set; }
+            public string GastoEnergetic { get; set; }
+
+            public float Altura { get; set; }
+
+            public float Peso { get; set; }
+
+            public int Idade { get; set; }
+
+            public string Sexo { get; set; }
+
+            public GastoEnergetico(int id, string gastoenergetico,float altura,float peso, int idade, string sexo )
+            {
+                Id = id;
+                GastoEnergetic = gastoenergetico;
+                Altura = altura;
+                Peso = peso;
+                Idade = idade;
+                Sexo = sexo;
+            }
+
+            // Sobrescreva o método ToString para que o ComboBox exiba a descrição da tabela TACO
+            public override string ToString()
+            {
+                return GastoEnergetic;
+            }
+        }
+
+        public void GetGastoEnergeticoCombobox(int Id_Paciente, ComboBox comboBox, TextBox altura, TextBox peso,Label idade, Label sexo)
+        {
+            using (var db = new DatabaseConnection())
+            {
+                db.OpenConnection();
+
+
+                using (var comm = new NpgsqlCommand("SELECT ga.id, ga.paciente_id, ga.ativo, ga.descricao,pa.altura,pa.peso,pa.idade,pa.sexo FROM public.gastos_caloricos ga JOIN paciente pa on pa.id_paciente = ga.paciente_id where paciente_id = @paciente_id", db.GetConnection()))
+                {
+                    comm.Parameters.AddWithValue("@paciente_id", Id_Paciente);
+
+                    try
+                    {
+                        using (var reader = comm.ExecuteReader())
+                        {
+                            comboBox.Items.Clear();
+
+                            while (reader.Read())
+                            {
+
+                                int idGasto = Convert.ToInt32(reader["id"]);
+                                string descricaoGasto = reader["descricao"].ToString();
+
+                                float altura_paciente = reader["altura"] != DBNull.Value ? Convert.ToInt32(reader["altura"]) : 0;
+                                float peso_paciente = reader["peso"] != DBNull.Value ? Convert.ToInt32(reader["peso"]) : 0;
+                                int idadePaciente = Convert.ToInt32(reader["idade"]);
+                                string sexoPaciente = reader["sexo"].ToString();
+
+                                comboBox.Items.Add(new GastoEnergetico(idGasto, descricaoGasto, altura_paciente, peso_paciente, idadePaciente, sexoPaciente));
+                                
+                                if (altura_paciente != 0) 
+                                    altura.Text = Convert.ToString(altura_paciente);
+                                if (peso_paciente != 0) 
+                                    peso.Text = Convert.ToString(peso_paciente);
+                            }
+
+                            // Verifica se encontrou
+                            if (comboBox.Items.Count > 0)
+                            {
+
+                                comboBox.SelectedIndex = 0;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Nenhum Gasto Energetico encontrado para esse Paciente.");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao obter os Gastos Energeticos: {ex.Message}");
+                    }
+                }
+            }
+        }
+
+
+        public class NivelAtividade
+        {
+            public int Id { get; set; }
+            public string NivelAtv { get; set; }
+            public decimal Calc { get; set; }
+
+            public string Complemento { get; set; }
+
+            public NivelAtividade(int id, string nivelatividade,decimal calc, string complemento)
+            {
+                Id = id;
+                NivelAtv = nivelatividade;
+                Calc = calc;
+                Complemento = complemento;
+            }
+
+            // Sobrescreva o método ToString para que o ComboBox exiba a descrição da tabela TACO
+            public override string ToString()
+            {
+                return NivelAtv;
+            }
+        }
+
+        public void GetGNivelAtividadeCombobox(ComboBox comboBox, Label complemento)
+        {
+            using (var db = new DatabaseConnection())
+            {
+                db.OpenConnection();
+
+
+                using (var comm = new NpgsqlCommand("SELECT nv.id_nivel, nv.calculo, nv.descricao,nv.complemento FROM public.nivel_atividade nv order by nv.id_nivel", db.GetConnection()))
+                {
+
+                    try
+                    {
+                        using (var reader = comm.ExecuteReader())
+                        {
+                            comboBox.Items.Clear();
+
+                            while (reader.Read())
+                            {
+                                int id = Convert.ToInt32(reader["id_nivel"]);
+                                string descricao = reader["descricao"].ToString();
+                                string complement = reader["complemento"].ToString();
+                                decimal calc = Convert.ToDecimal(reader["calculo"]);
+
+
+                                comboBox.Items.Add(new NivelAtividade(id,descricao,calc, complement));
+                                complemento.Text = $"{descricao} ({calc.ToString("F3")}): {complement}";
+
+                            }
+
+                            // Verifica se encontrou
+                            if (comboBox.Items.Count > 0)
+                            {
+
+                                comboBox.SelectedIndex = 0;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Nenhum Gasto Nivel de Atividade Cadastrado.");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao obter o Nivel de Atividade: {ex.Message}");
+                    }
+                }
+            }
+        }
+
+        public class AtividadeFisica
+        {
+            public int Id { get; set; }
+            public string Atividade { get; set; }
+
+            public string Descricao { get; set; }
+
+            public decimal Met { get; set; }
+
+            public AtividadeFisica(int id, string atividade, decimal met, string descricao)
+            {
+                Id = id;
+                Atividade = atividade;
+                Met=met;
+                Descricao=descricao;
+            }
+
+            // Sobrescreva o método ToString para que o ComboBox exiba a descrição da tabela TACO
+            public override string ToString()
+            {
+                return Atividade;
+            }
+        }
+
+        public void GetAtividadeFisicaGastosCombobox(ComboBox comboBox, Label label_met)
+        {
+            using (var db = new DatabaseConnection())
+            {
+                db.OpenConnection();
+
+
+                using (var comm = new NpgsqlCommand("SELECT id_atividade,met,atividade,descricao FROM public.atividade_fisica", db.GetConnection()))
+                {
+
+                    try
+                    {
+                        using (var reader = comm.ExecuteReader())
+                        {
+                            comboBox.Items.Clear();
+
+                            while (reader.Read())
+                            {
+                                int id = Convert.ToInt32(reader["id_atividade"]);
+                                string atividade = reader["atividade"].ToString();
+                                string descricao = reader["descricao"].ToString();
+                                decimal met = Convert.ToDecimal(reader["met"]);
+
+
+                                comboBox.Items.Add(new AtividadeFisica(id, atividade, met,descricao));
+                                label_met.Text = $"{met.ToString("F2")}. {descricao}";
+                            }
+
+                            // Verifica se encontrou
+                            if (comboBox.Items.Count > 0)
+                            {
+
+                                comboBox.SelectedIndex = 0;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Nenhuma Atividade Fisica Cadastrada.");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao obter as Atividades Fisicas: {ex.Message}");
+                    }
+                }
+            }
+        }
+
+        public class Protocolos
+        {
+            public int Id { get; set; }
+            public string Descricao { get; set; }
+
+            public Protocolos(int id, string descricao)
+            {
+                Id = id;
+                Descricao = descricao;
+            }
+
+            // Sobrescreva o método ToString para que o ComboBox exiba a descrição da tabela TACO
+            public override string ToString()
+            {
+                return Descricao;
+            }
+        }
+
+        public void GetProtocolosCombobox(ComboBox comboBox)
+        {
+            using (var db = new DatabaseConnection())
+            {
+                db.OpenConnection();
+
+
+                using (var comm = new NpgsqlCommand("SELECT id_protocolo, descricao FROM public.protocolos", db.GetConnection()))
+                {
+
+                    try
+                    {
+                        using (var reader = comm.ExecuteReader())
+                        {
+                            comboBox.Items.Clear();
+
+                            while (reader.Read())
+                            {
+
+                                int idProtocolo = Convert.ToInt32(reader["id_protocolo"]);
+                                string descricaoProtocolo = reader["descricao"].ToString();
+
+                                comboBox.Items.Add(new Protocolos(idProtocolo, descricaoProtocolo));
+                            }
+
+                            // Verifica se encontrou
+                            if (comboBox.Items.Count > 0)
+                            {
+
+                                comboBox.SelectedIndex = 0;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Nenhum Protocolo encontrado.");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao obter os Protocolos: {ex.Message}");
+                    }
+                }
+            }
+        }
+
     }
 }

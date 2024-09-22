@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
+using static NutricionalApp.Funcoes;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace NutricionalApp
 {
@@ -29,5 +31,44 @@ namespace NutricionalApp
 
             return botao;
         }
+
+        //Rotinas Nutricionais:
+
+        public static double CalcularTMB(string protocolo, string sexo, double peso, double altura, int idade, double percentualGordura = 0)
+        {
+            if (protocolo == "FAO / OMS 2001")
+            {
+                if (sexo == "M")
+                {
+                    return (66.5 + (13.75 * peso) + (5.003 * altura) - (6.75 * idade));
+                }
+                else if (sexo == "F") 
+                {
+                    return (655 + (9.563 * peso) + (1.850 * altura) - (4.676 * idade));
+                }
+            }
+
+            // Se o protocolo não for reconhecido, pode-se lançar uma exceção ou retornar um valor padrão
+            throw new ArgumentException("Protocolo não reconhecido.");
+        }
+
+        public static double CalcularVET(double tmb, double fatorAtividade)
+        {
+            return tmb * fatorAtividade;
+        }
+
+        public static void CalcularGastosEnergicos(double Peso,double Altura,int Idade,string Sexo,string Protocolo,double NivelAtividade,Label GEB,Label VET)
+        {
+
+            double tmb = CalcularTMB(Protocolo, Sexo, Peso, Altura, Idade);
+            GEB.Text = Convert.ToString(tmb)  + " Kcal";
+            double nivelatividade = NivelAtividade; 
+            double vet = CalcularVET(tmb, nivelatividade);
+            VET.Text = Convert.ToString(vet) + " Kcal";
+
+
+        }
+
+
     }
 }

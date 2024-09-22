@@ -393,6 +393,16 @@ namespace NutricionalApp.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Time_48 {
+            get {
+                object obj = ResourceManager.GetObject("Time_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Watermelon {
             get {
                 object obj = ResourceManager.GetObject("Watermelon", resourceCulture);
@@ -406,6 +416,26 @@ namespace NutricionalApp.Properties {
         internal static System.Drawing.Bitmap Watermelon_16px {
             get {
                 object obj = ResourceManager.GetObject("Watermelon_16px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Watermelon_16px1 {
+            get {
+                object obj = ResourceManager.GetObject("Watermelon_16px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Watermelon_48 {
+            get {
+                object obj = ResourceManager.GetObject("Watermelon_48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
