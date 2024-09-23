@@ -389,6 +389,40 @@ namespace NutricionalApp
 
         }
 
+        private void bt_adicionarItemAtividade_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja adicionar esse item ao Recordatório?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                using (var db = new DatabaseConnection())
+                {
+                    db.OpenConnection();
+                    using (var comm = new NpgsqlCommand(
+                         "INSERT INTO public.gasto_atividade " +
+                         "gastos_id,atividade_id,frequencia,duracao) " +
+                         "VALUES (@gastos_id,@atividade_id,@frequencia,@duracao)",
+                         db.GetConnection()))
+                    {
+
+                        // Adicionando os parâmetros com seus respectivos valores
+                        comm.Parameters.AddWithValue("@gastos_id", GastoEnergeticoID);
+                        comm.Parameters.AddWithValue("@atividade_id", AtividadeFisicaID);
+                        comm.Parameters.AddWithValue("@frequencia", Convert.ToInt32(txt_frequencia.Text));
+                        comm.Parameters.AddWithValue("@duracao", dt_tempo.Value.TimeOfDay);
+
+                        try
+                        {
+                            comm.ExecuteNonQuery();
+                        }
+                        catch (Exception error)
+                        {
+                            MessageBox.Show($"Erro: {error.Message}!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+
         private void txt_PesoDesejado_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) //Aceita apenas Numeros
@@ -428,5 +462,7 @@ namespace NutricionalApp
                 e.Handled = true;
             }
         }
+
+
     }
 }

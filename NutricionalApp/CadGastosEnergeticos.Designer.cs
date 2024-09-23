@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.cb_Pacientes = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cb_Gastoenergico = new System.Windows.Forms.ComboBox();
@@ -70,17 +69,11 @@
             this.txt_Peso = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.nutricionalDB = new NutricionalApp.NutricionalDB();
-            this.gastoatividadeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gasto_atividadeTableAdapter = new NutricionalApp.NutricionalDBTableAdapters.gasto_atividadeTableAdapter();
             this.bt_Salvar = new System.Windows.Forms.Button();
             this.bt_adicionarItemAtividade = new System.Windows.Forms.Button();
             this.bt_EditarGasto = new System.Windows.Forms.Button();
             this.bt_adicionarGasto = new System.Windows.Forms.Button();
-            this.idgastoAtvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Atividade = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Kcal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gr_ExibeDados.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gr_VENTA.SuspendLayout();
@@ -89,9 +82,7 @@
             this.gr_GEB.SuspendLayout();
             this.gr_atividade_fisica.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nutricionalDB)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gastoatividadeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // cb_Pacientes
@@ -348,7 +339,6 @@
             // 
             // gr_atividade_fisica
             // 
-            this.gr_atividade_fisica.Controls.Add(this.dataGridView1);
             this.gr_atividade_fisica.Controls.Add(this.l_frequencia);
             this.gr_atividade_fisica.Controls.Add(this.l_met);
             this.gr_atividade_fisica.Controls.Add(this.cb_QntAtividade);
@@ -520,35 +510,10 @@
             this.label2.TabIndex = 27;
             this.label2.Text = "Peso Atual (Kg):";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idgastoAtvDataGridViewTextBoxColumn,
-            this.Atividade,
-            this.Kcal});
-            this.dataGridView1.DataSource = this.gastoatividadeBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 107);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(570, 104);
-            this.dataGridView1.TabIndex = 16;
-            // 
             // nutricionalDB
             // 
             this.nutricionalDB.DataSetName = "NutricionalDB";
             this.nutricionalDB.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // gastoatividadeBindingSource
-            // 
-            this.gastoatividadeBindingSource.DataMember = "gasto_atividade";
-            this.gastoatividadeBindingSource.DataSource = this.nutricionalDB;
-            // 
-            // gasto_atividadeTableAdapter
-            // 
-            this.gasto_atividadeTableAdapter.ClearBeforeFill = true;
             // 
             // bt_Salvar
             // 
@@ -571,6 +536,7 @@
             this.bt_adicionarItemAtividade.TabIndex = 10;
             this.bt_adicionarItemAtividade.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.bt_adicionarItemAtividade.UseVisualStyleBackColor = true;
+            this.bt_adicionarItemAtividade.Click += new System.EventHandler(this.bt_adicionarItemAtividade_Click);
             // 
             // bt_EditarGasto
             // 
@@ -596,26 +562,6 @@
             this.bt_adicionarGasto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_adicionarGasto.UseVisualStyleBackColor = true;
             this.bt_adicionarGasto.Click += new System.EventHandler(this.bt_adicionarRec_Click);
-            // 
-            // idgastoAtvDataGridViewTextBoxColumn
-            // 
-            this.idgastoAtvDataGridViewTextBoxColumn.DataPropertyName = "id_gastoAtv";
-            this.idgastoAtvDataGridViewTextBoxColumn.HeaderText = "id_gastoAtv";
-            this.idgastoAtvDataGridViewTextBoxColumn.Name = "idgastoAtvDataGridViewTextBoxColumn";
-            this.idgastoAtvDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Atividade
-            // 
-            this.Atividade.HeaderText = "Atividade";
-            this.Atividade.Name = "Atividade";
-            this.Atividade.ReadOnly = true;
-            this.Atividade.Width = 300;
-            // 
-            // Kcal
-            // 
-            this.Kcal.HeaderText = "Calorias (Kcal)";
-            this.Kcal.Name = "Kcal";
-            this.Kcal.ReadOnly = true;
             // 
             // CadGastosEnergeticos
             // 
@@ -653,9 +599,7 @@
             this.gr_atividade_fisica.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nutricionalDB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gastoatividadeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -708,12 +652,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button bt_Salvar;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private NutricionalDB nutricionalDB;
-        private System.Windows.Forms.BindingSource gastoatividadeBindingSource;
-        private NutricionalDBTableAdapters.gasto_atividadeTableAdapter gasto_atividadeTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idgastoAtvDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Atividade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Kcal;
     }
 }
