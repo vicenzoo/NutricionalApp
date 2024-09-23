@@ -186,8 +186,8 @@ namespace NutricionalApp
                 toolStrip1.Items.RemoveAt(0); //Remove Botão Identifique-se
                 Funcoes funcoes = new Funcoes();
                 ToolStripButton botaoGerenciarNutricionistas = funcoes.CriarBotao(
-                    "Gerenciar Pacientes Cadastrados",
-                    "Adiciona Paciente",
+                    "Adicionar Pacientes",
+                    "Adicionar Paciente",
                     Properties.Resources.Person_48,
                     BotaoGerenciarPacientes_Click
                 );
@@ -202,7 +202,7 @@ namespace NutricionalApp
                 toolStrip1.Items.Add(botaoRecordatorio); // Adicione o botão ao ToolStrip
 
                 ToolStripButton botaoGastoEnergetico = funcoes.CriarBotao(
-                 "Gerenciar Gastos Energeticos",
+                 "Gastos Energeticos",
                  "Adiciona e Gerencia Gastos Energeticos do Paciente",
                   Properties.Resources.Calculator_48,
                   bt_GastoEnergetico_Click

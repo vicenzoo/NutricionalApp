@@ -307,6 +307,7 @@
     <None Include="Icones\Restaurant_48.png" />
     <None Include="Icones\Search_16px.png" />
     <None Include="Icones\Time_48.png" />
+    <None Include="Icones\Save_48.png" />
     <Content Include="Icones\Watermelon_48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

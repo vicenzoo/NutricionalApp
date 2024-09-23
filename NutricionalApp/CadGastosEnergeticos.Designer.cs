@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cb_Pacientes = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cb_Gastoenergico = new System.Windows.Forms.ComboBox();
@@ -35,19 +36,22 @@
             this.txt_DescricaoNome = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.gr_ExibeDados = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_DiasVenta = new System.Windows.Forms.TextBox();
+            this.txt_PesoDesejado = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.l_idade = new System.Windows.Forms.Label();
+            this.l_sexo = new System.Windows.Forms.Label();
+            this.gr_VENTA = new System.Windows.Forms.GroupBox();
+            this.VENTA = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.gr_VET = new System.Windows.Forms.GroupBox();
             this.VET = new System.Windows.Forms.Label();
             this.gr_GEB = new System.Windows.Forms.GroupBox();
             this.GEB = new System.Windows.Forms.Label();
             this.cb_Protocolo = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.bt_Salvar = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.l_ResultVenta = new System.Windows.Forms.Label();
-            this.txt_AlturaDesejada = new System.Windows.Forms.TextBox();
-            this.txt_PesoDesejado = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.l_descNivelAtividade = new System.Windows.Forms.Label();
             this.gr_atividade_fisica = new System.Windows.Forms.GroupBox();
             this.l_frequencia = new System.Windows.Forms.Label();
@@ -55,26 +59,39 @@
             this.cb_QntAtividade = new System.Windows.Forms.ComboBox();
             this.txt_frequencia = new System.Windows.Forms.TextBox();
             this.dt_tempo = new System.Windows.Forms.DateTimePicker();
-            this.bt_adicionarItemAtividade = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.cb_AtvFisica = new System.Windows.Forms.ComboBox();
             this.cb_NivelAtv = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txt_Altura = new System.Windows.Forms.TextBox();
             this.txt_Peso = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.nutricionalDB = new NutricionalApp.NutricionalDB();
+            this.gastoatividadeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gasto_atividadeTableAdapter = new NutricionalApp.NutricionalDBTableAdapters.gasto_atividadeTableAdapter();
+            this.bt_Salvar = new System.Windows.Forms.Button();
+            this.bt_adicionarItemAtividade = new System.Windows.Forms.Button();
             this.bt_EditarGasto = new System.Windows.Forms.Button();
             this.bt_adicionarGasto = new System.Windows.Forms.Button();
-            this.l_idade = new System.Windows.Forms.Label();
-            this.l_sexo = new System.Windows.Forms.Label();
+            this.idgastoAtvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Atividade = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Kcal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gr_ExibeDados.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.gr_VENTA.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.gr_VET.SuspendLayout();
             this.gr_GEB.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.gr_atividade_fisica.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nutricionalDB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gastoatividadeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // cb_Pacientes
@@ -133,35 +150,135 @@
             // 
             // gr_ExibeDados
             // 
-            this.gr_ExibeDados.Controls.Add(this.gr_VET);
-            this.gr_ExibeDados.Controls.Add(this.gr_GEB);
-            this.gr_ExibeDados.Controls.Add(this.cb_Protocolo);
-            this.gr_ExibeDados.Controls.Add(this.label10);
-            this.gr_ExibeDados.Controls.Add(this.bt_Salvar);
+            this.gr_ExibeDados.Controls.Add(this.groupBox3);
+            this.gr_ExibeDados.Controls.Add(this.groupBox2);
             this.gr_ExibeDados.Controls.Add(this.groupBox1);
-            this.gr_ExibeDados.Controls.Add(this.l_descNivelAtividade);
-            this.gr_ExibeDados.Controls.Add(this.gr_atividade_fisica);
-            this.gr_ExibeDados.Controls.Add(this.cb_NivelAtv);
-            this.gr_ExibeDados.Controls.Add(this.label4);
-            this.gr_ExibeDados.Controls.Add(this.txt_Altura);
-            this.gr_ExibeDados.Controls.Add(this.txt_Peso);
-            this.gr_ExibeDados.Controls.Add(this.label3);
-            this.gr_ExibeDados.Controls.Add(this.label2);
-            this.gr_ExibeDados.Location = new System.Drawing.Point(22, 137);
+            this.gr_ExibeDados.Location = new System.Drawing.Point(22, 136);
             this.gr_ExibeDados.Name = "gr_ExibeDados";
-            this.gr_ExibeDados.Size = new System.Drawing.Size(766, 287);
+            this.gr_ExibeDados.Size = new System.Drawing.Size(766, 504);
             this.gr_ExibeDados.TabIndex = 21;
             this.gr_ExibeDados.TabStop = false;
             this.gr_ExibeDados.Visible = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.gr_VENTA);
+            this.groupBox1.Controls.Add(this.txt_DiasVenta);
+            this.groupBox1.Controls.Add(this.txt_PesoDesejado);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Location = new System.Drawing.Point(273, 19);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(475, 82);
+            this.groupBox1.TabIndex = 31;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "VENTA:";
+            // 
+            // txt_DiasVenta
+            // 
+            this.txt_DiasVenta.Location = new System.Drawing.Point(110, 46);
+            this.txt_DiasVenta.Name = "txt_DiasVenta";
+            this.txt_DiasVenta.Size = new System.Drawing.Size(73, 20);
+            this.txt_DiasVenta.TabIndex = 14;
+            this.txt_DiasVenta.TextChanged += new System.EventHandler(this.txt_DiasVenta_TextChanged);
+            this.txt_DiasVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_DiasVenta_KeyPress);
+            // 
+            // txt_PesoDesejado
+            // 
+            this.txt_PesoDesejado.Location = new System.Drawing.Point(110, 20);
+            this.txt_PesoDesejado.Name = "txt_PesoDesejado";
+            this.txt_PesoDesejado.Size = new System.Drawing.Size(73, 20);
+            this.txt_PesoDesejado.TabIndex = 13;
+            this.txt_PesoDesejado.TextChanged += new System.EventHandler(this.txt_DiasVenta_TextChanged);
+            this.txt_PesoDesejado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_PesoDesejado_KeyPress);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(8, 48);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(88, 13);
+            this.label12.TabIndex = 12;
+            this.label12.Text = "Tempo (em dias):";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(8, 22);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(103, 13);
+            this.label13.TabIndex = 11;
+            this.label13.Text = "Peso Desejado (kg):";
+            // 
+            // l_idade
+            // 
+            this.l_idade.AutoSize = true;
+            this.l_idade.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l_idade.Location = new System.Drawing.Point(260, 15);
+            this.l_idade.Name = "l_idade";
+            this.l_idade.Size = new System.Drawing.Size(37, 14);
+            this.l_idade.TabIndex = 38;
+            this.l_idade.Text = "idade";
+            // 
+            // l_sexo
+            // 
+            this.l_sexo.AutoSize = true;
+            this.l_sexo.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l_sexo.Location = new System.Drawing.Point(342, 15);
+            this.l_sexo.Name = "l_sexo";
+            this.l_sexo.Size = new System.Drawing.Size(34, 14);
+            this.l_sexo.TabIndex = 39;
+            this.l_sexo.Text = "sexo";
+            // 
+            // gr_VENTA
+            // 
+            this.gr_VENTA.BackColor = System.Drawing.Color.GhostWhite;
+            this.gr_VENTA.Controls.Add(this.VENTA);
+            this.gr_VENTA.Location = new System.Drawing.Point(186, 11);
+            this.gr_VENTA.Name = "gr_VENTA";
+            this.gr_VENTA.Size = new System.Drawing.Size(278, 59);
+            this.gr_VENTA.TabIndex = 38;
+            this.gr_VENTA.TabStop = false;
+            this.gr_VENTA.Text = "Resultado:";
+            this.gr_VENTA.Visible = false;
+            // 
+            // VENTA
+            // 
+            this.VENTA.AutoSize = true;
+            this.VENTA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.VENTA.Font = new System.Drawing.Font("Segoe UI Light", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VENTA.Location = new System.Drawing.Point(3, 16);
+            this.VENTA.Name = "VENTA";
+            this.VENTA.Size = new System.Drawing.Size(94, 37);
+            this.VENTA.TabIndex = 1;
+            this.VENTA.Text = "VENTA";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.bt_Salvar);
+            this.groupBox2.Controls.Add(this.gr_VET);
+            this.groupBox2.Controls.Add(this.gr_GEB);
+            this.groupBox2.Controls.Add(this.cb_Protocolo);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.l_descNivelAtividade);
+            this.groupBox2.Controls.Add(this.gr_atividade_fisica);
+            this.groupBox2.Controls.Add(this.cb_NivelAtv);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Location = new System.Drawing.Point(10, 107);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(738, 382);
+            this.groupBox2.TabIndex = 33;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Gasto Energetico:";
             // 
             // gr_VET
             // 
             this.gr_VET.BackColor = System.Drawing.Color.GhostWhite;
             this.gr_VET.Controls.Add(this.VET);
-            this.gr_VET.Location = new System.Drawing.Point(373, 217);
+            this.gr_VET.Location = new System.Drawing.Point(202, 90);
             this.gr_VET.Name = "gr_VET";
             this.gr_VET.Size = new System.Drawing.Size(187, 59);
-            this.gr_VET.TabIndex = 36;
+            this.gr_VET.TabIndex = 44;
             this.gr_VET.TabStop = false;
             this.gr_VET.Text = "VET / GET";
             this.gr_VET.Visible = false;
@@ -181,10 +298,10 @@
             // 
             this.gr_GEB.BackColor = System.Drawing.Color.GhostWhite;
             this.gr_GEB.Controls.Add(this.GEB);
-            this.gr_GEB.Location = new System.Drawing.Point(373, 152);
+            this.gr_GEB.Location = new System.Drawing.Point(9, 90);
             this.gr_GEB.Name = "gr_GEB";
             this.gr_GEB.Size = new System.Drawing.Size(187, 59);
-            this.gr_GEB.TabIndex = 35;
+            this.gr_GEB.TabIndex = 43;
             this.gr_GEB.TabStop = false;
             this.gr_GEB.Text = "GEB / TMB";
             this.gr_GEB.Visible = false;
@@ -204,99 +321,34 @@
             // 
             this.cb_Protocolo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_Protocolo.FormattingEnabled = true;
-            this.cb_Protocolo.Location = new System.Drawing.Point(376, 88);
+            this.cb_Protocolo.Location = new System.Drawing.Point(377, 36);
             this.cb_Protocolo.Name = "cb_Protocolo";
-            this.cb_Protocolo.Size = new System.Drawing.Size(358, 21);
-            this.cb_Protocolo.TabIndex = 34;
+            this.cb_Protocolo.Size = new System.Drawing.Size(350, 21);
+            this.cb_Protocolo.TabIndex = 42;
             this.cb_Protocolo.SelectedIndexChanged += new System.EventHandler(this.cb_Protocolo_SelectedIndexChanged);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(375, 72);
+            this.label10.Location = new System.Drawing.Point(374, 20);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(55, 13);
-            this.label10.TabIndex = 33;
+            this.label10.TabIndex = 41;
             this.label10.Text = "Protocolo:";
-            // 
-            // bt_Salvar
-            // 
-            this.bt_Salvar.Location = new System.Drawing.Point(685, 253);
-            this.bt_Salvar.Name = "bt_Salvar";
-            this.bt_Salvar.Size = new System.Drawing.Size(75, 23);
-            this.bt_Salvar.TabIndex = 32;
-            this.bt_Salvar.Text = "Salvar";
-            this.bt_Salvar.UseVisualStyleBackColor = true;
-            this.bt_Salvar.Click += new System.EventHandler(this.bt_Salvar_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.l_ResultVenta);
-            this.groupBox1.Controls.Add(this.txt_AlturaDesejada);
-            this.groupBox1.Controls.Add(this.txt_PesoDesejado);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Location = new System.Drawing.Point(274, 18);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(479, 51);
-            this.groupBox1.TabIndex = 31;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "VENTA:";
-            // 
-            // l_ResultVenta
-            // 
-            this.l_ResultVenta.AutoSize = true;
-            this.l_ResultVenta.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_ResultVenta.Location = new System.Drawing.Point(364, 22);
-            this.l_ResultVenta.Name = "l_ResultVenta";
-            this.l_ResultVenta.Size = new System.Drawing.Size(62, 14);
-            this.l_ResultVenta.TabIndex = 16;
-            this.l_ResultVenta.Text = "Resultado";
-            // 
-            // txt_AlturaDesejada
-            // 
-            this.txt_AlturaDesejada.Location = new System.Drawing.Point(274, 19);
-            this.txt_AlturaDesejada.Name = "txt_AlturaDesejada";
-            this.txt_AlturaDesejada.Size = new System.Drawing.Size(73, 20);
-            this.txt_AlturaDesejada.TabIndex = 14;
-            // 
-            // txt_PesoDesejado
-            // 
-            this.txt_PesoDesejado.Location = new System.Drawing.Point(99, 19);
-            this.txt_PesoDesejado.Name = "txt_PesoDesejado";
-            this.txt_PesoDesejado.Size = new System.Drawing.Size(73, 20);
-            this.txt_PesoDesejado.TabIndex = 13;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(183, 22);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(82, 13);
-            this.label12.TabIndex = 12;
-            this.label12.Text = "Tempo em dias:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(11, 22);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(82, 13);
-            this.label13.TabIndex = 11;
-            this.label13.Text = "Peso Desejado:";
             // 
             // l_descNivelAtividade
             // 
             this.l_descNivelAtividade.AutoSize = true;
             this.l_descNivelAtividade.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_descNivelAtividade.Location = new System.Drawing.Point(7, 112);
+            this.l_descNivelAtividade.Location = new System.Drawing.Point(6, 60);
             this.l_descNivelAtividade.Name = "l_descNivelAtividade";
             this.l_descNivelAtividade.Size = new System.Drawing.Size(144, 14);
-            this.l_descNivelAtividade.TabIndex = 30;
+            this.l_descNivelAtividade.TabIndex = 40;
             this.l_descNivelAtividade.Text = "Descrição Nivel Atividade";
             // 
             // gr_atividade_fisica
             // 
+            this.gr_atividade_fisica.Controls.Add(this.dataGridView1);
             this.gr_atividade_fisica.Controls.Add(this.l_frequencia);
             this.gr_atividade_fisica.Controls.Add(this.l_met);
             this.gr_atividade_fisica.Controls.Add(this.cb_QntAtividade);
@@ -307,10 +359,10 @@
             this.gr_atividade_fisica.Controls.Add(this.label8);
             this.gr_atividade_fisica.Controls.Add(this.label7);
             this.gr_atividade_fisica.Controls.Add(this.cb_AtvFisica);
-            this.gr_atividade_fisica.Location = new System.Drawing.Point(7, 151);
+            this.gr_atividade_fisica.Location = new System.Drawing.Point(9, 155);
             this.gr_atividade_fisica.Name = "gr_atividade_fisica";
-            this.gr_atividade_fisica.Size = new System.Drawing.Size(358, 125);
-            this.gr_atividade_fisica.TabIndex = 29;
+            this.gr_atividade_fisica.Size = new System.Drawing.Size(582, 217);
+            this.gr_atividade_fisica.TabIndex = 39;
             this.gr_atividade_fisica.TabStop = false;
             this.gr_atividade_fisica.Text = "Atividade Fisica:";
             // 
@@ -318,7 +370,7 @@
             // 
             this.l_frequencia.AutoSize = true;
             this.l_frequencia.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_frequencia.Location = new System.Drawing.Point(298, 100);
+            this.l_frequencia.Location = new System.Drawing.Point(456, 69);
             this.l_frequencia.Name = "l_frequencia";
             this.l_frequencia.Size = new System.Drawing.Size(26, 14);
             this.l_frequencia.TabIndex = 15;
@@ -342,7 +394,7 @@
             "Dia",
             "Semana",
             "Mês"});
-            this.cb_QntAtividade.Location = new System.Drawing.Point(173, 96);
+            this.cb_QntAtividade.Location = new System.Drawing.Point(331, 65);
             this.cb_QntAtividade.Name = "cb_QntAtividade";
             this.cb_QntAtividade.Size = new System.Drawing.Size(119, 21);
             this.cb_QntAtividade.TabIndex = 13;
@@ -350,10 +402,11 @@
             // 
             // txt_frequencia
             // 
-            this.txt_frequencia.Location = new System.Drawing.Point(86, 97);
+            this.txt_frequencia.Location = new System.Drawing.Point(244, 66);
             this.txt_frequencia.Name = "txt_frequencia";
             this.txt_frequencia.Size = new System.Drawing.Size(71, 20);
             this.txt_frequencia.TabIndex = 12;
+            this.txt_frequencia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_frequencia_KeyPress);
             // 
             // dt_tempo
             // 
@@ -362,23 +415,11 @@
             this.dt_tempo.Name = "dt_tempo";
             this.dt_tempo.Size = new System.Drawing.Size(71, 20);
             this.dt_tempo.TabIndex = 11;
-            this.dt_tempo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dt_tempo_KeyDown);
-            this.dt_tempo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dt_tempo_MouseDown);
-            // 
-            // bt_adicionarItemAtividade
-            // 
-            this.bt_adicionarItemAtividade.Image = global::NutricionalApp.Properties.Resources.Add_16;
-            this.bt_adicionarItemAtividade.Location = new System.Drawing.Point(300, 38);
-            this.bt_adicionarItemAtividade.Name = "bt_adicionarItemAtividade";
-            this.bt_adicionarItemAtividade.Size = new System.Drawing.Size(47, 51);
-            this.bt_adicionarItemAtividade.TabIndex = 10;
-            this.bt_adicionarItemAtividade.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.bt_adicionarItemAtividade.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(11, 100);
+            this.label9.Location = new System.Drawing.Point(169, 69);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(63, 13);
             this.label9.TabIndex = 9;
@@ -417,52 +458,119 @@
             // 
             this.cb_NivelAtv.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_NivelAtv.FormattingEnabled = true;
-            this.cb_NivelAtv.Location = new System.Drawing.Point(7, 88);
+            this.cb_NivelAtv.Location = new System.Drawing.Point(6, 36);
             this.cb_NivelAtv.Name = "cb_NivelAtv";
             this.cb_NivelAtv.Size = new System.Drawing.Size(358, 21);
-            this.cb_NivelAtv.TabIndex = 28;
+            this.cb_NivelAtv.TabIndex = 38;
             this.cb_NivelAtv.SelectedIndexChanged += new System.EventHandler(this.cb_NivelAtv_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 72);
+            this.label4.Location = new System.Drawing.Point(5, 20);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 13);
-            this.label4.TabIndex = 27;
+            this.label4.TabIndex = 37;
             this.label4.Text = "Nivel Atividade:";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txt_Altura);
+            this.groupBox3.Controls.Add(this.txt_Peso);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Location = new System.Drawing.Point(10, 19);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(257, 82);
+            this.groupBox3.TabIndex = 34;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Sobre o Paciente:";
             // 
             // txt_Altura
             // 
-            this.txt_Altura.Location = new System.Drawing.Point(85, 38);
+            this.txt_Altura.Location = new System.Drawing.Point(126, 44);
             this.txt_Altura.Name = "txt_Altura";
             this.txt_Altura.Size = new System.Drawing.Size(73, 20);
-            this.txt_Altura.TabIndex = 26;
+            this.txt_Altura.TabIndex = 30;
+            this.txt_Altura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Altura_KeyPress);
             // 
             // txt_Peso
             // 
-            this.txt_Peso.Location = new System.Drawing.Point(6, 38);
+            this.txt_Peso.Location = new System.Drawing.Point(32, 44);
             this.txt_Peso.Name = "txt_Peso";
             this.txt_Peso.Size = new System.Drawing.Size(73, 20);
-            this.txt_Peso.TabIndex = 24;
+            this.txt_Peso.TabIndex = 29;
+            this.txt_Peso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Peso_KeyPress);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(87, 22);
+            this.label3.Location = new System.Drawing.Point(123, 28);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 13);
-            this.label3.TabIndex = 23;
-            this.label3.Text = "Altura:";
+            this.label3.Size = new System.Drawing.Size(81, 13);
+            this.label3.TabIndex = 28;
+            this.label3.Text = "Altura Atual (m):";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 22);
+            this.label2.Location = new System.Drawing.Point(29, 27);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Peso:";
+            this.label2.Size = new System.Drawing.Size(83, 13);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "Peso Atual (Kg):";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idgastoAtvDataGridViewTextBoxColumn,
+            this.Atividade,
+            this.Kcal});
+            this.dataGridView1.DataSource = this.gastoatividadeBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 107);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(570, 104);
+            this.dataGridView1.TabIndex = 16;
+            // 
+            // nutricionalDB
+            // 
+            this.nutricionalDB.DataSetName = "NutricionalDB";
+            this.nutricionalDB.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // gastoatividadeBindingSource
+            // 
+            this.gastoatividadeBindingSource.DataMember = "gasto_atividade";
+            this.gastoatividadeBindingSource.DataSource = this.nutricionalDB;
+            // 
+            // gasto_atividadeTableAdapter
+            // 
+            this.gasto_atividadeTableAdapter.ClearBeforeFill = true;
+            // 
+            // bt_Salvar
+            // 
+            this.bt_Salvar.Image = global::NutricionalApp.Properties.Resources.Save_48;
+            this.bt_Salvar.Location = new System.Drawing.Point(657, 283);
+            this.bt_Salvar.Name = "bt_Salvar";
+            this.bt_Salvar.Size = new System.Drawing.Size(75, 89);
+            this.bt_Salvar.TabIndex = 45;
+            this.bt_Salvar.Text = "Salvar";
+            this.bt_Salvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.bt_Salvar.UseVisualStyleBackColor = true;
+            this.bt_Salvar.Click += new System.EventHandler(this.bt_Salvar_Click);
+            // 
+            // bt_adicionarItemAtividade
+            // 
+            this.bt_adicionarItemAtividade.Image = global::NutricionalApp.Properties.Resources.Add_16;
+            this.bt_adicionarItemAtividade.Location = new System.Drawing.Point(531, 12);
+            this.bt_adicionarItemAtividade.Name = "bt_adicionarItemAtividade";
+            this.bt_adicionarItemAtividade.Size = new System.Drawing.Size(45, 40);
+            this.bt_adicionarItemAtividade.TabIndex = 10;
+            this.bt_adicionarItemAtividade.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.bt_adicionarItemAtividade.UseVisualStyleBackColor = true;
             // 
             // bt_EditarGasto
             // 
@@ -489,32 +597,32 @@
             this.bt_adicionarGasto.UseVisualStyleBackColor = true;
             this.bt_adicionarGasto.Click += new System.EventHandler(this.bt_adicionarRec_Click);
             // 
-            // l_idade
+            // idgastoAtvDataGridViewTextBoxColumn
             // 
-            this.l_idade.AutoSize = true;
-            this.l_idade.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_idade.Location = new System.Drawing.Point(260, 15);
-            this.l_idade.Name = "l_idade";
-            this.l_idade.Size = new System.Drawing.Size(37, 14);
-            this.l_idade.TabIndex = 38;
-            this.l_idade.Text = "idade";
+            this.idgastoAtvDataGridViewTextBoxColumn.DataPropertyName = "id_gastoAtv";
+            this.idgastoAtvDataGridViewTextBoxColumn.HeaderText = "id_gastoAtv";
+            this.idgastoAtvDataGridViewTextBoxColumn.Name = "idgastoAtvDataGridViewTextBoxColumn";
+            this.idgastoAtvDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // l_sexo
+            // Atividade
             // 
-            this.l_sexo.AutoSize = true;
-            this.l_sexo.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_sexo.Location = new System.Drawing.Point(342, 15);
-            this.l_sexo.Name = "l_sexo";
-            this.l_sexo.Size = new System.Drawing.Size(34, 14);
-            this.l_sexo.TabIndex = 39;
-            this.l_sexo.Text = "sexo";
+            this.Atividade.HeaderText = "Atividade";
+            this.Atividade.Name = "Atividade";
+            this.Atividade.ReadOnly = true;
+            this.Atividade.Width = 300;
+            // 
+            // Kcal
+            // 
+            this.Kcal.HeaderText = "Calorias (Kcal)";
+            this.Kcal.Name = "Kcal";
+            this.Kcal.ReadOnly = true;
             // 
             // CadGastosEnergeticos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(800, 434);
+            this.ClientSize = new System.Drawing.Size(800, 645);
             this.Controls.Add(this.l_sexo);
             this.Controls.Add(this.l_idade);
             this.Controls.Add(this.gr_ExibeDados);
@@ -531,15 +639,23 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.CadGastosEnergeticos_Load);
             this.gr_ExibeDados.ResumeLayout(false);
-            this.gr_ExibeDados.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.gr_VENTA.ResumeLayout(false);
+            this.gr_VENTA.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.gr_VET.ResumeLayout(false);
             this.gr_VET.PerformLayout();
             this.gr_GEB.ResumeLayout(false);
             this.gr_GEB.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.gr_atividade_fisica.ResumeLayout(false);
             this.gr_atividade_fisica.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nutricionalDB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gastoatividadeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -556,8 +672,25 @@
         private System.Windows.Forms.Button bt_adicionarGasto;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox gr_ExibeDados;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txt_DiasVenta;
+        private System.Windows.Forms.TextBox txt_PesoDesejado;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label l_idade;
+        private System.Windows.Forms.Label l_sexo;
+        private System.Windows.Forms.GroupBox gr_VENTA;
+        private System.Windows.Forms.Label VENTA;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gr_VET;
+        private System.Windows.Forms.Label VET;
+        private System.Windows.Forms.GroupBox gr_GEB;
+        private System.Windows.Forms.Label GEB;
+        private System.Windows.Forms.ComboBox cb_Protocolo;
+        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label l_descNivelAtividade;
         private System.Windows.Forms.GroupBox gr_atividade_fisica;
+        private System.Windows.Forms.Label l_frequencia;
         private System.Windows.Forms.Label l_met;
         private System.Windows.Forms.ComboBox cb_QntAtividade;
         private System.Windows.Forms.TextBox txt_frequencia;
@@ -569,25 +702,18 @@
         private System.Windows.Forms.ComboBox cb_AtvFisica;
         private System.Windows.Forms.ComboBox cb_NivelAtv;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txt_Altura;
         private System.Windows.Forms.TextBox txt_Peso;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txt_AlturaDesejada;
-        private System.Windows.Forms.TextBox txt_PesoDesejado;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button bt_Salvar;
-        private System.Windows.Forms.Label l_frequencia;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox cb_Protocolo;
-        private System.Windows.Forms.Label l_ResultVenta;
-        private System.Windows.Forms.GroupBox gr_VET;
-        private System.Windows.Forms.GroupBox gr_GEB;
-        private System.Windows.Forms.Label VET;
-        private System.Windows.Forms.Label GEB;
-        private System.Windows.Forms.Label l_idade;
-        private System.Windows.Forms.Label l_sexo;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private NutricionalDB nutricionalDB;
+        private System.Windows.Forms.BindingSource gastoatividadeBindingSource;
+        private NutricionalDBTableAdapters.gasto_atividadeTableAdapter gasto_atividadeTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idgastoAtvDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Atividade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Kcal;
     }
 }

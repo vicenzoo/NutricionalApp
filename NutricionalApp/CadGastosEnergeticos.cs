@@ -31,18 +31,13 @@ namespace NutricionalApp
             InitializeComponent();
         }
 
-        private void dt_tempo_MouseDown(object sender, MouseEventArgs e)
-        {
-            e = null;
-        }
-
-        private void dt_tempo_KeyDown(object sender, KeyEventArgs e)
-        {
-            e.SuppressKeyPress = true;
-        }
 
         private void CadGastosEnergeticos_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'nutricionalDB.gasto_atividade'. Você pode movê-la ou removê-la conforme necessário.
+            this.gasto_atividadeTableAdapter.Fill(this.nutricionalDB.gasto_atividade);
+            // TODO: esta linha de código carrega dados na tabela 'nutricionalDB.gasto_atividade'. Você pode movê-la ou removê-la conforme necessário.
+            this.gasto_atividadeTableAdapter.Fill(this.nutricionalDB.gasto_atividade);
             dt_tempo.Value = DateTime.Today.Date;
 
             FormMain GetIDNutricionista = Application.OpenForms.OfType<FormMain>().FirstOrDefault(); //Função para Pegar o Numero de ID do Nutricionista
@@ -150,7 +145,7 @@ namespace NutricionalApp
 
         private void cb_QntAtividade_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (txt_frequencia.Text != null)
+            if (txt_frequencia.Text != "")
             {
                 int CalcFreq = Convert.ToInt32(txt_frequencia.Text);
 
@@ -345,12 +340,13 @@ namespace NutricionalApp
         {
             gr_GEB.Visible = true;
             gr_VET.Visible = true;
-            MessageBox.Show(
+
+          /*  MessageBox.Show(
                 " Peso: " +txt_Peso.Text +
                 " Altura: " + txt_Altura.Text +
                 " Idade: " + Convert.ToString(idadePaciente) +
                 " Sexo: " + tipoSexo +
-                " nivel Atividade:" + Convert.ToString(Math.Round(calcNivelID, 3)));
+                " nivel Atividade:" + Convert.ToString(Math.Round(calcNivelID, 3))); */
 
             string alturaLimpa = txt_Altura.Text.Replace(".", "").Replace(",", ""); //Remove . ou virgulas pois Altura deve ser em (CM)
 
@@ -363,6 +359,74 @@ namespace NutricionalApp
                 (double)Math.Round(calcNivelID, 3),
                 GEB,
                 VET);
+        }
+
+        private void txt_DiasVenta_TextChanged(object sender, EventArgs e)
+        {
+
+
+            if (txt_Peso.Text != null && txt_PesoDesejado.Text != null && txt_DiasVenta.Text != null)
+            {
+                if (txt_Peso.Text != "" && txt_PesoDesejado.Text != "" && txt_DiasVenta.Text != "")
+                {
+                    gr_VENTA.Visible = true;
+                    Funcoes.CalcularVentaDiario(
+                        Convert.ToDouble(txt_Peso.Text),
+                        Convert.ToDouble(txt_PesoDesejado.Text),
+                        Convert.ToInt32(txt_DiasVenta.Text),
+                        VENTA
+                        );
+                }
+                else
+                {
+                    gr_VENTA.Visible = false;
+                }
+            }
+            else
+            {
+                gr_VENTA.Visible = false;
+            }
+
+        }
+
+        private void txt_PesoDesejado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) //Aceita apenas Numeros
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_DiasVenta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) //Aceita apenas Numeros
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_Peso_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) //Aceita apenas Numeros
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_Altura_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)  && e.KeyChar != ',') //Aceita apenas Numeros e virgula
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_frequencia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) //Aceita apenas Numeros
+            {
+                e.Handled = true;
+            }
         }
     }
 }
