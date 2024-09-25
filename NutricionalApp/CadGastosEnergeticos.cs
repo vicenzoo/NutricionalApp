@@ -34,10 +34,6 @@ namespace NutricionalApp
 
         private void CadGastosEnergeticos_Load(object sender, EventArgs e)
         {
-            // TODO: esta linha de código carrega dados na tabela 'nutricionalDB.gasto_atividade'. Você pode movê-la ou removê-la conforme necessário.
-            this.gasto_atividadeTableAdapter.Fill(this.nutricionalDB.gasto_atividade);
-            // TODO: esta linha de código carrega dados na tabela 'nutricionalDB.gasto_atividade'. Você pode movê-la ou removê-la conforme necessário.
-            this.gasto_atividadeTableAdapter.Fill(this.nutricionalDB.gasto_atividade);
             dt_tempo.Value = DateTime.Today.Date;
 
             FormMain GetIDNutricionista = Application.OpenForms.OfType<FormMain>().FirstOrDefault(); //Função para Pegar o Numero de ID do Nutricionista
@@ -141,6 +137,20 @@ namespace NutricionalApp
                 int idProtocolo = ProtocoloSelecionado.Id;
                 ProtocoloID = idProtocolo;
             }
+            if(ProtocoloSelecionado.Descricao == "KATCH-MCARDLE 1996")
+            {
+                txt_massa_magra.Clear();
+                l_MassaMagra.Visible = true;
+                l_obsMassaMagra.Visible = true;
+                txt_massa_magra.Visible = true;
+            }
+            else
+            {
+                l_MassaMagra.Visible = false;
+                l_obsMassaMagra.Visible = false;
+                txt_massa_magra.Visible = false;
+            }
+
         }
 
         private void cb_QntAtividade_SelectedIndexChanged(object sender, EventArgs e)
@@ -338,6 +348,7 @@ namespace NutricionalApp
 
         private void bt_Salvar_Click(object sender, EventArgs e)
         {
+            double massamagra = 0;
             gr_GEB.Visible = true;
             gr_VET.Visible = true;
 
@@ -350,6 +361,15 @@ namespace NutricionalApp
 
             string alturaLimpa = txt_Altura.Text.Replace(".", "").Replace(",", ""); //Remove . ou virgulas pois Altura deve ser em (CM)
 
+            if (txt_massa_magra.Text == "")
+            {
+                massamagra = 0;
+            }
+            else
+            {
+                massamagra = Convert.ToDouble(txt_massa_magra.Text);
+            }
+
             Funcoes.CalcularGastosEnergicos(
                 Convert.ToDouble(txt_Peso.Text),
                 Convert.ToDouble(alturaLimpa),
@@ -357,6 +377,7 @@ namespace NutricionalApp
                 tipoSexo,
                 cb_Protocolo.SelectedItem.ToString(),
                 (double)Math.Round(calcNivelID, 3),
+                massamagra,
                 GEB,
                 VET);
         }
@@ -463,6 +484,12 @@ namespace NutricionalApp
             }
         }
 
-
+        private void txt_massa_magra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)  && e.KeyChar != ',') //Aceita apenas Numeros e virgula
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

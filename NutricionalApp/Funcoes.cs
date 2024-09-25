@@ -34,7 +34,7 @@ namespace NutricionalApp
 
         //Rotinas Nutricionais:
 
-        public static double CalcularTMB(string protocolo, string sexo, double peso, double altura, int idade, double percentualGordura = 0)
+        public static double CalcularTMB(string protocolo, string sexo, double peso, double altura, int idade, double percentualGordura)
         {
             if (protocolo == "FAO / OMS 2001")
             {
@@ -47,16 +47,54 @@ namespace NutricionalApp
                     return (655 + (9.563 * peso) + (1.850 * altura) - (4.676 * idade));
                 }
             }
-            else if (protocolo == "FAO / OMS 2001")
+            else if (protocolo == "HARRIS & BENEDICT 1919")
             {
                 if (sexo == "M")
                 {
-                    return (66.5 + (13.75 * peso) + (5.003 * altura) - (6.75 * idade));
+                    return (66.47 + (13.75 * peso) + (5.003 * altura) - (6.755 * idade));
                 }
                 else if (sexo == "F")
                 {
-                    return (655 + (9.563 * peso) + (1.850 * altura) - (4.676 * idade));
+                    return (655.1 + (9.563 * peso) + (1.850 * altura) - (4.676 * idade));
                 }
+            }
+            else if (protocolo == "SCHOFIELD 1985")
+            {
+                if (sexo == "M")
+                {
+                    if (idade >= 18 && idade <= 30)
+                    {
+                        return (15.057 * peso) + 692.2;
+                    }
+                    else if (idade > 30 && idade <= 60)
+                    {
+                        return (11.472 * peso) + 873.1;
+                    }
+                    else if (idade > 60)
+                    {
+                        return (11.711 * peso) + 587.7;
+                    }
+                }
+                else if (sexo == "F")
+                {
+                    if (idade >= 18 && idade <= 30)
+                    {
+                        return (14.818 * peso) + 486.6;
+                    }
+                    else if (idade > 30 && idade <= 60)
+                    {
+                        return (8.126 * peso) + 845.6;
+                    }
+                    else if (idade > 60)
+                    {
+                        return (9.082 * peso) + 658.5;
+                    }
+                }
+            }
+            else if (protocolo == "KATCH-MCARDLE 1996")
+            {
+                var massaMagra = peso * (1 - percentualGordura / 100);
+                return (370 + (21.6 * massaMagra));
             }
 
             // Se o protocolo não for reconhecido, pode-se lançar uma exceção ou retornar um valor padrão
@@ -68,10 +106,10 @@ namespace NutricionalApp
             return tmb * fatorAtividade;
         }
 
-        public static void CalcularGastosEnergicos(double Peso,double Altura,int Idade,string Sexo,string Protocolo,double NivelAtividade,Label GEB,Label VET)
+        public static void CalcularGastosEnergicos(double Peso,double Altura,int Idade,string Sexo,string Protocolo,double NivelAtividade,double PercentGordura,Label GEB,Label VET)
         {
 
-            double tmb = CalcularTMB(Protocolo, Sexo, Peso, Altura, Idade);
+            double tmb = CalcularTMB(Protocolo, Sexo, Peso, Altura, Idade, PercentGordura);
             GEB.Text = $"{tmb.ToString("F0")}"  + " Kcal";
             double nivelatividade = NivelAtividade; 
             double vet = CalcularVET(tmb, nivelatividade);
