@@ -557,42 +557,6 @@ namespace NutricionalApp
             }
         }
 
-        public void CarregarDadosSemFiltro(string query, DataGridView dataGridView)
-        {
-            try
-            {
-                using (var db = new DatabaseConnection())
-                {
-                    using (NpgsqlConnection connection = db.GetConnection())
-                    {
-                        connection.Open();
-
-                        using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
-                        {
-
-                            NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(command);
-
-                            DataTable dataTable = new DataTable();
-                            dataAdapter.Fill(dataTable);
-
-                            if (dataTable.Rows.Count > 0)
-                            {
-                                dataGridView.DataSource = dataTable;
-                            }
-                            else
-                            {
-                                MessageBox.Show("Nenhum item encontrado.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erro ao carregar dados: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         public void ExcluirItemRecordatorio(int id)
         {
             using (var db = new DatabaseConnection())
@@ -704,6 +668,34 @@ namespace NutricionalApp
                         MessageBox.Show($"Erro ao obter os Gastos Energeticos: {ex.Message}");
                     }
                 }
+            }
+        }
+
+        public void ExcluirItemGastoEnergetico(int id)
+        {
+            using (var db = new DatabaseConnection())
+            {
+                using (NpgsqlConnection connection = db.GetConnection())
+                {
+                    try
+                    {
+                        connection.Open();
+                        string query = "DELETE FROM gasto_atividade WHERE \"id_gastoAtv\" = @id";
+
+                        using (NpgsqlCommand cmd = new NpgsqlCommand(query, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@id", id);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Tratar exceção conforme necessário
+                        Console.WriteLine("Erro ao excluir item: " + ex.Message);
+                        throw;
+                    }
+                }
+
             }
         }
 

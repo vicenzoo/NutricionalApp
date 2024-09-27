@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.cb_Pacientes = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cb_Gastoenergico = new System.Windows.Forms.ComboBox();
@@ -45,7 +44,6 @@
             this.l_obsMassaMagra = new System.Windows.Forms.Label();
             this.l_MassaMagra = new System.Windows.Forms.Label();
             this.txt_massa_magra = new System.Windows.Forms.TextBox();
-            this.bt_Salvar = new System.Windows.Forms.Button();
             this.gr_VET = new System.Windows.Forms.GroupBox();
             this.VET = new System.Windows.Forms.Label();
             this.gr_GEB = new System.Windows.Forms.GroupBox();
@@ -54,12 +52,14 @@
             this.label10 = new System.Windows.Forms.Label();
             this.l_descNivelAtividade = new System.Windows.Forms.Label();
             this.gr_atividade_fisica = new System.Windows.Forms.GroupBox();
+            this.l_Calorias = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.nutricionalDB = new NutricionalApp.NutricionalDB();
             this.l_frequencia = new System.Windows.Forms.Label();
             this.l_met = new System.Windows.Forms.Label();
             this.cb_QntAtividade = new System.Windows.Forms.ComboBox();
             this.txt_frequencia = new System.Windows.Forms.TextBox();
             this.dt_tempo = new System.Windows.Forms.DateTimePicker();
-            this.bt_adicionarItemAtividade = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -75,31 +75,22 @@
             this.label13 = new System.Windows.Forms.Label();
             this.l_idade = new System.Windows.Forms.Label();
             this.l_sexo = new System.Windows.Forms.Label();
-            this.nutricionalDB = new NutricionalApp.NutricionalDB();
+            this.bt_validar = new System.Windows.Forms.Button();
+            this.bt_Salvar = new System.Windows.Forms.Button();
+            this.bt_ExcluirAtv = new System.Windows.Forms.Button();
+            this.bt_adicionarItemAtividade = new System.Windows.Forms.Button();
             this.bt_EditarGasto = new System.Windows.Forms.Button();
             this.bt_adicionarGasto = new System.Windows.Forms.Button();
-            this.bt_validar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.vwgastoatividadedetalhadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vw_gastoatividade_detalhadoTableAdapter = new NutricionalApp.NutricionalDBTableAdapters.vw_gastoatividade_detalhadoTableAdapter();
-            this.idgastoAtvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.atividadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.metDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.frequenciaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.duracaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.caloriasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.l_Calorias = new System.Windows.Forms.Label();
             this.gr_ExibeDados.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.gr_VET.SuspendLayout();
             this.gr_GEB.SuspendLayout();
             this.gr_atividade_fisica.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nutricionalDB)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.gr_VENTA.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nutricionalDB)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vwgastoatividadedetalhadoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // cb_Pacientes
@@ -267,19 +258,6 @@
             this.txt_massa_magra.Visible = false;
             this.txt_massa_magra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_massa_magra_KeyPress);
             // 
-            // bt_Salvar
-            // 
-            this.bt_Salvar.Enabled = false;
-            this.bt_Salvar.Image = global::NutricionalApp.Properties.Resources.Save_48;
-            this.bt_Salvar.Location = new System.Drawing.Point(657, 283);
-            this.bt_Salvar.Name = "bt_Salvar";
-            this.bt_Salvar.Size = new System.Drawing.Size(75, 89);
-            this.bt_Salvar.TabIndex = 45;
-            this.bt_Salvar.Text = "Salvar";
-            this.bt_Salvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.bt_Salvar.UseVisualStyleBackColor = true;
-            this.bt_Salvar.Click += new System.EventHandler(this.bt_Salvar_Click);
-            // 
             // gr_VET
             // 
             this.gr_VET.BackColor = System.Drawing.Color.GhostWhite;
@@ -357,6 +335,7 @@
             // 
             // gr_atividade_fisica
             // 
+            this.gr_atividade_fisica.Controls.Add(this.bt_ExcluirAtv);
             this.gr_atividade_fisica.Controls.Add(this.l_Calorias);
             this.gr_atividade_fisica.Controls.Add(this.dataGridView1);
             this.gr_atividade_fisica.Controls.Add(this.l_frequencia);
@@ -375,6 +354,37 @@
             this.gr_atividade_fisica.TabIndex = 39;
             this.gr_atividade_fisica.TabStop = false;
             this.gr_atividade_fisica.Text = "Atividade Fisica:";
+            // 
+            // l_Calorias
+            // 
+            this.l_Calorias.AutoSize = true;
+            this.l_Calorias.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l_Calorias.Location = new System.Drawing.Point(328, 41);
+            this.l_Calorias.Name = "l_Calorias";
+            this.l_Calorias.Size = new System.Drawing.Size(52, 14);
+            this.l_Calorias.TabIndex = 17;
+            this.l_Calorias.Text = "Calorias";
+            this.l_Calorias.Visible = false;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 95);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(636, 119);
+            this.dataGridView1.TabIndex = 16;
+            // 
+            // nutricionalDB
+            // 
+            this.nutricionalDB.DataSetName = "NutricionalDB";
+            this.nutricionalDB.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // l_frequencia
             // 
@@ -425,18 +435,6 @@
             this.dt_tempo.Size = new System.Drawing.Size(71, 20);
             this.dt_tempo.TabIndex = 11;
             this.dt_tempo.Value = new System.DateTime(2024, 9, 27, 0, 0, 0, 0);
-            // 
-            // bt_adicionarItemAtividade
-            // 
-            this.bt_adicionarItemAtividade.Enabled = false;
-            this.bt_adicionarItemAtividade.Image = global::NutricionalApp.Properties.Resources.Add_16;
-            this.bt_adicionarItemAtividade.Location = new System.Drawing.Point(591, 19);
-            this.bt_adicionarItemAtividade.Name = "bt_adicionarItemAtividade";
-            this.bt_adicionarItemAtividade.Size = new System.Drawing.Size(45, 40);
-            this.bt_adicionarItemAtividade.TabIndex = 10;
-            this.bt_adicionarItemAtividade.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.bt_adicionarItemAtividade.UseVisualStyleBackColor = true;
-            this.bt_adicionarItemAtividade.Click += new System.EventHandler(this.bt_adicionarItemAtividade_Click);
             // 
             // label9
             // 
@@ -588,10 +586,54 @@
             this.l_sexo.TabIndex = 39;
             this.l_sexo.Text = "sexo";
             // 
-            // nutricionalDB
+            // bt_validar
             // 
-            this.nutricionalDB.DataSetName = "NutricionalDB";
-            this.nutricionalDB.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.bt_validar.Image = global::NutricionalApp.Properties.Resources.Calculator_48;
+            this.bt_validar.Location = new System.Drawing.Point(657, 193);
+            this.bt_validar.Name = "bt_validar";
+            this.bt_validar.Size = new System.Drawing.Size(75, 84);
+            this.bt_validar.TabIndex = 48;
+            this.bt_validar.Text = "Calcular";
+            this.bt_validar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.bt_validar.UseVisualStyleBackColor = true;
+            this.bt_validar.Click += new System.EventHandler(this.bt_validar_Click);
+            // 
+            // bt_Salvar
+            // 
+            this.bt_Salvar.Enabled = false;
+            this.bt_Salvar.Image = global::NutricionalApp.Properties.Resources.Save_48;
+            this.bt_Salvar.Location = new System.Drawing.Point(657, 283);
+            this.bt_Salvar.Name = "bt_Salvar";
+            this.bt_Salvar.Size = new System.Drawing.Size(75, 89);
+            this.bt_Salvar.TabIndex = 45;
+            this.bt_Salvar.Text = "Salvar";
+            this.bt_Salvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.bt_Salvar.UseVisualStyleBackColor = true;
+            this.bt_Salvar.Click += new System.EventHandler(this.bt_Salvar_Click);
+            // 
+            // bt_ExcluirAtv
+            // 
+            this.bt_ExcluirAtv.Enabled = false;
+            this.bt_ExcluirAtv.Image = global::NutricionalApp.Properties.Resources.Delete_16;
+            this.bt_ExcluirAtv.Location = new System.Drawing.Point(540, 19);
+            this.bt_ExcluirAtv.Name = "bt_ExcluirAtv";
+            this.bt_ExcluirAtv.Size = new System.Drawing.Size(45, 40);
+            this.bt_ExcluirAtv.TabIndex = 18;
+            this.bt_ExcluirAtv.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.bt_ExcluirAtv.UseVisualStyleBackColor = true;
+            this.bt_ExcluirAtv.Click += new System.EventHandler(this.bt_ExcluirAtv_Click);
+            // 
+            // bt_adicionarItemAtividade
+            // 
+            this.bt_adicionarItemAtividade.Enabled = false;
+            this.bt_adicionarItemAtividade.Image = global::NutricionalApp.Properties.Resources.Add_16;
+            this.bt_adicionarItemAtividade.Location = new System.Drawing.Point(591, 19);
+            this.bt_adicionarItemAtividade.Name = "bt_adicionarItemAtividade";
+            this.bt_adicionarItemAtividade.Size = new System.Drawing.Size(45, 40);
+            this.bt_adicionarItemAtividade.TabIndex = 10;
+            this.bt_adicionarItemAtividade.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.bt_adicionarItemAtividade.UseVisualStyleBackColor = true;
+            this.bt_adicionarItemAtividade.Click += new System.EventHandler(this.bt_adicionarItemAtividade_Click);
             // 
             // bt_EditarGasto
             // 
@@ -617,109 +659,6 @@
             this.bt_adicionarGasto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_adicionarGasto.UseVisualStyleBackColor = true;
             this.bt_adicionarGasto.Click += new System.EventHandler(this.bt_adicionarRec_Click);
-            // 
-            // bt_validar
-            // 
-            this.bt_validar.Image = global::NutricionalApp.Properties.Resources.Calculator_48;
-            this.bt_validar.Location = new System.Drawing.Point(657, 193);
-            this.bt_validar.Name = "bt_validar";
-            this.bt_validar.Size = new System.Drawing.Size(75, 84);
-            this.bt_validar.TabIndex = 48;
-            this.bt_validar.Text = "Calcular";
-            this.bt_validar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.bt_validar.UseVisualStyleBackColor = true;
-            this.bt_validar.Click += new System.EventHandler(this.bt_validar_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idgastoAtvDataGridViewTextBoxColumn,
-            this.atividadeDataGridViewTextBoxColumn,
-            this.metDataGridViewTextBoxColumn,
-            this.frequenciaDataGridViewTextBoxColumn,
-            this.duracaoDataGridViewTextBoxColumn,
-            this.caloriasDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.vwgastoatividadedetalhadoBindingSource;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 95);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(636, 119);
-            this.dataGridView1.TabIndex = 16;
-            // 
-            // vwgastoatividadedetalhadoBindingSource
-            // 
-            this.vwgastoatividadedetalhadoBindingSource.DataMember = "vw_gastoatividade_detalhado";
-            this.vwgastoatividadedetalhadoBindingSource.DataSource = this.nutricionalDB;
-            // 
-            // vw_gastoatividade_detalhadoTableAdapter
-            // 
-            this.vw_gastoatividade_detalhadoTableAdapter.ClearBeforeFill = true;
-            // 
-            // idgastoAtvDataGridViewTextBoxColumn
-            // 
-            this.idgastoAtvDataGridViewTextBoxColumn.DataPropertyName = "id_gastoAtv";
-            this.idgastoAtvDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.idgastoAtvDataGridViewTextBoxColumn.Name = "idgastoAtvDataGridViewTextBoxColumn";
-            this.idgastoAtvDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idgastoAtvDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // atividadeDataGridViewTextBoxColumn
-            // 
-            this.atividadeDataGridViewTextBoxColumn.DataPropertyName = "atividade";
-            this.atividadeDataGridViewTextBoxColumn.HeaderText = "Atividade";
-            this.atividadeDataGridViewTextBoxColumn.Name = "atividadeDataGridViewTextBoxColumn";
-            this.atividadeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.atividadeDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // metDataGridViewTextBoxColumn
-            // 
-            this.metDataGridViewTextBoxColumn.DataPropertyName = "met";
-            this.metDataGridViewTextBoxColumn.HeaderText = "MET";
-            this.metDataGridViewTextBoxColumn.Name = "metDataGridViewTextBoxColumn";
-            this.metDataGridViewTextBoxColumn.ReadOnly = true;
-            this.metDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // frequenciaDataGridViewTextBoxColumn
-            // 
-            this.frequenciaDataGridViewTextBoxColumn.DataPropertyName = "frequencia";
-            this.frequenciaDataGridViewTextBoxColumn.HeaderText = "Frequência";
-            this.frequenciaDataGridViewTextBoxColumn.Name = "frequenciaDataGridViewTextBoxColumn";
-            this.frequenciaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.frequenciaDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // duracaoDataGridViewTextBoxColumn
-            // 
-            this.duracaoDataGridViewTextBoxColumn.DataPropertyName = "duracao";
-            this.duracaoDataGridViewTextBoxColumn.HeaderText = "Duração";
-            this.duracaoDataGridViewTextBoxColumn.Name = "duracaoDataGridViewTextBoxColumn";
-            this.duracaoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.duracaoDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // caloriasDataGridViewTextBoxColumn
-            // 
-            this.caloriasDataGridViewTextBoxColumn.DataPropertyName = "calorias";
-            this.caloriasDataGridViewTextBoxColumn.HeaderText = "Calorias (Kcal)";
-            this.caloriasDataGridViewTextBoxColumn.Name = "caloriasDataGridViewTextBoxColumn";
-            this.caloriasDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // l_Calorias
-            // 
-            this.l_Calorias.AutoSize = true;
-            this.l_Calorias.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_Calorias.Location = new System.Drawing.Point(328, 41);
-            this.l_Calorias.Name = "l_Calorias";
-            this.l_Calorias.Size = new System.Drawing.Size(52, 14);
-            this.l_Calorias.TabIndex = 17;
-            this.l_Calorias.Text = "Calorias";
-            this.l_Calorias.Visible = false;
             // 
             // CadGastosEnergeticos
             // 
@@ -753,13 +692,12 @@
             this.gr_GEB.PerformLayout();
             this.gr_atividade_fisica.ResumeLayout(false);
             this.gr_atividade_fisica.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nutricionalDB)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.gr_VENTA.ResumeLayout(false);
             this.gr_VENTA.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nutricionalDB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vwgastoatividadedetalhadoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -818,14 +756,7 @@
         private System.Windows.Forms.Label l_obsMassaMagra;
         private System.Windows.Forms.Button bt_validar;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.BindingSource vwgastoatividadedetalhadoBindingSource;
-        private NutricionalDBTableAdapters.vw_gastoatividade_detalhadoTableAdapter vw_gastoatividade_detalhadoTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idgastoAtvDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn atividadeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn metDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn frequenciaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn duracaoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn caloriasDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label l_Calorias;
+        private System.Windows.Forms.Button bt_ExcluirAtv;
     }
 }

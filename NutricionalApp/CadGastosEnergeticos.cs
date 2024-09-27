@@ -27,6 +27,8 @@ namespace NutricionalApp
         int ProtocoloID = 0;
         string tipoSexo;
         int idadePaciente = 0;
+        string queryAtvFisica  = "SELECT \"id_gastoAtv\", \"atividade\", \"met\", \"frequencia\", \"duracao\", \"calorias\" FROM \"public\".\"vw_gastoatividade_detalhado\" Where gastos_id = @filtro";
+
 
         public CadGastosEnergeticos()
         {
@@ -36,8 +38,6 @@ namespace NutricionalApp
 
         private void CadGastosEnergeticos_Load(object sender, EventArgs e)
         {
-            // TODO: esta linha de código carrega dados na tabela 'nutricionalDB.vw_gastoatividade_detalhado'. Você pode movê-la ou removê-la conforme necessário.
-            this.vw_gastoatividade_detalhadoTableAdapter.Fill(this.nutricionalDB.vw_gastoatividade_detalhado);
             dt_tempo.Value = DateTime.Today.Date;
 
             FormMain GetIDNutricionista = Application.OpenForms.OfType<FormMain>().FirstOrDefault(); //Função para Pegar o Numero de ID do Nutricionista
@@ -285,7 +285,7 @@ namespace NutricionalApp
                                 txt_Peso.Text = row["peso"] != DBNull.Value ? row["peso"].ToString() : string.Empty;
                                 txt_Altura.Text = row["altura"] != DBNull.Value ? row["altura"].ToString() : string.Empty;
                                 txt_PesoDesejado.Text = row["venta_peso_desejado"] != DBNull.Value ? row["venta_peso_desejado"].ToString() : string.Empty;
-                                txt_Altura.Text = row["venta_tempo"] != DBNull.Value ? row["venta_tempo"].ToString() : string.Empty;
+                                txt_DiasVenta.Text = row["venta_tempo"] != DBNull.Value ? row["venta_tempo"].ToString() : string.Empty;
                                 l_sexo.Text = Convert.ToString(row["sexo"]);
                                 l_idade.Text = Convert.ToString(row["idade"]) + " anos";
 
@@ -294,11 +294,39 @@ namespace NutricionalApp
                                 {
                                     PreencherComboBoxNivelAtv(nivelAtvID);
                                 }
+
+                                int protocoloId = row["protocolo_id"] != DBNull.Value ? Convert.ToInt32(row["protocolo_id"]) : 0;
+                                if (nivelAtvID != 0)
+                                {
+                                    PreencherComboBoxProtocolo(protocoloId);
+                                }
+
+                                VET.Text = row["vet"] != DBNull.Value ? row["vet"].ToString() : string.Empty;
+                                gr_VET.Visible = row["vet"] != DBNull.Value;
+                                GEB.Text = row["geb"] != DBNull.Value ? row["geb"].ToString() + " Kcal" : string.Empty;
+                                gr_GEB.Visible = row["geb"] != DBNull.Value;
+
+
                                 gr_ExibeDados.Visible = true;
                                 cb_Pacientes.Enabled = false;
                                 cb_Gastoenergico.Enabled = false;
                                 txt_DescricaoNome.Enabled = false;
                                 bt_adicionarGasto.Enabled = false;
+
+
+                                db.CarregarDados(queryAtvFisica, filtro, dataGridView1);
+
+                                if (dataGridView1.Rows.Count > 0) 
+                                {
+                                    bt_ExcluirAtv.Enabled = true;
+                                    bt_adicionarItemAtividade.Enabled =true;
+                                }
+                                else
+                                {
+                                    bt_ExcluirAtv.Enabled = false;
+                                    bt_adicionarItemAtividade.Enabled =false;
+                                }
+                                RecalculaVET();
                             }
                             else
                             {
@@ -326,8 +354,37 @@ namespace NutricionalApp
                 }
             }
         }
+
+        private void PreencherComboBoxProtocolo(int idProtocolo)
+        {
+            foreach (Protocolos proto in cb_Protocolo.Items)
+            {
+                // Verifica se o ID do nível de atividade corresponde ao ID salvo
+                if (proto.Id == idProtocolo)
+                {
+                    cb_Protocolo.SelectedItem = proto; // Seleciona o item correto
+                    break;
+                }
+            }
+        }
+
         private void bt_validar_Click(object sender, EventArgs e)
         {
+
+            if (txt_Peso.Text == "")
+            {
+                MessageBox.Show("Insira seu Peso atual para o Calcular!");
+                txt_Peso.Focus();
+                return;
+            }
+
+            if (txt_Altura.Text == "")
+            {
+                MessageBox.Show("Insira sua Altura atual para o Calcular!");
+                txt_Altura.Focus();
+                return;
+            }
+
             double massamagra = 0;
             gr_GEB.Visible = true;
             gr_VET.Visible = true;
@@ -362,13 +419,124 @@ namespace NutricionalApp
                 VET);
 
             bt_adicionarItemAtividade.Enabled = true;
+
             bt_Salvar.Enabled = true;
         }
 
         private void bt_Salvar_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show("Deseja salvar os dados do Paciente ?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                using (var db = new DatabaseConnection())
+                {
+                    db.OpenConnection();
+                    using (var comm = new NpgsqlCommand(
+                         "UPDATE public.paciente " +
+                         "SET peso = @peso, altura = @altura " +
+                         "WHERE id_paciente = @id_paciente",
+                         db.GetConnection()))
+                    {
+                        // Adicionando os parâmetros com seus respectivos valores
+                        comm.Parameters.AddWithValue("@id_paciente", PacienteId);
+                        comm.Parameters.AddWithValue("@peso", Convert.ToDouble(txt_Peso.Text));
+                        comm.Parameters.AddWithValue("@altura", Convert.ToDouble(txt_Altura.Text));
+
+                        try
+                        {
+                            comm.ExecuteNonQuery();
+                        }
+                        catch (Exception error)
+                        {
+                            MessageBox.Show($"Erro: {error.Message}!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                    }
+                }
+            }
+
+
+            if (gr_VENTA.Visible == true)
+            {
+
+                if (MessageBox.Show("Deseja salvar os dados de Venta ?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    using (var db = new DatabaseConnection())
+                    {
+                        db.OpenConnection();
+                        using (var comm = new NpgsqlCommand(
+                             "UPDATE public.gastos_caloricos " +
+                             "SET venta_peso_desejado = @venta_peso_desejado, venta_tempo = @venta_tempo " +
+                             "WHERE id = @id",
+                             db.GetConnection()))
+                        {
+                            // Adicionando os parâmetros com seus respectivos valores
+                            comm.Parameters.AddWithValue("@id", GastoEnergeticoID);
+                            comm.Parameters.AddWithValue("@venta_peso_desejado", Convert.ToDouble(txt_PesoDesejado.Text));
+                            comm.Parameters.AddWithValue("@venta_tempo", Convert.ToDouble(txt_DiasVenta.Text));
+
+                            try
+                            {
+                                comm.ExecuteNonQuery();
+                            }
+                            catch (Exception error)
+                            {
+                                MessageBox.Show($"Erro: {error.Message}!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+
+                        }
+                    }
+                }
+
+            }
+
+            if (gr_GEB.Visible == true)
+            {
+                if (MessageBox.Show("Deseja salvar os Resultados do Gasto Energetico ?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    using (var db = new DatabaseConnection())
+                    {
+                        db.OpenConnection();
+                        using (var comm = new NpgsqlCommand(
+                             "UPDATE public.gastos_caloricos " +
+                             "SET protocolo_id = @protocolo_id, vet = @vet, geb = @geb, nivel_atividade_id = @nivel_atividade_id " +
+                             "WHERE id = @id",
+                             db.GetConnection()))
+                        {
+                            // Adicionando os parâmetros com seus respectivos valores
+                            comm.Parameters.AddWithValue("@id", GastoEnergeticoID);
+                            comm.Parameters.AddWithValue("@protocolo_id", ProtocoloID);
+
+                            string ApenasNumeros = Regex.Replace(VET.Text, "[^0-9,.]", ""); // Remove letras e outros caracteres
+                            double VETAtual = double.Parse(ApenasNumeros, CultureInfo.InvariantCulture);
+
+                            comm.Parameters.AddWithValue("@vet", VETAtual);
+
+                            string ApenasNumeros2 = Regex.Replace(GEB.Text, "[^0-9,.]", ""); // Remove letras e outros caracteres
+                            double GEBAtual = double.Parse(ApenasNumeros2, CultureInfo.InvariantCulture);
+
+                            comm.Parameters.AddWithValue("@get", GEBAtual);
+                            comm.Parameters.AddWithValue("@nivel_atividade_id", NivelId);
+
+                            try
+                            {
+                                comm.ExecuteNonQuery();
+                                MessageBox.Show("Sucesso!");
+                            }
+                            catch (Exception error)
+                            {
+                                MessageBox.Show($"Erro: {error.Message}!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+
+                        }
+                    }
+                }
+            }
 
         }
+
 
         private void txt_DiasVenta_TextChanged(object sender, EventArgs e)
         {
@@ -418,7 +586,7 @@ namespace NutricionalApp
                     db.OpenConnection();
                     using (var comm = new NpgsqlCommand(
                          "INSERT INTO public.gasto_atividade " +
-                         "gastos_id,atividade_id,frequencia,duracao,calorias) " +
+                         "(gastos_id,atividade_id,frequencia,duracao,calorias) " +
                          "VALUES (@gastos_id,@atividade_id,@frequencia,@duracao,@calorias)",
                          db.GetConnection()))
                     {
@@ -426,7 +594,7 @@ namespace NutricionalApp
                         // Adicionando os parâmetros com seus respectivos valores
                         comm.Parameters.AddWithValue("@gastos_id", GastoEnergeticoID);
                         comm.Parameters.AddWithValue("@atividade_id", AtividadeFisicaID);
-                        comm.Parameters.AddWithValue("@frequencia", Convert.ToInt32(txt_frequencia.Text));
+                        comm.Parameters.AddWithValue("@frequencia", Convert.ToInt32(l_frequencia.Text));
                         comm.Parameters.AddWithValue("@duracao", dt_tempo.Value.TimeOfDay);
 
                         string cleanedInput = Regex.Replace(l_Calorias.Text, "[^0-9,.]", ""); // Remove letras e outros caracteres
@@ -437,6 +605,8 @@ namespace NutricionalApp
                         try
                         {
                             comm.ExecuteNonQuery();
+                            AtualizarDataGridView();
+                            RecalculaVET();
                         }
                         catch (Exception error)
                         {
@@ -445,6 +615,46 @@ namespace NutricionalApp
                         }
                     }
                 }
+            }
+        }
+
+        private void AtualizarDataGridView()
+        {
+            using (var db = new DatabaseConnection())
+            {
+                try
+                {
+                    // Recarregar os dados no DataGridView
+                    db.CarregarDados(queryAtvFisica, GastoEnergeticoID, dataGridView1);
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show($"Erro ao atualizar a lista: {error.Message}!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+        }
+
+        private void RecalculaVET()
+        {
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                l_Calorias.Text = Convert.ToString(dataGridView1.Rows[i].Cells["calorias"].Value);
+                TimeSpan duracao = (TimeSpan)dataGridView1.Rows[i].Cells["duracao"].Value;
+                DateTime dataBase = DateTime.Today;
+                dt_tempo.Value = dataBase.Add(duracao);
+
+
+                Funcoes.SomarGastoEnergetico(
+                Convert.ToDouble(dataGridView1.Rows[i].Cells["MET"].Value),
+                    dt_tempo,
+                    Convert.ToInt32(dataGridView1.Rows[i].Cells["frequencia"].Value),
+                    Convert.ToDouble(txt_Peso.Text),
+                    VET,
+                    l_Calorias
+                    );
+
+                l_Calorias.Text = "";
             }
         }
 
@@ -496,6 +706,31 @@ namespace NutricionalApp
             }
         }
 
+        private void bt_ExcluirAtv_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja excluir essa Atividade Fisíca ?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    // Obter o índice da linha selecionada
+                    int rowIndex = dataGridView1.SelectedRows[0].Index;
+                    int id = (int)dataGridView1.Rows[rowIndex].Cells["id_gastoAtv"].Value;
 
+                    using (var db = new DatabaseConnection())
+                    {
+                        db.ExcluirItemGastoEnergetico(id);
+                        MessageBox.Show("Item Excluido com Sucesso!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+                    dataGridView1.Rows.RemoveAt(rowIndex);
+                    AtualizarDataGridView();
+                    bt_EditarRec_Click(sender,e);
+                }
+            }
+            else
+            {
+                dataGridView1.Focus();
+            }
+        }
     }
 }
