@@ -7,20 +7,24 @@ using System.Windows.Forms;
 using System.Drawing;
 using static NutricionalApp.Funcoes;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static NutricionalApp.DatabaseConnection;
+using static System.Net.Mime.MediaTypeNames;
+using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace NutricionalApp
 {
     internal class Funcoes
     {
-        public ToolStripButton CriarBotao(string texto, string toolTipText, Image imagem, EventHandler eventoClique)
+        public ToolStripButton CriarBotao(string texto, string toolTipText, System.Drawing.Image imagem, EventHandler eventoClique)
         {
             ToolStripButton botao = new ToolStripButton();
 
             botao.Text = texto;
             botao.ToolTipText = toolTipText;
             botao.Image = imagem;
-            botao.Size = new Size(371, 52); 
-            botao.Padding = new Padding(5); 
+            botao.Size = new Size(371, 52);
+            botao.Padding = new Padding(5);
             botao.Margin = new Padding(5);
             botao.ImageScaling = ToolStripItemImageScaling.None;
 
@@ -42,7 +46,7 @@ namespace NutricionalApp
                 {
                     return (66.5 + (13.75 * peso) + (5.003 * altura) - (6.75 * idade));
                 }
-                else if (sexo == "F") 
+                else if (sexo == "F")
                 {
                     return (655 + (9.563 * peso) + (1.850 * altura) - (4.676 * idade));
                 }
@@ -106,21 +110,20 @@ namespace NutricionalApp
             return tmb * fatorAtividade;
         }
 
-        public static void CalcularGastosEnergicos(double Peso,double Altura,int Idade,string Sexo,string Protocolo,double NivelAtividade,double PercentGordura,Label GEB,Label VET)
+        public static void CalcularGastosEnergicos(double Peso, double Altura, int Idade, string Sexo, string Protocolo, double NivelAtividade, double PercentGordura, Label GEB, Label VET)
         {
 
             double tmb = CalcularTMB(Protocolo, Sexo, Peso, Altura, Idade, PercentGordura);
             GEB.Text = $"{tmb.ToString("F0")}"  + " Kcal";
-            double nivelatividade = NivelAtividade; 
+            double nivelatividade = NivelAtividade;
             double vet = CalcularVET(tmb, nivelatividade);
             VET.Text = $"{vet.ToString("F0")}" + " Kcal";
 
 
         }
 
-
         // Função para calcular o VENTA diário
-        public static void CalcularVentaDiario(double pesoAtual, double pesoDesejado, int dias,Label VENTA)
+        public static void CalcularVentaDiario(double pesoAtual, double pesoDesejado, int dias, Label VENTA)
         {
             const double ventaPorKg = 7700;
 
@@ -143,5 +146,33 @@ namespace NutricionalApp
             }
         }
 
+        public static void SomarGastoEnergetico(double met, DateTimePicker dateTimePicker, int frequenciaSemanal, double peso, Label VET,Label Kcal)
+        {
+
+            // Converte a duração em minutos (obtendo os minutos da parte de tempo)
+            int duracaoMinutos = (dateTimePicker.Value.Hour * 60) + dateTimePicker.Value.Minute; // Total em minutos
+
+            // Converte a duração para horas
+            double duracaoHoras = duracaoMinutos / 60.0;
+
+            // Calcula o gasto total da atividade por sessão
+            double gastoPorSessao = met * peso * duracaoHoras;
+
+            // Calcula o gasto semanal
+            double gastoSemanal = gastoPorSessao * frequenciaSemanal;
+
+            // Calcula o gasto diário médio
+            double gastoDiarioMedio = gastoSemanal / 7.0;
+
+            // Limpa a entrada e calcula o novo valor
+            string cleanedInput = Regex.Replace(VET.Text, "[^0-9,.]", ""); // Remove letras e outros caracteres
+            double valorAtual = double.Parse(cleanedInput, CultureInfo.InvariantCulture);
+
+            double vetNovo = valorAtual + gastoDiarioMedio;
+
+            // Atualiza as labels
+            VET.Text = $"{vetNovo.ToString("F0")}" + " Kcal";
+            Kcal.Text = $"{gastoDiarioMedio.ToString("F0")}" + " Kcal";
+        }
     }
 }

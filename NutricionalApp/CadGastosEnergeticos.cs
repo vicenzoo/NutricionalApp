@@ -5,8 +5,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static NutricionalApp.DatabaseConnection;
@@ -21,7 +23,7 @@ namespace NutricionalApp
         int NivelId = 0;
         decimal calcNivelID = 0;
         int AtividadeFisicaID = 0;
-        decimal METID = 0;
+        decimal MET = 0;
         int ProtocoloID = 0;
         string tipoSexo;
         int idadePaciente = 0;
@@ -34,6 +36,8 @@ namespace NutricionalApp
 
         private void CadGastosEnergeticos_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'nutricionalDB.vw_gastoatividade_detalhado'. Você pode movê-la ou removê-la conforme necessário.
+            this.vw_gastoatividade_detalhadoTableAdapter.Fill(this.nutricionalDB.vw_gastoatividade_detalhado);
             dt_tempo.Value = DateTime.Today.Date;
 
             FormMain GetIDNutricionista = Application.OpenForms.OfType<FormMain>().FirstOrDefault(); //Função para Pegar o Numero de ID do Nutricionista
@@ -47,6 +51,11 @@ namespace NutricionalApp
                 db.GetAtividadeFisicaGastosCombobox(cb_AtvFisica, l_met);
                 db.GetProtocolosCombobox(cb_Protocolo);
             }
+
+            //Rotinas para Aba "Atividade Fisica"
+            cb_AtvFisica.SelectedIndex = 4;
+            dt_tempo.Format = DateTimePickerFormat.Time;
+            dt_tempo.ShowUpDown = true; // Exibe controles up-down ao invés de calendário
         }
 
         private void cb_Pacientes_SelectedIndexChanged(object sender, EventArgs e)
@@ -81,18 +90,6 @@ namespace NutricionalApp
                 tipoSexo = possuiGasto.Sexo;
                 idadePaciente = possuiGasto.Idade;
 
-                if (possuiGasto.Sexo == "M")
-                {
-                    l_sexo.Text = "Masculino";
-                } else if (possuiGasto.Sexo == "F")
-                {
-                    l_sexo.Text = "Feminino";
-                }
-                else
-                {
-                    l_sexo.Text = "Não especificado";
-                }
-
                 bt_EditarGasto.Enabled = true;
 
             }
@@ -121,7 +118,7 @@ namespace NutricionalApp
             {
                 int idAtividade = AtividadeFisicaSelecionada.Id;
                 AtividadeFisicaID = idAtividade;
-                METID = AtividadeFisicaSelecionada.Met;
+                MET = AtividadeFisicaSelecionada.Met;
 
                 l_met.Text = $"{AtividadeFisicaSelecionada.Met.ToString("F2")}. {AtividadeFisicaSelecionada.Descricao}";
 
@@ -161,15 +158,11 @@ namespace NutricionalApp
 
                 if(cb_QntAtividade.SelectedIndex == 0)
                 {
-                    l_frequencia.Text = Convert.ToString(CalcFreq); //Dia
+                    l_frequencia.Text = Convert.ToString(CalcFreq*7); //Dia
                 }
                 else if (cb_QntAtividade.SelectedIndex == 1)
                 {
-                    l_frequencia.Text = Convert.ToString(CalcFreq*7); //Semana
-                }
-                else if (cb_QntAtividade.SelectedIndex == 2)
-                {
-                    l_frequencia.Text = Convert.ToString(CalcFreq*30); //mes
+                    l_frequencia.Text = Convert.ToString(CalcFreq); //Semana
                 }
 
             }
@@ -234,18 +227,6 @@ namespace NutricionalApp
                                         tipoSexo = reader["sexo"].ToString();
                                         idadePaciente = Convert.ToInt32(reader["idade"]);
 
-                                        if (reader["sexo"].ToString() == "M")
-                                        {
-                                            l_sexo.Text = "Masculino";
-                                        }
-                                        else if (reader["sexo"].ToString() == "F")
-                                        {
-                                            l_sexo.Text = "Feminino";
-                                        }
-                                        else
-                                        {
-                                            l_sexo.Text = "Não especificado";
-                                        }
                                     }
                                 }
                             }
@@ -345,19 +326,18 @@ namespace NutricionalApp
                 }
             }
         }
-
-        private void bt_Salvar_Click(object sender, EventArgs e)
+        private void bt_validar_Click(object sender, EventArgs e)
         {
             double massamagra = 0;
             gr_GEB.Visible = true;
             gr_VET.Visible = true;
 
-          /*  MessageBox.Show(
-                " Peso: " +txt_Peso.Text +
-                " Altura: " + txt_Altura.Text +
-                " Idade: " + Convert.ToString(idadePaciente) +
-                " Sexo: " + tipoSexo +
-                " nivel Atividade:" + Convert.ToString(Math.Round(calcNivelID, 3))); */
+            /*  MessageBox.Show(
+                  " Peso: " +txt_Peso.Text +
+                  " Altura: " + txt_Altura.Text +
+                  " Idade: " + Convert.ToString(idadePaciente) +
+                  " Sexo: " + tipoSexo +
+                  " nivel Atividade:" + Convert.ToString(Math.Round(calcNivelID, 3))); */
 
             string alturaLimpa = txt_Altura.Text.Replace(".", "").Replace(",", ""); //Remove . ou virgulas pois Altura deve ser em (CM)
 
@@ -380,6 +360,14 @@ namespace NutricionalApp
                 massamagra,
                 GEB,
                 VET);
+
+            bt_adicionarItemAtividade.Enabled = true;
+            bt_Salvar.Enabled = true;
+        }
+
+        private void bt_Salvar_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void txt_DiasVenta_TextChanged(object sender, EventArgs e)
@@ -412,15 +400,26 @@ namespace NutricionalApp
 
         private void bt_adicionarItemAtividade_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Deseja adicionar esse item ao Recordatório?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            bt_validar_Click(sender, e);
+            Funcoes.SomarGastoEnergetico(Convert.ToDouble(MET),
+                dt_tempo,
+                Convert.ToInt32(l_frequencia.Text),
+                Convert.ToDouble(txt_Peso.Text),
+                VET,
+                l_Calorias
+                );
+
+            l_Calorias.Visible = true;
+
+            if (MessageBox.Show("Deseja adicionar este item às atividades físicas praticadas?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 using (var db = new DatabaseConnection())
                 {
                     db.OpenConnection();
                     using (var comm = new NpgsqlCommand(
                          "INSERT INTO public.gasto_atividade " +
-                         "gastos_id,atividade_id,frequencia,duracao) " +
-                         "VALUES (@gastos_id,@atividade_id,@frequencia,@duracao)",
+                         "gastos_id,atividade_id,frequencia,duracao,calorias) " +
+                         "VALUES (@gastos_id,@atividade_id,@frequencia,@duracao,@calorias)",
                          db.GetConnection()))
                     {
 
@@ -429,6 +428,11 @@ namespace NutricionalApp
                         comm.Parameters.AddWithValue("@atividade_id", AtividadeFisicaID);
                         comm.Parameters.AddWithValue("@frequencia", Convert.ToInt32(txt_frequencia.Text));
                         comm.Parameters.AddWithValue("@duracao", dt_tempo.Value.TimeOfDay);
+
+                        string cleanedInput = Regex.Replace(l_Calorias.Text, "[^0-9,.]", ""); // Remove letras e outros caracteres
+                        double Calorias = double.Parse(cleanedInput, CultureInfo.InvariantCulture);
+
+                        comm.Parameters.AddWithValue("@calorias", Calorias);
 
                         try
                         {
@@ -491,5 +495,7 @@ namespace NutricionalApp
                 e.Handled = true;
             }
         }
+
+
     }
 }

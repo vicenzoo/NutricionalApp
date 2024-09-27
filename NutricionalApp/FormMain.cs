@@ -39,6 +39,18 @@ namespace NutricionalApp
             get { return label_idNutricionista; }
         }
 
+        private void MainForm_Load(object sender, EventArgs e) //Função para mudar a cor de fundo do formMain
+        {
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is MdiClient mdiClient)
+                {
+
+                    mdiClient.BackColor = Color.Beige; 
+                    break;
+                }
+            }
+        }
         public FormMain()
         {
             InitializeComponent();
