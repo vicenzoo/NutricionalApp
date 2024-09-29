@@ -225,6 +225,7 @@ namespace NutricionalApp
                                         txt_Altura.Text = reader["altura"].ToString();
                                         l_idade.Text = reader["idade"].ToString() + " anos";
                                         tipoSexo = reader["sexo"].ToString();
+                                        l_sexo.Text = tipoSexo;
                                         idadePaciente = Convert.ToInt32(reader["idade"]);
 
                                     }
