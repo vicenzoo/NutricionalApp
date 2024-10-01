@@ -218,8 +218,16 @@ namespace NutricionalApp
                  "Adiciona e Gerencia Gastos Energeticos do Paciente",
                   Properties.Resources.Calculator_48,
                   bt_GastoEnergetico_Click
-);
+                );
                 toolStrip1.Items.Add(botaoGastoEnergetico); // Adicione o botão ao ToolStrip
+
+                ToolStripButton botaoAntrometria = funcoes.CriarBotao(
+                "Dados Antropometricos",
+                "Adiciona e Gerencia dados Antropometricos",
+                Properties.Resources.Industrial_Scales_48,
+                bt_Antrometria_Click
+                );
+                toolStrip1.Items.Add(botaoAntrometria); // Adicione o botão ao ToolStrip
 
 
                 NutricionistaExecutado = true;
@@ -314,5 +322,31 @@ namespace NutricionalApp
             }
         }
 
+
+        public void bt_Antrometria_Click(object sender, EventArgs e)
+        {
+            ShowAntropometria();
+        }
+
+        public void ShowAntropometria()
+        {
+            CadAntropometria antropometria = Application.OpenForms.OfType<CadAntropometria>().FirstOrDefault();
+
+            if (antropometria == null)
+            {
+                antropometria = new CadAntropometria();
+                antropometria.MdiParent = this;
+                antropometria.Show();
+            }
+            else
+            {
+                antropometria.Focus();
+            }
+        }
+
+
     }
+
+
+
 }

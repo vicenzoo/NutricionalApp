@@ -118,6 +118,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Delete_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icones\Delete_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Restaurant_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icones\Restaurant_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Add_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icones\Add_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="General Warning Sign_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icones\General Warning Sign_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -145,14 +154,14 @@
   <data name="Time_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icones\Time_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Administrator_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icones\Administrator_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Customer_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icones\Customer_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Breakfast_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icones\Breakfast_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Male User_96" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icones\Male User_96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Forward Button1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icones\Forward Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Done 16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icones\Done 16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,8 +175,8 @@
   <data name="Industrial Scales_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icones\Industrial Scales_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Add_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icones\Add_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Save_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icones\Save_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Add_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icones\Add_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,12 +196,6 @@
   <data name="Search_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icones\Search_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Edit_Property_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icones\Edit Property_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Save_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icones\Save_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Sync_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icones\Sync_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -202,11 +205,11 @@
   <data name="Forward Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icones\Forward Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Healthy_Food_Calories_Calculator_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icones\Healthy Food Calories Calculator_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Enter_96" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icones\Enter_96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Exit Sign_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icones\Exit Sign_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Hide Sidepanel_96" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icones\Hide Sidepanel_96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -214,28 +217,28 @@
   <data name="Watermelon_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icones\Watermelon_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Forward Button1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icones\Forward Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Edit_Property_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icones\Edit Property_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Industrial Scales_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icones\Industrial Scales_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Administrator_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icones\Administrator_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Person_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icones\Person_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Restaurant_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icones\Restaurant_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Exit Sign_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icones\Exit Sign_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Healthy_Food_Calories_Calculator_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icones\Healthy Food Calories Calculator_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Customer_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icones\Customer_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Breakfast_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icones\Breakfast_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Industrial Scales_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icones\Industrial Scales_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Person_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icones\Person_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Delete_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icones\Delete_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Delete_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icones\Delete_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

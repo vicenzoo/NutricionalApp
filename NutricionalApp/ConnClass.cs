@@ -906,6 +906,132 @@ namespace NutricionalApp
                 }
             }
         }
+        public class Antropometria
+        {
+            public int Id { get; set; }
+            public string AntropometriaDesc { get; set; }
+
+            public Antropometria(int id, string antropometriaDesc)
+            {
+                Id = id;
+                AntropometriaDesc = antropometriaDesc;
+            }
+
+            // Sobrescreva o método ToString para que o ComboBox exiba a descrição da tabela TACO
+            public override string ToString()
+            {
+                return AntropometriaDesc;
+            }
+        }
+
+        public void GetAntropometriaCombobox(int Id_Paciente, ComboBox comboBox)
+        {
+            using (var db = new DatabaseConnection())
+            {
+                db.OpenConnection();
+
+
+                using (var comm = new NpgsqlCommand("SELECT at.id_antro, at.paciente_id, at.\"Descricao\", at.\"Data\", at.ativo FROM public.antropometria at where at.paciente_id = @paciente_id", db.GetConnection()))
+                {
+                    comm.Parameters.AddWithValue("@paciente_id", Id_Paciente);
+
+                    try
+                    {
+                        using (var reader = comm.ExecuteReader())
+                        {
+                            comboBox.Items.Clear();
+
+                            while (reader.Read())
+                            {
+
+                                int idant = Convert.ToInt32(reader["id_antro"]);
+                                string descricaoAntropometria = reader["Descricao"].ToString();
+
+                                comboBox.Items.Add(new Antropometria(idant, descricaoAntropometria));
+                            }
+
+                            // Verifica se encontrou
+                            if (comboBox.Items.Count > 0)
+                            {
+
+                                comboBox.SelectedIndex = 0;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Nenhuma Atividade Física cadastrada encontrada para esse Paciente.");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao obter as Atividade Física: {ex.Message}");
+                    }
+                }
+            }
+        }
+
+        public class ProtocolosPC
+        {
+            public int Id { get; set; }
+            public string Descricao { get; set; }
+
+            public ProtocolosPC(int id, string descricao)
+            {
+                Id = id;
+                Descricao = descricao;
+            }
+
+            // Sobrescreva o método ToString para que o ComboBox exiba a descrição da tabela TACO
+            public override string ToString()
+            {
+                return Descricao;
+            }
+        }
+
+        public void GetProtocolosPCCombobox(ComboBox comboBox)
+        {
+            using (var db = new DatabaseConnection())
+            {
+                db.OpenConnection();
+
+
+                using (var comm = new NpgsqlCommand("SELECT id_protocolo_pc, descricao_pc FROM public.\"protocolos_Pregas_Cutaneas\"", db.GetConnection()))
+                {
+
+                    try
+                    {
+                        using (var reader = comm.ExecuteReader())
+                        {
+                            comboBox.Items.Clear();
+
+                            while (reader.Read())
+                            {
+
+                                int idProtocolo = Convert.ToInt32(reader["id_protocolo_pc"]);
+                                string descricaoProtocolo = reader["descricao_pc"].ToString();
+
+                                comboBox.Items.Add(new ProtocolosPC(idProtocolo, descricaoProtocolo));
+                            }
+
+                            // Verifica se encontrou
+                            if (comboBox.Items.Count > 0)
+                            {
+
+                                comboBox.SelectedIndex = 0;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Nenhum Protocolo encontrado.");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao obter os Protocolos: {ex.Message}");
+                    }
+                }
+            }
+        }
 
     }
 }

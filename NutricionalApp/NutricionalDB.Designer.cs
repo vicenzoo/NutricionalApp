@@ -56,6 +56,10 @@ namespace NutricionalApp {
         
         private vw_gastoatividade_detalhadoDataTable tablevw_gastoatividade_detalhado;
         
+        private antropometriaDataTable tableantropometria;
+        
+        private protocolos_Pregas_CutaneasDataTable tableprotocolos_Pregas_Cutaneas;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -131,6 +135,12 @@ namespace NutricionalApp {
                 }
                 if ((ds.Tables["vw_gastoatividade_detalhado"] != null)) {
                     base.Tables.Add(new vw_gastoatividade_detalhadoDataTable(ds.Tables["vw_gastoatividade_detalhado"]));
+                }
+                if ((ds.Tables["antropometria"] != null)) {
+                    base.Tables.Add(new antropometriaDataTable(ds.Tables["antropometria"]));
+                }
+                if ((ds.Tables["protocolos_Pregas_Cutaneas"] != null)) {
+                    base.Tables.Add(new protocolos_Pregas_CutaneasDataTable(ds.Tables["protocolos_Pregas_Cutaneas"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -312,6 +322,26 @@ namespace NutricionalApp {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public antropometriaDataTable antropometria {
+            get {
+                return this.tableantropometria;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public protocolos_Pregas_CutaneasDataTable protocolos_Pregas_Cutaneas {
+            get {
+                return this.tableprotocolos_Pregas_Cutaneas;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -424,6 +454,12 @@ namespace NutricionalApp {
                 }
                 if ((ds.Tables["vw_gastoatividade_detalhado"] != null)) {
                     base.Tables.Add(new vw_gastoatividade_detalhadoDataTable(ds.Tables["vw_gastoatividade_detalhado"]));
+                }
+                if ((ds.Tables["antropometria"] != null)) {
+                    base.Tables.Add(new antropometriaDataTable(ds.Tables["antropometria"]));
+                }
+                if ((ds.Tables["protocolos_Pregas_Cutaneas"] != null)) {
+                    base.Tables.Add(new protocolos_Pregas_CutaneasDataTable(ds.Tables["protocolos_Pregas_Cutaneas"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -554,6 +590,18 @@ namespace NutricionalApp {
                     this.tablevw_gastoatividade_detalhado.InitVars();
                 }
             }
+            this.tableantropometria = ((antropometriaDataTable)(base.Tables["antropometria"]));
+            if ((initTable == true)) {
+                if ((this.tableantropometria != null)) {
+                    this.tableantropometria.InitVars();
+                }
+            }
+            this.tableprotocolos_Pregas_Cutaneas = ((protocolos_Pregas_CutaneasDataTable)(base.Tables["protocolos_Pregas_Cutaneas"]));
+            if ((initTable == true)) {
+                if ((this.tableprotocolos_Pregas_Cutaneas != null)) {
+                    this.tableprotocolos_Pregas_Cutaneas.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -596,6 +644,10 @@ namespace NutricionalApp {
             base.Tables.Add(this.tablegasto_atividade);
             this.tablevw_gastoatividade_detalhado = new vw_gastoatividade_detalhadoDataTable();
             base.Tables.Add(this.tablevw_gastoatividade_detalhado);
+            this.tableantropometria = new antropometriaDataTable();
+            base.Tables.Add(this.tableantropometria);
+            this.tableprotocolos_Pregas_Cutaneas = new protocolos_Pregas_CutaneasDataTable();
+            base.Tables.Add(this.tableprotocolos_Pregas_Cutaneas);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -691,6 +743,18 @@ namespace NutricionalApp {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializevw_gastoatividade_detalhado() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeantropometria() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeprotocolos_Pregas_Cutaneas() {
             return false;
         }
         
@@ -796,6 +860,12 @@ namespace NutricionalApp {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void vw_gastoatividade_detalhadoRowChangeEventHandler(object sender, vw_gastoatividade_detalhadoRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void antropometriaRowChangeEventHandler(object sender, antropometriaRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void protocolos_Pregas_CutaneasRowChangeEventHandler(object sender, protocolos_Pregas_CutaneasRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -6982,6 +7052,1015 @@ namespace NutricionalApp {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class antropometriaDataTable : global::System.Data.TypedTableBase<antropometriaRow> {
+            
+            private global::System.Data.DataColumn columnid_antro;
+            
+            private global::System.Data.DataColumn columnpaciente_id;
+            
+            private global::System.Data.DataColumn columnDescricao;
+            
+            private global::System.Data.DataColumn columnData;
+            
+            private global::System.Data.DataColumn columnbraco_direito_relaxado;
+            
+            private global::System.Data.DataColumn columnbraco_esquerdo_relaxado;
+            
+            private global::System.Data.DataColumn columnbraco_direito_contraido;
+            
+            private global::System.Data.DataColumn columnbraco_esquerdo_contraido;
+            
+            private global::System.Data.DataColumn columnantebraco_direito;
+            
+            private global::System.Data.DataColumn columnantebraco_esquerdo;
+            
+            private global::System.Data.DataColumn columnpunho_direito;
+            
+            private global::System.Data.DataColumn columnpunho_esquerdo;
+            
+            private global::System.Data.DataColumn columnpescoco;
+            
+            private global::System.Data.DataColumn columnombro;
+            
+            private global::System.Data.DataColumn columnpeitoral;
+            
+            private global::System.Data.DataColumn columncintura;
+            
+            private global::System.Data.DataColumn columnquadril;
+            
+            private global::System.Data.DataColumn columnpanturilha_direita;
+            
+            private global::System.Data.DataColumn columnpanturilha_esquerda;
+            
+            private global::System.Data.DataColumn columncoxa_direita;
+            
+            private global::System.Data.DataColumn columncoxa_esquerda;
+            
+            private global::System.Data.DataColumn columncoxa_proximal_direita;
+            
+            private global::System.Data.DataColumn columncoxa_proximal_esquerda;
+            
+            private global::System.Data.DataColumn columnprotocolo_id_pc;
+            
+            private global::System.Data.DataColumn columnbicecps;
+            
+            private global::System.Data.DataColumn columnabdominal;
+            
+            private global::System.Data.DataColumn columntricips;
+            
+            private global::System.Data.DataColumn columnsupescapular;
+            
+            private global::System.Data.DataColumn columntorax;
+            
+            private global::System.Data.DataColumn columncoxa;
+            
+            private global::System.Data.DataColumn columnpanturilha_medial;
+            
+            private global::System.Data.DataColumn columnativo;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public antropometriaDataTable() {
+                this.TableName = "antropometria";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal antropometriaDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected antropometriaDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_antroColumn {
+                get {
+                    return this.columnid_antro;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn paciente_idColumn {
+                get {
+                    return this.columnpaciente_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn DescricaoColumn {
+                get {
+                    return this.columnDescricao;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn DataColumn {
+                get {
+                    return this.columnData;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn braco_direito_relaxadoColumn {
+                get {
+                    return this.columnbraco_direito_relaxado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn braco_esquerdo_relaxadoColumn {
+                get {
+                    return this.columnbraco_esquerdo_relaxado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn braco_direito_contraidoColumn {
+                get {
+                    return this.columnbraco_direito_contraido;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn braco_esquerdo_contraidoColumn {
+                get {
+                    return this.columnbraco_esquerdo_contraido;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn antebraco_direitoColumn {
+                get {
+                    return this.columnantebraco_direito;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn antebraco_esquerdoColumn {
+                get {
+                    return this.columnantebraco_esquerdo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn punho_direitoColumn {
+                get {
+                    return this.columnpunho_direito;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn punho_esquerdoColumn {
+                get {
+                    return this.columnpunho_esquerdo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn pescocoColumn {
+                get {
+                    return this.columnpescoco;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ombroColumn {
+                get {
+                    return this.columnombro;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn peitoralColumn {
+                get {
+                    return this.columnpeitoral;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn cinturaColumn {
+                get {
+                    return this.columncintura;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn quadrilColumn {
+                get {
+                    return this.columnquadril;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn panturilha_direitaColumn {
+                get {
+                    return this.columnpanturilha_direita;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn panturilha_esquerdaColumn {
+                get {
+                    return this.columnpanturilha_esquerda;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn coxa_direitaColumn {
+                get {
+                    return this.columncoxa_direita;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn coxa_esquerdaColumn {
+                get {
+                    return this.columncoxa_esquerda;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn coxa_proximal_direitaColumn {
+                get {
+                    return this.columncoxa_proximal_direita;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn coxa_proximal_esquerdaColumn {
+                get {
+                    return this.columncoxa_proximal_esquerda;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn protocolo_id_pcColumn {
+                get {
+                    return this.columnprotocolo_id_pc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn bicecpsColumn {
+                get {
+                    return this.columnbicecps;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn abdominalColumn {
+                get {
+                    return this.columnabdominal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn tricipsColumn {
+                get {
+                    return this.columntricips;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn supescapularColumn {
+                get {
+                    return this.columnsupescapular;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn toraxColumn {
+                get {
+                    return this.columntorax;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn coxaColumn {
+                get {
+                    return this.columncoxa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn panturilha_medialColumn {
+                get {
+                    return this.columnpanturilha_medial;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ativoColumn {
+                get {
+                    return this.columnativo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public antropometriaRow this[int index] {
+                get {
+                    return ((antropometriaRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event antropometriaRowChangeEventHandler antropometriaRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event antropometriaRowChangeEventHandler antropometriaRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event antropometriaRowChangeEventHandler antropometriaRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event antropometriaRowChangeEventHandler antropometriaRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddantropometriaRow(antropometriaRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public antropometriaRow AddantropometriaRow(
+                        int paciente_id, 
+                        string Descricao, 
+                        System.DateTime Data, 
+                        decimal braco_direito_relaxado, 
+                        decimal braco_esquerdo_relaxado, 
+                        decimal braco_direito_contraido, 
+                        decimal braco_esquerdo_contraido, 
+                        decimal antebraco_direito, 
+                        decimal antebraco_esquerdo, 
+                        decimal punho_direito, 
+                        decimal punho_esquerdo, 
+                        decimal pescoco, 
+                        decimal ombro, 
+                        decimal peitoral, 
+                        decimal cintura, 
+                        decimal quadril, 
+                        decimal panturilha_direita, 
+                        decimal panturilha_esquerda, 
+                        decimal coxa_direita, 
+                        decimal coxa_esquerda, 
+                        decimal coxa_proximal_direita, 
+                        decimal coxa_proximal_esquerda, 
+                        int protocolo_id_pc, 
+                        decimal bicecps, 
+                        decimal abdominal, 
+                        decimal tricips, 
+                        decimal supescapular, 
+                        decimal torax, 
+                        decimal coxa, 
+                        decimal panturilha_medial, 
+                        string ativo) {
+                antropometriaRow rowantropometriaRow = ((antropometriaRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        paciente_id,
+                        Descricao,
+                        Data,
+                        braco_direito_relaxado,
+                        braco_esquerdo_relaxado,
+                        braco_direito_contraido,
+                        braco_esquerdo_contraido,
+                        antebraco_direito,
+                        antebraco_esquerdo,
+                        punho_direito,
+                        punho_esquerdo,
+                        pescoco,
+                        ombro,
+                        peitoral,
+                        cintura,
+                        quadril,
+                        panturilha_direita,
+                        panturilha_esquerda,
+                        coxa_direita,
+                        coxa_esquerda,
+                        coxa_proximal_direita,
+                        coxa_proximal_esquerda,
+                        protocolo_id_pc,
+                        bicecps,
+                        abdominal,
+                        tricips,
+                        supescapular,
+                        torax,
+                        coxa,
+                        panturilha_medial,
+                        ativo};
+                rowantropometriaRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowantropometriaRow);
+                return rowantropometriaRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public antropometriaRow FindByid_antro(int id_antro) {
+                return ((antropometriaRow)(this.Rows.Find(new object[] {
+                            id_antro})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                antropometriaDataTable cln = ((antropometriaDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new antropometriaDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnid_antro = base.Columns["id_antro"];
+                this.columnpaciente_id = base.Columns["paciente_id"];
+                this.columnDescricao = base.Columns["Descricao"];
+                this.columnData = base.Columns["Data"];
+                this.columnbraco_direito_relaxado = base.Columns["braco_direito_relaxado"];
+                this.columnbraco_esquerdo_relaxado = base.Columns["braco_esquerdo_relaxado"];
+                this.columnbraco_direito_contraido = base.Columns["braco_direito_contraido"];
+                this.columnbraco_esquerdo_contraido = base.Columns["braco_esquerdo_contraido"];
+                this.columnantebraco_direito = base.Columns["antebraco_direito"];
+                this.columnantebraco_esquerdo = base.Columns["antebraco_esquerdo"];
+                this.columnpunho_direito = base.Columns["punho_direito"];
+                this.columnpunho_esquerdo = base.Columns["punho_esquerdo"];
+                this.columnpescoco = base.Columns["pescoco"];
+                this.columnombro = base.Columns["ombro"];
+                this.columnpeitoral = base.Columns["peitoral"];
+                this.columncintura = base.Columns["cintura"];
+                this.columnquadril = base.Columns["quadril"];
+                this.columnpanturilha_direita = base.Columns["panturilha_direita"];
+                this.columnpanturilha_esquerda = base.Columns["panturilha_esquerda"];
+                this.columncoxa_direita = base.Columns["coxa_direita"];
+                this.columncoxa_esquerda = base.Columns["coxa_esquerda"];
+                this.columncoxa_proximal_direita = base.Columns["coxa_proximal_direita"];
+                this.columncoxa_proximal_esquerda = base.Columns["coxa_proximal_esquerda"];
+                this.columnprotocolo_id_pc = base.Columns["protocolo_id_pc"];
+                this.columnbicecps = base.Columns["bicecps"];
+                this.columnabdominal = base.Columns["abdominal"];
+                this.columntricips = base.Columns["tricips"];
+                this.columnsupescapular = base.Columns["supescapular"];
+                this.columntorax = base.Columns["torax"];
+                this.columncoxa = base.Columns["coxa"];
+                this.columnpanturilha_medial = base.Columns["panturilha_medial"];
+                this.columnativo = base.Columns["ativo"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnid_antro = new global::System.Data.DataColumn("id_antro", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_antro);
+                this.columnpaciente_id = new global::System.Data.DataColumn("paciente_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpaciente_id);
+                this.columnDescricao = new global::System.Data.DataColumn("Descricao", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDescricao);
+                this.columnData = new global::System.Data.DataColumn("Data", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnData);
+                this.columnbraco_direito_relaxado = new global::System.Data.DataColumn("braco_direito_relaxado", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbraco_direito_relaxado);
+                this.columnbraco_esquerdo_relaxado = new global::System.Data.DataColumn("braco_esquerdo_relaxado", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbraco_esquerdo_relaxado);
+                this.columnbraco_direito_contraido = new global::System.Data.DataColumn("braco_direito_contraido", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbraco_direito_contraido);
+                this.columnbraco_esquerdo_contraido = new global::System.Data.DataColumn("braco_esquerdo_contraido", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbraco_esquerdo_contraido);
+                this.columnantebraco_direito = new global::System.Data.DataColumn("antebraco_direito", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnantebraco_direito);
+                this.columnantebraco_esquerdo = new global::System.Data.DataColumn("antebraco_esquerdo", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnantebraco_esquerdo);
+                this.columnpunho_direito = new global::System.Data.DataColumn("punho_direito", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpunho_direito);
+                this.columnpunho_esquerdo = new global::System.Data.DataColumn("punho_esquerdo", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpunho_esquerdo);
+                this.columnpescoco = new global::System.Data.DataColumn("pescoco", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpescoco);
+                this.columnombro = new global::System.Data.DataColumn("ombro", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnombro);
+                this.columnpeitoral = new global::System.Data.DataColumn("peitoral", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpeitoral);
+                this.columncintura = new global::System.Data.DataColumn("cintura", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncintura);
+                this.columnquadril = new global::System.Data.DataColumn("quadril", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnquadril);
+                this.columnpanturilha_direita = new global::System.Data.DataColumn("panturilha_direita", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpanturilha_direita);
+                this.columnpanturilha_esquerda = new global::System.Data.DataColumn("panturilha_esquerda", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpanturilha_esquerda);
+                this.columncoxa_direita = new global::System.Data.DataColumn("coxa_direita", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncoxa_direita);
+                this.columncoxa_esquerda = new global::System.Data.DataColumn("coxa_esquerda", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncoxa_esquerda);
+                this.columncoxa_proximal_direita = new global::System.Data.DataColumn("coxa_proximal_direita", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncoxa_proximal_direita);
+                this.columncoxa_proximal_esquerda = new global::System.Data.DataColumn("coxa_proximal_esquerda", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncoxa_proximal_esquerda);
+                this.columnprotocolo_id_pc = new global::System.Data.DataColumn("protocolo_id_pc", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprotocolo_id_pc);
+                this.columnbicecps = new global::System.Data.DataColumn("bicecps", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbicecps);
+                this.columnabdominal = new global::System.Data.DataColumn("abdominal", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnabdominal);
+                this.columntricips = new global::System.Data.DataColumn("tricips", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntricips);
+                this.columnsupescapular = new global::System.Data.DataColumn("supescapular", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsupescapular);
+                this.columntorax = new global::System.Data.DataColumn("torax", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntorax);
+                this.columncoxa = new global::System.Data.DataColumn("coxa", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncoxa);
+                this.columnpanturilha_medial = new global::System.Data.DataColumn("panturilha_medial", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpanturilha_medial);
+                this.columnativo = new global::System.Data.DataColumn("ativo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnativo);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnid_antro}, true));
+                this.columnid_antro.AutoIncrement = true;
+                this.columnid_antro.AutoIncrementSeed = -1;
+                this.columnid_antro.AutoIncrementStep = -1;
+                this.columnid_antro.AllowDBNull = false;
+                this.columnid_antro.Unique = true;
+                this.columnpaciente_id.AllowDBNull = false;
+                this.columnDescricao.AllowDBNull = false;
+                this.columnDescricao.MaxLength = 800;
+                this.columnData.AllowDBNull = false;
+                this.columnativo.AllowDBNull = false;
+                this.columnativo.MaxLength = 1;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public antropometriaRow NewantropometriaRow() {
+                return ((antropometriaRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new antropometriaRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(antropometriaRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.antropometriaRowChanged != null)) {
+                    this.antropometriaRowChanged(this, new antropometriaRowChangeEvent(((antropometriaRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.antropometriaRowChanging != null)) {
+                    this.antropometriaRowChanging(this, new antropometriaRowChangeEvent(((antropometriaRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.antropometriaRowDeleted != null)) {
+                    this.antropometriaRowDeleted(this, new antropometriaRowChangeEvent(((antropometriaRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.antropometriaRowDeleting != null)) {
+                    this.antropometriaRowDeleting(this, new antropometriaRowChangeEvent(((antropometriaRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveantropometriaRow(antropometriaRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                NutricionalDB ds = new NutricionalDB();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "antropometriaDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class protocolos_Pregas_CutaneasDataTable : global::System.Data.TypedTableBase<protocolos_Pregas_CutaneasRow> {
+            
+            private global::System.Data.DataColumn columnid_protocolo_pc;
+            
+            private global::System.Data.DataColumn columndescricao_pc;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public protocolos_Pregas_CutaneasDataTable() {
+                this.TableName = "protocolos_Pregas_Cutaneas";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal protocolos_Pregas_CutaneasDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected protocolos_Pregas_CutaneasDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_protocolo_pcColumn {
+                get {
+                    return this.columnid_protocolo_pc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn descricao_pcColumn {
+                get {
+                    return this.columndescricao_pc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public protocolos_Pregas_CutaneasRow this[int index] {
+                get {
+                    return ((protocolos_Pregas_CutaneasRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event protocolos_Pregas_CutaneasRowChangeEventHandler protocolos_Pregas_CutaneasRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event protocolos_Pregas_CutaneasRowChangeEventHandler protocolos_Pregas_CutaneasRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event protocolos_Pregas_CutaneasRowChangeEventHandler protocolos_Pregas_CutaneasRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event protocolos_Pregas_CutaneasRowChangeEventHandler protocolos_Pregas_CutaneasRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Addprotocolos_Pregas_CutaneasRow(protocolos_Pregas_CutaneasRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public protocolos_Pregas_CutaneasRow Addprotocolos_Pregas_CutaneasRow(string descricao_pc) {
+                protocolos_Pregas_CutaneasRow rowprotocolos_Pregas_CutaneasRow = ((protocolos_Pregas_CutaneasRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        descricao_pc};
+                rowprotocolos_Pregas_CutaneasRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowprotocolos_Pregas_CutaneasRow);
+                return rowprotocolos_Pregas_CutaneasRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public protocolos_Pregas_CutaneasRow FindByid_protocolo_pc(int id_protocolo_pc) {
+                return ((protocolos_Pregas_CutaneasRow)(this.Rows.Find(new object[] {
+                            id_protocolo_pc})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                protocolos_Pregas_CutaneasDataTable cln = ((protocolos_Pregas_CutaneasDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new protocolos_Pregas_CutaneasDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnid_protocolo_pc = base.Columns["id_protocolo_pc"];
+                this.columndescricao_pc = base.Columns["descricao_pc"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnid_protocolo_pc = new global::System.Data.DataColumn("id_protocolo_pc", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_protocolo_pc);
+                this.columndescricao_pc = new global::System.Data.DataColumn("descricao_pc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndescricao_pc);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnid_protocolo_pc}, true));
+                this.columnid_protocolo_pc.AutoIncrement = true;
+                this.columnid_protocolo_pc.AutoIncrementSeed = -1;
+                this.columnid_protocolo_pc.AutoIncrementStep = -1;
+                this.columnid_protocolo_pc.AllowDBNull = false;
+                this.columnid_protocolo_pc.Unique = true;
+                this.columndescricao_pc.AllowDBNull = false;
+                this.columndescricao_pc.MaxLength = 800;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public protocolos_Pregas_CutaneasRow Newprotocolos_Pregas_CutaneasRow() {
+                return ((protocolos_Pregas_CutaneasRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new protocolos_Pregas_CutaneasRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(protocolos_Pregas_CutaneasRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.protocolos_Pregas_CutaneasRowChanged != null)) {
+                    this.protocolos_Pregas_CutaneasRowChanged(this, new protocolos_Pregas_CutaneasRowChangeEvent(((protocolos_Pregas_CutaneasRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.protocolos_Pregas_CutaneasRowChanging != null)) {
+                    this.protocolos_Pregas_CutaneasRowChanging(this, new protocolos_Pregas_CutaneasRowChangeEvent(((protocolos_Pregas_CutaneasRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.protocolos_Pregas_CutaneasRowDeleted != null)) {
+                    this.protocolos_Pregas_CutaneasRowDeleted(this, new protocolos_Pregas_CutaneasRowChangeEvent(((protocolos_Pregas_CutaneasRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.protocolos_Pregas_CutaneasRowDeleting != null)) {
+                    this.protocolos_Pregas_CutaneasRowDeleting(this, new protocolos_Pregas_CutaneasRowChangeEvent(((protocolos_Pregas_CutaneasRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Removeprotocolos_Pregas_CutaneasRow(protocolos_Pregas_CutaneasRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                NutricionalDB ds = new NutricionalDB();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "protocolos_Pregas_CutaneasDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class log_atividadesRow : global::System.Data.DataRow {
@@ -10109,6 +11188,869 @@ namespace NutricionalApp {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class antropometriaRow : global::System.Data.DataRow {
+            
+            private antropometriaDataTable tableantropometria;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal antropometriaRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableantropometria = ((antropometriaDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int id_antro {
+                get {
+                    return ((int)(this[this.tableantropometria.id_antroColumn]));
+                }
+                set {
+                    this[this.tableantropometria.id_antroColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int paciente_id {
+                get {
+                    return ((int)(this[this.tableantropometria.paciente_idColumn]));
+                }
+                set {
+                    this[this.tableantropometria.paciente_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Descricao {
+                get {
+                    return ((string)(this[this.tableantropometria.DescricaoColumn]));
+                }
+                set {
+                    this[this.tableantropometria.DescricaoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime Data {
+                get {
+                    return ((global::System.DateTime)(this[this.tableantropometria.DataColumn]));
+                }
+                set {
+                    this[this.tableantropometria.DataColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal braco_direito_relaxado {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableantropometria.braco_direito_relaxadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'braco_direito_relaxado\' na tabela \'antropometria\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableantropometria.braco_direito_relaxadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal braco_esquerdo_relaxado {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableantropometria.braco_esquerdo_relaxadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'braco_esquerdo_relaxado\' na tabela \'antropometria\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableantropometria.braco_esquerdo_relaxadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal braco_direito_contraido {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableantropometria.braco_direito_contraidoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'braco_direito_contraido\' na tabela \'antropometria\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableantropometria.braco_direito_contraidoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal braco_esquerdo_contraido {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableantropometria.braco_esquerdo_contraidoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'braco_esquerdo_contraido\' na tabela \'antropometria\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableantropometria.braco_esquerdo_contraidoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal antebraco_direito {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableantropometria.antebraco_direitoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'antebraco_direito\' na tabela \'antropometria\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableantropometria.antebraco_direitoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal antebraco_esquerdo {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableantropometria.antebraco_esquerdoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'antebraco_esquerdo\' na tabela \'antropometria\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableantropometria.antebraco_esquerdoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal punho_direito {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableantropometria.punho_direitoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'punho_direito\' na tabela \'antropometria\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableantropometria.punho_direitoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal punho_esquerdo {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableantropometria.punho_esquerdoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'punho_esquerdo\' na tabela \'antropometria\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableantropometria.punho_esquerdoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal pescoco {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableantropometria.pescocoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'pescoco\' na tabela \'antropometria\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableantropometria.pescocoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal ombro {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableantropometria.ombroColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'ombro\' na tabela \'antropometria\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableantropometria.ombroColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal peitoral {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableantropometria.peitoralColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'peitoral\' na tabela \'antropometria\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableantropometria.peitoralColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal cintura {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableantropometria.cinturaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'cintura\' na tabela \'antropometria\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableantropometria.cinturaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal quadril {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableantropometria.quadrilColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'quadril\' na tabela \'antropometria\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableantropometria.quadrilColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal panturilha_direita {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableantropometria.panturilha_direitaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'panturilha_direita\' na tabela \'antropometria\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableantropometria.panturilha_direitaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal panturilha_esquerda {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableantropometria.panturilha_esquerdaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'panturilha_esquerda\' na tabela \'antropometria\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableantropometria.panturilha_esquerdaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal coxa_direita {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableantropometria.coxa_direitaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'coxa_direita\' na tabela \'antropometria\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableantropometria.coxa_direitaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal coxa_esquerda {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableantropometria.coxa_esquerdaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'coxa_esquerda\' na tabela \'antropometria\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableantropometria.coxa_esquerdaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal coxa_proximal_direita {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableantropometria.coxa_proximal_direitaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'coxa_proximal_direita\' na tabela \'antropometria\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableantropometria.coxa_proximal_direitaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal coxa_proximal_esquerda {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableantropometria.coxa_proximal_esquerdaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'coxa_proximal_esquerda\' na tabela \'antropometria\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableantropometria.coxa_proximal_esquerdaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int protocolo_id_pc {
+                get {
+                    try {
+                        return ((int)(this[this.tableantropometria.protocolo_id_pcColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'protocolo_id_pc\' na tabela \'antropometria\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableantropometria.protocolo_id_pcColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal bicecps {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableantropometria.bicecpsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'bicecps\' na tabela \'antropometria\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableantropometria.bicecpsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal abdominal {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableantropometria.abdominalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'abdominal\' na tabela \'antropometria\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableantropometria.abdominalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal tricips {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableantropometria.tricipsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'tricips\' na tabela \'antropometria\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableantropometria.tricipsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal supescapular {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableantropometria.supescapularColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'supescapular\' na tabela \'antropometria\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableantropometria.supescapularColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal torax {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableantropometria.toraxColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'torax\' na tabela \'antropometria\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableantropometria.toraxColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal coxa {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableantropometria.coxaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'coxa\' na tabela \'antropometria\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableantropometria.coxaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal panturilha_medial {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableantropometria.panturilha_medialColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'panturilha_medial\' na tabela \'antropometria\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableantropometria.panturilha_medialColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ativo {
+                get {
+                    return ((string)(this[this.tableantropometria.ativoColumn]));
+                }
+                set {
+                    this[this.tableantropometria.ativoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isbraco_direito_relaxadoNull() {
+                return this.IsNull(this.tableantropometria.braco_direito_relaxadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setbraco_direito_relaxadoNull() {
+                this[this.tableantropometria.braco_direito_relaxadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isbraco_esquerdo_relaxadoNull() {
+                return this.IsNull(this.tableantropometria.braco_esquerdo_relaxadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setbraco_esquerdo_relaxadoNull() {
+                this[this.tableantropometria.braco_esquerdo_relaxadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isbraco_direito_contraidoNull() {
+                return this.IsNull(this.tableantropometria.braco_direito_contraidoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setbraco_direito_contraidoNull() {
+                this[this.tableantropometria.braco_direito_contraidoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isbraco_esquerdo_contraidoNull() {
+                return this.IsNull(this.tableantropometria.braco_esquerdo_contraidoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setbraco_esquerdo_contraidoNull() {
+                this[this.tableantropometria.braco_esquerdo_contraidoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isantebraco_direitoNull() {
+                return this.IsNull(this.tableantropometria.antebraco_direitoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setantebraco_direitoNull() {
+                this[this.tableantropometria.antebraco_direitoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isantebraco_esquerdoNull() {
+                return this.IsNull(this.tableantropometria.antebraco_esquerdoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setantebraco_esquerdoNull() {
+                this[this.tableantropometria.antebraco_esquerdoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Ispunho_direitoNull() {
+                return this.IsNull(this.tableantropometria.punho_direitoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setpunho_direitoNull() {
+                this[this.tableantropometria.punho_direitoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Ispunho_esquerdoNull() {
+                return this.IsNull(this.tableantropometria.punho_esquerdoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setpunho_esquerdoNull() {
+                this[this.tableantropometria.punho_esquerdoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IspescocoNull() {
+                return this.IsNull(this.tableantropometria.pescocoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetpescocoNull() {
+                this[this.tableantropometria.pescocoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsombroNull() {
+                return this.IsNull(this.tableantropometria.ombroColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetombroNull() {
+                this[this.tableantropometria.ombroColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IspeitoralNull() {
+                return this.IsNull(this.tableantropometria.peitoralColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetpeitoralNull() {
+                this[this.tableantropometria.peitoralColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IscinturaNull() {
+                return this.IsNull(this.tableantropometria.cinturaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetcinturaNull() {
+                this[this.tableantropometria.cinturaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsquadrilNull() {
+                return this.IsNull(this.tableantropometria.quadrilColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetquadrilNull() {
+                this[this.tableantropometria.quadrilColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Ispanturilha_direitaNull() {
+                return this.IsNull(this.tableantropometria.panturilha_direitaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setpanturilha_direitaNull() {
+                this[this.tableantropometria.panturilha_direitaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Ispanturilha_esquerdaNull() {
+                return this.IsNull(this.tableantropometria.panturilha_esquerdaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setpanturilha_esquerdaNull() {
+                this[this.tableantropometria.panturilha_esquerdaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iscoxa_direitaNull() {
+                return this.IsNull(this.tableantropometria.coxa_direitaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setcoxa_direitaNull() {
+                this[this.tableantropometria.coxa_direitaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iscoxa_esquerdaNull() {
+                return this.IsNull(this.tableantropometria.coxa_esquerdaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setcoxa_esquerdaNull() {
+                this[this.tableantropometria.coxa_esquerdaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iscoxa_proximal_direitaNull() {
+                return this.IsNull(this.tableantropometria.coxa_proximal_direitaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setcoxa_proximal_direitaNull() {
+                this[this.tableantropometria.coxa_proximal_direitaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iscoxa_proximal_esquerdaNull() {
+                return this.IsNull(this.tableantropometria.coxa_proximal_esquerdaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setcoxa_proximal_esquerdaNull() {
+                this[this.tableantropometria.coxa_proximal_esquerdaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isprotocolo_id_pcNull() {
+                return this.IsNull(this.tableantropometria.protocolo_id_pcColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setprotocolo_id_pcNull() {
+                this[this.tableantropometria.protocolo_id_pcColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsbicecpsNull() {
+                return this.IsNull(this.tableantropometria.bicecpsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetbicecpsNull() {
+                this[this.tableantropometria.bicecpsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsabdominalNull() {
+                return this.IsNull(this.tableantropometria.abdominalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetabdominalNull() {
+                this[this.tableantropometria.abdominalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IstricipsNull() {
+                return this.IsNull(this.tableantropometria.tricipsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SettricipsNull() {
+                this[this.tableantropometria.tricipsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IssupescapularNull() {
+                return this.IsNull(this.tableantropometria.supescapularColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetsupescapularNull() {
+                this[this.tableantropometria.supescapularColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IstoraxNull() {
+                return this.IsNull(this.tableantropometria.toraxColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SettoraxNull() {
+                this[this.tableantropometria.toraxColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IscoxaNull() {
+                return this.IsNull(this.tableantropometria.coxaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetcoxaNull() {
+                this[this.tableantropometria.coxaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Ispanturilha_medialNull() {
+                return this.IsNull(this.tableantropometria.panturilha_medialColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setpanturilha_medialNull() {
+                this[this.tableantropometria.panturilha_medialColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class protocolos_Pregas_CutaneasRow : global::System.Data.DataRow {
+            
+            private protocolos_Pregas_CutaneasDataTable tableprotocolos_Pregas_Cutaneas;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal protocolos_Pregas_CutaneasRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableprotocolos_Pregas_Cutaneas = ((protocolos_Pregas_CutaneasDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int id_protocolo_pc {
+                get {
+                    return ((int)(this[this.tableprotocolos_Pregas_Cutaneas.id_protocolo_pcColumn]));
+                }
+                set {
+                    this[this.tableprotocolos_Pregas_Cutaneas.id_protocolo_pcColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string descricao_pc {
+                get {
+                    return ((string)(this[this.tableprotocolos_Pregas_Cutaneas.descricao_pcColumn]));
+                }
+                set {
+                    this[this.tableprotocolos_Pregas_Cutaneas.descricao_pcColumn] = value;
+                }
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -10638,6 +12580,74 @@ namespace NutricionalApp {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public vw_gastoatividade_detalhadoRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class antropometriaRowChangeEvent : global::System.EventArgs {
+            
+            private antropometriaRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public antropometriaRowChangeEvent(antropometriaRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public antropometriaRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class protocolos_Pregas_CutaneasRowChangeEvent : global::System.EventArgs {
+            
+            private protocolos_Pregas_CutaneasRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public protocolos_Pregas_CutaneasRowChangeEvent(protocolos_Pregas_CutaneasRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public protocolos_Pregas_CutaneasRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -17075,6 +19085,1168 @@ namespace NutricionalApp.NutricionalDBTableAdapters {
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class antropometriaTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.Odbc.OdbcDataAdapter _adapter;
+        
+        private global::System.Data.Odbc.OdbcConnection _connection;
+        
+        private global::System.Data.Odbc.OdbcTransaction _transaction;
+        
+        private global::System.Data.Odbc.OdbcCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public antropometriaTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.Odbc.OdbcDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.Odbc.OdbcConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.Odbc.OdbcCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.Odbc.OdbcTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.Odbc.OdbcCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.Odbc.OdbcDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "antropometria";
+            tableMapping.ColumnMappings.Add("id_antro", "id_antro");
+            tableMapping.ColumnMappings.Add("paciente_id", "paciente_id");
+            tableMapping.ColumnMappings.Add("Descricao", "Descricao");
+            tableMapping.ColumnMappings.Add("Data", "Data");
+            tableMapping.ColumnMappings.Add("braco_direito_relaxado", "braco_direito_relaxado");
+            tableMapping.ColumnMappings.Add("braco_esquerdo_relaxado", "braco_esquerdo_relaxado");
+            tableMapping.ColumnMappings.Add("braco_direito_contraido", "braco_direito_contraido");
+            tableMapping.ColumnMappings.Add("braco_esquerdo_contraido", "braco_esquerdo_contraido");
+            tableMapping.ColumnMappings.Add("antebraco_direito", "antebraco_direito");
+            tableMapping.ColumnMappings.Add("antebraco_esquerdo", "antebraco_esquerdo");
+            tableMapping.ColumnMappings.Add("punho_direito", "punho_direito");
+            tableMapping.ColumnMappings.Add("punho_esquerdo", "punho_esquerdo");
+            tableMapping.ColumnMappings.Add("pescoco", "pescoco");
+            tableMapping.ColumnMappings.Add("ombro", "ombro");
+            tableMapping.ColumnMappings.Add("peitoral", "peitoral");
+            tableMapping.ColumnMappings.Add("cintura", "cintura");
+            tableMapping.ColumnMappings.Add("quadril", "quadril");
+            tableMapping.ColumnMappings.Add("panturilha_direita", "panturilha_direita");
+            tableMapping.ColumnMappings.Add("panturilha_esquerda", "panturilha_esquerda");
+            tableMapping.ColumnMappings.Add("coxa_direita", "coxa_direita");
+            tableMapping.ColumnMappings.Add("coxa_esquerda", "coxa_esquerda");
+            tableMapping.ColumnMappings.Add("coxa_proximal_direita", "coxa_proximal_direita");
+            tableMapping.ColumnMappings.Add("coxa_proximal_esquerda", "coxa_proximal_esquerda");
+            tableMapping.ColumnMappings.Add("protocolo_id_pc", "protocolo_id_pc");
+            tableMapping.ColumnMappings.Add("bicecps", "bicecps");
+            tableMapping.ColumnMappings.Add("abdominal", "abdominal");
+            tableMapping.ColumnMappings.Add("tricips", "tricips");
+            tableMapping.ColumnMappings.Add("supescapular", "supescapular");
+            tableMapping.ColumnMappings.Add("torax", "torax");
+            tableMapping.ColumnMappings.Add("coxa", "coxa");
+            tableMapping.ColumnMappings.Add("panturilha_medial", "panturilha_medial");
+            tableMapping.ColumnMappings.Add("ativo", "ativo");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.Odbc.OdbcCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM \"postgres\".\"public\".\"antropometria\" WHERE ((\"id_antro\" = ?) AND (\"pac" +
+                "iente_id\" = ?) AND (\"Data\" = ?) AND ((? = 1 AND \"braco_direito_relaxado\" IS NULL" +
+                ") OR (\"braco_direito_relaxado\" = ?)) AND ((? = 1 AND \"braco_esquerdo_relaxado\" I" +
+                "S NULL) OR (\"braco_esquerdo_relaxado\" = ?)) AND ((? = 1 AND \"braco_direito_contr" +
+                "aido\" IS NULL) OR (\"braco_direito_contraido\" = ?)) AND ((? = 1 AND \"braco_esquer" +
+                "do_contraido\" IS NULL) OR (\"braco_esquerdo_contraido\" = ?)) AND ((? = 1 AND \"ant" +
+                "ebraco_direito\" IS NULL) OR (\"antebraco_direito\" = ?)) AND ((? = 1 AND \"antebrac" +
+                "o_esquerdo\" IS NULL) OR (\"antebraco_esquerdo\" = ?)) AND ((? = 1 AND \"punho_direi" +
+                "to\" IS NULL) OR (\"punho_direito\" = ?)) AND ((? = 1 AND \"punho_esquerdo\" IS NULL)" +
+                " OR (\"punho_esquerdo\" = ?)) AND ((? = 1 AND \"pescoco\" IS NULL) OR (\"pescoco\" = ?" +
+                ")) AND ((? = 1 AND \"ombro\" IS NULL) OR (\"ombro\" = ?)) AND ((? = 1 AND \"peitoral\"" +
+                " IS NULL) OR (\"peitoral\" = ?)) AND ((? = 1 AND \"cintura\" IS NULL) OR (\"cintura\" " +
+                "= ?)) AND ((? = 1 AND \"quadril\" IS NULL) OR (\"quadril\" = ?)) AND ((? = 1 AND \"pa" +
+                "nturilha_direita\" IS NULL) OR (\"panturilha_direita\" = ?)) AND ((? = 1 AND \"pantu" +
+                "rilha_esquerda\" IS NULL) OR (\"panturilha_esquerda\" = ?)) AND ((? = 1 AND \"coxa_d" +
+                "ireita\" IS NULL) OR (\"coxa_direita\" = ?)) AND ((? = 1 AND \"coxa_esquerda\" IS NUL" +
+                "L) OR (\"coxa_esquerda\" = ?)) AND ((? = 1 AND \"coxa_proximal_direita\" IS NULL) OR" +
+                " (\"coxa_proximal_direita\" = ?)) AND ((? = 1 AND \"coxa_proximal_esquerda\" IS NULL" +
+                ") OR (\"coxa_proximal_esquerda\" = ?)) AND ((? = 1 AND \"protocolo_id_pc\" IS NULL) " +
+                "OR (\"protocolo_id_pc\" = ?)) AND ((? = 1 AND \"bicecps\" IS NULL) OR (\"bicecps\" = ?" +
+                ")) AND ((? = 1 AND \"abdominal\" IS NULL) OR (\"abdominal\" = ?)) AND ((? = 1 AND \"t" +
+                "ricips\" IS NULL) OR (\"tricips\" = ?)) AND ((? = 1 AND \"supescapular\" IS NULL) OR " +
+                "(\"supescapular\" = ?)) AND ((? = 1 AND \"torax\" IS NULL) OR (\"torax\" = ?)) AND ((?" +
+                " = 1 AND \"coxa\" IS NULL) OR (\"coxa\" = ?)) AND ((? = 1 AND \"panturilha_medial\" IS" +
+                " NULL) OR (\"panturilha_medial\" = ?)) AND (\"ativo\" = ?))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_id_antro", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id_antro", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_paciente_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "paciente_id", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_Data", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Data", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_braco_direito_relaxado", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "braco_direito_relaxado", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_braco_direito_relaxado", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "braco_direito_relaxado", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_braco_esquerdo_relaxado", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "braco_esquerdo_relaxado", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_braco_esquerdo_relaxado", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "braco_esquerdo_relaxado", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_braco_direito_contraido", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "braco_direito_contraido", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_braco_direito_contraido", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "braco_direito_contraido", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_braco_esquerdo_contraido", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "braco_esquerdo_contraido", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_braco_esquerdo_contraido", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "braco_esquerdo_contraido", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_antebraco_direito", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "antebraco_direito", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_antebraco_direito", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "antebraco_direito", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_antebraco_esquerdo", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "antebraco_esquerdo", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_antebraco_esquerdo", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "antebraco_esquerdo", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_punho_direito", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "punho_direito", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_punho_direito", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "punho_direito", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_punho_esquerdo", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "punho_esquerdo", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_punho_esquerdo", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "punho_esquerdo", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_pescoco", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "pescoco", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_pescoco", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "pescoco", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_ombro", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ombro", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_ombro", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "ombro", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_peitoral", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "peitoral", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_peitoral", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "peitoral", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_cintura", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "cintura", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_cintura", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "cintura", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_quadril", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "quadril", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_quadril", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "quadril", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_panturilha_direita", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "panturilha_direita", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_panturilha_direita", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "panturilha_direita", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_panturilha_esquerda", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "panturilha_esquerda", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_panturilha_esquerda", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "panturilha_esquerda", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_coxa_direita", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "coxa_direita", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_coxa_direita", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "coxa_direita", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_coxa_esquerda", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "coxa_esquerda", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_coxa_esquerda", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "coxa_esquerda", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_coxa_proximal_direita", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "coxa_proximal_direita", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_coxa_proximal_direita", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "coxa_proximal_direita", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_coxa_proximal_esquerda", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "coxa_proximal_esquerda", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_coxa_proximal_esquerda", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "coxa_proximal_esquerda", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_protocolo_id_pc", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "protocolo_id_pc", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_protocolo_id_pc", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "protocolo_id_pc", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_bicecps", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "bicecps", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_bicecps", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "bicecps", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_abdominal", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "abdominal", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_abdominal", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "abdominal", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_tricips", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "tricips", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_tricips", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "tricips", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_supescapular", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "supescapular", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_supescapular", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "supescapular", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_torax", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "torax", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_torax", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "torax", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_coxa", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "coxa", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_coxa", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "coxa", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_panturilha_medial", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "panturilha_medial", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_panturilha_medial", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "panturilha_medial", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_ativo", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ativo", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.InsertCommand = new global::System.Data.Odbc.OdbcCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO ""postgres"".""public"".""antropometria"" (""paciente_id"", ""Descricao"", ""Data"", ""braco_direito_relaxado"", ""braco_esquerdo_relaxado"", ""braco_direito_contraido"", ""braco_esquerdo_contraido"", ""antebraco_direito"", ""antebraco_esquerdo"", ""punho_direito"", ""punho_esquerdo"", ""pescoco"", ""ombro"", ""peitoral"", ""cintura"", ""quadril"", ""panturilha_direita"", ""panturilha_esquerda"", ""coxa_direita"", ""coxa_esquerda"", ""coxa_proximal_direita"", ""coxa_proximal_esquerda"", ""protocolo_id_pc"", ""bicecps"", ""abdominal"", ""tricips"", ""supescapular"", ""torax"", ""coxa"", ""panturilha_medial"", ""ativo"") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("paciente_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "paciente_id", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Descricao", global::System.Data.Odbc.OdbcType.NText, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Descricao", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Data", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Data", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("braco_direito_relaxado", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "braco_direito_relaxado", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("braco_esquerdo_relaxado", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "braco_esquerdo_relaxado", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("braco_direito_contraido", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "braco_direito_contraido", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("braco_esquerdo_contraido", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "braco_esquerdo_contraido", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("antebraco_direito", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "antebraco_direito", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("antebraco_esquerdo", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "antebraco_esquerdo", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("punho_direito", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "punho_direito", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("punho_esquerdo", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "punho_esquerdo", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("pescoco", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "pescoco", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("ombro", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "ombro", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("peitoral", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "peitoral", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("cintura", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "cintura", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("quadril", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "quadril", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("panturilha_direita", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "panturilha_direita", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("panturilha_esquerda", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "panturilha_esquerda", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("coxa_direita", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "coxa_direita", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("coxa_esquerda", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "coxa_esquerda", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("coxa_proximal_direita", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "coxa_proximal_direita", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("coxa_proximal_esquerda", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "coxa_proximal_esquerda", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("protocolo_id_pc", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "protocolo_id_pc", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("bicecps", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "bicecps", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("abdominal", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "abdominal", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("tricips", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "tricips", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("supescapular", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "supescapular", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("torax", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "torax", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("coxa", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "coxa", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("panturilha_medial", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "panturilha_medial", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("ativo", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ativo", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand = new global::System.Data.Odbc.OdbcCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE \"postgres\".\"public\".\"antropometria\" SET \"paciente_id\" = ?, \"Descricao\" = ?" +
+                ", \"Data\" = ?, \"braco_direito_relaxado\" = ?, \"braco_esquerdo_relaxado\" = ?, \"brac" +
+                "o_direito_contraido\" = ?, \"braco_esquerdo_contraido\" = ?, \"antebraco_direito\" = " +
+                "?, \"antebraco_esquerdo\" = ?, \"punho_direito\" = ?, \"punho_esquerdo\" = ?, \"pescoco" +
+                "\" = ?, \"ombro\" = ?, \"peitoral\" = ?, \"cintura\" = ?, \"quadril\" = ?, \"panturilha_di" +
+                "reita\" = ?, \"panturilha_esquerda\" = ?, \"coxa_direita\" = ?, \"coxa_esquerda\" = ?, " +
+                "\"coxa_proximal_direita\" = ?, \"coxa_proximal_esquerda\" = ?, \"protocolo_id_pc\" = ?" +
+                ", \"bicecps\" = ?, \"abdominal\" = ?, \"tricips\" = ?, \"supescapular\" = ?, \"torax\" = ?" +
+                ", \"coxa\" = ?, \"panturilha_medial\" = ?, \"ativo\" = ? WHERE ((\"id_antro\" = ?) AND (" +
+                "\"paciente_id\" = ?) AND (\"Data\" = ?) AND ((? = 1 AND \"braco_direito_relaxado\" IS " +
+                "NULL) OR (\"braco_direito_relaxado\" = ?)) AND ((? = 1 AND \"braco_esquerdo_relaxad" +
+                "o\" IS NULL) OR (\"braco_esquerdo_relaxado\" = ?)) AND ((? = 1 AND \"braco_direito_c" +
+                "ontraido\" IS NULL) OR (\"braco_direito_contraido\" = ?)) AND ((? = 1 AND \"braco_es" +
+                "querdo_contraido\" IS NULL) OR (\"braco_esquerdo_contraido\" = ?)) AND ((? = 1 AND " +
+                "\"antebraco_direito\" IS NULL) OR (\"antebraco_direito\" = ?)) AND ((? = 1 AND \"ante" +
+                "braco_esquerdo\" IS NULL) OR (\"antebraco_esquerdo\" = ?)) AND ((? = 1 AND \"punho_d" +
+                "ireito\" IS NULL) OR (\"punho_direito\" = ?)) AND ((? = 1 AND \"punho_esquerdo\" IS N" +
+                "ULL) OR (\"punho_esquerdo\" = ?)) AND ((? = 1 AND \"pescoco\" IS NULL) OR (\"pescoco\"" +
+                " = ?)) AND ((? = 1 AND \"ombro\" IS NULL) OR (\"ombro\" = ?)) AND ((? = 1 AND \"peito" +
+                "ral\" IS NULL) OR (\"peitoral\" = ?)) AND ((? = 1 AND \"cintura\" IS NULL) OR (\"cintu" +
+                "ra\" = ?)) AND ((? = 1 AND \"quadril\" IS NULL) OR (\"quadril\" = ?)) AND ((? = 1 AND" +
+                " \"panturilha_direita\" IS NULL) OR (\"panturilha_direita\" = ?)) AND ((? = 1 AND \"p" +
+                "anturilha_esquerda\" IS NULL) OR (\"panturilha_esquerda\" = ?)) AND ((? = 1 AND \"co" +
+                "xa_direita\" IS NULL) OR (\"coxa_direita\" = ?)) AND ((? = 1 AND \"coxa_esquerda\" IS" +
+                " NULL) OR (\"coxa_esquerda\" = ?)) AND ((? = 1 AND \"coxa_proximal_direita\" IS NULL" +
+                ") OR (\"coxa_proximal_direita\" = ?)) AND ((? = 1 AND \"coxa_proximal_esquerda\" IS " +
+                "NULL) OR (\"coxa_proximal_esquerda\" = ?)) AND ((? = 1 AND \"protocolo_id_pc\" IS NU" +
+                "LL) OR (\"protocolo_id_pc\" = ?)) AND ((? = 1 AND \"bicecps\" IS NULL) OR (\"bicecps\"" +
+                " = ?)) AND ((? = 1 AND \"abdominal\" IS NULL) OR (\"abdominal\" = ?)) AND ((? = 1 AN" +
+                "D \"tricips\" IS NULL) OR (\"tricips\" = ?)) AND ((? = 1 AND \"supescapular\" IS NULL)" +
+                " OR (\"supescapular\" = ?)) AND ((? = 1 AND \"torax\" IS NULL) OR (\"torax\" = ?)) AND" +
+                " ((? = 1 AND \"coxa\" IS NULL) OR (\"coxa\" = ?)) AND ((? = 1 AND \"panturilha_medial" +
+                "\" IS NULL) OR (\"panturilha_medial\" = ?)) AND (\"ativo\" = ?))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("paciente_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "paciente_id", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Descricao", global::System.Data.Odbc.OdbcType.NText, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Descricao", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Data", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Data", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("braco_direito_relaxado", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "braco_direito_relaxado", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("braco_esquerdo_relaxado", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "braco_esquerdo_relaxado", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("braco_direito_contraido", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "braco_direito_contraido", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("braco_esquerdo_contraido", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "braco_esquerdo_contraido", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("antebraco_direito", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "antebraco_direito", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("antebraco_esquerdo", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "antebraco_esquerdo", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("punho_direito", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "punho_direito", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("punho_esquerdo", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "punho_esquerdo", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("pescoco", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "pescoco", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("ombro", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "ombro", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("peitoral", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "peitoral", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("cintura", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "cintura", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("quadril", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "quadril", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("panturilha_direita", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "panturilha_direita", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("panturilha_esquerda", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "panturilha_esquerda", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("coxa_direita", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "coxa_direita", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("coxa_esquerda", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "coxa_esquerda", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("coxa_proximal_direita", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "coxa_proximal_direita", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("coxa_proximal_esquerda", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "coxa_proximal_esquerda", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("protocolo_id_pc", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "protocolo_id_pc", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("bicecps", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "bicecps", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("abdominal", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "abdominal", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("tricips", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "tricips", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("supescapular", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "supescapular", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("torax", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "torax", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("coxa", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "coxa", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("panturilha_medial", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "panturilha_medial", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("ativo", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ativo", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_id_antro", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id_antro", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_paciente_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "paciente_id", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_Data", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Data", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_braco_direito_relaxado", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "braco_direito_relaxado", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_braco_direito_relaxado", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "braco_direito_relaxado", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_braco_esquerdo_relaxado", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "braco_esquerdo_relaxado", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_braco_esquerdo_relaxado", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "braco_esquerdo_relaxado", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_braco_direito_contraido", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "braco_direito_contraido", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_braco_direito_contraido", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "braco_direito_contraido", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_braco_esquerdo_contraido", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "braco_esquerdo_contraido", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_braco_esquerdo_contraido", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "braco_esquerdo_contraido", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_antebraco_direito", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "antebraco_direito", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_antebraco_direito", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "antebraco_direito", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_antebraco_esquerdo", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "antebraco_esquerdo", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_antebraco_esquerdo", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "antebraco_esquerdo", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_punho_direito", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "punho_direito", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_punho_direito", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "punho_direito", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_punho_esquerdo", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "punho_esquerdo", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_punho_esquerdo", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "punho_esquerdo", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_pescoco", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "pescoco", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_pescoco", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "pescoco", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_ombro", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ombro", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_ombro", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "ombro", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_peitoral", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "peitoral", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_peitoral", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "peitoral", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_cintura", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "cintura", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_cintura", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "cintura", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_quadril", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "quadril", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_quadril", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "quadril", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_panturilha_direita", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "panturilha_direita", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_panturilha_direita", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "panturilha_direita", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_panturilha_esquerda", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "panturilha_esquerda", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_panturilha_esquerda", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "panturilha_esquerda", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_coxa_direita", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "coxa_direita", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_coxa_direita", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "coxa_direita", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_coxa_esquerda", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "coxa_esquerda", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_coxa_esquerda", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "coxa_esquerda", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_coxa_proximal_direita", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "coxa_proximal_direita", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_coxa_proximal_direita", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "coxa_proximal_direita", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_coxa_proximal_esquerda", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "coxa_proximal_esquerda", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_coxa_proximal_esquerda", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "coxa_proximal_esquerda", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_protocolo_id_pc", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "protocolo_id_pc", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_protocolo_id_pc", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "protocolo_id_pc", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_bicecps", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "bicecps", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_bicecps", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "bicecps", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_abdominal", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "abdominal", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_abdominal", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "abdominal", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_tricips", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "tricips", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_tricips", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "tricips", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_supescapular", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "supescapular", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_supescapular", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "supescapular", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_torax", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "torax", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_torax", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "torax", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_coxa", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "coxa", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_coxa", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "coxa", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_panturilha_medial", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "panturilha_medial", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_panturilha_medial", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(15)), ((byte)(3)), "panturilha_medial", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_ativo", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ativo", global::System.Data.DataRowVersion.Original, false, null));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.Odbc.OdbcConnection();
+            this._connection.ConnectionString = global::NutricionalApp.Properties.Settings.Default.ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.Odbc.OdbcCommand[1];
+            this._commandCollection[0] = new global::System.Data.Odbc.OdbcCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"SELECT ""id_antro"", ""paciente_id"", ""Descricao"", ""Data"", ""braco_direito_relaxado"", ""braco_esquerdo_relaxado"", ""braco_direito_contraido"", ""braco_esquerdo_contraido"", ""antebraco_direito"", ""antebraco_esquerdo"", ""punho_direito"", ""punho_esquerdo"", ""pescoco"", ""ombro"", ""peitoral"", ""cintura"", ""quadril"", ""panturilha_direita"", ""panturilha_esquerda"", ""coxa_direita"", ""coxa_esquerda"", ""coxa_proximal_direita"", ""coxa_proximal_esquerda"", ""protocolo_id_pc"", ""bicecps"", ""abdominal"", ""tricips"", ""supescapular"", ""torax"", ""coxa"", ""panturilha_medial"", ""ativo"" FROM ""public"".""antropometria""";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(NutricionalDB.antropometriaDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual NutricionalDB.antropometriaDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            NutricionalDB.antropometriaDataTable dataTable = new NutricionalDB.antropometriaDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(NutricionalDB.antropometriaDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(NutricionalDB dataSet) {
+            return this.Adapter.Update(dataSet, "antropometria");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(
+                    int Original_id_antro, 
+                    int Original_paciente_id, 
+                    System.DateTime Original_Data, 
+                    decimal Original_braco_direito_relaxado, 
+                    decimal Original_braco_esquerdo_relaxado, 
+                    decimal Original_braco_direito_contraido, 
+                    decimal Original_braco_esquerdo_contraido, 
+                    decimal Original_antebraco_direito, 
+                    decimal Original_antebraco_esquerdo, 
+                    decimal Original_punho_direito, 
+                    decimal Original_punho_esquerdo, 
+                    decimal Original_pescoco, 
+                    decimal Original_ombro, 
+                    decimal Original_peitoral, 
+                    decimal Original_cintura, 
+                    decimal Original_quadril, 
+                    decimal Original_panturilha_direita, 
+                    decimal Original_panturilha_esquerda, 
+                    decimal Original_coxa_direita, 
+                    decimal Original_coxa_esquerda, 
+                    decimal Original_coxa_proximal_direita, 
+                    decimal Original_coxa_proximal_esquerda, 
+                    int Original_protocolo_id_pc, 
+                    decimal Original_bicecps, 
+                    decimal Original_abdominal, 
+                    decimal Original_tricips, 
+                    decimal Original_supescapular, 
+                    decimal Original_torax, 
+                    decimal Original_coxa, 
+                    decimal Original_panturilha_medial, 
+                    string Original_ativo) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id_antro));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_paciente_id));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((System.DateTime)(Original_Data));
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((decimal)(Original_braco_direito_relaxado));
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_braco_esquerdo_relaxado));
+            this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[8].Value = ((decimal)(Original_braco_direito_contraido));
+            this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[10].Value = ((decimal)(Original_braco_esquerdo_contraido));
+            this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[12].Value = ((decimal)(Original_antebraco_direito));
+            this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[14].Value = ((decimal)(Original_antebraco_esquerdo));
+            this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[16].Value = ((decimal)(Original_punho_direito));
+            this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[18].Value = ((decimal)(Original_punho_esquerdo));
+            this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[20].Value = ((decimal)(Original_pescoco));
+            this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[22].Value = ((decimal)(Original_ombro));
+            this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[24].Value = ((decimal)(Original_peitoral));
+            this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[26].Value = ((decimal)(Original_cintura));
+            this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[28].Value = ((decimal)(Original_quadril));
+            this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[30].Value = ((decimal)(Original_panturilha_direita));
+            this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[32].Value = ((decimal)(Original_panturilha_esquerda));
+            this.Adapter.DeleteCommand.Parameters[33].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[34].Value = ((decimal)(Original_coxa_direita));
+            this.Adapter.DeleteCommand.Parameters[35].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[36].Value = ((decimal)(Original_coxa_esquerda));
+            this.Adapter.DeleteCommand.Parameters[37].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[38].Value = ((decimal)(Original_coxa_proximal_direita));
+            this.Adapter.DeleteCommand.Parameters[39].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[40].Value = ((decimal)(Original_coxa_proximal_esquerda));
+            this.Adapter.DeleteCommand.Parameters[41].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[42].Value = ((int)(Original_protocolo_id_pc));
+            this.Adapter.DeleteCommand.Parameters[43].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[44].Value = ((decimal)(Original_bicecps));
+            this.Adapter.DeleteCommand.Parameters[45].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[46].Value = ((decimal)(Original_abdominal));
+            this.Adapter.DeleteCommand.Parameters[47].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[48].Value = ((decimal)(Original_tricips));
+            this.Adapter.DeleteCommand.Parameters[49].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[50].Value = ((decimal)(Original_supescapular));
+            this.Adapter.DeleteCommand.Parameters[51].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[52].Value = ((decimal)(Original_torax));
+            this.Adapter.DeleteCommand.Parameters[53].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[54].Value = ((decimal)(Original_coxa));
+            this.Adapter.DeleteCommand.Parameters[55].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[56].Value = ((decimal)(Original_panturilha_medial));
+            if ((Original_ativo == null)) {
+                throw new global::System.ArgumentNullException("Original_ativo");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[57].Value = ((string)(Original_ativo));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(
+                    int paciente_id, 
+                    string Descricao, 
+                    System.DateTime Data, 
+                    decimal braco_direito_relaxado, 
+                    decimal braco_esquerdo_relaxado, 
+                    decimal braco_direito_contraido, 
+                    decimal braco_esquerdo_contraido, 
+                    decimal antebraco_direito, 
+                    decimal antebraco_esquerdo, 
+                    decimal punho_direito, 
+                    decimal punho_esquerdo, 
+                    decimal pescoco, 
+                    decimal ombro, 
+                    decimal peitoral, 
+                    decimal cintura, 
+                    decimal quadril, 
+                    decimal panturilha_direita, 
+                    decimal panturilha_esquerda, 
+                    decimal coxa_direita, 
+                    decimal coxa_esquerda, 
+                    decimal coxa_proximal_direita, 
+                    decimal coxa_proximal_esquerda, 
+                    int protocolo_id_pc, 
+                    decimal bicecps, 
+                    decimal abdominal, 
+                    decimal tricips, 
+                    decimal supescapular, 
+                    decimal torax, 
+                    decimal coxa, 
+                    decimal panturilha_medial, 
+                    string ativo) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(paciente_id));
+            if ((Descricao == null)) {
+                throw new global::System.ArgumentNullException("Descricao");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Descricao));
+            }
+            this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(Data));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(braco_direito_relaxado));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(braco_esquerdo_relaxado));
+            this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(braco_direito_contraido));
+            this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(braco_esquerdo_contraido));
+            this.Adapter.InsertCommand.Parameters[7].Value = ((decimal)(antebraco_direito));
+            this.Adapter.InsertCommand.Parameters[8].Value = ((decimal)(antebraco_esquerdo));
+            this.Adapter.InsertCommand.Parameters[9].Value = ((decimal)(punho_direito));
+            this.Adapter.InsertCommand.Parameters[10].Value = ((decimal)(punho_esquerdo));
+            this.Adapter.InsertCommand.Parameters[11].Value = ((decimal)(pescoco));
+            this.Adapter.InsertCommand.Parameters[12].Value = ((decimal)(ombro));
+            this.Adapter.InsertCommand.Parameters[13].Value = ((decimal)(peitoral));
+            this.Adapter.InsertCommand.Parameters[14].Value = ((decimal)(cintura));
+            this.Adapter.InsertCommand.Parameters[15].Value = ((decimal)(quadril));
+            this.Adapter.InsertCommand.Parameters[16].Value = ((decimal)(panturilha_direita));
+            this.Adapter.InsertCommand.Parameters[17].Value = ((decimal)(panturilha_esquerda));
+            this.Adapter.InsertCommand.Parameters[18].Value = ((decimal)(coxa_direita));
+            this.Adapter.InsertCommand.Parameters[19].Value = ((decimal)(coxa_esquerda));
+            this.Adapter.InsertCommand.Parameters[20].Value = ((decimal)(coxa_proximal_direita));
+            this.Adapter.InsertCommand.Parameters[21].Value = ((decimal)(coxa_proximal_esquerda));
+            this.Adapter.InsertCommand.Parameters[22].Value = ((int)(protocolo_id_pc));
+            this.Adapter.InsertCommand.Parameters[23].Value = ((decimal)(bicecps));
+            this.Adapter.InsertCommand.Parameters[24].Value = ((decimal)(abdominal));
+            this.Adapter.InsertCommand.Parameters[25].Value = ((decimal)(tricips));
+            this.Adapter.InsertCommand.Parameters[26].Value = ((decimal)(supescapular));
+            this.Adapter.InsertCommand.Parameters[27].Value = ((decimal)(torax));
+            this.Adapter.InsertCommand.Parameters[28].Value = ((decimal)(coxa));
+            this.Adapter.InsertCommand.Parameters[29].Value = ((decimal)(panturilha_medial));
+            if ((ativo == null)) {
+                throw new global::System.ArgumentNullException("ativo");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[30].Value = ((string)(ativo));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    int paciente_id, 
+                    string Descricao, 
+                    System.DateTime Data, 
+                    decimal braco_direito_relaxado, 
+                    decimal braco_esquerdo_relaxado, 
+                    decimal braco_direito_contraido, 
+                    decimal braco_esquerdo_contraido, 
+                    decimal antebraco_direito, 
+                    decimal antebraco_esquerdo, 
+                    decimal punho_direito, 
+                    decimal punho_esquerdo, 
+                    decimal pescoco, 
+                    decimal ombro, 
+                    decimal peitoral, 
+                    decimal cintura, 
+                    decimal quadril, 
+                    decimal panturilha_direita, 
+                    decimal panturilha_esquerda, 
+                    decimal coxa_direita, 
+                    decimal coxa_esquerda, 
+                    decimal coxa_proximal_direita, 
+                    decimal coxa_proximal_esquerda, 
+                    int protocolo_id_pc, 
+                    decimal bicecps, 
+                    decimal abdominal, 
+                    decimal tricips, 
+                    decimal supescapular, 
+                    decimal torax, 
+                    decimal coxa, 
+                    decimal panturilha_medial, 
+                    string ativo, 
+                    int Original_id_antro, 
+                    int Original_paciente_id, 
+                    System.DateTime Original_Data, 
+                    decimal Original_braco_direito_relaxado, 
+                    decimal Original_braco_esquerdo_relaxado, 
+                    decimal Original_braco_direito_contraido, 
+                    decimal Original_braco_esquerdo_contraido, 
+                    decimal Original_antebraco_direito, 
+                    decimal Original_antebraco_esquerdo, 
+                    decimal Original_punho_direito, 
+                    decimal Original_punho_esquerdo, 
+                    decimal Original_pescoco, 
+                    decimal Original_ombro, 
+                    decimal Original_peitoral, 
+                    decimal Original_cintura, 
+                    decimal Original_quadril, 
+                    decimal Original_panturilha_direita, 
+                    decimal Original_panturilha_esquerda, 
+                    decimal Original_coxa_direita, 
+                    decimal Original_coxa_esquerda, 
+                    decimal Original_coxa_proximal_direita, 
+                    decimal Original_coxa_proximal_esquerda, 
+                    int Original_protocolo_id_pc, 
+                    decimal Original_bicecps, 
+                    decimal Original_abdominal, 
+                    decimal Original_tricips, 
+                    decimal Original_supescapular, 
+                    decimal Original_torax, 
+                    decimal Original_coxa, 
+                    decimal Original_panturilha_medial, 
+                    string Original_ativo) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(paciente_id));
+            if ((Descricao == null)) {
+                throw new global::System.ArgumentNullException("Descricao");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Descricao));
+            }
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(Data));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(braco_direito_relaxado));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(braco_esquerdo_relaxado));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(braco_direito_contraido));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(braco_esquerdo_contraido));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(antebraco_direito));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((decimal)(antebraco_esquerdo));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((decimal)(punho_direito));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(punho_esquerdo));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((decimal)(pescoco));
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((decimal)(ombro));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((decimal)(peitoral));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(cintura));
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((decimal)(quadril));
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(panturilha_direita));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((decimal)(panturilha_esquerda));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((decimal)(coxa_direita));
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((decimal)(coxa_esquerda));
+            this.Adapter.UpdateCommand.Parameters[20].Value = ((decimal)(coxa_proximal_direita));
+            this.Adapter.UpdateCommand.Parameters[21].Value = ((decimal)(coxa_proximal_esquerda));
+            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(protocolo_id_pc));
+            this.Adapter.UpdateCommand.Parameters[23].Value = ((decimal)(bicecps));
+            this.Adapter.UpdateCommand.Parameters[24].Value = ((decimal)(abdominal));
+            this.Adapter.UpdateCommand.Parameters[25].Value = ((decimal)(tricips));
+            this.Adapter.UpdateCommand.Parameters[26].Value = ((decimal)(supescapular));
+            this.Adapter.UpdateCommand.Parameters[27].Value = ((decimal)(torax));
+            this.Adapter.UpdateCommand.Parameters[28].Value = ((decimal)(coxa));
+            this.Adapter.UpdateCommand.Parameters[29].Value = ((decimal)(panturilha_medial));
+            if ((ativo == null)) {
+                throw new global::System.ArgumentNullException("ativo");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(ativo));
+            }
+            this.Adapter.UpdateCommand.Parameters[31].Value = ((int)(Original_id_antro));
+            this.Adapter.UpdateCommand.Parameters[32].Value = ((int)(Original_paciente_id));
+            this.Adapter.UpdateCommand.Parameters[33].Value = ((System.DateTime)(Original_Data));
+            this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[35].Value = ((decimal)(Original_braco_direito_relaxado));
+            this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[37].Value = ((decimal)(Original_braco_esquerdo_relaxado));
+            this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[39].Value = ((decimal)(Original_braco_direito_contraido));
+            this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[41].Value = ((decimal)(Original_braco_esquerdo_contraido));
+            this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[43].Value = ((decimal)(Original_antebraco_direito));
+            this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[45].Value = ((decimal)(Original_antebraco_esquerdo));
+            this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[47].Value = ((decimal)(Original_punho_direito));
+            this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[49].Value = ((decimal)(Original_punho_esquerdo));
+            this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[51].Value = ((decimal)(Original_pescoco));
+            this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[53].Value = ((decimal)(Original_ombro));
+            this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[55].Value = ((decimal)(Original_peitoral));
+            this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[57].Value = ((decimal)(Original_cintura));
+            this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[59].Value = ((decimal)(Original_quadril));
+            this.Adapter.UpdateCommand.Parameters[60].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[61].Value = ((decimal)(Original_panturilha_direita));
+            this.Adapter.UpdateCommand.Parameters[62].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[63].Value = ((decimal)(Original_panturilha_esquerda));
+            this.Adapter.UpdateCommand.Parameters[64].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[65].Value = ((decimal)(Original_coxa_direita));
+            this.Adapter.UpdateCommand.Parameters[66].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[67].Value = ((decimal)(Original_coxa_esquerda));
+            this.Adapter.UpdateCommand.Parameters[68].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[69].Value = ((decimal)(Original_coxa_proximal_direita));
+            this.Adapter.UpdateCommand.Parameters[70].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[71].Value = ((decimal)(Original_coxa_proximal_esquerda));
+            this.Adapter.UpdateCommand.Parameters[72].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[73].Value = ((int)(Original_protocolo_id_pc));
+            this.Adapter.UpdateCommand.Parameters[74].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[75].Value = ((decimal)(Original_bicecps));
+            this.Adapter.UpdateCommand.Parameters[76].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[77].Value = ((decimal)(Original_abdominal));
+            this.Adapter.UpdateCommand.Parameters[78].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[79].Value = ((decimal)(Original_tricips));
+            this.Adapter.UpdateCommand.Parameters[80].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[81].Value = ((decimal)(Original_supescapular));
+            this.Adapter.UpdateCommand.Parameters[82].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[83].Value = ((decimal)(Original_torax));
+            this.Adapter.UpdateCommand.Parameters[84].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[85].Value = ((decimal)(Original_coxa));
+            this.Adapter.UpdateCommand.Parameters[86].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[87].Value = ((decimal)(Original_panturilha_medial));
+            if ((Original_ativo == null)) {
+                throw new global::System.ArgumentNullException("Original_ativo");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[88].Value = ((string)(Original_ativo));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class protocolos_Pregas_CutaneasTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.Odbc.OdbcDataAdapter _adapter;
+        
+        private global::System.Data.Odbc.OdbcConnection _connection;
+        
+        private global::System.Data.Odbc.OdbcTransaction _transaction;
+        
+        private global::System.Data.Odbc.OdbcCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public protocolos_Pregas_CutaneasTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.Odbc.OdbcDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.Odbc.OdbcConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.Odbc.OdbcCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.Odbc.OdbcTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.Odbc.OdbcCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.Odbc.OdbcDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "protocolos_Pregas_Cutaneas";
+            tableMapping.ColumnMappings.Add("id_protocolo_pc", "id_protocolo_pc");
+            tableMapping.ColumnMappings.Add("descricao_pc", "descricao_pc");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.Odbc.OdbcCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM \"postgres\".\"public\".\"protocolos_Pregas_Cutaneas\" WHERE ((\"id_protocol" +
+                "o_pc\" = ?))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_id_protocolo_pc", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id_protocolo_pc", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.InsertCommand = new global::System.Data.Odbc.OdbcCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO \"postgres\".\"public\".\"protocolos_Pregas_Cutaneas\" (\"descricao_pc\") VAL" +
+                "UES (?)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("descricao_pc", global::System.Data.Odbc.OdbcType.NText, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "descricao_pc", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand = new global::System.Data.Odbc.OdbcCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE \"postgres\".\"public\".\"protocolos_Pregas_Cutaneas\" SET \"descricao_pc\" = ? WH" +
+                "ERE ((\"id_protocolo_pc\" = ?))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("descricao_pc", global::System.Data.Odbc.OdbcType.NText, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "descricao_pc", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_id_protocolo_pc", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id_protocolo_pc", global::System.Data.DataRowVersion.Original, false, null));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.Odbc.OdbcConnection();
+            this._connection.ConnectionString = global::NutricionalApp.Properties.Settings.Default.ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.Odbc.OdbcCommand[1];
+            this._commandCollection[0] = new global::System.Data.Odbc.OdbcCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT \"id_protocolo_pc\", \"descricao_pc\" FROM \"public\".\"protocolos_Pregas_Cutanea" +
+                "s\"";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(NutricionalDB.protocolos_Pregas_CutaneasDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual NutricionalDB.protocolos_Pregas_CutaneasDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            NutricionalDB.protocolos_Pregas_CutaneasDataTable dataTable = new NutricionalDB.protocolos_Pregas_CutaneasDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(NutricionalDB.protocolos_Pregas_CutaneasDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(NutricionalDB dataSet) {
+            return this.Adapter.Update(dataSet, "protocolos_Pregas_Cutaneas");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_id_protocolo_pc) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id_protocolo_pc));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string descricao_pc) {
+            if ((descricao_pc == null)) {
+                throw new global::System.ArgumentNullException("descricao_pc");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(descricao_pc));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string descricao_pc, int Original_id_protocolo_pc) {
+            if ((descricao_pc == null)) {
+                throw new global::System.ArgumentNullException("descricao_pc");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(descricao_pc));
+            }
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Original_id_protocolo_pc));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -17113,6 +20285,10 @@ namespace NutricionalApp.NutricionalDBTableAdapters {
         private gastos_caloricosTableAdapter _gastos_caloricosTableAdapter;
         
         private gasto_atividadeTableAdapter _gasto_atividadeTableAdapter;
+        
+        private antropometriaTableAdapter _antropometriaTableAdapter;
+        
+        private protocolos_Pregas_CutaneasTableAdapter _protocolos_Pregas_CutaneasTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -17327,6 +20503,34 @@ namespace NutricionalApp.NutricionalDBTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public antropometriaTableAdapter antropometriaTableAdapter {
+            get {
+                return this._antropometriaTableAdapter;
+            }
+            set {
+                this._antropometriaTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public protocolos_Pregas_CutaneasTableAdapter protocolos_Pregas_CutaneasTableAdapter {
+            get {
+                return this._protocolos_Pregas_CutaneasTableAdapter;
+            }
+            set {
+                this._protocolos_Pregas_CutaneasTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -17400,6 +20604,14 @@ namespace NutricionalApp.NutricionalDBTableAdapters {
                             && (this._gasto_atividadeTableAdapter.Connection != null))) {
                     return this._gasto_atividadeTableAdapter.Connection;
                 }
+                if (((this._antropometriaTableAdapter != null) 
+                            && (this._antropometriaTableAdapter.Connection != null))) {
+                    return this._antropometriaTableAdapter.Connection;
+                }
+                if (((this._protocolos_Pregas_CutaneasTableAdapter != null) 
+                            && (this._protocolos_Pregas_CutaneasTableAdapter.Connection != null))) {
+                    return this._protocolos_Pregas_CutaneasTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -17455,6 +20667,12 @@ namespace NutricionalApp.NutricionalDBTableAdapters {
                 if ((this._gasto_atividadeTableAdapter != null)) {
                     count = (count + 1);
                 }
+                if ((this._antropometriaTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._protocolos_Pregas_CutaneasTableAdapter != null)) {
+                    count = (count + 1);
+                }
                 return count;
             }
         }
@@ -17475,102 +20693,12 @@ namespace NutricionalApp.NutricionalDBTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._nutricionistaTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.nutricionista.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._gasto_atividadeTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.gasto_atividade.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._nutricionistaTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._pacienteTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.paciente.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._pacienteTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._protocolosTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.protocolos.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._protocolosTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._recordatorio_24hTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.recordatorio_24h.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._recordatorio_24hTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._sist_admTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.sist_adm.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._sist_admTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._tabela_taco4TableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.tabela_taco4.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._tabela_taco4TableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._taco_gruposTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.taco_grupos.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._taco_gruposTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._taco_medidasTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.taco_medidas.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._taco_medidasTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._itens_recordatorioTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.itens_recordatorio.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._itens_recordatorioTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._nivel_atividadeTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.nivel_atividade.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._nivel_atividadeTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._atividade_fisicaTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.atividade_fisica.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._atividade_fisicaTableAdapter.Update(updatedRows));
+                    result = (result + this._gasto_atividadeTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -17583,12 +20711,120 @@ namespace NutricionalApp.NutricionalDBTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._gasto_atividadeTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.gasto_atividade.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._atividade_fisicaTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.atividade_fisica.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._gasto_atividadeTableAdapter.Update(updatedRows));
+                    result = (result + this._atividade_fisicaTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._nivel_atividadeTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.nivel_atividade.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._nivel_atividadeTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._itens_recordatorioTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.itens_recordatorio.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._itens_recordatorioTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._taco_medidasTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.taco_medidas.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._taco_medidasTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._taco_gruposTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.taco_grupos.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._taco_gruposTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._tabela_taco4TableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.tabela_taco4.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._tabela_taco4TableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._sist_admTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.sist_adm.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._sist_admTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._recordatorio_24hTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.recordatorio_24h.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._recordatorio_24hTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._protocolosTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.protocolos.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._protocolosTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._pacienteTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.paciente.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._pacienteTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._nutricionistaTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.nutricionista.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._nutricionistaTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._antropometriaTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.antropometria.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._antropometriaTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._protocolos_Pregas_CutaneasTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.protocolos_Pregas_Cutaneas.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._protocolos_Pregas_CutaneasTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -17610,91 +20846,11 @@ namespace NutricionalApp.NutricionalDBTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._nutricionistaTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.nutricionista.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._gasto_atividadeTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.gasto_atividade.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._nutricionistaTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._pacienteTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.paciente.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._pacienteTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._protocolosTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.protocolos.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._protocolosTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._recordatorio_24hTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.recordatorio_24h.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._recordatorio_24hTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._sist_admTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.sist_adm.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._sist_admTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._tabela_taco4TableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.tabela_taco4.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._tabela_taco4TableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._taco_gruposTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.taco_grupos.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._taco_gruposTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._taco_medidasTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.taco_medidas.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._taco_medidasTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._itens_recordatorioTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.itens_recordatorio.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._itens_recordatorioTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._nivel_atividadeTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.nivel_atividade.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._nivel_atividadeTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._atividade_fisicaTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.atividade_fisica.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._atividade_fisicaTableAdapter.Update(addedRows));
+                    result = (result + this._gasto_atividadeTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -17706,11 +20862,107 @@ namespace NutricionalApp.NutricionalDBTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._gasto_atividadeTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.gasto_atividade.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._atividade_fisicaTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.atividade_fisica.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._gasto_atividadeTableAdapter.Update(addedRows));
+                    result = (result + this._atividade_fisicaTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._nivel_atividadeTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.nivel_atividade.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._nivel_atividadeTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._itens_recordatorioTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.itens_recordatorio.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._itens_recordatorioTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._taco_medidasTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.taco_medidas.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._taco_medidasTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._taco_gruposTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.taco_grupos.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._taco_gruposTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._tabela_taco4TableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.tabela_taco4.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._tabela_taco4TableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._sist_admTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.sist_adm.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._sist_admTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._recordatorio_24hTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.recordatorio_24h.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._recordatorio_24hTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._protocolosTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.protocolos.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._protocolosTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._pacienteTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.paciente.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._pacienteTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._nutricionistaTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.nutricionista.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._nutricionistaTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._antropometriaTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.antropometria.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._antropometriaTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._protocolos_Pregas_CutaneasTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.protocolos_Pregas_Cutaneas.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._protocolos_Pregas_CutaneasTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -17724,91 +20976,27 @@ namespace NutricionalApp.NutricionalDBTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateDeletedRows(NutricionalDB dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._gasto_atividadeTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.gasto_atividade.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._protocolos_Pregas_CutaneasTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.protocolos_Pregas_Cutaneas.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._gasto_atividadeTableAdapter.Update(deletedRows));
+                    result = (result + this._protocolos_Pregas_CutaneasTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._gastos_caloricosTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.gastos_caloricos.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._antropometriaTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.antropometria.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._gastos_caloricosTableAdapter.Update(deletedRows));
+                    result = (result + this._antropometriaTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._atividade_fisicaTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.atividade_fisica.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._nutricionistaTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.nutricionista.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._atividade_fisicaTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._nivel_atividadeTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.nivel_atividade.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._nivel_atividadeTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._itens_recordatorioTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.itens_recordatorio.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._itens_recordatorioTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._taco_medidasTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.taco_medidas.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._taco_medidasTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._taco_gruposTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.taco_grupos.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._taco_gruposTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._tabela_taco4TableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.tabela_taco4.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._tabela_taco4TableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._sist_admTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.sist_adm.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._sist_admTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._recordatorio_24hTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.recordatorio_24h.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._recordatorio_24hTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._protocolosTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.protocolos.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._protocolosTableAdapter.Update(deletedRows));
+                    result = (result + this._nutricionistaTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -17820,11 +21008,91 @@ namespace NutricionalApp.NutricionalDBTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._nutricionistaTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.nutricionista.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._protocolosTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.protocolos.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._nutricionistaTableAdapter.Update(deletedRows));
+                    result = (result + this._protocolosTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._recordatorio_24hTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.recordatorio_24h.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._recordatorio_24hTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._sist_admTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.sist_adm.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._sist_admTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._tabela_taco4TableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.tabela_taco4.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._tabela_taco4TableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._taco_gruposTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.taco_grupos.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._taco_gruposTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._taco_medidasTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.taco_medidas.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._taco_medidasTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._itens_recordatorioTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.itens_recordatorio.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._itens_recordatorioTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._nivel_atividadeTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.nivel_atividade.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._nivel_atividadeTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._atividade_fisicaTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.atividade_fisica.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._atividade_fisicaTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._gastos_caloricosTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.gastos_caloricos.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._gastos_caloricosTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._gasto_atividadeTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.gasto_atividade.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._gasto_atividadeTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -17942,6 +21210,16 @@ namespace NutricionalApp.NutricionalDBTableAdapters {
             }
             if (((this._gasto_atividadeTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._gasto_atividadeTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Todos os TableAdapters gerenciados por um TableAdapterManager devem usar a mesma " +
+                        "cadeia de conexão.");
+            }
+            if (((this._antropometriaTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._antropometriaTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Todos os TableAdapters gerenciados por um TableAdapterManager devem usar a mesma " +
+                        "cadeia de conexão.");
+            }
+            if (((this._protocolos_Pregas_CutaneasTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._protocolos_Pregas_CutaneasTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Todos os TableAdapters gerenciados por um TableAdapterManager devem usar a mesma " +
                         "cadeia de conexão.");
             }
@@ -18103,6 +21381,24 @@ namespace NutricionalApp.NutricionalDBTableAdapters {
                         adaptersWithAcceptChangesDuringUpdate.Add(this._gasto_atividadeTableAdapter.Adapter);
                     }
                 }
+                if ((this._antropometriaTableAdapter != null)) {
+                    revertConnections.Add(this._antropometriaTableAdapter, this._antropometriaTableAdapter.Connection);
+                    this._antropometriaTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(workConnection));
+                    this._antropometriaTableAdapter.Transaction = ((global::System.Data.Odbc.OdbcTransaction)(workTransaction));
+                    if (this._antropometriaTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._antropometriaTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._antropometriaTableAdapter.Adapter);
+                    }
+                }
+                if ((this._protocolos_Pregas_CutaneasTableAdapter != null)) {
+                    revertConnections.Add(this._protocolos_Pregas_CutaneasTableAdapter, this._protocolos_Pregas_CutaneasTableAdapter.Connection);
+                    this._protocolos_Pregas_CutaneasTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(workConnection));
+                    this._protocolos_Pregas_CutaneasTableAdapter.Transaction = ((global::System.Data.Odbc.OdbcTransaction)(workTransaction));
+                    if (this._protocolos_Pregas_CutaneasTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._protocolos_Pregas_CutaneasTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._protocolos_Pregas_CutaneasTableAdapter.Adapter);
+                    }
+                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -18216,6 +21512,14 @@ namespace NutricionalApp.NutricionalDBTableAdapters {
                 if ((this._gasto_atividadeTableAdapter != null)) {
                     this._gasto_atividadeTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(revertConnections[this._gasto_atividadeTableAdapter]));
                     this._gasto_atividadeTableAdapter.Transaction = null;
+                }
+                if ((this._antropometriaTableAdapter != null)) {
+                    this._antropometriaTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(revertConnections[this._antropometriaTableAdapter]));
+                    this._antropometriaTableAdapter.Transaction = null;
+                }
+                if ((this._protocolos_Pregas_CutaneasTableAdapter != null)) {
+                    this._protocolos_Pregas_CutaneasTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(revertConnections[this._protocolos_Pregas_CutaneasTableAdapter]));
+                    this._protocolos_Pregas_CutaneasTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
