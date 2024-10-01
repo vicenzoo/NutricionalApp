@@ -280,6 +280,148 @@ namespace NutricionalApp
                 CLASSIFICACAOIMC.Text = resultado.classificacao;
             }
         }
+
+        private void bt_Salvar_Click(object sender, EventArgs e)
+        {
+            using (var db = new DatabaseConnection())
+            {
+                db.OpenConnection();
+                using (var comm = new NpgsqlCommand(
+                     "UPDATE public.paciente " +
+                     "SET peso = @peso, altura = @altura " +
+                     "WHERE id_paciente = @id_paciente",
+                     db.GetConnection()))
+                {
+                    // Adicionando os parâmetros com seus respectivos valores
+                    comm.Parameters.AddWithValue("@id_paciente", PacienteId);
+                    comm.Parameters.AddWithValue("@peso", Convert.ToDouble(txt_Peso.Text));
+                    comm.Parameters.AddWithValue("@altura", Convert.ToDouble(txt_Altura.Text));
+
+                    try
+                    {
+                        comm.ExecuteNonQuery();
+                    }
+                    catch (Exception error)
+                    {
+                        MessageBox.Show($"Erro: {error.Message}!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                }
+            }
+
+
+
+            if (tabFormulario.Visible == true)
+            {
+
+                if (MessageBox.Show("Deseja salvar os dados de Circunferencia ?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    using (var db = new DatabaseConnection())
+                    {
+                        db.OpenConnection();
+                        using (var comm = new NpgsqlCommand(
+                            "UPDATE public.antropometria SET " +
+                            "braco_direito_relaxado=@braco_direito_relaxado, " +
+                            "braco_esquerdo_relaxado=@braco_esquerdo_relaxado, " +
+                            "braco_direito_contraido=@braco_direito_contraido, " +
+                            "braco_esquerdo_contraido=@braco_esquerdo_contraido, " +
+                            "antebraco_direito=@antebraco_direito, " +
+                            "antebraco_esquerdo=@antebraco_esquerdo, " +
+                            "punho_direito=@punho_direito, " +
+                            "punho_esquerdo=@punho_esquerdo, " +
+                            "pescoco=@pescoco, " +
+                            "ombro=@ombro, " +
+                            "peitoral=@peitoral, " +
+                            "cintura=@cintura, " +
+                            "quadril=@quadril, " +
+                            "panturilha_direita=@panturilha_direita, " +
+                            "panturilha_esquerda=@panturilha_esquerda, " +
+                            "coxa_direita=@coxa_direita, " +
+                            "coxa_esquerda=@coxa_esquerda, " +
+                            "coxa_proximal_direita=@coxa_proximal_direita, " +
+                            "coxa_proximal_esquerda=@coxa_proximal_esquerda " +
+                            "WHERE id_antro = @id_antro",
+                             db.GetConnection()))
+                        {
+                            // Adicionando os parâmetros com seus respectivos valores
+                            comm.Parameters.AddWithValue("@id_antro", AntropometriaID);
+                            comm.Parameters.AddWithValue("@braco_direito_relaxado", string.IsNullOrEmpty(txt_Braco_Dir_Relaxado.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_Braco_Dir_Relaxado.Text));
+                            comm.Parameters.AddWithValue("@braco_esquerdo_relaxado", string.IsNullOrEmpty(txt_Braco_Esq_Relaxado.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_Braco_Esq_Relaxado.Text));
+                            comm.Parameters.AddWithValue("@braco_direito_contraido", string.IsNullOrEmpty(txt_Braco_Dir_Contraido.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_Braco_Dir_Contraido.Text));
+                            comm.Parameters.AddWithValue("@braco_esquerdo_contraido", string.IsNullOrEmpty(txt_Braco_Esq_Contraido.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_Braco_Esq_Contraido.Text));
+                            comm.Parameters.AddWithValue("@antebraco_direito", string.IsNullOrEmpty(txt_antebraco_Dir.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_antebraco_Dir.Text));
+                            comm.Parameters.AddWithValue("@antebraco_esquerdo", string.IsNullOrEmpty(txt_antebraco_Esq.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_antebraco_Esq.Text));
+                            comm.Parameters.AddWithValue("@punho_direito", string.IsNullOrEmpty(txt_punho_dir.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_punho_dir.Text));
+                            comm.Parameters.AddWithValue("@punho_esquerdo", string.IsNullOrEmpty(txt_punho_esq.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_punho_esq.Text));
+                            comm.Parameters.AddWithValue("@pescoco", string.IsNullOrEmpty(txt_pescoco.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_pescoco.Text));
+                            comm.Parameters.AddWithValue("@ombro", string.IsNullOrEmpty(txt_ombro.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_ombro.Text));
+                            comm.Parameters.AddWithValue("@peitoral", string.IsNullOrEmpty(txt_peitoral.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_peitoral.Text));
+                            comm.Parameters.AddWithValue("@cintura", string.IsNullOrEmpty(txt_cintura.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_cintura.Text));
+                            comm.Parameters.AddWithValue("@quadril", string.IsNullOrEmpty(txt_quadril.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_quadril.Text));
+                            comm.Parameters.AddWithValue("@panturilha_direita", string.IsNullOrEmpty(txt_Panturrilia_dir.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_Panturrilia_dir.Text));
+                            comm.Parameters.AddWithValue("@panturilha_esquerda", string.IsNullOrEmpty(txt_panturilia_esq.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_panturilia_esq.Text));
+                            comm.Parameters.AddWithValue("@coxa_direita", string.IsNullOrEmpty(txt_coxa_dir.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_coxa_dir.Text));
+                            comm.Parameters.AddWithValue("@coxa_esquerda", string.IsNullOrEmpty(txt_coxa_esq.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_coxa_esq.Text));
+                            comm.Parameters.AddWithValue("@coxa_proximal_direita", string.IsNullOrEmpty(txt_coxa_proximal_dir.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_coxa_proximal_dir.Text));
+                            comm.Parameters.AddWithValue("@coxa_proximal_esquerda", string.IsNullOrEmpty(txt_Coxa_proximal_esq.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_Coxa_proximal_esq.Text));
+
+                            try
+                            {
+                                comm.ExecuteNonQuery();
+                            }
+                            catch (Exception error)
+                            {
+                                MessageBox.Show($"Erro: {error.Message}!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+
+                        }
+                    }
+                }
+
+                if (MessageBox.Show("Deseja salvar os dados de Composição Corporal?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    using (var db = new DatabaseConnection())
+                    {
+                        db.OpenConnection();
+                        using (var comm = new NpgsqlCommand(
+                            "UPDATE public.antropometria SET " +
+                            "protocolo_id_pc = @protocolo_id_pc, " +
+                            "bicecps = @bicecps, " +
+                            "abdominal = @abdominal, " +
+                            "tricips = @tricips, " +
+                            "torax = @torax, " +
+                            "coxa = @coxa, " +
+                            "panturilha_medial = @panturilha_medial " +  
+                            "WHERE id_antro = @id_antro",
+                            db.GetConnection()))
+                        {
+                            // Adicionando os parâmetros com seus respectivos valores
+                            comm.Parameters.AddWithValue("@id_antro", AntropometriaID);
+                            comm.Parameters.AddWithValue("@protocolo_id_pc", ProtocoloID);
+                            comm.Parameters.AddWithValue("@bicecps", string.IsNullOrEmpty(txt_PC_Biceps.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_PC_Biceps.Text));
+                            comm.Parameters.AddWithValue("@abdominal", string.IsNullOrEmpty(txt_PC_Abdominal.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_PC_Abdominal.Text));
+                            comm.Parameters.AddWithValue("@tricips", string.IsNullOrEmpty(txt_PC_triceps.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_PC_triceps.Text));
+                            comm.Parameters.AddWithValue("@torax", string.IsNullOrEmpty(txt_PC_torax.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_PC_torax.Text));
+                            comm.Parameters.AddWithValue("@coxa", string.IsNullOrEmpty(txt_PC_Coxa.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_PC_Coxa.Text));
+                            comm.Parameters.AddWithValue("@panturilha_medial", string.IsNullOrEmpty(txt_PC_Panturilia_Medial.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_PC_Panturilia_Medial.Text));
+
+                            try
+                            {
+                                comm.ExecuteNonQuery();
+                                MessageBox.Show("Dados salvos com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            catch (Exception error)
+                            {
+                                MessageBox.Show($"Erro: {error.Message}!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
 

@@ -35,9 +35,9 @@
             this.tabFormulario = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.gr_Torax = new System.Windows.Forms.GroupBox();
-            this.txt_quadri = new System.Windows.Forms.TextBox();
-            this.txt_abdomen = new System.Windows.Forms.TextBox();
             this.txt_quadril = new System.Windows.Forms.TextBox();
+            this.txt_abdomen = new System.Windows.Forms.TextBox();
+            this.txt_cintura = new System.Windows.Forms.TextBox();
             this.txt_peitoral = new System.Windows.Forms.TextBox();
             this.txt_ombro = new System.Windows.Forms.TextBox();
             this.txt_pescoco = new System.Windows.Forms.TextBox();
@@ -107,6 +107,7 @@
             this.gr_Circunferencias = new System.Windows.Forms.GroupBox();
             this.RESULTADO_CIRC = new System.Windows.Forms.Label();
             this.gr_IMC_Resultado = new System.Windows.Forms.GroupBox();
+            this.CLASSIFICACAOIMC = new System.Windows.Forms.Label();
             this.IMC = new System.Windows.Forms.Label();
             this.gr_SobrePaciente = new System.Windows.Forms.GroupBox();
             this.txt_Altura = new System.Windows.Forms.TextBox();
@@ -116,7 +117,6 @@
             this.label28 = new System.Windows.Forms.Label();
             this.bt_EditarAntrometria = new System.Windows.Forms.Button();
             this.bt_adicionarAntrometria = new System.Windows.Forms.Button();
-            this.CLASSIFICACAOIMC = new System.Windows.Forms.Label();
             this.tabFormulario.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gr_Torax.SuspendLayout();
@@ -195,9 +195,9 @@
             // 
             // gr_Torax
             // 
-            this.gr_Torax.Controls.Add(this.txt_quadri);
-            this.gr_Torax.Controls.Add(this.txt_abdomen);
             this.gr_Torax.Controls.Add(this.txt_quadril);
+            this.gr_Torax.Controls.Add(this.txt_abdomen);
+            this.gr_Torax.Controls.Add(this.txt_cintura);
             this.gr_Torax.Controls.Add(this.txt_peitoral);
             this.gr_Torax.Controls.Add(this.txt_ombro);
             this.gr_Torax.Controls.Add(this.txt_pescoco);
@@ -214,12 +214,12 @@
             this.gr_Torax.TabStop = false;
             this.gr_Torax.Text = "Torax";
             // 
-            // txt_quadri
+            // txt_quadril
             // 
-            this.txt_quadri.Location = new System.Drawing.Point(634, 52);
-            this.txt_quadri.Name = "txt_quadri";
-            this.txt_quadri.Size = new System.Drawing.Size(100, 20);
-            this.txt_quadri.TabIndex = 32;
+            this.txt_quadril.Location = new System.Drawing.Point(634, 52);
+            this.txt_quadril.Name = "txt_quadril";
+            this.txt_quadril.Size = new System.Drawing.Size(100, 20);
+            this.txt_quadril.TabIndex = 32;
             // 
             // txt_abdomen
             // 
@@ -228,12 +228,12 @@
             this.txt_abdomen.Size = new System.Drawing.Size(100, 20);
             this.txt_abdomen.TabIndex = 31;
             // 
-            // txt_quadril
+            // txt_cintura
             // 
-            this.txt_quadril.Location = new System.Drawing.Point(177, 49);
-            this.txt_quadril.Name = "txt_quadril";
-            this.txt_quadril.Size = new System.Drawing.Size(78, 20);
-            this.txt_quadril.TabIndex = 30;
+            this.txt_cintura.Location = new System.Drawing.Point(177, 49);
+            this.txt_cintura.Name = "txt_cintura";
+            this.txt_cintura.Size = new System.Drawing.Size(78, 20);
+            this.txt_cintura.TabIndex = 30;
             // 
             // txt_peitoral
             // 
@@ -828,6 +828,7 @@
             this.bt_Salvar.Text = "Salvar";
             this.bt_Salvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_Salvar.UseVisualStyleBackColor = true;
+            this.bt_Salvar.Click += new System.EventHandler(this.bt_Salvar_Click);
             // 
             // gr_CompCorporal
             // 
@@ -879,6 +880,16 @@
             this.gr_IMC_Resultado.TabIndex = 0;
             this.gr_IMC_Resultado.TabStop = false;
             this.gr_IMC_Resultado.Text = "Resultado IMC";
+            // 
+            // CLASSIFICACAOIMC
+            // 
+            this.CLASSIFICACAOIMC.AutoSize = true;
+            this.CLASSIFICACAOIMC.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CLASSIFICACAOIMC.Location = new System.Drawing.Point(115, 32);
+            this.CLASSIFICACAOIMC.Name = "CLASSIFICACAOIMC";
+            this.CLASSIFICACAOIMC.Size = new System.Drawing.Size(80, 37);
+            this.CLASSIFICACAOIMC.TabIndex = 2;
+            this.CLASSIFICACAOIMC.Text = "BOM";
             // 
             // IMC
             // 
@@ -969,16 +980,6 @@
             this.bt_adicionarAntrometria.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_adicionarAntrometria.UseVisualStyleBackColor = true;
             this.bt_adicionarAntrometria.Click += new System.EventHandler(this.bt_adicionarAntrometria_Click);
-            // 
-            // CLASSIFICACAOIMC
-            // 
-            this.CLASSIFICACAOIMC.AutoSize = true;
-            this.CLASSIFICACAOIMC.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CLASSIFICACAOIMC.Location = new System.Drawing.Point(115, 32);
-            this.CLASSIFICACAOIMC.Name = "CLASSIFICACAOIMC";
-            this.CLASSIFICACAOIMC.Size = new System.Drawing.Size(80, 37);
-            this.CLASSIFICACAOIMC.TabIndex = 2;
-            this.CLASSIFICACAOIMC.Text = "BOM";
             // 
             // CadAntropometria
             // 
@@ -1077,9 +1078,9 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox txt_quadri;
-        private System.Windows.Forms.TextBox txt_abdomen;
         private System.Windows.Forms.TextBox txt_quadril;
+        private System.Windows.Forms.TextBox txt_abdomen;
+        private System.Windows.Forms.TextBox txt_cintura;
         private System.Windows.Forms.TextBox txt_peitoral;
         private System.Windows.Forms.TextBox txt_ombro;
         private System.Windows.Forms.TextBox txt_pescoco;
