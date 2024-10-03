@@ -207,5 +207,50 @@ namespace NutricionalApp
 
             return (imc, classificacao);
         }
+
+        public static (double rcq, string classificacao) CalcularRCQ(double cintura, double quadril,string sexo)
+        {
+            double rcq = cintura / quadril;
+            string classificacao;
+
+            if (sexo == "M")
+            {
+                if (rcq < 0.90)
+                {
+                    classificacao = "Excelente";
+                }
+                else if (rcq >= 0.90 && rcq < 0.95)
+                {
+                    classificacao = "Bom";
+                }
+                else
+                {
+                    classificacao = "Ruim";
+                }
+            }
+            else if (sexo == "F")
+            {
+                if (rcq < 0.80)
+                {
+                    classificacao = "Excelente";
+                }
+                else if (rcq >= 0.80 && rcq < 0.85)
+                {
+                    classificacao = "Bom";
+                }
+                else
+                {
+                    classificacao = "Ruim";
+                }
+            }
+            else
+            {
+                classificacao = "Não foi possível classificar";
+            }
+
+
+            return (rcq, classificacao);
+        }
+
     }
 }

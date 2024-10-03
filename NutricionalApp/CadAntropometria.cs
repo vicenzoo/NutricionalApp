@@ -19,6 +19,8 @@ namespace NutricionalApp
         int AntropometriaID = 0;
         int protocolopcID = 0;
         int ProtocoloID = 0;
+        string tipoSexo;
+
         public CadAntropometria()
         {
             InitializeComponent();
@@ -56,7 +58,7 @@ namespace NutricionalApp
             using (var db = new DatabaseConnection())
             {
                 db.OpenConnection();
-                db.GetAntropometriaCombobox(PacienteId, cb_Antropometrias);
+                db.GetAntropometriaCombobox(PacienteId, cb_Antropometrias,l_idade,l_sexo);
             }
         }
 
@@ -130,8 +132,9 @@ namespace NutricionalApp
                                         // Atualize suas labels e textboxes aqui
                                         txt_Peso.Text = reader["peso"].ToString();
                                         txt_Altura.Text = reader["altura"].ToString();
-                                        //l_idade.Text = reader["idade"].ToString() + " anos";
-
+                                        l_idade.Text = reader["idade"].ToString() + " anos";
+                                        tipoSexo = reader["sexo"].ToString();
+                                        l_sexo.Text = tipoSexo;
 
                                     }
                                 }
@@ -161,7 +164,7 @@ namespace NutricionalApp
         {
             try
             {
-                var query = "SELECT at.id_antro, at.paciente_id,pa.peso,pa.altura, at.\"Descricao\", at.\"Data\", at.braco_direito_relaxado, at.braco_esquerdo_relaxado, at.braco_direito_contraido, at.braco_esquerdo_contraido, at.antebraco_direito, at.antebraco_esquerdo, at.punho_direito, at.punho_esquerdo, at.pescoco, at.ombro, at.peitoral, at.cintura, at.quadril, at.panturilha_direita, at.panturilha_esquerda, at.coxa_direita, at.coxa_esquerda, at.coxa_proximal_direita, at.coxa_proximal_esquerda, at.protocolo_id_pc, at.bicecps, at.abdominal, at.tricips, at.supescapular, at.torax, at.coxa, at.panturilha_medial, at.ativo FROM public.antropometria at JOIN paciente pa on pa.id_paciente = at.paciente_id where at.id_antro = @filtro";
+                var query = "SELECT at.id_antro, at.paciente_id,pa.peso,pa.altura,pa.idade,pa.sexo, at.\"Descricao\", at.\"Data\", at.braco_direito_relaxado, at.braco_esquerdo_relaxado, at.braco_direito_contraido,at.abdomen, at.braco_esquerdo_contraido, at.antebraco_direito, at.antebraco_esquerdo, at.punho_direito, at.punho_esquerdo, at.pescoco, at.ombro, at.peitoral, at.cintura, at.quadril, at.panturilha_direita, at.panturilha_esquerda, at.coxa_direita, at.coxa_esquerda, at.coxa_proximal_direita, at.coxa_proximal_esquerda, at.protocolo_id_pc, at.bicecps, at.abdominal, at.tricips, at.supescapular, at.torax, at.coxa, at.panturilha_medial, at.ativo FROM public.antropometria at JOIN paciente pa on pa.id_paciente = at.paciente_id where at.id_antro = @filtro";
                 var filtro = AntropometriaID;
                 using (var db = new DatabaseConnection())
                 {
@@ -187,12 +190,41 @@ namespace NutricionalApp
                                 txt_Peso.Text = row["peso"] != DBNull.Value ? row["peso"].ToString() : string.Empty;
                                 txt_Altura.Text = row["altura"] != DBNull.Value ? row["altura"].ToString() : string.Empty;
 
+                                txt_Braco_Dir_Relaxado.Text = row["braco_direito_relaxado"] != DBNull.Value ? row["braco_direito_relaxado"].ToString() : string.Empty;
+                                txt_Braco_Esq_Relaxado.Text = row["braco_esquerdo_relaxado"] != DBNull.Value ? row["braco_esquerdo_relaxado"].ToString() : string.Empty;
+                                txt_Braco_Dir_Contraido.Text = row["braco_direito_contraido"] != DBNull.Value ? row["braco_direito_contraido"].ToString() : string.Empty;
+                                txt_Braco_Esq_Contraido.Text = row["braco_esquerdo_contraido"] != DBNull.Value ? row["braco_esquerdo_contraido"].ToString() : string.Empty;
+                                txt_antebraco_Dir.Text = row["antebraco_direito"] != DBNull.Value ? row["antebraco_direito"].ToString() : string.Empty;
+                                txt_antebraco_Esq.Text = row["antebraco_esquerdo"] != DBNull.Value ? row["antebraco_esquerdo"].ToString() : string.Empty;
+                                txt_punho_dir.Text = row["punho_direito"] != DBNull.Value ? row["punho_direito"].ToString() : string.Empty;
+                                txt_punho_esq.Text = row["punho_esquerdo"] != DBNull.Value ? row["punho_esquerdo"].ToString() : string.Empty;
+                                txt_pescoco.Text = row["pescoco"] != DBNull.Value ? row["pescoco"].ToString() : string.Empty;
+                                txt_ombro.Text = row["ombro"] != DBNull.Value ? row["ombro"].ToString() : string.Empty;
+                                txt_peitoral.Text = row["peitoral"] != DBNull.Value ? row["peitoral"].ToString() : string.Empty;
+                                txt_cintura.Text = row["cintura"] != DBNull.Value ? row["cintura"].ToString() : string.Empty;
+                                txt_quadril.Text = row["quadril"] != DBNull.Value ? row["quadril"].ToString() : string.Empty;
+                                txt_abdomen.Text = row["abdomen"] != DBNull.Value ? row["abdomen"].ToString() : string.Empty;
+                                txt_Panturrilia_dir.Text = row["panturilha_direita"] != DBNull.Value ? row["panturilha_direita"].ToString() : string.Empty;
+                                txt_panturilia_esq.Text = row["panturilha_esquerda"] != DBNull.Value ? row["panturilha_esquerda"].ToString() : string.Empty;
+                                txt_coxa_dir.Text = row["coxa_direita"] != DBNull.Value ? row["coxa_direita"].ToString() : string.Empty;
+                                txt_coxa_esq.Text = row["coxa_esquerda"] != DBNull.Value ? row["coxa_esquerda"].ToString() : string.Empty;
+                                txt_coxa_proximal_dir.Text = row["coxa_proximal_direita"] != DBNull.Value ? row["coxa_proximal_direita"].ToString() : string.Empty;
+                                txt_Coxa_proximal_esq.Text = row["coxa_proximal_esquerda"] != DBNull.Value ? row["coxa_proximal_esquerda"].ToString() : string.Empty;
+                                txt_PC_Biceps.Text = row["bicecps"] != DBNull.Value ? row["bicecps"].ToString() : string.Empty;
+                                txt_PC_Abdominal.Text = row["abdominal"] != DBNull.Value ? row["abdominal"].ToString() : string.Empty;
+                                txt_PC_triceps.Text = row["tricips"] != DBNull.Value ? row["tricips"].ToString() : string.Empty;
+                                txt_PC_subscapular.Text = row["supescapular"] != DBNull.Value ? row["supescapular"].ToString() : string.Empty;
+                                txt_PC_torax.Text = row["torax"] != DBNull.Value ? row["torax"].ToString() : string.Empty;
+                                txt_PC_Coxa.Text = row["coxa"] != DBNull.Value ? row["coxa"].ToString() : string.Empty;
+                                txt_PC_Panturilia_Medial.Text = row["panturilha_medial"] != DBNull.Value ? row["panturilha_medial"].ToString() : string.Empty;
+
                                 int protocoloIdpc = row["protocolo_id_pc"] != DBNull.Value ? Convert.ToInt32(row["protocolo_id_pc"]) : 0;
                                 if (protocolopcID != 0)
                                 {
                                     PreencherComboBoxProtocoloPC(protocoloIdpc);
                                 }
-
+                                l_sexo.Text = Convert.ToString(row["sexo"]);
+                                l_idade.Text = Convert.ToString(row["idade"]) + " anos";
 
 
                                 tabFormulario.Visible = true;
@@ -232,6 +264,15 @@ namespace NutricionalApp
 
         private void cb_Protocolo_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            txt_PC_Abdominal.Clear();
+            txt_PC_torax.Clear();
+            txt_PC_Coxa.Clear();
+            txt_PC_Biceps.Clear();
+            txt_PC_triceps.Clear();
+            txt_PC_subscapular.Clear();
+            txt_PC_suprailiaca.Clear();
+
             ProtocolosPC ProtocoloSelecionado = (ProtocolosPC)cb_Protocolo.SelectedItem;
 
             if (ProtocoloSelecionado != null)
@@ -257,6 +298,7 @@ namespace NutricionalApp
                 txt_PC_Biceps.Enabled = true;
                 txt_PC_triceps.Enabled = true;
                 txt_PC_subscapular.Enabled = true;
+                txt_PC_suprailiaca.Enabled = true;
 
             }
             else
@@ -264,6 +306,7 @@ namespace NutricionalApp
                 txt_PC_Biceps.Enabled = false;
                 txt_PC_triceps.Enabled = false;
                 txt_PC_subscapular.Enabled = false;
+                txt_PC_suprailiaca.Enabled = false;
             }
         }
 
@@ -271,13 +314,34 @@ namespace NutricionalApp
         {
             if (tabFormulario.SelectedIndex == 2)
             {
-                var resultado = Funcoes.CalcularIMC(Convert.ToDouble(txt_Peso.Text), Convert.ToDouble(txt_Altura.Text));
 
-                // Exibe o valor do IMC
-                IMC.Text = $"{resultado.imc.ToString("F2")}";
+                if (!string.IsNullOrEmpty(txt_Peso.Text) && !string.IsNullOrEmpty(txt_Altura.Text))
+                {
+                    var imc = Funcoes.CalcularIMC(Convert.ToDouble(txt_Peso.Text), Convert.ToDouble(txt_Altura.Text));
+                    // Exibe o valor do IMC
+                    IMC.Text = $"{imc.imc.ToString("F2")}";
+                    // Exibe a classificação do IMC
+                    CLASSIFICACAOIMC.Text = imc.classificacao;
+                    gr_IMC_Resultado.Visible = true;
+                }
+                else
+                {
+                    gr_IMC_Resultado.Visible = false;
+                }
 
-                // Exibe a classificação do IMC
-                CLASSIFICACAOIMC.Text = resultado.classificacao;
+                if (!string.IsNullOrEmpty(txt_cintura.Text) && !string.IsNullOrEmpty(txt_quadril.Text))
+                {
+                    var rcq = Funcoes.CalcularRCQ(Convert.ToDouble(txt_cintura.Text), Convert.ToDouble(txt_quadril.Text),l_sexo.Text);
+                    // Exibe o valor do RCQ
+                    RCQ.Text = $"{rcq.rcq.ToString("F2")}";
+                    // Exibe a classificação do RCQ
+                    CLASSIFICACAORCQ.Text = rcq.classificacao;
+                    gr_Circunferencias.Visible = true;
+                }
+                else
+                {
+                    gr_Circunferencias.Visible = false;
+                }
             }
         }
 
@@ -286,27 +350,32 @@ namespace NutricionalApp
             using (var db = new DatabaseConnection())
             {
                 db.OpenConnection();
-                using (var comm = new NpgsqlCommand(
+
+
+                if (!string.IsNullOrEmpty(txt_Peso.Text) && !string.IsNullOrEmpty(txt_Altura.Text))
+                {
+                    using (var comm = new NpgsqlCommand(
                      "UPDATE public.paciente " +
-                     "SET peso = @peso, altura = @altura " +
+                     "SET peso = @peso, altura = @altura, imc = @imc " +
                      "WHERE id_paciente = @id_paciente",
                      db.GetConnection()))
-                {
-                    // Adicionando os parâmetros com seus respectivos valores
-                    comm.Parameters.AddWithValue("@id_paciente", PacienteId);
-                    comm.Parameters.AddWithValue("@peso", Convert.ToDouble(txt_Peso.Text));
-                    comm.Parameters.AddWithValue("@altura", Convert.ToDouble(txt_Altura.Text));
-
-                    try
                     {
-                        comm.ExecuteNonQuery();
-                    }
-                    catch (Exception error)
-                    {
-                        MessageBox.Show($"Erro: {error.Message}!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
+                        // Adicionando os parâmetros com seus respectivos valores
+                        comm.Parameters.AddWithValue("@id_paciente", PacienteId);
+                        comm.Parameters.AddWithValue("@peso", Convert.ToDouble(txt_Peso.Text));
+                        comm.Parameters.AddWithValue("@altura", Convert.ToDouble(txt_Altura.Text));
+                        comm.Parameters.AddWithValue("@imc", Convert.ToDouble(IMC.Text));
+                        try
+                        {
+                            comm.ExecuteNonQuery();
+                        }
+                        catch (Exception error)
+                        {
+                            MessageBox.Show($"Erro: {error.Message}!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
 
+                    }
                 }
             }
 
@@ -335,6 +404,7 @@ namespace NutricionalApp
                             "peitoral=@peitoral, " +
                             "cintura=@cintura, " +
                             "quadril=@quadril, " +
+                            "abdomen=@abdomen, " +
                             "panturilha_direita=@panturilha_direita, " +
                             "panturilha_esquerda=@panturilha_esquerda, " +
                             "coxa_direita=@coxa_direita, " +
@@ -359,6 +429,7 @@ namespace NutricionalApp
                             comm.Parameters.AddWithValue("@peitoral", string.IsNullOrEmpty(txt_peitoral.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_peitoral.Text));
                             comm.Parameters.AddWithValue("@cintura", string.IsNullOrEmpty(txt_cintura.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_cintura.Text));
                             comm.Parameters.AddWithValue("@quadril", string.IsNullOrEmpty(txt_quadril.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_quadril.Text));
+                            comm.Parameters.AddWithValue("@abdomen", string.IsNullOrEmpty(txt_abdomen.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_abdomen.Text));
                             comm.Parameters.AddWithValue("@panturilha_direita", string.IsNullOrEmpty(txt_Panturrilia_dir.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_Panturrilia_dir.Text));
                             comm.Parameters.AddWithValue("@panturilha_esquerda", string.IsNullOrEmpty(txt_panturilia_esq.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_panturilia_esq.Text));
                             comm.Parameters.AddWithValue("@coxa_direita", string.IsNullOrEmpty(txt_coxa_dir.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_coxa_dir.Text));
@@ -391,6 +462,7 @@ namespace NutricionalApp
                             "bicecps = @bicecps, " +
                             "abdominal = @abdominal, " +
                             "tricips = @tricips, " +
+                            "supescapular = @supescapular, " +
                             "torax = @torax, " +
                             "coxa = @coxa, " +
                             "panturilha_medial = @panturilha_medial " +  
@@ -404,6 +476,7 @@ namespace NutricionalApp
                             comm.Parameters.AddWithValue("@abdominal", string.IsNullOrEmpty(txt_PC_Abdominal.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_PC_Abdominal.Text));
                             comm.Parameters.AddWithValue("@tricips", string.IsNullOrEmpty(txt_PC_triceps.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_PC_triceps.Text));
                             comm.Parameters.AddWithValue("@torax", string.IsNullOrEmpty(txt_PC_torax.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_PC_torax.Text));
+                            comm.Parameters.AddWithValue("@supescapular", string.IsNullOrEmpty(txt_PC_subscapular.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_PC_subscapular.Text));
                             comm.Parameters.AddWithValue("@coxa", string.IsNullOrEmpty(txt_PC_Coxa.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_PC_Coxa.Text));
                             comm.Parameters.AddWithValue("@panturilha_medial", string.IsNullOrEmpty(txt_PC_Panturilia_Medial.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_PC_Panturilia_Medial.Text));
 
@@ -420,6 +493,14 @@ namespace NutricionalApp
                         }
                     }
                 }
+            }
+        }
+
+        private void txt_Braco_Dir_Relaxado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)  && e.KeyChar != ',') //Aceita apenas Numeros e virgula
+            {
+                e.Handled = true;
             }
         }
     }

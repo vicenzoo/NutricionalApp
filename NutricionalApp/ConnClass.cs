@@ -911,10 +911,16 @@ namespace NutricionalApp
             public int Id { get; set; }
             public string AntropometriaDesc { get; set; }
 
-            public Antropometria(int id, string antropometriaDesc)
+            public int Idade { get; set; }
+
+            public string Sexo { get; set; }
+
+            public Antropometria(int id, string antropometriaDesc, int idade, string sexo)
             {
                 Id = id;
                 AntropometriaDesc = antropometriaDesc;
+                Sexo = sexo;
+                Idade = idade;
             }
 
             // Sobrescreva o método ToString para que o ComboBox exiba a descrição da tabela TACO
@@ -924,14 +930,14 @@ namespace NutricionalApp
             }
         }
 
-        public void GetAntropometriaCombobox(int Id_Paciente, ComboBox comboBox)
+        public void GetAntropometriaCombobox(int Id_Paciente, ComboBox comboBox, Label idade, Label sexo)
         {
             using (var db = new DatabaseConnection())
             {
                 db.OpenConnection();
 
 
-                using (var comm = new NpgsqlCommand("SELECT at.id_antro, at.paciente_id, at.\"Descricao\", at.\"Data\", at.ativo FROM public.antropometria at where at.paciente_id = @paciente_id", db.GetConnection()))
+                using (var comm = new NpgsqlCommand("SELECT at.id_antro, at.paciente_id,pa.idade,pa.sexo, at.\"Descricao\", at.\"Data\", at.ativo FROM public.antropometria at JOIN paciente pa ON pa.id_paciente = at.paciente_id  where at.paciente_id = @paciente_id", db.GetConnection()))
                 {
                     comm.Parameters.AddWithValue("@paciente_id", Id_Paciente);
 
@@ -946,8 +952,10 @@ namespace NutricionalApp
 
                                 int idant = Convert.ToInt32(reader["id_antro"]);
                                 string descricaoAntropometria = reader["Descricao"].ToString();
+                                int idadePaciente = Convert.ToInt32(reader["idade"]);
+                                string sexoPaciente = reader["sexo"].ToString();
 
-                                comboBox.Items.Add(new Antropometria(idant, descricaoAntropometria));
+                                comboBox.Items.Add(new Antropometria(idant, descricaoAntropometria, idadePaciente,sexoPaciente));
                             }
 
                             // Verifica se encontrou

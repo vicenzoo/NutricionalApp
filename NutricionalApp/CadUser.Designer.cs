@@ -280,8 +280,7 @@
             this.cbSexo.FormattingEnabled = true;
             this.cbSexo.Items.AddRange(new object[] {
             "Feminino",
-            "Masculino",
-            "Outro"});
+            "Masculino"});
             this.cbSexo.Location = new System.Drawing.Point(96, 139);
             this.cbSexo.Name = "cbSexo";
             this.cbSexo.Size = new System.Drawing.Size(98, 21);
