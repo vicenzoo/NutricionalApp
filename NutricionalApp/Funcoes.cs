@@ -252,5 +252,68 @@ namespace NutricionalApp
             return (rcq, classificacao);
         }
 
+        public static void CalcularComposicaoCorporal(
+        double peso, string sexo, string protocolo,double biceps, double triceps, double subescapular, double suprailica,
+        double peitoral, double abdominal, double coxa, Label Resultados,GroupBox grupo)
+        {
+            grupo.Text = "Resultados Composição Corporal (" + protocolo + "):";
+            if (protocolo == "4 pregas: Durmin & Wormersley")
+            {
+                double somaDobras = biceps + triceps + subescapular + suprailica;
+                double densidadeCorporal = CalcularDensidadeCorporal(sexo, somaDobras);
+
+                double percentualMassaGorda = (4.95 / densidadeCorporal - 4.50) * 100;
+                double percentualMassaMagra = 100 - percentualMassaGorda;
+                double massaGorda = peso * percentualMassaGorda / 100;
+                double massaMagra = peso - massaGorda;
+
+                Resultados.Text = "";
+                Resultados.Text = ($"Percentual Massa Gorda: {percentualMassaGorda:F2}% " + "\n");
+                Resultados.Text =  Resultados.Text  + ($"Percentual Massa Magra: {percentualMassaMagra:F2}% " + "\n");
+                Resultados.Text =  Resultados.Text  +  ($"Massa Gorda: {massaGorda:F2} kg " + "\n");
+                Resultados.Text =  Resultados.Text  +  ($"Massa Magra: {massaMagra:F2} kg " + "\n");
+                Resultados.Text =  Resultados.Text  +  ($"Densidade Corporal: {densidadeCorporal:F4}");
+
+
+            }
+            else if (protocolo == "3 pregas: Jackson & Pollock")
+            {
+                double somaDobras = sexo == "M"
+                    ? peitoral + abdominal + coxa //Verdadeiro
+                    : triceps + suprailica + subescapular; //Falso (Feminino)
+
+                double densidadeCorporal = CalcularDensidadeCorporal(sexo, somaDobras);
+
+                double percentualMassaGorda = (4.95 / densidadeCorporal - 4.50) * 100;
+                double percentualMassaMagra = 100 - percentualMassaGorda;
+                double massaGorda = peso * percentualMassaGorda / 100;
+                double massaMagra = peso - massaGorda;
+
+                Resultados.Text = "";
+                Resultados.Text = ($"Percentual Massa Gorda: {percentualMassaGorda:F2}% " + "\n");
+                Resultados.Text =  Resultados.Text  + ($"Percentual Massa Magra: {percentualMassaMagra:F2}% " + "\n");
+                Resultados.Text =  Resultados.Text  +  ($"Massa Gorda: {massaGorda:F2} kg " + "\n");
+                Resultados.Text =  Resultados.Text  +  ($"Massa Magra: {massaMagra:F2} kg " + "\n");
+                Resultados.Text =  Resultados.Text  +  ($"Densidade Corporal: {densidadeCorporal:F4}");
+
+            }
+
+
+        }
+
+        public static double CalcularDensidadeCorporal(string sexo, double somaDobras)
+        {
+            if (sexo == "M")
+            {
+                return 1.1631 - 0.0632 * Math.Log10(somaDobras);
+            }
+            else if (sexo == "F")
+            {
+                return 1.1599 - 0.0717 * Math.Log10(somaDobras);
+            }
+            throw new ArgumentException("Sexo não reconhecido.");
+        }
+
+
     }
 }

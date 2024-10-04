@@ -17,7 +17,6 @@ namespace NutricionalApp
         int PacienteId;
         int NutricionistaID = 0;
         int AntropometriaID = 0;
-        int protocolopcID = 0;
         int ProtocoloID = 0;
         string tipoSexo;
 
@@ -164,7 +163,7 @@ namespace NutricionalApp
         {
             try
             {
-                var query = "SELECT at.id_antro, at.paciente_id,pa.peso,pa.altura,pa.idade,pa.sexo, at.\"Descricao\", at.\"Data\", at.braco_direito_relaxado, at.braco_esquerdo_relaxado, at.braco_direito_contraido,at.abdomen, at.braco_esquerdo_contraido, at.antebraco_direito, at.antebraco_esquerdo, at.punho_direito, at.punho_esquerdo, at.pescoco, at.ombro, at.peitoral, at.cintura, at.quadril, at.panturilha_direita, at.panturilha_esquerda, at.coxa_direita, at.coxa_esquerda, at.coxa_proximal_direita, at.coxa_proximal_esquerda, at.protocolo_id_pc, at.bicecps, at.abdominal, at.tricips, at.supescapular, at.torax, at.coxa, at.panturilha_medial, at.ativo FROM public.antropometria at JOIN paciente pa on pa.id_paciente = at.paciente_id where at.id_antro = @filtro";
+                var query = "SELECT at.id_antro,at.protocolo_id_pc, at.paciente_id,pa.peso,pa.altura,pa.idade,pa.sexo, at.\"Descricao\", at.\"Data\", at.braco_direito_relaxado, at.braco_esquerdo_relaxado, at.braco_direito_contraido,at.abdomen, at.braco_esquerdo_contraido, at.antebraco_direito, at.antebraco_esquerdo, at.punho_direito, at.punho_esquerdo, at.pescoco, at.ombro, at.peitoral, at.cintura, at.quadril, at.panturilha_direita, at.panturilha_esquerda,at.suprailiaca, at.coxa_direita, at.coxa_esquerda, at.coxa_proximal_direita, at.coxa_proximal_esquerda, at.protocolo_id_pc, at.bicecps, at.abdominal, at.tricips, at.supescapular, at.torax, at.coxa, at.panturilha_medial, at.ativo FROM public.antropometria at JOIN paciente pa on pa.id_paciente = at.paciente_id where at.id_antro = @filtro";
                 var filtro = AntropometriaID;
                 using (var db = new DatabaseConnection())
                 {
@@ -214,12 +213,13 @@ namespace NutricionalApp
                                 txt_PC_Abdominal.Text = row["abdominal"] != DBNull.Value ? row["abdominal"].ToString() : string.Empty;
                                 txt_PC_triceps.Text = row["tricips"] != DBNull.Value ? row["tricips"].ToString() : string.Empty;
                                 txt_PC_subscapular.Text = row["supescapular"] != DBNull.Value ? row["supescapular"].ToString() : string.Empty;
+                                txt_PC_suprailiaca.Text = row["suprailiaca"] != DBNull.Value ? row["suprailiaca"].ToString() : string.Empty;
                                 txt_PC_torax.Text = row["torax"] != DBNull.Value ? row["torax"].ToString() : string.Empty;
                                 txt_PC_Coxa.Text = row["coxa"] != DBNull.Value ? row["coxa"].ToString() : string.Empty;
                                 txt_PC_Panturilia_Medial.Text = row["panturilha_medial"] != DBNull.Value ? row["panturilha_medial"].ToString() : string.Empty;
 
                                 int protocoloIdpc = row["protocolo_id_pc"] != DBNull.Value ? Convert.ToInt32(row["protocolo_id_pc"]) : 0;
-                                if (protocolopcID != 0)
+                                if (protocoloIdpc != 0)
                                 {
                                     PreencherComboBoxProtocoloPC(protocoloIdpc);
                                 }
@@ -265,14 +265,6 @@ namespace NutricionalApp
         private void cb_Protocolo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            txt_PC_Abdominal.Clear();
-            txt_PC_torax.Clear();
-            txt_PC_Coxa.Clear();
-            txt_PC_Biceps.Clear();
-            txt_PC_triceps.Clear();
-            txt_PC_subscapular.Clear();
-            txt_PC_suprailiaca.Clear();
-
             ProtocolosPC ProtocoloSelecionado = (ProtocolosPC)cb_Protocolo.SelectedItem;
 
             if (ProtocoloSelecionado != null)
@@ -291,6 +283,9 @@ namespace NutricionalApp
                 txt_PC_Abdominal.Enabled = false;
                 txt_PC_torax.Enabled = false;
                 txt_PC_Coxa.Enabled = false;
+                txt_PC_Abdominal.Clear();
+                txt_PC_torax.Clear();
+                txt_PC_Coxa.Clear();
             }
 
             if (ProtocoloSelecionado.Descricao == "4 pregas: Durmin & Wormersley")
@@ -307,6 +302,10 @@ namespace NutricionalApp
                 txt_PC_triceps.Enabled = false;
                 txt_PC_subscapular.Enabled = false;
                 txt_PC_suprailiaca.Enabled = false;
+                txt_PC_Biceps.Clear();
+                txt_PC_triceps.Clear();
+                txt_PC_subscapular.Clear();
+                txt_PC_suprailiaca.Clear();
             }
         }
 
@@ -342,6 +341,63 @@ namespace NutricionalApp
                 {
                     gr_Circunferencias.Visible = false;
                 }
+
+                if (cb_Protocolo.SelectedItem.ToString()  == "4 pregas: Durmin & Wormersley")
+                {
+                    if (!string.IsNullOrEmpty(txt_Peso.Text) &&
+                        !string.IsNullOrEmpty(txt_PC_Biceps.Text) &&
+                        !string.IsNullOrEmpty(txt_PC_triceps.Text) &&
+                        !string.IsNullOrEmpty(txt_PC_subscapular.Text) &&
+                        !string.IsNullOrEmpty(txt_PC_suprailiaca.Text)
+                        )
+                    {
+                        Funcoes.CalcularComposicaoCorporal(
+                            Convert.ToDouble(txt_Peso.Text),
+                            l_sexo.Text,
+                            Convert.ToString(cb_Protocolo.SelectedItem),
+                            Convert.ToDouble(txt_PC_Biceps.Text),
+                            Convert.ToDouble(txt_PC_triceps.Text),
+                            Convert.ToDouble(txt_PC_subscapular.Text),
+                            Convert.ToDouble(txt_PC_suprailiaca.Text),
+                            0,
+                            0,
+                            0,
+                            RESULTADOCOMPCOR,
+                            gr_CompCorporal);
+
+                        gr_CompCorporal.Visible = true;
+                    }
+                }
+                else if (cb_Protocolo.SelectedItem.ToString()  == "3 pregas: Jackson & Pollock")
+                {
+                    if (!string.IsNullOrEmpty(txt_PC_torax.Text) &&
+                        !string.IsNullOrEmpty(txt_PC_Abdominal.Text) &&
+                        !string.IsNullOrEmpty(txt_PC_Coxa.Text)
+                        )
+                    {
+                        Funcoes.CalcularComposicaoCorporal(
+                            Convert.ToDouble(txt_Peso.Text),
+                            l_sexo.Text,
+                            Convert.ToString(cb_Protocolo.SelectedItem),
+                            0, 
+                            0,
+                            0,
+                            0,
+                            Convert.ToDouble(txt_PC_torax.Text),
+                            Convert.ToDouble(txt_PC_Abdominal.Text),
+                            Convert.ToDouble(txt_PC_Coxa.Text),
+                            RESULTADOCOMPCOR,
+                            gr_CompCorporal);
+
+
+                        gr_CompCorporal.Visible = true;
+                    }
+                }
+                else
+                {
+                    gr_CompCorporal.Visible = false;
+                }
+
             }
         }
 
@@ -463,6 +519,7 @@ namespace NutricionalApp
                             "abdominal = @abdominal, " +
                             "tricips = @tricips, " +
                             "supescapular = @supescapular, " +
+                            "suprailiaca = @suprailiaca, " +
                             "torax = @torax, " +
                             "coxa = @coxa, " +
                             "panturilha_medial = @panturilha_medial " +  
@@ -477,6 +534,7 @@ namespace NutricionalApp
                             comm.Parameters.AddWithValue("@tricips", string.IsNullOrEmpty(txt_PC_triceps.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_PC_triceps.Text));
                             comm.Parameters.AddWithValue("@torax", string.IsNullOrEmpty(txt_PC_torax.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_PC_torax.Text));
                             comm.Parameters.AddWithValue("@supescapular", string.IsNullOrEmpty(txt_PC_subscapular.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_PC_subscapular.Text));
+                            comm.Parameters.AddWithValue("@suprailiaca", string.IsNullOrEmpty(txt_PC_suprailiaca.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_PC_suprailiaca.Text));
                             comm.Parameters.AddWithValue("@coxa", string.IsNullOrEmpty(txt_PC_Coxa.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_PC_Coxa.Text));
                             comm.Parameters.AddWithValue("@panturilha_medial", string.IsNullOrEmpty(txt_PC_Panturilia_Medial.Text) ? (object)DBNull.Value : Convert.ToDouble(txt_PC_Panturilia_Medial.Text));
 

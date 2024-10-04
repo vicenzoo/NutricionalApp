@@ -105,6 +105,7 @@
             this.gr_CompCorporal = new System.Windows.Forms.GroupBox();
             this.RESULTADOCOMPCOR = new System.Windows.Forms.Label();
             this.gr_Circunferencias = new System.Windows.Forms.GroupBox();
+            this.CLASSIFICACAORCQ = new System.Windows.Forms.Label();
             this.RCQ = new System.Windows.Forms.Label();
             this.gr_IMC_Resultado = new System.Windows.Forms.GroupBox();
             this.CLASSIFICACAOIMC = new System.Windows.Forms.Label();
@@ -119,7 +120,6 @@
             this.bt_adicionarAntrometria = new System.Windows.Forms.Button();
             this.l_sexo = new System.Windows.Forms.Label();
             this.l_idade = new System.Windows.Forms.Label();
-            this.CLASSIFICACAORCQ = new System.Windows.Forms.Label();
             this.tabFormulario.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gr_Torax.SuspendLayout();
@@ -865,9 +865,10 @@
             // gr_CompCorporal
             // 
             this.gr_CompCorporal.Controls.Add(this.RESULTADOCOMPCOR);
-            this.gr_CompCorporal.Location = new System.Drawing.Point(7, 216);
+            this.gr_CompCorporal.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gr_CompCorporal.Location = new System.Drawing.Point(0, 122);
             this.gr_CompCorporal.Name = "gr_CompCorporal";
-            this.gr_CompCorporal.Size = new System.Drawing.Size(740, 100);
+            this.gr_CompCorporal.Size = new System.Drawing.Size(761, 172);
             this.gr_CompCorporal.TabIndex = 2;
             this.gr_CompCorporal.TabStop = false;
             this.gr_CompCorporal.Text = "Resultados Composição Corporal:";
@@ -875,10 +876,10 @@
             // RESULTADOCOMPCOR
             // 
             this.RESULTADOCOMPCOR.AutoSize = true;
-            this.RESULTADOCOMPCOR.Font = new System.Drawing.Font("Segoe UI Light", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RESULTADOCOMPCOR.Location = new System.Drawing.Point(14, 39);
+            this.RESULTADOCOMPCOR.Font = new System.Drawing.Font("Segoe UI Light", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RESULTADOCOMPCOR.Location = new System.Drawing.Point(14, 16);
             this.RESULTADOCOMPCOR.Name = "RESULTADOCOMPCOR";
-            this.RESULTADOCOMPCOR.Size = new System.Drawing.Size(141, 37);
+            this.RESULTADOCOMPCOR.Size = new System.Drawing.Size(115, 30);
             this.RESULTADOCOMPCOR.TabIndex = 3;
             this.RESULTADOCOMPCOR.Text = "Resultado2";
             // 
@@ -886,18 +887,29 @@
             // 
             this.gr_Circunferencias.Controls.Add(this.CLASSIFICACAORCQ);
             this.gr_Circunferencias.Controls.Add(this.RCQ);
-            this.gr_Circunferencias.Location = new System.Drawing.Point(7, 110);
+            this.gr_Circunferencias.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gr_Circunferencias.Location = new System.Drawing.Point(0, 62);
             this.gr_Circunferencias.Name = "gr_Circunferencias";
-            this.gr_Circunferencias.Size = new System.Drawing.Size(740, 100);
+            this.gr_Circunferencias.Size = new System.Drawing.Size(761, 60);
             this.gr_Circunferencias.TabIndex = 1;
             this.gr_Circunferencias.TabStop = false;
             this.gr_Circunferencias.Text = "Resultados Razão Cintura/Quadril (RCQ):";
+            // 
+            // CLASSIFICACAORCQ
+            // 
+            this.CLASSIFICACAORCQ.AutoSize = true;
+            this.CLASSIFICACAORCQ.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CLASSIFICACAORCQ.Location = new System.Drawing.Point(115, 16);
+            this.CLASSIFICACAORCQ.Name = "CLASSIFICACAORCQ";
+            this.CLASSIFICACAORCQ.Size = new System.Drawing.Size(80, 37);
+            this.CLASSIFICACAORCQ.TabIndex = 3;
+            this.CLASSIFICACAORCQ.Text = "BOM";
             // 
             // RCQ
             // 
             this.RCQ.AutoSize = true;
             this.RCQ.Font = new System.Drawing.Font("Segoe UI Light", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RCQ.Location = new System.Drawing.Point(14, 39);
+            this.RCQ.Location = new System.Drawing.Point(14, 16);
             this.RCQ.Name = "RCQ";
             this.RCQ.Size = new System.Drawing.Size(68, 37);
             this.RCQ.TabIndex = 2;
@@ -907,9 +919,10 @@
             // 
             this.gr_IMC_Resultado.Controls.Add(this.CLASSIFICACAOIMC);
             this.gr_IMC_Resultado.Controls.Add(this.IMC);
-            this.gr_IMC_Resultado.Location = new System.Drawing.Point(7, 14);
+            this.gr_IMC_Resultado.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gr_IMC_Resultado.Location = new System.Drawing.Point(0, 0);
             this.gr_IMC_Resultado.Name = "gr_IMC_Resultado";
-            this.gr_IMC_Resultado.Size = new System.Drawing.Size(740, 90);
+            this.gr_IMC_Resultado.Size = new System.Drawing.Size(761, 62);
             this.gr_IMC_Resultado.TabIndex = 0;
             this.gr_IMC_Resultado.TabStop = false;
             this.gr_IMC_Resultado.Text = "Resultado IMC";
@@ -918,7 +931,7 @@
             // 
             this.CLASSIFICACAOIMC.AutoSize = true;
             this.CLASSIFICACAOIMC.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CLASSIFICACAOIMC.Location = new System.Drawing.Point(115, 32);
+            this.CLASSIFICACAOIMC.Location = new System.Drawing.Point(115, 16);
             this.CLASSIFICACAOIMC.Name = "CLASSIFICACAOIMC";
             this.CLASSIFICACAOIMC.Size = new System.Drawing.Size(80, 37);
             this.CLASSIFICACAOIMC.TabIndex = 2;
@@ -928,7 +941,7 @@
             // 
             this.IMC.AutoSize = true;
             this.IMC.Font = new System.Drawing.Font("Segoe UI Light", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IMC.Location = new System.Drawing.Point(14, 32);
+            this.IMC.Location = new System.Drawing.Point(14, 16);
             this.IMC.Name = "IMC";
             this.IMC.Size = new System.Drawing.Size(62, 37);
             this.IMC.TabIndex = 1;
@@ -1033,16 +1046,6 @@
             this.l_idade.Size = new System.Drawing.Size(37, 14);
             this.l_idade.TabIndex = 40;
             this.l_idade.Text = "idade";
-            // 
-            // CLASSIFICACAORCQ
-            // 
-            this.CLASSIFICACAORCQ.AutoSize = true;
-            this.CLASSIFICACAORCQ.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CLASSIFICACAORCQ.Location = new System.Drawing.Point(115, 39);
-            this.CLASSIFICACAORCQ.Name = "CLASSIFICACAORCQ";
-            this.CLASSIFICACAORCQ.Size = new System.Drawing.Size(80, 37);
-            this.CLASSIFICACAORCQ.TabIndex = 3;
-            this.CLASSIFICACAORCQ.Text = "BOM";
             // 
             // CadAntropometria
             // 

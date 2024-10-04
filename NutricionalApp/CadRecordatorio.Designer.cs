@@ -757,7 +757,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cb_NomeDescricao;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn medidaDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label l_gramas;
         private System.Windows.Forms.GroupBox gr_Resultados;
         private System.Windows.Forms.Button bt_ExcluirIntem;
