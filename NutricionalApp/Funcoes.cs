@@ -253,14 +253,14 @@ namespace NutricionalApp
         }
 
         public static void CalcularComposicaoCorporal(
-        double peso, string sexo, string protocolo,double biceps, double triceps, double subescapular, double suprailica,
+        double peso, string sexo,int idade, string protocolo,double biceps, double triceps, double subescapular, double suprailica,
         double peitoral, double abdominal, double coxa, Label Resultados,GroupBox grupo)
         {
             grupo.Text = "Resultados Composição Corporal (" + protocolo + "):";
             if (protocolo == "4 pregas: Durmin & Wormersley")
             {
                 double somaDobras = biceps + triceps + subescapular + suprailica;
-                double densidadeCorporal = CalcularDensidadeCorporal(sexo, somaDobras);
+                double densidadeCorporal = CalcularDensidadeCorporalDurminEWormersley(sexo, somaDobras);
 
                 double percentualMassaGorda = (4.95 / densidadeCorporal - 4.50) * 100;
                 double percentualMassaMagra = 100 - percentualMassaGorda;
@@ -282,7 +282,7 @@ namespace NutricionalApp
                     ? peitoral + abdominal + coxa //Verdadeiro
                     : triceps + suprailica + subescapular; //Falso (Feminino)
 
-                double densidadeCorporal = CalcularDensidadeCorporal(sexo, somaDobras);
+                double densidadeCorporal = CalcularDensidadeCorporalJacksonEPollock(sexo, somaDobras,idade);
 
                 double percentualMassaGorda = (4.95 / densidadeCorporal - 4.50) * 100;
                 double percentualMassaMagra = 100 - percentualMassaGorda;
@@ -301,7 +301,7 @@ namespace NutricionalApp
 
         }
 
-        public static double CalcularDensidadeCorporal(string sexo, double somaDobras)
+        public static double CalcularDensidadeCorporalDurminEWormersley(string sexo, double somaDobras)
         {
             if (sexo == "M")
             {
@@ -312,6 +312,22 @@ namespace NutricionalApp
                 return 1.1599 - 0.0717 * Math.Log10(somaDobras);
             }
             throw new ArgumentException("Sexo não reconhecido.");
+        }
+
+        public static double CalcularDensidadeCorporalJacksonEPollock(string sexo, double somaDobras, int idade)
+        {
+            double densidadeCorporal;
+
+            if (sexo == "M") // Masculino
+            {
+                densidadeCorporal = 1.10938 - (0.0008267 * somaDobras) + (0.0000016 * Math.Pow(somaDobras, 2)) - (0.0002574 * idade);
+            }
+            else // Feminino
+            {
+                densidadeCorporal = 1.0994921 - (0.0009929 * somaDobras) + (0.0000023 * Math.Pow(somaDobras, 2)) - (0.0001392 * idade);
+            }
+
+            return densidadeCorporal;
         }
 
 

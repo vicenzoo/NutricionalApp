@@ -19,6 +19,7 @@ namespace NutricionalApp
         int AntropometriaID = 0;
         int ProtocoloID = 0;
         string tipoSexo;
+        int idadePaciente = 0;
 
         public CadAntropometria()
         {
@@ -132,6 +133,7 @@ namespace NutricionalApp
                                         txt_Peso.Text = reader["peso"].ToString();
                                         txt_Altura.Text = reader["altura"].ToString();
                                         l_idade.Text = reader["idade"].ToString() + " anos";
+                                        idadePaciente = Convert.ToInt32(reader["idade"]);
                                         tipoSexo = reader["sexo"].ToString();
                                         l_sexo.Text = tipoSexo;
 
@@ -225,6 +227,7 @@ namespace NutricionalApp
                                 }
                                 l_sexo.Text = Convert.ToString(row["sexo"]);
                                 l_idade.Text = Convert.ToString(row["idade"]) + " anos";
+                                idadePaciente = Convert.ToInt32(row["idade"]);
 
 
                                 tabFormulario.Visible = true;
@@ -354,6 +357,7 @@ namespace NutricionalApp
                         Funcoes.CalcularComposicaoCorporal(
                             Convert.ToDouble(txt_Peso.Text),
                             l_sexo.Text,
+                            idadePaciente,
                             Convert.ToString(cb_Protocolo.SelectedItem),
                             Convert.ToDouble(txt_PC_Biceps.Text),
                             Convert.ToDouble(txt_PC_triceps.Text),
@@ -378,6 +382,7 @@ namespace NutricionalApp
                         Funcoes.CalcularComposicaoCorporal(
                             Convert.ToDouble(txt_Peso.Text),
                             l_sexo.Text,
+                            idadePaciente,
                             Convert.ToString(cb_Protocolo.SelectedItem),
                             0, 
                             0,
