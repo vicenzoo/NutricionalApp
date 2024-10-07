@@ -566,6 +566,54 @@ namespace NutricionalApp
                 e.Handled = true;
             }
         }
+
+        private void bt_ExcluirAtv_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja excluir Permanentemente esse cadastro de antropometria ?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                using (var db = new DatabaseConnection())
+                {
+                    db.OpenConnection();
+                    using (var comm = new NpgsqlCommand(
+                        "DELETE FROM public.antropometria " +
+                        "WHERE paciente_id = @paciente_id",
+                        db.GetConnection()))
+                    {
+                        comm.Parameters.AddWithValue("@paciente_id", PacienteId);
+
+                        try
+                        {
+                            int rowsAffected = comm.ExecuteNonQuery(); // Executa o comando de exclusão
+
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Registro deletado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Nenhum registro encontrado para deletar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                        }
+                        catch (Exception error)
+                        {
+                            MessageBox.Show($"Erro: {error.Message}!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+
+                }
+
+                tabFormulario.Visible = false;
+                gr_SobrePaciente.Visible = false;
+                cb_Pacientes.Enabled = true;
+                txt_DescricaoNome.Enabled = true;
+                bt_adicionarAntrometria.Enabled = true;
+                bt_EditarAntrometria.Enabled = true;
+                cb_Antropometrias.Enabled = true;
+                cb_Antropometrias_SelectedIndexChanged(sender, e);
+
+            }
+        }
     }
 
 

@@ -138,10 +138,11 @@
             // 
             this.cb_Antropometrias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_Antropometrias.FormattingEnabled = true;
+            this.cb_Antropometrias.ItemHeight = 13;
             this.cb_Antropometrias.Location = new System.Drawing.Point(23, 65);
             this.cb_Antropometrias.Name = "cb_Antropometrias";
             this.cb_Antropometrias.Size = new System.Drawing.Size(354, 21);
-            this.cb_Antropometrias.TabIndex = 16;
+            this.cb_Antropometrias.TabIndex = 4;
             this.cb_Antropometrias.SelectedIndexChanged += new System.EventHandler(this.cb_Antropometrias_SelectedIndexChanged);
             // 
             // txt_DescricaoNome
@@ -149,7 +150,7 @@
             this.txt_DescricaoNome.Location = new System.Drawing.Point(383, 25);
             this.txt_DescricaoNome.Name = "txt_DescricaoNome";
             this.txt_DescricaoNome.Size = new System.Drawing.Size(299, 20);
-            this.txt_DescricaoNome.TabIndex = 15;
+            this.txt_DescricaoNome.TabIndex = 2;
             // 
             // cb_Pacientes
             // 
@@ -158,7 +159,7 @@
             this.cb_Pacientes.Location = new System.Drawing.Point(23, 25);
             this.cb_Pacientes.Name = "cb_Pacientes";
             this.cb_Pacientes.Size = new System.Drawing.Size(354, 21);
-            this.cb_Pacientes.TabIndex = 13;
+            this.cb_Pacientes.TabIndex = 1;
             this.cb_Pacientes.SelectedIndexChanged += new System.EventHandler(this.cb_Pacientes_SelectedIndexChanged);
             // 
             // label1
@@ -222,7 +223,7 @@
             this.txt_quadril.Location = new System.Drawing.Point(634, 52);
             this.txt_quadril.Name = "txt_quadril";
             this.txt_quadril.Size = new System.Drawing.Size(100, 20);
-            this.txt_quadril.TabIndex = 32;
+            this.txt_quadril.TabIndex = 21;
             this.txt_quadril.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Braco_Dir_Relaxado_KeyPress);
             // 
             // txt_abdomen
@@ -230,7 +231,7 @@
             this.txt_abdomen.Location = new System.Drawing.Point(401, 52);
             this.txt_abdomen.Name = "txt_abdomen";
             this.txt_abdomen.Size = new System.Drawing.Size(100, 20);
-            this.txt_abdomen.TabIndex = 31;
+            this.txt_abdomen.TabIndex = 20;
             this.txt_abdomen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Braco_Dir_Relaxado_KeyPress);
             // 
             // txt_cintura
@@ -238,7 +239,7 @@
             this.txt_cintura.Location = new System.Drawing.Point(177, 49);
             this.txt_cintura.Name = "txt_cintura";
             this.txt_cintura.Size = new System.Drawing.Size(78, 20);
-            this.txt_cintura.TabIndex = 30;
+            this.txt_cintura.TabIndex = 19;
             this.txt_cintura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Braco_Dir_Relaxado_KeyPress);
             // 
             // txt_peitoral
@@ -246,7 +247,7 @@
             this.txt_peitoral.Location = new System.Drawing.Point(634, 23);
             this.txt_peitoral.Name = "txt_peitoral";
             this.txt_peitoral.Size = new System.Drawing.Size(100, 20);
-            this.txt_peitoral.TabIndex = 29;
+            this.txt_peitoral.TabIndex = 18;
             this.txt_peitoral.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Braco_Dir_Relaxado_KeyPress);
             // 
             // txt_ombro
@@ -254,7 +255,7 @@
             this.txt_ombro.Location = new System.Drawing.Point(401, 23);
             this.txt_ombro.Name = "txt_ombro";
             this.txt_ombro.Size = new System.Drawing.Size(100, 20);
-            this.txt_ombro.TabIndex = 28;
+            this.txt_ombro.TabIndex = 17;
             this.txt_ombro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Braco_Dir_Relaxado_KeyPress);
             // 
             // txt_pescoco
@@ -262,7 +263,7 @@
             this.txt_pescoco.Location = new System.Drawing.Point(177, 23);
             this.txt_pescoco.Name = "txt_pescoco";
             this.txt_pescoco.Size = new System.Drawing.Size(78, 20);
-            this.txt_pescoco.TabIndex = 27;
+            this.txt_pescoco.TabIndex = 16;
             this.txt_pescoco.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Braco_Dir_Relaxado_KeyPress);
             // 
             // label11
@@ -345,7 +346,7 @@
             this.txt_Coxa_proximal_esq.Location = new System.Drawing.Point(662, 61);
             this.txt_Coxa_proximal_esq.Name = "txt_Coxa_proximal_esq";
             this.txt_Coxa_proximal_esq.Size = new System.Drawing.Size(77, 20);
-            this.txt_Coxa_proximal_esq.TabIndex = 26;
+            this.txt_Coxa_proximal_esq.TabIndex = 27;
             this.txt_Coxa_proximal_esq.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Braco_Dir_Relaxado_KeyPress);
             // 
             // txt_coxa_proximal_dir
@@ -353,7 +354,7 @@
             this.txt_coxa_proximal_dir.Location = new System.Drawing.Point(402, 61);
             this.txt_coxa_proximal_dir.Name = "txt_coxa_proximal_dir";
             this.txt_coxa_proximal_dir.Size = new System.Drawing.Size(83, 20);
-            this.txt_coxa_proximal_dir.TabIndex = 25;
+            this.txt_coxa_proximal_dir.TabIndex = 26;
             this.txt_coxa_proximal_dir.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Braco_Dir_Relaxado_KeyPress);
             // 
             // txt_coxa_esq
@@ -361,7 +362,7 @@
             this.txt_coxa_esq.Location = new System.Drawing.Point(161, 58);
             this.txt_coxa_esq.Name = "txt_coxa_esq";
             this.txt_coxa_esq.Size = new System.Drawing.Size(78, 20);
-            this.txt_coxa_esq.TabIndex = 24;
+            this.txt_coxa_esq.TabIndex = 25;
             this.txt_coxa_esq.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Braco_Dir_Relaxado_KeyPress);
             // 
             // txt_coxa_dir
@@ -369,7 +370,7 @@
             this.txt_coxa_dir.Location = new System.Drawing.Point(662, 32);
             this.txt_coxa_dir.Name = "txt_coxa_dir";
             this.txt_coxa_dir.Size = new System.Drawing.Size(77, 20);
-            this.txt_coxa_dir.TabIndex = 23;
+            this.txt_coxa_dir.TabIndex = 24;
             this.txt_coxa_dir.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Braco_Dir_Relaxado_KeyPress);
             // 
             // txt_panturilia_esq
@@ -377,7 +378,7 @@
             this.txt_panturilia_esq.Location = new System.Drawing.Point(402, 32);
             this.txt_panturilia_esq.Name = "txt_panturilia_esq";
             this.txt_panturilia_esq.Size = new System.Drawing.Size(83, 20);
-            this.txt_panturilia_esq.TabIndex = 22;
+            this.txt_panturilia_esq.TabIndex = 23;
             this.txt_panturilia_esq.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Braco_Dir_Relaxado_KeyPress);
             // 
             // txt_Panturrilia_dir
@@ -385,7 +386,7 @@
             this.txt_Panturrilia_dir.Location = new System.Drawing.Point(161, 32);
             this.txt_Panturrilia_dir.Name = "txt_Panturrilia_dir";
             this.txt_Panturrilia_dir.Size = new System.Drawing.Size(78, 20);
-            this.txt_Panturrilia_dir.TabIndex = 21;
+            this.txt_Panturrilia_dir.TabIndex = 22;
             this.txt_Panturrilia_dir.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Braco_Dir_Relaxado_KeyPress);
             // 
             // label12
@@ -480,7 +481,7 @@
             this.txt_antebraco_Esq.Location = new System.Drawing.Point(664, 55);
             this.txt_antebraco_Esq.Name = "txt_antebraco_Esq";
             this.txt_antebraco_Esq.Size = new System.Drawing.Size(71, 20);
-            this.txt_antebraco_Esq.TabIndex = 14;
+            this.txt_antebraco_Esq.TabIndex = 13;
             this.txt_antebraco_Esq.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Braco_Dir_Relaxado_KeyPress);
             // 
             // txt_antebraco_Dir
@@ -488,7 +489,7 @@
             this.txt_antebraco_Dir.Location = new System.Drawing.Point(425, 55);
             this.txt_antebraco_Dir.Name = "txt_antebraco_Dir";
             this.txt_antebraco_Dir.Size = new System.Drawing.Size(77, 20);
-            this.txt_antebraco_Dir.TabIndex = 13;
+            this.txt_antebraco_Dir.TabIndex = 12;
             this.txt_antebraco_Dir.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Braco_Dir_Relaxado_KeyPress);
             // 
             // txt_punho_dir
@@ -496,7 +497,7 @@
             this.txt_punho_dir.Location = new System.Drawing.Point(201, 84);
             this.txt_punho_dir.Name = "txt_punho_dir";
             this.txt_punho_dir.Size = new System.Drawing.Size(57, 20);
-            this.txt_punho_dir.TabIndex = 12;
+            this.txt_punho_dir.TabIndex = 14;
             this.txt_punho_dir.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Braco_Dir_Relaxado_KeyPress);
             // 
             // txt_Braco_Esq_Contraido
@@ -649,7 +650,7 @@
             this.txt_PC_Panturilia_Medial.Location = new System.Drawing.Point(639, 120);
             this.txt_PC_Panturilia_Medial.Name = "txt_PC_Panturilia_Medial";
             this.txt_PC_Panturilia_Medial.Size = new System.Drawing.Size(100, 20);
-            this.txt_PC_Panturilia_Medial.TabIndex = 48;
+            this.txt_PC_Panturilia_Medial.TabIndex = 37;
             this.txt_PC_Panturilia_Medial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Braco_Dir_Relaxado_KeyPress);
             // 
             // label27
@@ -668,7 +669,7 @@
             this.cb_Protocolo.Location = new System.Drawing.Point(194, 32);
             this.cb_Protocolo.Name = "cb_Protocolo";
             this.cb_Protocolo.Size = new System.Drawing.Size(350, 21);
-            this.cb_Protocolo.TabIndex = 46;
+            this.cb_Protocolo.TabIndex = 28;
             this.cb_Protocolo.SelectedIndexChanged += new System.EventHandler(this.cb_Protocolo_SelectedIndexChanged);
             // 
             // label18
@@ -686,7 +687,7 @@
             this.txt_PC_Coxa.Location = new System.Drawing.Point(406, 120);
             this.txt_PC_Coxa.Name = "txt_PC_Coxa";
             this.txt_PC_Coxa.Size = new System.Drawing.Size(100, 20);
-            this.txt_PC_Coxa.TabIndex = 15;
+            this.txt_PC_Coxa.TabIndex = 36;
             this.txt_PC_Coxa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Braco_Dir_Relaxado_KeyPress);
             // 
             // txt_PC_subscapular
@@ -695,7 +696,7 @@
             this.txt_PC_subscapular.Location = new System.Drawing.Point(639, 91);
             this.txt_PC_subscapular.Name = "txt_PC_subscapular";
             this.txt_PC_subscapular.Size = new System.Drawing.Size(100, 20);
-            this.txt_PC_subscapular.TabIndex = 14;
+            this.txt_PC_subscapular.TabIndex = 34;
             this.txt_PC_subscapular.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Braco_Dir_Relaxado_KeyPress);
             // 
             // txt_PC_AxiliarMedia
@@ -704,7 +705,7 @@
             this.txt_PC_AxiliarMedia.Location = new System.Drawing.Point(406, 91);
             this.txt_PC_AxiliarMedia.Name = "txt_PC_AxiliarMedia";
             this.txt_PC_AxiliarMedia.Size = new System.Drawing.Size(100, 20);
-            this.txt_PC_AxiliarMedia.TabIndex = 13;
+            this.txt_PC_AxiliarMedia.TabIndex = 33;
             this.txt_PC_AxiliarMedia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Braco_Dir_Relaxado_KeyPress);
             // 
             // txt_PC_torax
@@ -713,7 +714,7 @@
             this.txt_PC_torax.Location = new System.Drawing.Point(182, 120);
             this.txt_PC_torax.Name = "txt_PC_torax";
             this.txt_PC_torax.Size = new System.Drawing.Size(78, 20);
-            this.txt_PC_torax.TabIndex = 12;
+            this.txt_PC_torax.TabIndex = 35;
             this.txt_PC_torax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Braco_Dir_Relaxado_KeyPress);
             // 
             // txt_PC_suprailiaca
@@ -722,7 +723,7 @@
             this.txt_PC_suprailiaca.Location = new System.Drawing.Point(182, 88);
             this.txt_PC_suprailiaca.Name = "txt_PC_suprailiaca";
             this.txt_PC_suprailiaca.Size = new System.Drawing.Size(78, 20);
-            this.txt_PC_suprailiaca.TabIndex = 11;
+            this.txt_PC_suprailiaca.TabIndex = 32;
             this.txt_PC_suprailiaca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Braco_Dir_Relaxado_KeyPress);
             // 
             // txt_PC_triceps
@@ -731,7 +732,7 @@
             this.txt_PC_triceps.Location = new System.Drawing.Point(639, 62);
             this.txt_PC_triceps.Name = "txt_PC_triceps";
             this.txt_PC_triceps.Size = new System.Drawing.Size(100, 20);
-            this.txt_PC_triceps.TabIndex = 10;
+            this.txt_PC_triceps.TabIndex = 31;
             this.txt_PC_triceps.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Braco_Dir_Relaxado_KeyPress);
             // 
             // txt_PC_Abdominal
@@ -740,7 +741,7 @@
             this.txt_PC_Abdominal.Location = new System.Drawing.Point(406, 62);
             this.txt_PC_Abdominal.Name = "txt_PC_Abdominal";
             this.txt_PC_Abdominal.Size = new System.Drawing.Size(100, 20);
-            this.txt_PC_Abdominal.TabIndex = 9;
+            this.txt_PC_Abdominal.TabIndex = 30;
             this.txt_PC_Abdominal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Braco_Dir_Relaxado_KeyPress);
             // 
             // txt_PC_Biceps
@@ -749,7 +750,7 @@
             this.txt_PC_Biceps.Location = new System.Drawing.Point(182, 62);
             this.txt_PC_Biceps.Name = "txt_PC_Biceps";
             this.txt_PC_Biceps.Size = new System.Drawing.Size(78, 20);
-            this.txt_PC_Biceps.TabIndex = 8;
+            this.txt_PC_Biceps.TabIndex = 29;
             this.txt_PC_Biceps.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Braco_Dir_Relaxado_KeyPress);
             // 
             // label19
@@ -840,15 +841,15 @@
             // 
             // bt_ExcluirAtv
             // 
-            this.bt_ExcluirAtv.Enabled = false;
             this.bt_ExcluirAtv.Image = global::NutricionalApp.Properties.Resources.Delete_48;
             this.bt_ExcluirAtv.Location = new System.Drawing.Point(522, 319);
             this.bt_ExcluirAtv.Name = "bt_ExcluirAtv";
             this.bt_ExcluirAtv.Size = new System.Drawing.Size(110, 60);
-            this.bt_ExcluirAtv.TabIndex = 47;
+            this.bt_ExcluirAtv.TabIndex = 39;
             this.bt_ExcluirAtv.Text = "Excluir";
             this.bt_ExcluirAtv.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_ExcluirAtv.UseVisualStyleBackColor = true;
+            this.bt_ExcluirAtv.Click += new System.EventHandler(this.bt_ExcluirAtv_Click);
             // 
             // bt_Salvar
             // 
@@ -856,7 +857,7 @@
             this.bt_Salvar.Location = new System.Drawing.Point(638, 319);
             this.bt_Salvar.Name = "bt_Salvar";
             this.bt_Salvar.Size = new System.Drawing.Size(110, 60);
-            this.bt_Salvar.TabIndex = 46;
+            this.bt_Salvar.TabIndex = 38;
             this.bt_Salvar.Text = "Salvar";
             this.bt_Salvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_Salvar.UseVisualStyleBackColor = true;
@@ -966,14 +967,14 @@
             this.txt_Altura.Location = new System.Drawing.Point(108, 36);
             this.txt_Altura.Name = "txt_Altura";
             this.txt_Altura.Size = new System.Drawing.Size(73, 20);
-            this.txt_Altura.TabIndex = 30;
+            this.txt_Altura.TabIndex = 7;
             // 
             // txt_Peso
             // 
             this.txt_Peso.Location = new System.Drawing.Point(14, 36);
             this.txt_Peso.Name = "txt_Peso";
             this.txt_Peso.Size = new System.Drawing.Size(73, 20);
-            this.txt_Peso.TabIndex = 29;
+            this.txt_Peso.TabIndex = 6;
             // 
             // label3
             // 
@@ -1009,7 +1010,7 @@
             this.bt_EditarAntrometria.Location = new System.Drawing.Point(383, 62);
             this.bt_EditarAntrometria.Name = "bt_EditarAntrometria";
             this.bt_EditarAntrometria.Size = new System.Drawing.Size(129, 30);
-            this.bt_EditarAntrometria.TabIndex = 17;
+            this.bt_EditarAntrometria.TabIndex = 5;
             this.bt_EditarAntrometria.Text = "Editar / Visualizar";
             this.bt_EditarAntrometria.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_EditarAntrometria.UseVisualStyleBackColor = true;
@@ -1021,7 +1022,7 @@
             this.bt_adicionarAntrometria.Location = new System.Drawing.Point(688, 19);
             this.bt_adicionarAntrometria.Name = "bt_adicionarAntrometria";
             this.bt_adicionarAntrometria.Size = new System.Drawing.Size(75, 30);
-            this.bt_adicionarAntrometria.TabIndex = 14;
+            this.bt_adicionarAntrometria.TabIndex = 3;
             this.bt_adicionarAntrometria.Text = "Novo";
             this.bt_adicionarAntrometria.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_adicionarAntrometria.UseVisualStyleBackColor = true;
