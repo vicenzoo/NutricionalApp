@@ -19,6 +19,8 @@ namespace NutricionalApp
         Image ImagemTemp;
         bool nomeSobreValido = false;
         bool DataNasc = false;
+        public static string userNome { get; set; }
+
         public CadUser()
         {
             InitializeComponent();
@@ -262,6 +264,7 @@ namespace NutricionalApp
             {
                 tabControl1.SelectedIndex = 1;
                 l_exibeNome.Text = txtNome.Text + " " + txtSobrenome.Text;
+                userNome = txtNome.Text + " " + txtSobrenome.Text;
                 if (mt_CPF.Text.Length == 0) l_exibeCPF.Text = "CPF Não Informado";
                 else l_exibeCPF.Text = mt_CPF.Text;
                 l_exibeDataNasc.Text =  dtNasc.Value.ToString("dd/MM/yyyy");
@@ -359,15 +362,15 @@ namespace NutricionalApp
                     // Tentativa de execução do comando
                     try
                     {
-                        comm.ExecuteNonQuery();
+                        comm.ExecuteScalar();
 
 
-                       /* l_exibeNome.Text = "";
-                        l_exibeCPF.Text = "";
-                        l_exibeDataNasc.Text = "";
-                        l_exibeSexo.Text  = "";
-                        l_exibeIdade.Text  = "";
-                        l_exibeEmail.Text  = ""; */
+                        /* l_exibeNome.Text = "";
+                         l_exibeCPF.Text = "";
+                         l_exibeDataNasc.Text = "";
+                         l_exibeSexo.Text  = "";
+                         l_exibeIdade.Text  = "";
+                         l_exibeEmail.Text  = ""; */
 
                         txtNome.Clear();
                         txtSobrenome.Clear();
@@ -411,6 +414,24 @@ namespace NutricionalApp
             if (GastoEnergico != null)
             {
                 GastoEnergico.ShowGastosEnergico(); // Chama o método público
+            }
+        }
+
+        private void bt_AvAntropometrica_Click(object sender, EventArgs e)
+        {
+            FormMain AvaliacaoAntropometrica = Application.OpenForms.OfType<FormMain>().FirstOrDefault();
+            if (AvaliacaoAntropometrica != null)
+            {
+                AvaliacaoAntropometrica.ShowAntropometria(); // Chama o método público
+            }
+        }
+
+        private void bt_PlanoAlimentar_Click(object sender, EventArgs e)
+        {
+            FormMain PlanoAlimentar = Application.OpenForms.OfType<FormMain>().FirstOrDefault();
+            if (PlanoAlimentar != null)
+            {
+                PlanoAlimentar.ShowPlanoAlimentar(); // Chama o método público
             }
         }
     }

@@ -79,6 +79,21 @@ namespace NutricionalApp
             }
         }
 
+        public void PesquisarPaciente(string userNome)
+        {
+            foreach (var item in cb_Pacientes.Items)
+            {
+                if (item is Paciente paciente)
+                {
+                    if (string.Equals(paciente.Nome, userNome, StringComparison.OrdinalIgnoreCase))
+                    {
+                        cb_Pacientes.SelectedItem = item; // Seleciona o nome do Paciente correspondente
+                        break;
+                    }
+                }
+            }
+        }
+
         private void cb_Gastoenergico_SelectedIndexChanged(object sender, EventArgs e)
         {
             GastoEnergetico possuiGasto = (GastoEnergetico)cb_Gastoenergico.SelectedItem;

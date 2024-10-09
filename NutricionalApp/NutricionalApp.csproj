@@ -140,6 +140,12 @@
     <Compile Include="CadNutri.Designer.cs">
       <DependentUpon>CadNutri.cs</DependentUpon>
     </Compile>
+    <Compile Include="CadPlanoAlimentar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadPlanoAlimentar.Designer.cs">
+      <DependentUpon>CadPlanoAlimentar.cs</DependentUpon>
+    </Compile>
     <Compile Include="CadUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CadNutri.resx">
       <DependentUpon>CadNutri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadPlanoAlimentar.resx">
+      <DependentUpon>CadPlanoAlimentar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CadUser.resx">
       <DependentUpon>CadUser.cs</DependentUpon>

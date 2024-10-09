@@ -1041,5 +1041,125 @@ namespace NutricionalApp
             }
         }
 
+        public class PlanoAlimentar
+        {
+            public int Id { get; set; }
+            public string PlanoAlimentarDesc { get; set; }
+
+            public PlanoAlimentar(int id, string planoalimentardesc)
+            {
+                Id = id;
+                PlanoAlimentarDesc = planoalimentardesc;
+            }
+
+            // Sobrescreva o método ToString para que o ComboBox exiba a descrição da tabela TACO
+            public override string ToString()
+            {
+                return PlanoAlimentarDesc;
+            }
+        }
+
+        public void GetPlanoAlimentarCombobox(int Id_Paciente, ComboBox comboBox)
+        {
+            using (var db = new DatabaseConnection())
+            {
+                db.OpenConnection();
+
+
+                using (var comm = new NpgsqlCommand("SELECT id_plano, paciente_id, nutricionista_id, ativo, descricao FROM public.plano_alimentar where paciente_id = @paciente_id", db.GetConnection()))
+                {
+                    comm.Parameters.AddWithValue("@paciente_id", Id_Paciente);
+
+                    try
+                    {
+                        using (var reader = comm.ExecuteReader())
+                        {
+                            comboBox.Items.Clear();
+
+                            while (reader.Read())
+                            {
+
+                                int idPlanoAli = Convert.ToInt32(reader["id_plano"]);
+                                string descricaoPlanoAlimentar = reader["descricao"].ToString();
+
+                                comboBox.Items.Add(new PlanoAlimentar(idPlanoAli, descricaoPlanoAlimentar));
+                            }
+
+                            // Verifica se encontrou
+                            if (comboBox.Items.Count > 0)
+                            {
+
+                                comboBox.SelectedIndex = 0;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Nenhum Plano Alimentar encontrado para esse Paciente.");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao obter os Plano Alimentar: {ex.Message}");
+                    }
+                }
+            }
+        }
+
+        public void ExcluirItemPlanoAlimentar(int id)
+        {
+            using (var db = new DatabaseConnection())
+            {
+                using (NpgsqlConnection connection = db.GetConnection())
+                {
+                    try
+                    {
+                        connection.Open();
+                        string query = "DELETE FROM itens_plano_alimentar WHERE id_itensplano = @id_itensplano";
+
+                        using (NpgsqlCommand cmd = new NpgsqlCommand(query, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@id_itensplano", id);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Tratar exceção conforme necessário
+                        Console.WriteLine("Erro ao excluir item: " + ex.Message);
+                        throw;
+                    }
+                }
+
+            }
+        }
+
+        public void ExcluirPlanoAlimentar(int id)
+        {
+            using (var db = new DatabaseConnection())
+            {
+                using (NpgsqlConnection connection = db.GetConnection())
+                {
+                    try
+                    {
+                        connection.Open();
+                        string query = "DELETE FROM plano_alimentar WHERE id_plano = @id_plano";
+
+                        using (NpgsqlCommand cmd = new NpgsqlCommand(query, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@id_plano", id);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Tratar exceção conforme necessário
+                        Console.WriteLine("Erro ao excluir item: " + ex.Message);
+                        throw;
+                    }
+                }
+
+            }
+        }
+
     }
 }

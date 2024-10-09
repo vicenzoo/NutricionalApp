@@ -222,12 +222,20 @@ namespace NutricionalApp
                 toolStrip1.Items.Add(botaoGastoEnergetico); // Adicione o botão ao ToolStrip
 
                 ToolStripButton botaoAntrometria = funcoes.CriarBotao(
-                "Dados Antropometricos",
-                "Adiciona e Gerencia dados Antropometricos",
-                Properties.Resources.Industrial_Scales_48,
-                bt_Antrometria_Click
+                    "Dados Antropometricos",
+                    "Adiciona e Gerencia dados Antropometricos",
+                    Properties.Resources.Industrial_Scales_48,
+                    bt_Antrometria_Click
                 );
                 toolStrip1.Items.Add(botaoAntrometria); // Adicione o botão ao ToolStrip
+
+                ToolStripButton botaoPlanoAlimentar = funcoes.CriarBotao(
+                    "Plano Alimentar",
+                    "Adiciona e Gerencia Plano Alimentar para Paciente",
+                    Properties.Resources.Breakfast_48,
+                    bt_planoAlimentar_click
+                );
+                toolStrip1.Items.Add(botaoPlanoAlimentar); // Adicione o botão ao ToolStrip
 
 
                 NutricionistaExecutado = true;
@@ -294,6 +302,7 @@ namespace NutricionalApp
                 recordatorio = new CadRecordatorio();
                 recordatorio.MdiParent = this;
                 recordatorio.Show();
+                recordatorio.PesquisarPaciente(CadUser.userNome);
             }
             else
             {
@@ -315,6 +324,7 @@ namespace NutricionalApp
                 GastoEnergetico = new CadGastosEnergeticos();
                 GastoEnergetico.MdiParent = this;
                 GastoEnergetico.Show();
+                GastoEnergetico.PesquisarPaciente(CadUser.userNome);
             }
             else
             {
@@ -337,6 +347,7 @@ namespace NutricionalApp
                 antropometria = new CadAntropometria();
                 antropometria.MdiParent = this;
                 antropometria.Show();
+                antropometria.PesquisarPaciente(CadUser.userNome);
             }
             else
             {
@@ -344,6 +355,27 @@ namespace NutricionalApp
             }
         }
 
+        private void bt_planoAlimentar_click(object sender, EventArgs e)
+        {
+            ShowPlanoAlimentar();
+        }
+
+        public void ShowPlanoAlimentar()
+        {
+            CadPlanoAlimentar planoAlimentar = Application.OpenForms.OfType<CadPlanoAlimentar>().FirstOrDefault();
+
+            if (planoAlimentar == null)
+            {
+                planoAlimentar = new CadPlanoAlimentar();
+                planoAlimentar.MdiParent = this;
+                planoAlimentar.Show();
+                planoAlimentar.PesquisarPaciente(CadUser.userNome);
+            }
+            else
+            {
+                planoAlimentar.Focus();
+            }
+        }
 
     }
 

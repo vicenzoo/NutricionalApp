@@ -1,46 +1,43 @@
-﻿using ActiveQueryBuilder.Core;
-using Npgsql;
+﻿using Npgsql;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static NutricionalApp.DatabaseConnection;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace NutricionalApp
 {
-    public partial class CadRecordatorio : Form
+    public partial class CadPlanoAlimentar : Form
     {
         int PacienteId;
         int NutricionistaID = 0;
         int TacoID = 0;
-        int RecordatorioID = 0;
+        int PlanoAlimentarID = 0;
         float TACOGramas = 0;
         float TACOcarboidrato = 0; //Carboidratos
         float TACOEnergiaKcal = 0, TACOProteinas = 0; //Calorias
         float TACOLipidios = 0; //Gorduras
         float TACOfibras = 0; // Fibras Totais
         float TACOvitamina_a = 0, TACOvitamina_c = 0; //Vitaminas
-        float TACOCalcio = 0, TACOferro =0, TACOmagensio = 0; //Minerais
+        float TACOCalcio = 0, TACOferro = 0, TACOmagensio = 0; //Minerais
 
 
-
-        public CadRecordatorio()
+        public CadPlanoAlimentar()
         {
             InitializeComponent();
-            dt_DataHoraRec.CustomFormat = "dd/MM/yyyy HH:mm:ss";
-            dt_DataHoraRec.Value = DateTime.Now;
-            dt_DataHoraRec.MaxDate = DateTime.Now;
+            dt_DataHoraPlano.CustomFormat = "dd/MM/yyyy HH:mm:ss";
+            dt_DataHoraPlano.Value = DateTime.Now;
+            dt_DataHoraPlano.MinDate = DateTime.Now;
         }
 
-        private void CadRecordatorio_Load(object sender, EventArgs e)
+
+
+        private void CadPlanoAlimentar_Load(object sender, EventArgs e)
         {
             FormMain GetIDNutricionista = Application.OpenForms.OfType<FormMain>().FirstOrDefault(); //Função para Pegar o Numero de ID do Nutricionista
             NutricionistaID = Convert.ToInt32(GetIDNutricionista.IDLabel.Text.Substring(1));
@@ -50,14 +47,13 @@ namespace NutricionalApp
                 db.OpenConnection();
                 db.GetPacientes(NutricionistaID, cb_Pacientes);
             }
-
         }
 
         public void PesquisarPaciente(string userNome)
         {
             foreach (var item in cb_Pacientes.Items)
             {
-                if (item is Paciente paciente) 
+                if (item is Paciente paciente)
                 {
                     if (string.Equals(paciente.Nome, userNome, StringComparison.OrdinalIgnoreCase))
                     {
@@ -68,7 +64,7 @@ namespace NutricionalApp
             }
         }
 
-            private void cb_Pacientes_SelectedIndexChanged(object sender, EventArgs e)
+        private void cb_Pacientes_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Obtenha o paciente selecionado
             Paciente pacienteSelecionado = (Paciente)cb_Pacientes.SelectedItem;
@@ -81,19 +77,19 @@ namespace NutricionalApp
                 //MessageBox.Show($"ID do paciente selecionado: {idPaciente}");
 
                 txt_DescricaoNome.Clear();
-                txt_DescricaoNome.Text = "Recordatório para " + cb_Pacientes.Text;
-                bt_adicionarRec.Enabled = true;
+                txt_DescricaoNome.Text = "Plano Alimentar para " + cb_Pacientes.Text;
+                //bt_adicionarPlano.Enabled = true;
             }
 
             using (var db = new DatabaseConnection())
             {
                 db.OpenConnection();
-                db.GetRecordatorioCombobox(PacienteId, cb_Recordatorios);
+                db.GetPlanoAlimentarCombobox(PacienteId, cb_PlanosAlimentares);
             }
-
         }
 
-        private void bt_adicionarRec_Click(object sender, EventArgs e)
+
+        private void bt_adicionarPlano_Click(object sender, EventArgs e)
         {
             if (cb_Pacientes.SelectedItem == null)
             {
@@ -101,36 +97,40 @@ namespace NutricionalApp
                 return;
             }
 
-            if (MessageBox.Show("Deseja Iniciar o Recordatorio deste Paciente ?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MessageBox.Show("Deseja Iniciar o Plano Alimentar deste Paciente ?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 using (var db = new DatabaseConnection())
                 {
 
                     db.OpenConnection();
                     using (var comm = new NpgsqlCommand(
-                     "INSERT INTO public.recordatorio_24h " +
-                        "(data_inclusao,descricao_nome, paciente_id, nutricionista_id, ativo) " +
-                        "VALUES (@data_inclusao,@descricao_nome, @paciente_id, @nutricionista_id, @ativo)",
+                     "INSERT INTO public.plano_alimentar " +
+                        "(\"Data_Inclusao\",descricao, paciente_id, nutricionista_id, ativo) " +
+                        "VALUES (@data_inclusao,@descricao, @paciente_id, @nutricionista_id, @ativo)",
                         db.GetConnection()))
                     {
 
                         comm.Parameters.AddWithValue("@data_inclusao", DateTime.Now); // Data de inclusão
-                        comm.Parameters.AddWithValue("@descricao_nome", txt_DescricaoNome.Text);
+                        comm.Parameters.AddWithValue("@descricao", txt_DescricaoNome.Text);
                         comm.Parameters.AddWithValue("@paciente_id", PacienteId);
                         comm.Parameters.AddWithValue("@nutricionista_id", NutricionistaID);
                         comm.Parameters.AddWithValue("@ativo", 'S');
-                        gr_selecao.Visible = true;
-                        gr_itens.Visible = true;
-                        bt_adicionarRec.Enabled = false;
-                        bt_EditarRec.Enabled = false;
+
                         try
                         {
-                            var recId = comm.ExecuteScalar();
+                            var planoID = comm.ExecuteScalar();
 
-                            if (recId != null)
+                            gr_selecao.Visible = true;
+                            gr_itens.Visible = true;
+                            bt_adicionarPlano.Enabled = false;
+                            bt_EditarPlano.Enabled = false;
+                            cb_Pacientes.Enabled = false;
+                            cb_PlanosAlimentares.Enabled = false;
+                            txt_DescricaoNome.Enabled = false;
+
+                            if (planoID != null)
                             {
-                                RecordatorioID = Convert.ToInt32(recId); // Converte o valor para int se não for null
-                                //MessageBox.Show($"Recordatório adicionado com ID: {RecordatorioID}", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                PlanoAlimentarID = Convert.ToInt32(planoID); // Converte o valor para int se não for null
                             }
                         }
                         catch (Exception error)
@@ -151,23 +151,22 @@ namespace NutricionalApp
                     }
                 }
 
-                cb_Pacientes_SelectedIndexChanged(sender,e);
+                cb_Pacientes_SelectedIndexChanged(sender, e);
 
             }
             else
             {
-                bt_adicionarRec.Focus();
+                bt_adicionarPlano.Focus();
             }
         }
 
+
         private void txt_QuantidadeItens_KeyPress(object sender, KeyPressEventArgs e)
         {
-
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) //Aceita apenas Numeros
             {
                 e.Handled = true;
             }
-
         }
 
         private void cb_Taco_SelectedIndexChanged(object sender, EventArgs e)
@@ -185,7 +184,7 @@ namespace NutricionalApp
                 TACOGramas = gramas;
                 l_gramas.Text = Convert.ToString(TACOGramas) + "g";
 
-                //Para Calculo do Recordatorio:
+                //Para Calculo do Plano Alimentar:
 
                 /* Carboidratos Totais */
                 float carbo = TacoSelecionado.Carboidrato;
@@ -224,28 +223,27 @@ namespace NutricionalApp
                 TACOmagensio = mangnesio;
 
             }
-
         }
 
-        private void cb_Recordatorios_SelectedIndexChanged(object sender, EventArgs e)
+        private void cb_PlanosAlimentares_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-
             // Obtenha o paciente selecionado
-            Recordatorio possuiRecordatorio = (Recordatorio)cb_Recordatorios.SelectedItem;
+            PlanoAlimentar planoAlimentar = (PlanoAlimentar)cb_PlanosAlimentares.SelectedItem;
 
-            if (possuiRecordatorio != null)
+            if (planoAlimentar != null)
             {
                 // Exibe ou usa o id do paciente selecionado
-                int idRecordatorio = possuiRecordatorio.Id;
-                RecordatorioID = idRecordatorio;
+                int idRecordatorio = planoAlimentar.Id;
+                PlanoAlimentarID = idRecordatorio;
 
-                bt_EditarRec.Enabled = true;
+
+                bt_EditarPlano.Enabled = true;
 
             }
         }
 
-        private void bt_EditarRec_Click(object sender, EventArgs e)
+
+        private void bt_EditarPlano_Click(object sender, EventArgs e)
         {
             using (var db = new DatabaseConnection())
             {
@@ -260,32 +258,44 @@ namespace NutricionalApp
                     return;
                 }
 
-                string query = "SELECT descricaoperiodo,data_rec,hora,quantidade,descricao_alimento FROM vw_itensrecordatorio_detalhado WHERE recordatorio_id = @Filtro";
+                string query = "SELECT descricaoperiodo,data,hora,quantidade,descricao_alimento FROM vw_itensplanoAlimentar_detalhado WHERE plano_alimentar_id = @Filtro";
 
-                db.CarregarDados(query, RecordatorioID, dataGridView1);
+                db.CarregarDados(query, PlanoAlimentarID, dataGridView1);
+                dataGridView1.Columns["descricaoperiodo"].Width  = 100;
+                dataGridView1.Columns["descricaoperiodo"].HeaderText = "Descrição Período";
+                dataGridView1.Columns["data"].Width  = 75;
+                dataGridView1.Columns["data"].HeaderText = "Data";
+                dataGridView1.Columns["hora"].Width  = 75;
+                dataGridView1.Columns["hora"].HeaderText = "Hora";
+                dataGridView1.Columns["quantidade"].Width  = 100;
+                dataGridView1.Columns["quantidade"].HeaderText = "Quantidade";
+                dataGridView1.Columns["descricao_alimento"].Width  = 350;
+                dataGridView1.Columns["descricao_alimento"].HeaderText = "Descrição Alimento";
             }
 
-            bt_adicionarRec.Enabled = false;
-            cb_Pacientes.Enabled = false;
-            txt_DescricaoNome.Text = "";
             gr_selecao.Visible = true;
             gr_itens.Visible = true;
-
+            bt_adicionarPlano.Enabled = false;
+            bt_EditarPlano.Enabled = false;
+            cb_Pacientes.Enabled = false;
+            txt_DescricaoNome.Enabled = false;
+            cb_PlanosAlimentares.Enabled = false;
         }
 
-        private void bt_adicionarItemRec_Click(object sender, EventArgs e)
+
+        private void bt_adicionarItemPlano_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Deseja adicionar esse item ao Recordatório?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MessageBox.Show("Deseja adicionar esse item ao Plano Alimentar?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 using (var db = new DatabaseConnection())
                 {
                     db.OpenConnection();
                     using (var comm = new NpgsqlCommand(
-                         "INSERT INTO public.itens_recordatorio " +
-                         "(recordatorio_id, data_rec, hora, taco_id, descricao, quantidade,gramas," 
+                         "INSERT INTO public.itens_plano_alimentar " +
+                         "(plano_alimentar_id, data, hora, taco_id, descricao, quantidade,gramas,"
                          +"calorias_totais,carboidratos_totais,proteinas_totais,gorduras_totais,"
                          +"fibras_totais,vitamina_a,vitamina_c,calcio_total,ferro_total,magnesio_total"+") " +
-                         "VALUES (@recordatorio_id, @data_rec, @hora, @taco_id, @descricao, @quantidade,@gramas," 
+                         "VALUES (@plano_alimentar_id, @data, @hora, @taco_id, @descricao, @quantidade,@gramas,"
                          +"@calorias_totais,@carboidratos_totais,@proteinas_totais,@gorduras_totais,"
                          +"@fibras_totais,@vitamina_a,@vitamina_c,@calcio_total,@ferro_total,@magnesio_total)",
                          db.GetConnection()))
@@ -304,11 +314,11 @@ namespace NutricionalApp
                         float totalmagnesio = (TACOmagensio/100)*TACOGramas;
 
                         // Adicionando os parâmetros com seus respectivos valores
-                        comm.Parameters.AddWithValue("@recordatorio_id", RecordatorioID);
-                        comm.Parameters.AddWithValue("@data_rec", dt_DataHoraRec.Value.Date);
-                        comm.Parameters.AddWithValue("@hora", dt_DataHoraRec.Value.TimeOfDay); 
-                        comm.Parameters.AddWithValue("@taco_id", TacoID); 
-                        comm.Parameters.AddWithValue("@descricao", cb_NomeDescricao.Text); 
+                        comm.Parameters.AddWithValue("@plano_alimentar_id", PlanoAlimentarID);
+                        comm.Parameters.AddWithValue("@data", dt_DataHoraPlano.Value.Date);
+                        comm.Parameters.AddWithValue("@hora", dt_DataHoraPlano.Value.TimeOfDay);
+                        comm.Parameters.AddWithValue("@taco_id", TacoID);
+                        comm.Parameters.AddWithValue("@descricao", cb_NomeDescricao.Text);
                         comm.Parameters.AddWithValue("@quantidade", Convert.ToInt32(txt_QuantidadeItens.Text));
                         comm.Parameters.AddWithValue("@gramas", totalgramas);
                         comm.Parameters.AddWithValue("@calorias_totais", totalcalorias);
@@ -340,10 +350,35 @@ namespace NutricionalApp
             {
                 cb_Taco.Focus();
             }
-
         }
 
+        private void AtualizarDataGridView()
+        {
+            using (var db = new DatabaseConnection())
+            {
+                try
+                {
+                    // Recarregar os dados no DataGridView
+                    string query = "SELECT descricaoperiodo, data, hora, quantidade, descricao_alimento FROM vw_itensplanoAlimentar_detalhado WHERE plano_alimentar_id = @Filtro";
+                    db.CarregarDados(query, PlanoAlimentarID, dataGridView1);
+                    dataGridView1.Columns["descricaoperiodo"].Width  = 100;
+                    dataGridView1.Columns["descricaoperiodo"].HeaderText = "Descrição Período";
+                    dataGridView1.Columns["data"].Width  = 75;
+                    dataGridView1.Columns["data"].HeaderText = "Data";
+                    dataGridView1.Columns["hora"].Width  = 75;
+                    dataGridView1.Columns["hora"].HeaderText = "Hora";
+                    dataGridView1.Columns["quantidade"].Width  = 100;
+                    dataGridView1.Columns["quantidade"].HeaderText = "Quantidade";
+                    dataGridView1.Columns["descricao_alimento"].Width  = 350;
+                    dataGridView1.Columns["descricao_alimento"].HeaderText = "Descrição Alimento";
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show($"Erro ao atualizar a lista: {error.Message}!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
 
+        }
         private void cb_filtro_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cb_filtro.Text != "")
@@ -356,15 +391,15 @@ namespace NutricionalApp
                         {
                             connection.Open();
 
-                            string query = "SELECT data_rec, hora, quantidade, descricao_alimento " +
-                                             "FROM vw_itensrecordatorio_detalhado " +
-                                              "WHERE recordatorio_id = @Filtro " +
+                            string query = "SELECT descricaoperiodo,data, hora, quantidade, descricao_alimento " +
+                                             "FROM vw_itensplanoAlimentar_detalhado " +
+                                              "WHERE plano_alimentar_id = @Filtro " +
                                               "AND descricaoperiodo LIKE @DescricaoPeriodo";
 
                             using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
                             {
                                 // Passa o filtro como inteiro
-                                command.Parameters.AddWithValue("@Filtro", RecordatorioID);
+                                command.Parameters.AddWithValue("@Filtro", PlanoAlimentarID);
                                 command.Parameters.AddWithValue("@DescricaoPeriodo", cb_filtro.Text);
 
                                 NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(command);
@@ -397,7 +432,7 @@ namespace NutricionalApp
 
         private void rb_gramaInt_CheckedChanged(object sender, EventArgs e)
         {
-            if (rb_gramaInt.Checked) 
+            if (rb_gramaInt.Checked)
             {
                 cb_Taco_SelectedIndexChanged(sender, e);
                 l_gramas.Text = Convert.ToString(TACOGramas) + "g";
@@ -411,7 +446,7 @@ namespace NutricionalApp
 
         private void rb_grMeia_CheckedChanged(object sender, EventArgs e)
         {
-            if (rb_grMeia.Checked) 
+            if (rb_grMeia.Checked)
             {
                 cb_Taco_SelectedIndexChanged(sender, e);
                 TACOGramas = TACOGramas/2;
@@ -445,37 +480,12 @@ namespace NutricionalApp
             }
         }
 
+
         private void txt_gramaPersonalizado_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) //Aceita apenas Numeros
             {
                 e.Handled = true;
-            }
-        }
-
-        private void AtualizarDataGridView()
-        {
-            using (var db = new DatabaseConnection())
-            {
-                try
-                {
-                    // Recarregar os dados no DataGridView
-                    string query = "SELECT data_rec, hora, quantidade, descricao_alimento FROM vw_itensrecordatorio_detalhado WHERE recordatorio_id = @Filtro";
-                    db.CarregarDados(query, RecordatorioID, dataGridView1);
-                }
-                catch (Exception error)
-                {
-                    MessageBox.Show($"Erro ao atualizar a lista: {error.Message}!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-
-        }
-
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (tabControl1.SelectedIndex == 1)
-            {
-                AtualizarDataGridView2();
             }
         }
 
@@ -486,10 +496,10 @@ namespace NutricionalApp
                 try
                 {
                     // Recarregar os dados no DataGridView2
-                    string query = "SELECT ir.id_itensrec, tt.descricao, ir.quantidade,ir.gramas,ir.calorias_totais,ir.carboidratos_totais,ir.proteinas_totais,ir.fibras_totais,ir.gorduras_totais,ir.vitamina_a,ir.vitamina_c,ir.calcio_total,ir.ferro_total,ir.magnesio_total FROM itens_recordatorio ir JOIN tabela_taco4 tt ON ir.taco_id = tt.id  WHERE recordatorio_id = @Filtro";
-                    db.CarregarDados(query, RecordatorioID, dataGridView2);
-                    dataGridView2.Columns["id_itensrec"].Width  = 50;
-                    dataGridView2.Columns["id_itensrec"].HeaderText = "ID";
+                    string query = "SELECT ip.id_itensplano, tt.descricao, ip.quantidade,ip.gramas,ip.calorias_totais,ip.carboidratos_totais,ip.proteinas_totais,ip.fibras_totais,ip.gorduras_totais,ip.vitamina_a,ip.vitamina_c,ip.calcio_total,ip.ferro_total,ip.magnesio_total FROM itens_plano_alimentar ip JOIN tabela_taco4 tt ON ip.taco_id = tt.id  WHERE plano_alimentar_id = @Filtro";
+                    db.CarregarDados(query, PlanoAlimentarID, dataGridView2);
+                    dataGridView2.Columns["id_itensplano"].Width  = 50;
+                    dataGridView2.Columns["id_itensplano"].HeaderText = "ID";
                     dataGridView2.Columns["descricao"].Width  = 150;
                     dataGridView2.Columns["descricao"].HeaderText = "Descrição";
                     dataGridView2.Columns["quantidade"].Width  = 50;
@@ -570,8 +580,6 @@ namespace NutricionalApp
                     chart1.Series.Add(series);
 
 
-
-
                 }
                 catch (Exception error)
                 {
@@ -580,19 +588,27 @@ namespace NutricionalApp
             }
         }
 
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedIndex == 1)
+            {
+                AtualizarDataGridView2();
+            }
+        }
+
         private void bt_ExcluirIntem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Deseja excluir esse item do Recordatório?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MessageBox.Show("Deseja excluir esse item do Plano Alimentar?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 if (dataGridView2.SelectedRows.Count > 0)
                 {
                     // Obter o índice da linha selecionada
                     int rowIndex = dataGridView2.SelectedRows[0].Index;
-                    int id = (int)dataGridView2.Rows[rowIndex].Cells["id_itensrec"].Value;
+                    int id = (int)dataGridView2.Rows[rowIndex].Cells["id_itensplano"].Value;
 
                     using (var db = new DatabaseConnection())
                     {
-                        db.ExcluirItemRecordatorio(id);
+                        db.ExcluirItemPlanoAlimentar(id);
                         MessageBox.Show("Item Excluido com Sucesso!", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     }
@@ -605,5 +621,36 @@ namespace NutricionalApp
                 dataGridView2.Focus();
             }
         }
+
+
+        private void bt_ExcluirAtv_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja excluir esse Plano Alimentar Permanentemente?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                using (var db = new DatabaseConnection())
+                {
+                    try
+                    {
+                        db.ExcluirPlanoAlimentar(PlanoAlimentarID);
+                        MessageBox.Show("Plano Alimentar Excluído com Sucesso!", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception error)
+                    {
+                        MessageBox.Show($"Erro ao Excluir: {error.Message}!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                tabControl1.SelectedIndex = 0;
+                gr_selecao.Visible = false;
+                gr_itens.Visible = false;
+                bt_adicionarPlano.Enabled = true;
+                bt_EditarPlano.Enabled = true;
+                cb_Pacientes.Enabled = true;
+                cb_PlanosAlimentares.Enabled = true;
+                cb_Pacientes_SelectedIndexChanged(sender, e);
+            }
+
+        }
+
     }
 }
