@@ -162,7 +162,16 @@
               <Mapping SourceColumn="Senha" DataSetColumn="Senha" />
               <Mapping SourceColumn="Estudante" DataSetColumn="Estudante" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT "id_nutricionista", "Nome", "Sobrenome", "CPF", "CRN", "Data_Nascimento", "Idade", "Data_Inclusao", "Data_Alteracao", "Data_Exclusao", "Email", "ativo", "Nut_icon", "Senha", "Estudante" FROM "public"."nutricionista"</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="pacienteTableAdapter" GeneratorDataComponentClassName="pacienteTableAdapter" Name="paciente" UserDataComponentName="pacienteTableAdapter">
             <MainSource>
@@ -2318,74 +2327,74 @@ WHERE        gr.grupo_id = me.grupo_id</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="itens_plano_alimentar" msprop:Generator_RowClassName="itens_plano_alimentarRow" msprop:Generator_RowEvHandlerName="itens_plano_alimentarRowChangeEventHandler" msprop:Generator_RowDeletedName="itens_plano_alimentarRowDeleted" msprop:Generator_RowDeletingName="itens_plano_alimentarRowDeleting" msprop:Generator_RowEvArgName="itens_plano_alimentarRowChangeEvent" msprop:Generator_TablePropName="itens_plano_alimentar" msprop:Generator_RowChangedName="itens_plano_alimentarRowChanged" msprop:Generator_UserTableName="itens_plano_alimentar" msprop:Generator_RowChangingName="itens_plano_alimentarRowChanging" msprop:Generator_TableClassName="itens_plano_alimentarDataTable" msprop:Generator_TableVarName="tableitens_plano_alimentar">
+        <xs:element name="itens_plano_alimentar" msprop:Generator_RowEvHandlerName="itens_plano_alimentarRowChangeEventHandler" msprop:Generator_RowDeletedName="itens_plano_alimentarRowDeleted" msprop:Generator_RowDeletingName="itens_plano_alimentarRowDeleting" msprop:Generator_RowEvArgName="itens_plano_alimentarRowChangeEvent" msprop:Generator_TablePropName="itens_plano_alimentar" msprop:Generator_RowChangedName="itens_plano_alimentarRowChanged" msprop:Generator_UserTableName="itens_plano_alimentar" msprop:Generator_RowChangingName="itens_plano_alimentarRowChanging" msprop:Generator_RowClassName="itens_plano_alimentarRow" msprop:Generator_TableClassName="itens_plano_alimentarDataTable" msprop:Generator_TableVarName="tableitens_plano_alimentar">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id_itensplano" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="id_itensplano" msprop:Generator_ColumnPropNameInTable="id_itensplanoColumn" msprop:Generator_ColumnPropNameInRow="id_itensplano" msprop:Generator_ColumnVarNameInTable="columnid_itensplano" type="xs:int" />
-              <xs:element name="plano_alimentar_id" msprop:Generator_UserColumnName="plano_alimentar_id" msprop:Generator_ColumnPropNameInTable="plano_alimentar_idColumn" msprop:Generator_ColumnPropNameInRow="plano_alimentar_id" msprop:Generator_ColumnVarNameInTable="columnplano_alimentar_id" type="xs:int" />
-              <xs:element name="data" msprop:Generator_UserColumnName="data" msprop:Generator_ColumnPropNameInTable="dataColumn" msprop:Generator_ColumnPropNameInRow="data" msprop:Generator_ColumnVarNameInTable="columndata" type="xs:dateTime" />
-              <xs:element name="hora" msprop:Generator_UserColumnName="hora" msprop:Generator_ColumnPropNameInTable="horaColumn" msprop:Generator_ColumnPropNameInRow="hora" msprop:Generator_ColumnVarNameInTable="columnhora" type="xs:duration" />
-              <xs:element name="taco_id" msprop:Generator_UserColumnName="taco_id" msprop:Generator_ColumnPropNameInTable="taco_idColumn" msprop:Generator_ColumnPropNameInRow="taco_id" msprop:Generator_ColumnVarNameInTable="columntaco_id" type="xs:int" />
-              <xs:element name="descricao" msprop:Generator_UserColumnName="descricao" msprop:Generator_ColumnPropNameInTable="descricaoColumn" msprop:Generator_ColumnPropNameInRow="descricao" msprop:Generator_ColumnVarNameInTable="columndescricao" minOccurs="0">
+              <xs:element name="id_itensplano" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="id_itensplanoColumn" msprop:Generator_ColumnPropNameInRow="id_itensplano" msprop:Generator_UserColumnName="id_itensplano" msprop:Generator_ColumnVarNameInTable="columnid_itensplano" type="xs:int" />
+              <xs:element name="plano_alimentar_id" msprop:Generator_ColumnPropNameInTable="plano_alimentar_idColumn" msprop:Generator_ColumnPropNameInRow="plano_alimentar_id" msprop:Generator_UserColumnName="plano_alimentar_id" msprop:Generator_ColumnVarNameInTable="columnplano_alimentar_id" type="xs:int" />
+              <xs:element name="data" msprop:Generator_ColumnPropNameInTable="dataColumn" msprop:Generator_ColumnPropNameInRow="data" msprop:Generator_UserColumnName="data" msprop:Generator_ColumnVarNameInTable="columndata" type="xs:dateTime" />
+              <xs:element name="hora" msprop:Generator_ColumnPropNameInTable="horaColumn" msprop:Generator_ColumnPropNameInRow="hora" msprop:Generator_UserColumnName="hora" msprop:Generator_ColumnVarNameInTable="columnhora" type="xs:duration" />
+              <xs:element name="taco_id" msprop:Generator_ColumnPropNameInTable="taco_idColumn" msprop:Generator_ColumnPropNameInRow="taco_id" msprop:Generator_UserColumnName="taco_id" msprop:Generator_ColumnVarNameInTable="columntaco_id" type="xs:int" />
+              <xs:element name="descricao" msprop:Generator_ColumnPropNameInTable="descricaoColumn" msprop:Generator_ColumnPropNameInRow="descricao" msprop:Generator_UserColumnName="descricao" msprop:Generator_ColumnVarNameInTable="columndescricao" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="500" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="quantidade" msprop:Generator_UserColumnName="quantidade" msprop:Generator_ColumnPropNameInTable="quantidadeColumn" msprop:Generator_ColumnPropNameInRow="quantidade" msprop:Generator_ColumnVarNameInTable="columnquantidade" type="xs:short" />
-              <xs:element name="gramas" msprop:Generator_UserColumnName="gramas" msprop:Generator_ColumnPropNameInTable="gramasColumn" msprop:Generator_ColumnPropNameInRow="gramas" msprop:Generator_ColumnVarNameInTable="columngramas" type="xs:decimal" />
-              <xs:element name="calorias_totais" msprop:Generator_UserColumnName="calorias_totais" msprop:Generator_ColumnPropNameInTable="calorias_totaisColumn" msprop:Generator_ColumnPropNameInRow="calorias_totais" msprop:Generator_ColumnVarNameInTable="columncalorias_totais" type="xs:decimal" />
-              <xs:element name="proteinas_totais" msprop:Generator_UserColumnName="proteinas_totais" msprop:Generator_ColumnPropNameInTable="proteinas_totaisColumn" msprop:Generator_ColumnPropNameInRow="proteinas_totais" msprop:Generator_ColumnVarNameInTable="columnproteinas_totais" type="xs:decimal" />
-              <xs:element name="gorduras_totais" msprop:Generator_UserColumnName="gorduras_totais" msprop:Generator_ColumnPropNameInTable="gorduras_totaisColumn" msprop:Generator_ColumnPropNameInRow="gorduras_totais" msprop:Generator_ColumnVarNameInTable="columngorduras_totais" type="xs:decimal" />
-              <xs:element name="fibras_totais" msprop:Generator_UserColumnName="fibras_totais" msprop:Generator_ColumnPropNameInTable="fibras_totaisColumn" msprop:Generator_ColumnPropNameInRow="fibras_totais" msprop:Generator_ColumnVarNameInTable="columnfibras_totais" type="xs:decimal" />
-              <xs:element name="vitamina_a" msprop:Generator_UserColumnName="vitamina_a" msprop:Generator_ColumnPropNameInTable="vitamina_aColumn" msprop:Generator_ColumnPropNameInRow="vitamina_a" msprop:Generator_ColumnVarNameInTable="columnvitamina_a" type="xs:decimal" />
-              <xs:element name="vitamina_c" msprop:Generator_UserColumnName="vitamina_c" msprop:Generator_ColumnPropNameInTable="vitamina_cColumn" msprop:Generator_ColumnPropNameInRow="vitamina_c" msprop:Generator_ColumnVarNameInTable="columnvitamina_c" type="xs:decimal" />
-              <xs:element name="calcio_total" msprop:Generator_UserColumnName="calcio_total" msprop:Generator_ColumnPropNameInTable="calcio_totalColumn" msprop:Generator_ColumnPropNameInRow="calcio_total" msprop:Generator_ColumnVarNameInTable="columncalcio_total" type="xs:decimal" />
-              <xs:element name="ferro_total" msprop:Generator_UserColumnName="ferro_total" msprop:Generator_ColumnPropNameInTable="ferro_totalColumn" msprop:Generator_ColumnPropNameInRow="ferro_total" msprop:Generator_ColumnVarNameInTable="columnferro_total" type="xs:decimal" />
-              <xs:element name="magnesio_total" msprop:Generator_UserColumnName="magnesio_total" msprop:Generator_ColumnPropNameInTable="magnesio_totalColumn" msprop:Generator_ColumnPropNameInRow="magnesio_total" msprop:Generator_ColumnVarNameInTable="columnmagnesio_total" type="xs:decimal" />
+              <xs:element name="quantidade" msprop:Generator_ColumnPropNameInTable="quantidadeColumn" msprop:Generator_ColumnPropNameInRow="quantidade" msprop:Generator_UserColumnName="quantidade" msprop:Generator_ColumnVarNameInTable="columnquantidade" type="xs:short" />
+              <xs:element name="gramas" msprop:Generator_ColumnPropNameInTable="gramasColumn" msprop:Generator_ColumnPropNameInRow="gramas" msprop:Generator_UserColumnName="gramas" msprop:Generator_ColumnVarNameInTable="columngramas" type="xs:decimal" />
+              <xs:element name="calorias_totais" msprop:Generator_ColumnPropNameInTable="calorias_totaisColumn" msprop:Generator_ColumnPropNameInRow="calorias_totais" msprop:Generator_UserColumnName="calorias_totais" msprop:Generator_ColumnVarNameInTable="columncalorias_totais" type="xs:decimal" />
+              <xs:element name="proteinas_totais" msprop:Generator_ColumnPropNameInTable="proteinas_totaisColumn" msprop:Generator_ColumnPropNameInRow="proteinas_totais" msprop:Generator_UserColumnName="proteinas_totais" msprop:Generator_ColumnVarNameInTable="columnproteinas_totais" type="xs:decimal" />
+              <xs:element name="gorduras_totais" msprop:Generator_ColumnPropNameInTable="gorduras_totaisColumn" msprop:Generator_ColumnPropNameInRow="gorduras_totais" msprop:Generator_UserColumnName="gorduras_totais" msprop:Generator_ColumnVarNameInTable="columngorduras_totais" type="xs:decimal" />
+              <xs:element name="fibras_totais" msprop:Generator_ColumnPropNameInTable="fibras_totaisColumn" msprop:Generator_ColumnPropNameInRow="fibras_totais" msprop:Generator_UserColumnName="fibras_totais" msprop:Generator_ColumnVarNameInTable="columnfibras_totais" type="xs:decimal" />
+              <xs:element name="vitamina_a" msprop:Generator_ColumnPropNameInTable="vitamina_aColumn" msprop:Generator_ColumnPropNameInRow="vitamina_a" msprop:Generator_UserColumnName="vitamina_a" msprop:Generator_ColumnVarNameInTable="columnvitamina_a" type="xs:decimal" />
+              <xs:element name="vitamina_c" msprop:Generator_ColumnPropNameInTable="vitamina_cColumn" msprop:Generator_ColumnPropNameInRow="vitamina_c" msprop:Generator_UserColumnName="vitamina_c" msprop:Generator_ColumnVarNameInTable="columnvitamina_c" type="xs:decimal" />
+              <xs:element name="calcio_total" msprop:Generator_ColumnPropNameInTable="calcio_totalColumn" msprop:Generator_ColumnPropNameInRow="calcio_total" msprop:Generator_UserColumnName="calcio_total" msprop:Generator_ColumnVarNameInTable="columncalcio_total" type="xs:decimal" />
+              <xs:element name="ferro_total" msprop:Generator_ColumnPropNameInTable="ferro_totalColumn" msprop:Generator_ColumnPropNameInRow="ferro_total" msprop:Generator_UserColumnName="ferro_total" msprop:Generator_ColumnVarNameInTable="columnferro_total" type="xs:decimal" />
+              <xs:element name="magnesio_total" msprop:Generator_ColumnPropNameInTable="magnesio_totalColumn" msprop:Generator_ColumnPropNameInRow="magnesio_total" msprop:Generator_UserColumnName="magnesio_total" msprop:Generator_ColumnVarNameInTable="columnmagnesio_total" type="xs:decimal" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="vw_itensplanoalimentar_detalhado" msprop:Generator_RowEvHandlerName="vw_itensplanoalimentar_detalhadoRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_itensplanoalimentar_detalhadoRowDeleted" msprop:Generator_RowDeletingName="vw_itensplanoalimentar_detalhadoRowDeleting" msprop:Generator_RowEvArgName="vw_itensplanoalimentar_detalhadoRowChangeEvent" msprop:Generator_TablePropName="vw_itensplanoalimentar_detalhado" msprop:Generator_RowChangedName="vw_itensplanoalimentar_detalhadoRowChanged" msprop:Generator_RowChangingName="vw_itensplanoalimentar_detalhadoRowChanging" msprop:Generator_TableClassName="vw_itensplanoalimentar_detalhadoDataTable" msprop:Generator_RowClassName="vw_itensplanoalimentar_detalhadoRow" msprop:Generator_TableVarName="tablevw_itensplanoalimentar_detalhado" msprop:Generator_UserTableName="vw_itensplanoalimentar_detalhado">
+        <xs:element name="vw_itensplanoalimentar_detalhado" msprop:Generator_RowClassName="vw_itensplanoalimentar_detalhadoRow" msprop:Generator_RowEvHandlerName="vw_itensplanoalimentar_detalhadoRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_itensplanoalimentar_detalhadoRowDeleted" msprop:Generator_RowDeletingName="vw_itensplanoalimentar_detalhadoRowDeleting" msprop:Generator_RowEvArgName="vw_itensplanoalimentar_detalhadoRowChangeEvent" msprop:Generator_TablePropName="vw_itensplanoalimentar_detalhado" msprop:Generator_RowChangedName="vw_itensplanoalimentar_detalhadoRowChanged" msprop:Generator_UserTableName="vw_itensplanoalimentar_detalhado" msprop:Generator_RowChangingName="vw_itensplanoalimentar_detalhadoRowChanging" msprop:Generator_TableClassName="vw_itensplanoalimentar_detalhadoDataTable" msprop:Generator_TableVarName="tablevw_itensplanoalimentar_detalhado">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id_itensplano" msprop:Generator_ColumnPropNameInRow="id_itensplano" msprop:Generator_ColumnPropNameInTable="id_itensplanoColumn" msprop:Generator_ColumnVarNameInTable="columnid_itensplano" msprop:Generator_UserColumnName="id_itensplano" type="xs:int" minOccurs="0" />
-              <xs:element name="plano_alimentar_id" msprop:Generator_ColumnPropNameInRow="plano_alimentar_id" msprop:Generator_ColumnPropNameInTable="plano_alimentar_idColumn" msprop:Generator_ColumnVarNameInTable="columnplano_alimentar_id" msprop:Generator_UserColumnName="plano_alimentar_id" type="xs:int" minOccurs="0" />
-              <xs:element name="plano_alimentar_descricao" msprop:Generator_ColumnPropNameInRow="plano_alimentar_descricao" msprop:Generator_ColumnPropNameInTable="plano_alimentar_descricaoColumn" msprop:Generator_ColumnVarNameInTable="columnplano_alimentar_descricao" msprop:Generator_UserColumnName="plano_alimentar_descricao" minOccurs="0">
+              <xs:element name="id_itensplano" msprop:Generator_UserColumnName="id_itensplano" msprop:Generator_ColumnPropNameInTable="id_itensplanoColumn" msprop:Generator_ColumnPropNameInRow="id_itensplano" msprop:Generator_ColumnVarNameInTable="columnid_itensplano" type="xs:int" minOccurs="0" />
+              <xs:element name="plano_alimentar_id" msprop:Generator_UserColumnName="plano_alimentar_id" msprop:Generator_ColumnPropNameInTable="plano_alimentar_idColumn" msprop:Generator_ColumnPropNameInRow="plano_alimentar_id" msprop:Generator_ColumnVarNameInTable="columnplano_alimentar_id" type="xs:int" minOccurs="0" />
+              <xs:element name="plano_alimentar_descricao" msprop:Generator_UserColumnName="plano_alimentar_descricao" msprop:Generator_ColumnPropNameInTable="plano_alimentar_descricaoColumn" msprop:Generator_ColumnPropNameInRow="plano_alimentar_descricao" msprop:Generator_ColumnVarNameInTable="columnplano_alimentar_descricao" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="150" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="descricaoperiodo" msprop:Generator_ColumnPropNameInRow="descricaoperiodo" msprop:Generator_ColumnPropNameInTable="descricaoperiodoColumn" msprop:Generator_ColumnVarNameInTable="columndescricaoperiodo" msprop:Generator_UserColumnName="descricaoperiodo" minOccurs="0">
+              <xs:element name="descricaoperiodo" msprop:Generator_UserColumnName="descricaoperiodo" msprop:Generator_ColumnPropNameInTable="descricaoperiodoColumn" msprop:Generator_ColumnPropNameInRow="descricaoperiodo" msprop:Generator_ColumnVarNameInTable="columndescricaoperiodo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="500" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="nome_paciente" msprop:Generator_ColumnPropNameInRow="nome_paciente" msprop:Generator_ColumnPropNameInTable="nome_pacienteColumn" msprop:Generator_ColumnVarNameInTable="columnnome_paciente" msprop:Generator_UserColumnName="nome_paciente" minOccurs="0">
+              <xs:element name="nome_paciente" msprop:Generator_UserColumnName="nome_paciente" msprop:Generator_ColumnPropNameInTable="nome_pacienteColumn" msprop:Generator_ColumnPropNameInRow="nome_paciente" msprop:Generator_ColumnVarNameInTable="columnnome_paciente" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="280" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="data" msprop:Generator_ColumnPropNameInRow="data" msprop:Generator_ColumnPropNameInTable="dataColumn" msprop:Generator_ColumnVarNameInTable="columndata" msprop:Generator_UserColumnName="data" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="hora" msprop:Generator_ColumnPropNameInRow="hora" msprop:Generator_ColumnPropNameInTable="horaColumn" msprop:Generator_ColumnVarNameInTable="columnhora" msprop:Generator_UserColumnName="hora" type="xs:duration" minOccurs="0" />
-              <xs:element name="quantidade" msprop:Generator_ColumnPropNameInRow="quantidade" msprop:Generator_ColumnPropNameInTable="quantidadeColumn" msprop:Generator_ColumnVarNameInTable="columnquantidade" msprop:Generator_UserColumnName="quantidade" type="xs:short" minOccurs="0" />
-              <xs:element name="descricao_alimento" msprop:Generator_ColumnPropNameInRow="descricao_alimento" msprop:Generator_ColumnPropNameInTable="descricao_alimentoColumn" msprop:Generator_ColumnVarNameInTable="columndescricao_alimento" msprop:Generator_UserColumnName="descricao_alimento" minOccurs="0">
+              <xs:element name="data" msprop:Generator_UserColumnName="data" msprop:Generator_ColumnPropNameInTable="dataColumn" msprop:Generator_ColumnPropNameInRow="data" msprop:Generator_ColumnVarNameInTable="columndata" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="hora" msprop:Generator_UserColumnName="hora" msprop:Generator_ColumnPropNameInTable="horaColumn" msprop:Generator_ColumnPropNameInRow="hora" msprop:Generator_ColumnVarNameInTable="columnhora" type="xs:duration" minOccurs="0" />
+              <xs:element name="quantidade" msprop:Generator_UserColumnName="quantidade" msprop:Generator_ColumnPropNameInTable="quantidadeColumn" msprop:Generator_ColumnPropNameInRow="quantidade" msprop:Generator_ColumnVarNameInTable="columnquantidade" type="xs:short" minOccurs="0" />
+              <xs:element name="descricao_alimento" msprop:Generator_UserColumnName="descricao_alimento" msprop:Generator_ColumnPropNameInTable="descricao_alimentoColumn" msprop:Generator_ColumnPropNameInRow="descricao_alimento" msprop:Generator_ColumnVarNameInTable="columndescricao_alimento" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="carboidrato" msprop:Generator_ColumnPropNameInRow="carboidrato" msprop:Generator_ColumnPropNameInTable="carboidratoColumn" msprop:Generator_ColumnVarNameInTable="columncarboidrato" msprop:Generator_UserColumnName="carboidrato" type="xs:decimal" minOccurs="0" />
-              <xs:element name="proteina" msprop:Generator_ColumnPropNameInRow="proteina" msprop:Generator_ColumnPropNameInTable="proteinaColumn" msprop:Generator_ColumnVarNameInTable="columnproteina" msprop:Generator_UserColumnName="proteina" type="xs:decimal" minOccurs="0" />
-              <xs:element name="lipideos" msprop:Generator_ColumnPropNameInRow="lipideos" msprop:Generator_ColumnPropNameInTable="lipideosColumn" msprop:Generator_ColumnVarNameInTable="columnlipideos" msprop:Generator_UserColumnName="lipideos" type="xs:decimal" minOccurs="0" />
+              <xs:element name="carboidrato" msprop:Generator_UserColumnName="carboidrato" msprop:Generator_ColumnPropNameInTable="carboidratoColumn" msprop:Generator_ColumnPropNameInRow="carboidrato" msprop:Generator_ColumnVarNameInTable="columncarboidrato" type="xs:decimal" minOccurs="0" />
+              <xs:element name="proteina" msprop:Generator_UserColumnName="proteina" msprop:Generator_ColumnPropNameInTable="proteinaColumn" msprop:Generator_ColumnPropNameInRow="proteina" msprop:Generator_ColumnVarNameInTable="columnproteina" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lipideos" msprop:Generator_UserColumnName="lipideos" msprop:Generator_ColumnPropNameInTable="lipideosColumn" msprop:Generator_ColumnPropNameInRow="lipideos" msprop:Generator_ColumnVarNameInTable="columnlipideos" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
