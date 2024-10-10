@@ -45,17 +45,30 @@ namespace NutricionalApp
 
             using (var db = new DatabaseConnection())
             {
-                db.OpenConnection();
-                db.GetPacientes(NutricionistaID, cb_Pacientes);
-                db.GetGNivelAtividadeCombobox(cb_NivelAtv,l_descNivelAtividade);
-                db.GetAtividadeFisicaGastosCombobox(cb_AtvFisica, l_met);
-                db.GetProtocolosCombobox(cb_Protocolo);
+                string result = db.CheckNutricionistaAtivo(NutricionistaID);
+
+                if (result == "True") //Função para verificar se o nutricionista está ativo
+                {
+
+                    db.OpenConnection();
+                    db.GetPacientes(NutricionistaID, cb_Pacientes);
+                    db.GetGNivelAtividadeCombobox(cb_NivelAtv, l_descNivelAtividade);
+                    db.GetAtividadeFisicaGastosCombobox(cb_AtvFisica, l_met);
+                    db.GetProtocolosCombobox(cb_Protocolo);
+
+                    //Rotinas para Aba "Atividade Fisica"
+                    cb_AtvFisica.SelectedIndex = 4;
+                    dt_tempo.Format = DateTimePickerFormat.Time;
+                    dt_tempo.ShowUpDown = true; // Exibe controles up-down ao invés de calendário
+                }
+                else
+                {
+                    MessageBox.Show("Seu cadastro não está ativo. Contate o Administrador do Sistema!", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.BeginInvoke(new MethodInvoker(Close));
+                }
             }
 
-            //Rotinas para Aba "Atividade Fisica"
-            cb_AtvFisica.SelectedIndex = 4;
-            dt_tempo.Format = DateTimePickerFormat.Time;
-            dt_tempo.ShowUpDown = true; // Exibe controles up-down ao invés de calendário
+
         }
 
         private void cb_Pacientes_SelectedIndexChanged(object sender, EventArgs e)

@@ -146,6 +146,8 @@ namespace NutricionalApp
 
         private void IsAdmSist()
         {
+
+
             if (SistAdmExecutado)
             {
                 return; // Já foi executado
@@ -154,12 +156,18 @@ namespace NutricionalApp
 
             if (LoginAdmSist.AdmSistOK) //Rotina Caso Seja um adminstrador do Sistema
             {
+                pictureBox1.Image = Properties.Resources.Administrator_96;
+
                 toolStrip1.Items.RemoveAt(0); //Remove Botão Identifique-se
 
                 Funcoes funcoes = new Funcoes();
-                //ToolStripButton botaoGerenciarNutricionistas = funcoes.CriarBotao("Gerenciar Nutricionistas Cadastrados", "Gerencia Acesso a Nutricionistas Cadastrados", Properties.Resources.Watermelon);
-                //toolStrip1.Items.Add(botaoGerenciarNutricionistas); // Adicione o botão ao ToolStrip
-                pictureBox1.Image = Properties.Resources.Male_User_96;
+                ToolStripButton botaoGerenciarNutricionistas = funcoes.CriarBotao(
+                    "Permitir / Revogar Acesso ao Sistema",
+                    "Gerencia Nutricionistas",
+                    Properties.Resources.Key_48,
+                    bt_GerenciaNutricionista_Click
+                );
+                toolStrip1.Items.Add(botaoGerenciarNutricionistas); // Adicione o botão ao ToolStrip
 
 
                 SistAdmExecutado = true;
@@ -360,6 +368,26 @@ namespace NutricionalApp
             }
         }
 
+        private void bt_GerenciaNutricionista_Click(object sender, EventArgs e)
+        {
+            ShowGerenciaNutricionista();
+        }
+
+        public void ShowGerenciaNutricionista()
+        {
+            MntNutricionista manutencaoNutri = Application.OpenForms.OfType<MntNutricionista>().FirstOrDefault();
+
+            if (manutencaoNutri == null)
+            {
+                manutencaoNutri = new MntNutricionista();
+                manutencaoNutri.MdiParent = this;
+                manutencaoNutri.Show();
+            }
+            else
+            {
+                manutencaoNutri.Focus();
+            }
+        }
 
     }
 

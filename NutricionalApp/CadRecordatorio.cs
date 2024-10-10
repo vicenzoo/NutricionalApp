@@ -46,8 +46,18 @@ namespace NutricionalApp
 
             using (var db = new DatabaseConnection())
             {
-                db.OpenConnection();
-                db.GetPacientes(NutricionistaID, cb_Pacientes);
+                string result = db.CheckNutricionistaAtivo(NutricionistaID);
+
+                if (result == "True") //Função para verificar se o nutricionista está ativo
+                {
+                    db.OpenConnection();
+                    db.GetPacientes(NutricionistaID, cb_Pacientes);
+                }
+                else
+                {
+                    MessageBox.Show("Seu cadastro não está ativo. Contate o Administrador do Sistema!", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.BeginInvoke(new MethodInvoker(Close));
+                }
             }
 
         }

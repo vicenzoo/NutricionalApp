@@ -117,23 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>170, 17</value>
+  <metadata name="nutricionalDB.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="bt_Exit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAZZJREFUSEvd
-        1E9LwmAcB/C9hF3UblkEEkTOtoYh6VAZpTmGhf057Z3oG6ouHYvQuj/PLTp1SfNPOjU7/9oje8jZ3B4T
-        D/WFMRjPPt89v41x/y+mbvCf2lnZ1HXevuQbU1D4jpAsk7N9yT0EH2nn6OPoFAa5EmIpIWg7lkKt7X1o
-        bSXQzJJJfJgrwfDgBAbqMTKV2SVTODQ349CMyOglLPy8Z1S4MJx4EfpZHfoZzbXEDX+LyNDYkOA1LBj2
-        su+QcVg4duBpDUylAL1k3lHihdfXYth1ByTjErWIp3DoJQ6hu6eO5/trnIY8qYXjKRze5Sx0pAxaCKch
-        Jb1UHjvxNFg4LIzTkJJuXMVLwWnIvDtiGi8FJ/F6oU+rwvNVIPpwzS/w9F74ZSDavwnE4DYoovt5S1jx
-        u6AItZAE1ZDEXuL3nVtjeZzE6cFU4oeTF0pmbuF4EmcqYcHtpRxBaqE5S9qCYrDgNF4ltZVdl5+dtQML
-        xyw4jXuJiD3H1IjImAWncZZ44DQEra/vVFhwGoJWV6SKL/4Hw3Ffw3wZBeBVSWsAAAAASUVORK5CYII=
-</value>
-  </data>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>81</value>
+  <metadata name="nutricionistaBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>143, 17</value>
+  </metadata>
+  <metadata name="nutricionistaTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>340, 17</value>
+  </metadata>
+  <metadata name="Estudante.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="CRN.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
 </root>

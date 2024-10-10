@@ -208,6 +208,12 @@
     <Compile Include="LoginNutri.Designer.cs">
       <DependentUpon>LoginNutri.cs</DependentUpon>
     </Compile>
+    <Compile Include="MntNutricionista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MntNutricionista.Designer.cs">
+      <DependentUpon>MntNutricionista.cs</DependentUpon>
+    </Compile>
     <Compile Include="NutricionalDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -244,6 +250,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoginNutri.resx">
       <DependentUpon>LoginNutri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MntNutricionista.resx">
+      <DependentUpon>MntNutricionista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -332,6 +341,7 @@
     <None Include="Icones\Watermelon_16px.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Icones\What I Do_48.png" />
     <None Include="Icones\Exit Sign_16px.png" />
     <None Include="Icones\Industrial Scales_16.png" />
     <None Include="Icones\Industrial Scales_48.png" />
@@ -347,6 +357,7 @@
     <None Include="Icones\Delete_16.png" />
     <None Include="Icones\Delete_48.png" />
     <None Include="Icones\PDF_48.png" />
+    <None Include="Icones\Key_48.png" />
     <Content Include="Icones\Person_16.png" />
     <Content Include="Icones\Person_48.png" />
     <None Include="Icones\Restaurant_48.png" />

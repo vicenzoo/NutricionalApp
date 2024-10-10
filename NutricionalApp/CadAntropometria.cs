@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using static NutricionalApp.DatabaseConnection;
 using MigraDocCore.DocumentObjectModel;
 using MigraDocCore.Rendering;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace NutricionalApp
 {
@@ -39,8 +40,19 @@ namespace NutricionalApp
             using (var db = new DatabaseConnection())
             {
                 db.OpenConnection();
-                db.GetPacientes(NutricionistaID, cb_Pacientes);
-                db.GetProtocolosPCCombobox(cb_Protocolo);
+
+                string result = db.CheckNutricionistaAtivo(NutricionistaID);
+                
+                if (result == "True") //Função para verificar se o nutricionista está ativo
+                {
+                    db.GetPacientes(NutricionistaID, cb_Pacientes);
+                    db.GetProtocolosPCCombobox(cb_Protocolo);
+                }
+                else
+                {
+                    MessageBox.Show("Seu cadastro não está ativo. Contate o Administrador do Sistema!", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.BeginInvoke(new MethodInvoker(Close));
+                }
             }
 
         }

@@ -1161,5 +1161,31 @@ namespace NutricionalApp
             }
         }
 
+        public string CheckNutricionistaAtivo(int id)
+        {
+            using (var db = new DatabaseConnection())
+            {
+                db.OpenConnection();
+
+
+                using (var comm = new NpgsqlCommand("SELECT checkNutricionistaAtivo(@id);", db.GetConnection()))
+                {
+                    // Adicione os parâmetros para a função
+                    comm.Parameters.AddWithValue("@id", id);
+
+                    try
+                    {
+                        var result = comm.ExecuteScalar();
+                        return result.ToString(); // O resultado será 'true' ou 'false'
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao chamar a função: {ex.Message}");
+                        return null;
+                    }
+                }
+            }
+        }
+
     }
 }

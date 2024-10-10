@@ -30,25 +30,25 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.bt_Logout = new System.Windows.Forms.Button();
             this.splitter2 = new System.Windows.Forms.Splitter();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label_Nome = new System.Windows.Forms.Label();
             this.label_idNutricionista = new System.Windows.Forms.Label();
             this.splitter3 = new System.Windows.Forms.Splitter();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.bt_Exit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.bt_Painel1Exibe = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.bt_Logout = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.bt_Exit = new System.Windows.Forms.Button();
+            this.bt_Painel1Exibe = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
@@ -70,31 +70,6 @@
             this.panel4.Size = new System.Drawing.Size(1184, 35);
             this.panel4.TabIndex = 13;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::NutricionalApp.Properties.Resources.Watermelon_48;
-            this.pictureBox2.Location = new System.Drawing.Point(688, 1);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(34, 31);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 41;
-            this.pictureBox2.TabStop = false;
-            // 
-            // bt_Logout
-            // 
-            this.bt_Logout.Dock = System.Windows.Forms.DockStyle.Right;
-            this.bt_Logout.FlatAppearance.BorderSize = 0;
-            this.bt_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_Logout.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.bt_Logout.Image = global::NutricionalApp.Properties.Resources.Exit_Sign_16px;
-            this.bt_Logout.Location = new System.Drawing.Point(928, 0);
-            this.bt_Logout.Name = "bt_Logout";
-            this.bt_Logout.Size = new System.Drawing.Size(29, 35);
-            this.bt_Logout.TabIndex = 40;
-            this.bt_Logout.UseVisualStyleBackColor = true;
-            this.bt_Logout.Visible = false;
-            this.bt_Logout.Click += new System.EventHandler(this.bt_Logout_Click);
-            // 
             // splitter2
             // 
             this.splitter2.Dock = System.Windows.Forms.DockStyle.Right;
@@ -104,16 +79,6 @@
             this.splitter2.Size = new System.Drawing.Size(19, 35);
             this.splitter2.TabIndex = 39;
             this.splitter2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBox1.Location = new System.Drawing.Point(976, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(34, 35);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 35;
-            this.pictureBox1.TabStop = false;
             // 
             // label_Nome
             // 
@@ -162,21 +127,6 @@
             this.splitter1.TabIndex = 18;
             this.splitter1.TabStop = false;
             // 
-            // bt_Exit
-            // 
-            this.bt_Exit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.bt_Exit.FlatAppearance.BorderSize = 0;
-            this.bt_Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_Exit.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.bt_Exit.Image = ((System.Drawing.Image)(resources.GetObject("bt_Exit.Image")));
-            this.bt_Exit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.bt_Exit.Location = new System.Drawing.Point(1151, 0);
-            this.bt_Exit.Name = "bt_Exit";
-            this.bt_Exit.Size = new System.Drawing.Size(33, 35);
-            this.bt_Exit.TabIndex = 16;
-            this.bt_Exit.UseVisualStyleBackColor = true;
-            this.bt_Exit.Click += new System.EventHandler(this.bt_Exit_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -188,20 +138,6 @@
             this.label1.Size = new System.Drawing.Size(144, 28);
             this.label1.TabIndex = 15;
             this.label1.Text = "NutricionalAPP";
-            // 
-            // bt_Painel1Exibe
-            // 
-            this.bt_Painel1Exibe.Dock = System.Windows.Forms.DockStyle.Left;
-            this.bt_Painel1Exibe.FlatAppearance.BorderSize = 0;
-            this.bt_Painel1Exibe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_Painel1Exibe.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.bt_Painel1Exibe.Image = global::NutricionalApp.Properties.Resources.Menu_Squared_16;
-            this.bt_Painel1Exibe.Location = new System.Drawing.Point(0, 0);
-            this.bt_Painel1Exibe.Name = "bt_Painel1Exibe";
-            this.bt_Painel1Exibe.Size = new System.Drawing.Size(29, 35);
-            this.bt_Painel1Exibe.TabIndex = 14;
-            this.bt_Painel1Exibe.UseVisualStyleBackColor = true;
-            this.bt_Painel1Exibe.Click += new System.EventHandler(this.bt_Painel1Exibe_Click);
             // 
             // panel1
             // 
@@ -237,6 +173,70 @@
             this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.toolStripButton1.Click += new System.EventHandler(this.bt_login_Click);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::NutricionalApp.Properties.Resources.Watermelon_48;
+            this.pictureBox2.Location = new System.Drawing.Point(688, 1);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(34, 31);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 41;
+            this.pictureBox2.TabStop = false;
+            // 
+            // bt_Logout
+            // 
+            this.bt_Logout.Dock = System.Windows.Forms.DockStyle.Right;
+            this.bt_Logout.FlatAppearance.BorderSize = 0;
+            this.bt_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_Logout.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.bt_Logout.Image = global::NutricionalApp.Properties.Resources.Exit_Sign_16px;
+            this.bt_Logout.Location = new System.Drawing.Point(928, 0);
+            this.bt_Logout.Name = "bt_Logout";
+            this.bt_Logout.Size = new System.Drawing.Size(29, 35);
+            this.bt_Logout.TabIndex = 40;
+            this.bt_Logout.UseVisualStyleBackColor = true;
+            this.bt_Logout.Visible = false;
+            this.bt_Logout.Click += new System.EventHandler(this.bt_Logout_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pictureBox1.Location = new System.Drawing.Point(976, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(34, 35);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 35;
+            this.pictureBox1.TabStop = false;
+            // 
+            // bt_Exit
+            // 
+            this.bt_Exit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.bt_Exit.FlatAppearance.BorderSize = 0;
+            this.bt_Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_Exit.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.bt_Exit.Image = ((System.Drawing.Image)(resources.GetObject("bt_Exit.Image")));
+            this.bt_Exit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bt_Exit.Location = new System.Drawing.Point(1151, 0);
+            this.bt_Exit.Name = "bt_Exit";
+            this.bt_Exit.Size = new System.Drawing.Size(33, 35);
+            this.bt_Exit.TabIndex = 16;
+            this.bt_Exit.UseVisualStyleBackColor = true;
+            this.bt_Exit.Click += new System.EventHandler(this.bt_Exit_Click);
+            // 
+            // bt_Painel1Exibe
+            // 
+            this.bt_Painel1Exibe.Dock = System.Windows.Forms.DockStyle.Left;
+            this.bt_Painel1Exibe.FlatAppearance.BorderSize = 0;
+            this.bt_Painel1Exibe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_Painel1Exibe.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.bt_Painel1Exibe.Image = global::NutricionalApp.Properties.Resources.Menu_Squared_16;
+            this.bt_Painel1Exibe.Location = new System.Drawing.Point(0, 0);
+            this.bt_Painel1Exibe.Name = "bt_Painel1Exibe";
+            this.bt_Painel1Exibe.Size = new System.Drawing.Size(29, 35);
+            this.bt_Painel1Exibe.TabIndex = 14;
+            this.bt_Painel1Exibe.UseVisualStyleBackColor = true;
+            this.bt_Painel1Exibe.Click += new System.EventHandler(this.bt_Painel1Exibe_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -255,12 +255,12 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
