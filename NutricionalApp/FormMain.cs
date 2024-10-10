@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Reflection.Emit;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +16,7 @@ namespace NutricionalApp
 
     public partial class FormMain : Form
     {
+
         private static bool NutricionistaExecutado = false;
         private static bool SistAdmExecutado = false;
         public Button Logout
@@ -55,25 +57,6 @@ namespace NutricionalApp
         {
             InitializeComponent();
             TestCon();
-            panel1.BackColor = Color.FromArgb(100, panel1.BackColor.R, panel1.BackColor.G, panel1.BackColor.B);
-
-            // Inicializa e configura o Timer para a l_hora
-            timer1 = new Timer();
-            timer1.Interval = 1000;
-            timer1.Tick += new EventHandler(Timer_Tick);
-            timer1.Start();
-
-            // Inicializa a exibição da hora
-            UpdateTime();
-        }
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            UpdateTime(); // Atualiza a exibição da hora
-        }
-
-        private void UpdateTime()
-        {
-            l_Hora.Text = DateTime.Now.ToString("HH:mm");
         }
 
         private void bt_Painel1Exibe_Click(object sender, EventArgs e)
@@ -376,6 +359,7 @@ namespace NutricionalApp
                 planoAlimentar.Focus();
             }
         }
+
 
     }
 

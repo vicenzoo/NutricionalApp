@@ -5,10 +5,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static NutricionalApp.DatabaseConnection;
+using MigraDocCore.DocumentObjectModel;
+using MigraDocCore.Rendering;
 
 namespace NutricionalApp
 {
@@ -16,6 +19,7 @@ namespace NutricionalApp
     {
         int PacienteId;
         int NutricionistaID = 0;
+        string NutricionistaNome;
         int AntropometriaID = 0;
         int ProtocoloID = 0;
         string tipoSexo;
@@ -28,8 +32,9 @@ namespace NutricionalApp
 
         private void CadAntropometria_Load(object sender, EventArgs e)
         {
-            FormMain GetIDNutricionista = Application.OpenForms.OfType<FormMain>().FirstOrDefault(); //Função para Pegar o Numero de ID do Nutricionista
-            NutricionistaID = Convert.ToInt32(GetIDNutricionista.IDLabel.Text.Substring(1));
+            FormMain GetNutricionista = Application.OpenForms.OfType<FormMain>().FirstOrDefault(); //Função para Pegar o Numero de ID do Nutricionista
+            NutricionistaID = Convert.ToInt32(GetNutricionista.IDLabel.Text.Substring(1));
+            NutricionistaNome = GetNutricionista.NomeLabel.Text;
 
             using (var db = new DatabaseConnection())
             {
@@ -37,6 +42,7 @@ namespace NutricionalApp
                 db.GetPacientes(NutricionistaID, cb_Pacientes);
                 db.GetProtocolosPCCombobox(cb_Protocolo);
             }
+
         }
 
         public void PesquisarPaciente(string userNome)
@@ -628,6 +634,68 @@ namespace NutricionalApp
                 cb_Antropometrias_SelectedIndexChanged(sender, e);
 
             }
+        }
+
+        private void bt_imprimirRel_Click(object sender, EventArgs e)
+        {
+            string NomePaciente = cb_Pacientes.SelectedItem.ToString();
+
+            // Criação de um novo documento
+            Document document = new Document();
+            document.Info.Title = "Avaliação Antropometrica de: " +  NomePaciente;
+            document.Info.Subject = "Avaliação Antropometrica";
+            document.Info.Author = NutricionistaNome;
+
+            // Adiciona uma seção ao documento
+            Section section = document.AddSection();
+
+            // Adiciona informações ao documento
+            Paragraph Titulo = section.AddParagraph("Avaliação Antropométrica. ");
+            Titulo.Format.Font.Size = 16;
+            Titulo.Format.Font.Bold = true; // Define o texto em negrito
+            Titulo.Format.Alignment = ParagraphAlignment.Center; // Centraliza o texto
+            Paragraph Subtitulo = section.AddParagraph("Realizada por: " + NutricionistaNome);
+            Subtitulo.Format.Font.Size = 8;
+            Subtitulo.Format.Font.Color =  new MigraDocCore.DocumentObjectModel.Color(128, 128, 128);
+            Subtitulo.Format.Font.Italic = true; // Define o texto em negrito
+            Subtitulo.Format.Alignment = ParagraphAlignment.Center; // Centraliza o texto
+
+            section.AddParagraph("");
+            section.AddParagraph("");
+
+            Paragraph Paciente = section.AddParagraph(NomePaciente);
+            Paciente.Format.Font.Bold = true;
+            Paciente.Format.Font.Size = 12;
+            section.AddParagraph("");
+
+            section.AddParagraph("IMC: " + IMC.Text + " "  + CLASSIFICACAOIMC.Text).Format.Font.Bold = true;
+            section.AddParagraph("RCQ: " + RCQ.Text + " " + CLASSIFICACAORCQ.Text).Format.Font.Bold = true;
+            section.AddParagraph("Resultado Composição Corporal: ").Format.Font.Bold = true;
+            section.AddParagraph(RESULTADOCOMPCOR.Text);
+            
+            section.AddParagraph("");
+            section.AddParagraph("");
+
+            // Adiciona um espaço para a sugestão do nutricionista
+            section.AddParagraph("\nObservações:").Format.Font.Bold = true;
+            section.AddParagraph("\n_____________________________________________");
+            section.AddParagraph("_____________________________________________");
+            section.AddParagraph("_____________________________________________");
+
+
+            // Criação do renderizador PDF
+            PdfDocumentRenderer renderer = new PdfDocumentRenderer(true)
+            {
+                Document = document
+            };
+
+            // Gera o PDF
+            renderer.RenderDocument();
+            string filename = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\AvAntropometrica_" + NomePaciente + ".pdf";
+            renderer.PdfDocument.Save(filename);
+
+            // Exibe uma mensagem de sucesso
+            MessageBox.Show($"PDF gerado em: {filename}");
         }
     }
 

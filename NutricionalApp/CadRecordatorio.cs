@@ -1,5 +1,4 @@
-﻿using ActiveQueryBuilder.Core;
-using Npgsql;
+﻿using Npgsql;
 using System;
 using System.Collections;
 using System.Collections.Generic;

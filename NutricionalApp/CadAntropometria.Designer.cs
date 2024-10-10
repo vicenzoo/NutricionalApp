@@ -100,6 +100,7 @@
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.bt_imprimirRel = new System.Windows.Forms.Button();
             this.bt_ExcluirAtv = new System.Windows.Forms.Button();
             this.bt_Salvar = new System.Windows.Forms.Button();
             this.gr_CompCorporal = new System.Windows.Forms.GroupBox();
@@ -116,10 +117,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
-            this.bt_EditarAntrometria = new System.Windows.Forms.Button();
-            this.bt_adicionarAntrometria = new System.Windows.Forms.Button();
             this.l_sexo = new System.Windows.Forms.Label();
             this.l_idade = new System.Windows.Forms.Label();
+            this.bt_EditarAntrometria = new System.Windows.Forms.Button();
+            this.bt_adicionarAntrometria = new System.Windows.Forms.Button();
             this.tabFormulario.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gr_Torax.SuspendLayout();
@@ -827,6 +828,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.bt_imprimirRel);
             this.tabPage3.Controls.Add(this.bt_ExcluirAtv);
             this.tabPage3.Controls.Add(this.bt_Salvar);
             this.tabPage3.Controls.Add(this.gr_CompCorporal);
@@ -839,10 +841,22 @@
             this.tabPage3.Text = "Resultados";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // bt_imprimirRel
+            // 
+            this.bt_imprimirRel.Image = global::NutricionalApp.Properties.Resources.PDF_48;
+            this.bt_imprimirRel.Location = new System.Drawing.Point(522, 319);
+            this.bt_imprimirRel.Name = "bt_imprimirRel";
+            this.bt_imprimirRel.Size = new System.Drawing.Size(110, 60);
+            this.bt_imprimirRel.TabIndex = 40;
+            this.bt_imprimirRel.Text = "Salvar PDF";
+            this.bt_imprimirRel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bt_imprimirRel.UseVisualStyleBackColor = true;
+            this.bt_imprimirRel.Click += new System.EventHandler(this.bt_imprimirRel_Click);
+            // 
             // bt_ExcluirAtv
             // 
             this.bt_ExcluirAtv.Image = global::NutricionalApp.Properties.Resources.Delete_48;
-            this.bt_ExcluirAtv.Location = new System.Drawing.Point(522, 319);
+            this.bt_ExcluirAtv.Location = new System.Drawing.Point(19, 319);
             this.bt_ExcluirAtv.Name = "bt_ExcluirAtv";
             this.bt_ExcluirAtv.Size = new System.Drawing.Size(110, 60);
             this.bt_ExcluirAtv.TabIndex = 39;
@@ -1003,6 +1017,26 @@
             this.label28.TabIndex = 36;
             this.label28.Text = "Atividades Físicas do Paciente:";
             // 
+            // l_sexo
+            // 
+            this.l_sexo.AutoSize = true;
+            this.l_sexo.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l_sexo.Location = new System.Drawing.Point(341, 8);
+            this.l_sexo.Name = "l_sexo";
+            this.l_sexo.Size = new System.Drawing.Size(34, 14);
+            this.l_sexo.TabIndex = 41;
+            this.l_sexo.Text = "sexo";
+            // 
+            // l_idade
+            // 
+            this.l_idade.AutoSize = true;
+            this.l_idade.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l_idade.Location = new System.Drawing.Point(259, 8);
+            this.l_idade.Name = "l_idade";
+            this.l_idade.Size = new System.Drawing.Size(37, 14);
+            this.l_idade.TabIndex = 40;
+            this.l_idade.Text = "idade";
+            // 
             // bt_EditarAntrometria
             // 
             this.bt_EditarAntrometria.Enabled = false;
@@ -1027,26 +1061,6 @@
             this.bt_adicionarAntrometria.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_adicionarAntrometria.UseVisualStyleBackColor = true;
             this.bt_adicionarAntrometria.Click += new System.EventHandler(this.bt_adicionarAntrometria_Click);
-            // 
-            // l_sexo
-            // 
-            this.l_sexo.AutoSize = true;
-            this.l_sexo.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_sexo.Location = new System.Drawing.Point(341, 8);
-            this.l_sexo.Name = "l_sexo";
-            this.l_sexo.Size = new System.Drawing.Size(34, 14);
-            this.l_sexo.TabIndex = 41;
-            this.l_sexo.Text = "sexo";
-            // 
-            // l_idade
-            // 
-            this.l_idade.AutoSize = true;
-            this.l_idade.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_idade.Location = new System.Drawing.Point(259, 8);
-            this.l_idade.Name = "l_idade";
-            this.l_idade.Size = new System.Drawing.Size(37, 14);
-            this.l_idade.TabIndex = 40;
-            this.l_idade.Text = "idade";
             // 
             // CadAntropometria
             // 
@@ -1187,5 +1201,6 @@
         private System.Windows.Forms.Label l_sexo;
         private System.Windows.Forms.Label l_idade;
         private System.Windows.Forms.Label CLASSIFICACAORCQ;
+        private System.Windows.Forms.Button bt_imprimirRel;
     }
 }
