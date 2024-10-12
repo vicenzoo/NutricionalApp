@@ -44,8 +44,12 @@ namespace NutricionalApp
 
                 if (result == "true")
                 {
+                    FormMain GetPerfil = Application.OpenForms.OfType<FormMain>().FirstOrDefault(); //Função tornar visivel botão logout
                     MessageBox.Show("Login bem-sucedido!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     AdmSistOK = true;
+                    GetPerfil.Logout.Visible = true;
+                    GetPerfil.fotoPerfil.Image =  Properties.Resources.Administrator_96;
+                    GetPerfil.btExibePainel2.Visible = true;
                     this.Close();
                 }
                 else

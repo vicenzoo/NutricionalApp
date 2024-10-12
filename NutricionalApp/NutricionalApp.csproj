@@ -341,6 +341,12 @@
     <None Include="Icones\Watermelon_16px.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Icones\Watermelon_w_100.png" />
+    <None Include="Icones\Watermelon_w_48.png" />
+    <None Include="Icones\Watermelon_white_30.png" />
+    <None Include="Icones\Watermelon_white_40.png" />
+    <None Include="Icones\Watermelon_white_46.png" />
+    <None Include="Icones\Watermelon_white_48.png" />
     <None Include="Icones\What I Do_48.png" />
     <None Include="Icones\Exit Sign_16px.png" />
     <None Include="Icones\Industrial Scales_16.png" />
@@ -358,6 +364,9 @@
     <None Include="Icones\Delete_48.png" />
     <None Include="Icones\PDF_48.png" />
     <None Include="Icones\Key_48.png" />
+    <None Include="Icones\Menu_48.png" />
+    <None Include="Icones\Menu_24.png" />
+    <None Include="Icones\Logout_24.png" />
     <Content Include="Icones\Person_16.png" />
     <Content Include="Icones\Person_48.png" />
     <None Include="Icones\Restaurant_48.png" />
@@ -365,6 +374,8 @@
     <None Include="Icones\Time_48.png" />
     <None Include="Icones\Save_48.png" />
     <None Include="Icones\Print_48.png" />
+    <None Include="Icones\Watermelon_100.png" />
+    <None Include="Icones\Watermelon_24.png" />
     <Content Include="Icones\Watermelon_48.png" />
   </ItemGroup>
   <ItemGroup />

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadGastosEnergeticos));
             this.cb_Pacientes = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cb_Gastoenergico = new System.Windows.Forms.ComboBox();
@@ -41,9 +42,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.bt_validar = new System.Windows.Forms.Button();
             this.l_obsMassaMagra = new System.Windows.Forms.Label();
             this.l_MassaMagra = new System.Windows.Forms.Label();
             this.txt_massa_magra = new System.Windows.Forms.TextBox();
+            this.bt_Salvar = new System.Windows.Forms.Button();
             this.gr_VET = new System.Windows.Forms.GroupBox();
             this.VET = new System.Windows.Forms.Label();
             this.gr_GEB = new System.Windows.Forms.GroupBox();
@@ -52,14 +55,15 @@
             this.label10 = new System.Windows.Forms.Label();
             this.l_descNivelAtividade = new System.Windows.Forms.Label();
             this.gr_atividade_fisica = new System.Windows.Forms.GroupBox();
+            this.bt_ExcluirAtv = new System.Windows.Forms.Button();
             this.l_Calorias = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.nutricionalDB = new NutricionalApp.NutricionalDB();
             this.l_frequencia = new System.Windows.Forms.Label();
             this.l_met = new System.Windows.Forms.Label();
             this.cb_QntAtividade = new System.Windows.Forms.ComboBox();
             this.txt_frequencia = new System.Windows.Forms.TextBox();
             this.dt_tempo = new System.Windows.Forms.DateTimePicker();
+            this.bt_adicionarItemAtividade = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -73,12 +77,9 @@
             this.txt_PesoDesejado = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.nutricionalDB = new NutricionalApp.NutricionalDB();
             this.l_idade = new System.Windows.Forms.Label();
             this.l_sexo = new System.Windows.Forms.Label();
-            this.bt_validar = new System.Windows.Forms.Button();
-            this.bt_Salvar = new System.Windows.Forms.Button();
-            this.bt_ExcluirAtv = new System.Windows.Forms.Button();
-            this.bt_adicionarItemAtividade = new System.Windows.Forms.Button();
             this.bt_EditarGasto = new System.Windows.Forms.Button();
             this.bt_adicionarGasto = new System.Windows.Forms.Button();
             this.gr_ExibeDados.SuspendLayout();
@@ -88,9 +89,9 @@
             this.gr_GEB.SuspendLayout();
             this.gr_atividade_fisica.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nutricionalDB)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.gr_VENTA.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nutricionalDB)).BeginInit();
             this.SuspendLayout();
             // 
             // cb_Pacientes
@@ -129,7 +130,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(162, 13);
             this.label5.TabIndex = 16;
-            this.label5.Text = "Gastos Energeticos do Paciente:";
+            this.label5.Text = "Gastos Energéticos do Paciente:";
             // 
             // txt_DescricaoNome
             // 
@@ -145,16 +146,17 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(121, 13);
             this.label6.TabIndex = 20;
-            this.label6.Text = "Novo Gasto Energetico:";
+            this.label6.Text = "Novo Gasto Energético:";
             // 
             // gr_ExibeDados
             // 
+            this.gr_ExibeDados.BackColor = System.Drawing.Color.WhiteSmoke;
             this.gr_ExibeDados.Controls.Add(this.groupBox3);
             this.gr_ExibeDados.Controls.Add(this.groupBox2);
             this.gr_ExibeDados.Controls.Add(this.groupBox1);
             this.gr_ExibeDados.Location = new System.Drawing.Point(22, 136);
             this.gr_ExibeDados.Name = "gr_ExibeDados";
-            this.gr_ExibeDados.Size = new System.Drawing.Size(766, 504);
+            this.gr_ExibeDados.Size = new System.Drawing.Size(754, 497);
             this.gr_ExibeDados.TabIndex = 21;
             this.gr_ExibeDados.TabStop = false;
             this.gr_ExibeDados.Visible = false;
@@ -226,7 +228,19 @@
             this.groupBox2.Size = new System.Drawing.Size(738, 382);
             this.groupBox2.TabIndex = 33;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Gasto Energetico:";
+            this.groupBox2.Text = "Gasto Energético:";
+            // 
+            // bt_validar
+            // 
+            this.bt_validar.Image = global::NutricionalApp.Properties.Resources.Calculator_48;
+            this.bt_validar.Location = new System.Drawing.Point(657, 193);
+            this.bt_validar.Name = "bt_validar";
+            this.bt_validar.Size = new System.Drawing.Size(75, 84);
+            this.bt_validar.TabIndex = 48;
+            this.bt_validar.Text = "Calcular";
+            this.bt_validar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.bt_validar.UseVisualStyleBackColor = true;
+            this.bt_validar.Click += new System.EventHandler(this.bt_validar_Click);
             // 
             // l_obsMassaMagra
             // 
@@ -257,6 +271,19 @@
             this.txt_massa_magra.TabIndex = 46;
             this.txt_massa_magra.Visible = false;
             this.txt_massa_magra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_massa_magra_KeyPress);
+            // 
+            // bt_Salvar
+            // 
+            this.bt_Salvar.Enabled = false;
+            this.bt_Salvar.Image = global::NutricionalApp.Properties.Resources.Save_48;
+            this.bt_Salvar.Location = new System.Drawing.Point(657, 283);
+            this.bt_Salvar.Name = "bt_Salvar";
+            this.bt_Salvar.Size = new System.Drawing.Size(75, 89);
+            this.bt_Salvar.TabIndex = 45;
+            this.bt_Salvar.Text = "Salvar";
+            this.bt_Salvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.bt_Salvar.UseVisualStyleBackColor = true;
+            this.bt_Salvar.Click += new System.EventHandler(this.bt_Salvar_Click);
             // 
             // gr_VET
             // 
@@ -355,6 +382,18 @@
             this.gr_atividade_fisica.TabStop = false;
             this.gr_atividade_fisica.Text = "Atividade Fisica:";
             // 
+            // bt_ExcluirAtv
+            // 
+            this.bt_ExcluirAtv.Enabled = false;
+            this.bt_ExcluirAtv.Image = global::NutricionalApp.Properties.Resources.Delete_16;
+            this.bt_ExcluirAtv.Location = new System.Drawing.Point(540, 19);
+            this.bt_ExcluirAtv.Name = "bt_ExcluirAtv";
+            this.bt_ExcluirAtv.Size = new System.Drawing.Size(45, 40);
+            this.bt_ExcluirAtv.TabIndex = 18;
+            this.bt_ExcluirAtv.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.bt_ExcluirAtv.UseVisualStyleBackColor = true;
+            this.bt_ExcluirAtv.Click += new System.EventHandler(this.bt_ExcluirAtv_Click);
+            // 
             // l_Calorias
             // 
             this.l_Calorias.AutoSize = true;
@@ -380,11 +419,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(636, 119);
             this.dataGridView1.TabIndex = 16;
-            // 
-            // nutricionalDB
-            // 
-            this.nutricionalDB.DataSetName = "NutricionalDB";
-            this.nutricionalDB.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // l_frequencia
             // 
@@ -435,6 +469,18 @@
             this.dt_tempo.Size = new System.Drawing.Size(71, 20);
             this.dt_tempo.TabIndex = 11;
             this.dt_tempo.Value = new System.DateTime(2024, 9, 27, 0, 0, 0, 0);
+            // 
+            // bt_adicionarItemAtividade
+            // 
+            this.bt_adicionarItemAtividade.Enabled = false;
+            this.bt_adicionarItemAtividade.Image = global::NutricionalApp.Properties.Resources.Add_16;
+            this.bt_adicionarItemAtividade.Location = new System.Drawing.Point(591, 19);
+            this.bt_adicionarItemAtividade.Name = "bt_adicionarItemAtividade";
+            this.bt_adicionarItemAtividade.Size = new System.Drawing.Size(45, 40);
+            this.bt_adicionarItemAtividade.TabIndex = 10;
+            this.bt_adicionarItemAtividade.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.bt_adicionarItemAtividade.UseVisualStyleBackColor = true;
+            this.bt_adicionarItemAtividade.Click += new System.EventHandler(this.bt_adicionarItemAtividade_Click);
             // 
             // label9
             // 
@@ -566,6 +612,11 @@
             this.label13.TabIndex = 11;
             this.label13.Text = "Peso Desejado (kg):";
             // 
+            // nutricionalDB
+            // 
+            this.nutricionalDB.DataSetName = "NutricionalDB";
+            this.nutricionalDB.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // l_idade
             // 
             this.l_idade.AutoSize = true;
@@ -585,55 +636,6 @@
             this.l_sexo.Size = new System.Drawing.Size(34, 14);
             this.l_sexo.TabIndex = 39;
             this.l_sexo.Text = "sexo";
-            // 
-            // bt_validar
-            // 
-            this.bt_validar.Image = global::NutricionalApp.Properties.Resources.Calculator_48;
-            this.bt_validar.Location = new System.Drawing.Point(657, 193);
-            this.bt_validar.Name = "bt_validar";
-            this.bt_validar.Size = new System.Drawing.Size(75, 84);
-            this.bt_validar.TabIndex = 48;
-            this.bt_validar.Text = "Calcular";
-            this.bt_validar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.bt_validar.UseVisualStyleBackColor = true;
-            this.bt_validar.Click += new System.EventHandler(this.bt_validar_Click);
-            // 
-            // bt_Salvar
-            // 
-            this.bt_Salvar.Enabled = false;
-            this.bt_Salvar.Image = global::NutricionalApp.Properties.Resources.Save_48;
-            this.bt_Salvar.Location = new System.Drawing.Point(657, 283);
-            this.bt_Salvar.Name = "bt_Salvar";
-            this.bt_Salvar.Size = new System.Drawing.Size(75, 89);
-            this.bt_Salvar.TabIndex = 45;
-            this.bt_Salvar.Text = "Salvar";
-            this.bt_Salvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.bt_Salvar.UseVisualStyleBackColor = true;
-            this.bt_Salvar.Click += new System.EventHandler(this.bt_Salvar_Click);
-            // 
-            // bt_ExcluirAtv
-            // 
-            this.bt_ExcluirAtv.Enabled = false;
-            this.bt_ExcluirAtv.Image = global::NutricionalApp.Properties.Resources.Delete_16;
-            this.bt_ExcluirAtv.Location = new System.Drawing.Point(540, 19);
-            this.bt_ExcluirAtv.Name = "bt_ExcluirAtv";
-            this.bt_ExcluirAtv.Size = new System.Drawing.Size(45, 40);
-            this.bt_ExcluirAtv.TabIndex = 18;
-            this.bt_ExcluirAtv.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.bt_ExcluirAtv.UseVisualStyleBackColor = true;
-            this.bt_ExcluirAtv.Click += new System.EventHandler(this.bt_ExcluirAtv_Click);
-            // 
-            // bt_adicionarItemAtividade
-            // 
-            this.bt_adicionarItemAtividade.Enabled = false;
-            this.bt_adicionarItemAtividade.Image = global::NutricionalApp.Properties.Resources.Add_16;
-            this.bt_adicionarItemAtividade.Location = new System.Drawing.Point(591, 19);
-            this.bt_adicionarItemAtividade.Name = "bt_adicionarItemAtividade";
-            this.bt_adicionarItemAtividade.Size = new System.Drawing.Size(45, 40);
-            this.bt_adicionarItemAtividade.TabIndex = 10;
-            this.bt_adicionarItemAtividade.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.bt_adicionarItemAtividade.UseVisualStyleBackColor = true;
-            this.bt_adicionarItemAtividade.Click += new System.EventHandler(this.bt_adicionarItemAtividade_Click);
             // 
             // bt_EditarGasto
             // 
@@ -664,7 +666,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(241)))));
             this.ClientSize = new System.Drawing.Size(800, 645);
             this.Controls.Add(this.l_sexo);
             this.Controls.Add(this.l_idade);
@@ -677,9 +679,12 @@
             this.Controls.Add(this.cb_Gastoenergico);
             this.Controls.Add(this.cb_Pacientes);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CadGastosEnergeticos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Gastos Energéticos";
             this.Load += new System.EventHandler(this.CadGastosEnergeticos_Load);
             this.gr_ExibeDados.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
@@ -693,11 +698,11 @@
             this.gr_atividade_fisica.ResumeLayout(false);
             this.gr_atividade_fisica.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nutricionalDB)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.gr_VENTA.ResumeLayout(false);
             this.gr_VENTA.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nutricionalDB)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

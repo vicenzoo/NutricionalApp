@@ -10,6 +10,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static NutricionalApp.DatabaseConnection;
 
 namespace NutricionalApp
 {
@@ -41,13 +42,22 @@ namespace NutricionalApp
             get { return label_idNutricionista; }
         }
 
+
+        public System.Windows.Forms.Button btExibePainel2
+        {
+            get { return bt_Painel2Exibe; }
+        }
+
         private void MainForm_Load(object sender, EventArgs e) //Função para mudar a cor de fundo do formMain
         {
+            // TODO: esta linha de código carrega dados na tabela 'nutricionalDB.log_atividades'. Você pode movê-la ou removê-la conforme necessário.
+            this.log_atividadesTableAdapter.Fill(this.nutricionalDB.log_atividades);
+            dataGridView1.DefaultCellStyle.ForeColor = Color.Black;
+
             foreach (Control ctrl in this.Controls)
             {
                 if (ctrl is MdiClient mdiClient)
                 {
-
                     mdiClient.BackColor = Color.Beige; 
                     break;
                 }
@@ -74,7 +84,40 @@ namespace NutricionalApp
             IsNutricionista();
         }
 
+        private void bt_Painel2Exibe_Click(object sender, EventArgs e)
+        {
 
+            if (panel2.Visible == true)
+            {
+                panel2.Visible = false;
+            }
+            else
+            {
+                panel2.Visible = true;
+
+                //Atualiza grid Log Atividades
+
+                timer1.Interval = 60000; // intervalo (1 minuto)
+                timer1.Tick += timer1_Tick;
+                timer1.Start(); 
+            }
+        }
+
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            // Exibir mensagem de atualização
+            l_atualiza.Text = "Atualizando...";
+
+            // Chamar o método para atualizar a tabela
+            using (var db = new DatabaseConnection())
+            {
+                var query = "SELECT \"data_movimento\", \"descricao\" FROM \"public\".\"log_atividades\"";
+                db.CarregarDadosSemFiltro(query, dataGridView1);
+            }
+
+            l_atualiza.Text = "";
+        }
 
         private static NpgsqlConnection GetConnection()
         {
@@ -156,8 +199,8 @@ namespace NutricionalApp
 
             if (LoginAdmSist.AdmSistOK) //Rotina Caso Seja um adminstrador do Sistema
             {
-                pictureBox1.Image = Properties.Resources.Administrator_96;
-
+                bt_Painel2Exibe.Visible = true;
+                panel2.Visible = true;
                 toolStrip1.Items.RemoveAt(0); //Remove Botão Identifique-se
 
                 Funcoes funcoes = new Funcoes();
@@ -174,6 +217,7 @@ namespace NutricionalApp
             }
 
         }
+
 
         private void IsNutricionista()
         {
@@ -242,7 +286,8 @@ namespace NutricionalApp
             if (user == null) // Se não estiver aberto
             {
                 user = new CadUser();
-                user.MdiParent = this;
+                //user.MdiParent = this;
+                user.Owner = this;
                 user.Show();
             }
             else
@@ -255,6 +300,7 @@ namespace NutricionalApp
         {
 
             LoginNutri.NutriOk = false;
+            LoginAdmSist.AdmSistOK = false;
             toolStrip1.Items.Clear();
             toolStrip1.Refresh();
 
@@ -277,6 +323,10 @@ namespace NutricionalApp
             label_idNutricionista.Visible = false;
             pictureBox1.Image = null;
             bt_Logout.Visible = false;
+            bt_Painel2Exibe.Visible = false;
+            panel2.Visible = false;
+            SistAdmExecutado = false;
+            NutricionistaExecutado = false;
         }
 
         private void bt_recordatorio_Click(object sender, EventArgs e)
@@ -291,7 +341,8 @@ namespace NutricionalApp
             if (recordatorio == null)
             {
                 recordatorio = new CadRecordatorio();
-                recordatorio.MdiParent = this;
+                //recordatorio.MdiParent = this;
+                recordatorio.Owner = this;
                 recordatorio.Show();
                 recordatorio.PesquisarPaciente(CadUser.userNome);
             }
@@ -313,7 +364,8 @@ namespace NutricionalApp
             if (GastoEnergetico == null)
             {
                 GastoEnergetico = new CadGastosEnergeticos();
-                GastoEnergetico.MdiParent = this;
+                //GastoEnergetico.MdiParent = this;
+                GastoEnergetico.Owner = this;
                 GastoEnergetico.Show();
                 GastoEnergetico.PesquisarPaciente(CadUser.userNome);
             }
@@ -336,7 +388,8 @@ namespace NutricionalApp
             if (antropometria == null)
             {
                 antropometria = new CadAntropometria();
-                antropometria.MdiParent = this;
+                //antropometria.MdiParent = this;
+                antropometria.Owner = this;
                 antropometria.Show();
                 antropometria.PesquisarPaciente(CadUser.userNome);
             }
@@ -358,7 +411,8 @@ namespace NutricionalApp
             if (planoAlimentar == null)
             {
                 planoAlimentar = new CadPlanoAlimentar();
-                planoAlimentar.MdiParent = this;
+                //planoAlimentar.MdiParent = this;
+                planoAlimentar.Owner = this;
                 planoAlimentar.Show();
                 planoAlimentar.PesquisarPaciente(CadUser.userNome);
             }
@@ -380,7 +434,8 @@ namespace NutricionalApp
             if (manutencaoNutri == null)
             {
                 manutencaoNutri = new MntNutricionista();
-                manutencaoNutri.MdiParent = this;
+                //manutencaoNutri.MdiParent = this;
+                manutencaoNutri.Owner = this;
                 manutencaoNutri.Show();
             }
             else
@@ -389,6 +444,13 @@ namespace NutricionalApp
             }
         }
 
+        private void txtBusca_TextChanged(object sender, EventArgs e)
+        {
+            BindingSource bs = new BindingSource();
+            bs.DataSource = logatividadesBindingSource;
+            bs.Filter = "descricao LIKE '%" + txtBusca.Text + "%'";
+            dataGridView1.DataSource = bs;
+        }
     }
 
 

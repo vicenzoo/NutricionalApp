@@ -53,6 +53,28 @@ namespace NutricionalApp
             }
         }
 
+        private Image BordasRedondas(Image image)
+        {
+            // Reduz a imagem para o diâmetro desejado (150 pixels)
+            Image resizedImage = new Bitmap(image, new Size(150, 150));
+
+            // Cria uma nova imagem redonda
+            Bitmap roundedImage = new Bitmap(150, 150);
+            using (Graphics g = Graphics.FromImage(roundedImage))
+            {
+                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+                // Preenche a imagem arredondada
+                using (Brush brush = new TextureBrush(resizedImage))
+                {
+                    g.FillEllipse(brush, 0, 0, 150, 150);
+                }
+            }
+
+            // Libere os recursos de imagem
+            resizedImage.Dispose();
+            return roundedImage;
+        }
 
 
         private void bt_login_Click(object sender, EventArgs e)
@@ -89,7 +111,7 @@ namespace NutricionalApp
                         GetPerfil.NomeLabel.Visible = true;
                         GetPerfil.IDLabel.Text = "#" + Convert.ToString(perfil.Id);
                         GetPerfil.NomeLabel.Text = nome;
-                        GetPerfil.fotoPerfil.Image = perfil.Imagem;
+                        GetPerfil.fotoPerfil.Image = BordasRedondas(perfil.Imagem);
                         GetPerfil.Logout.Visible = true;
 
                     }

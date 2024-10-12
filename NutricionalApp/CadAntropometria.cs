@@ -29,6 +29,7 @@ namespace NutricionalApp
         public CadAntropometria()
         {
             InitializeComponent();
+            this.TopMost = true;
         }
 
         private void CadAntropometria_Load(object sender, EventArgs e)

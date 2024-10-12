@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MntNutricionista));
             this.panel1 = new System.Windows.Forms.Panel();
             this.l_IDNutri = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -46,19 +47,20 @@
             this.bt_PermitirRevogar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cb_filtroAtivo = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtFiltroNome = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.nuticonDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_nutricionista = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estudante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CRN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ativo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nuticonDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sobrenome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ativo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Data_Inclusao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Data_Alteracao = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,7 +68,6 @@
             this.nutricionistaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nutricionalDB = new NutricionalApp.NutricionalDB();
             this.nutricionistaTableAdapter = new NutricionalApp.NutricionalDBTableAdapters.nutricionistaTableAdapter();
-            this.cb_filtroAtivo = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -248,6 +249,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtro por:";
             // 
+            // cb_filtroAtivo
+            // 
+            this.cb_filtroAtivo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_filtroAtivo.FormattingEnabled = true;
+            this.cb_filtroAtivo.Items.AddRange(new object[] {
+            "S",
+            "N"});
+            this.cb_filtroAtivo.Location = new System.Drawing.Point(611, 18);
+            this.cb_filtroAtivo.Name = "cb_filtroAtivo";
+            this.cb_filtroAtivo.Size = new System.Drawing.Size(90, 21);
+            this.cb_filtroAtivo.TabIndex = 12;
+            this.cb_filtroAtivo.SelectedValueChanged += new System.EventHandler(this.cb_filtroAtivo_SelectedValueChanged);
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -314,6 +328,13 @@
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
+            // nuticonDataGridViewImageColumn
+            // 
+            this.nuticonDataGridViewImageColumn.DataPropertyName = "Nut_icon";
+            this.nuticonDataGridViewImageColumn.HeaderText = "Icone";
+            this.nuticonDataGridViewImageColumn.Name = "nuticonDataGridViewImageColumn";
+            this.nuticonDataGridViewImageColumn.ReadOnly = true;
+            // 
             // Email
             // 
             this.Email.DataPropertyName = "Email";
@@ -346,21 +367,6 @@
             this.CRN.ReadOnly = true;
             this.CRN.Visible = false;
             // 
-            // ativo
-            // 
-            this.ativo.DataPropertyName = "ativo";
-            this.ativo.HeaderText = "ativo";
-            this.ativo.Name = "ativo";
-            this.ativo.ReadOnly = true;
-            this.ativo.Visible = false;
-            // 
-            // nuticonDataGridViewImageColumn
-            // 
-            this.nuticonDataGridViewImageColumn.DataPropertyName = "Nut_icon";
-            this.nuticonDataGridViewImageColumn.HeaderText = "Icone";
-            this.nuticonDataGridViewImageColumn.Name = "nuticonDataGridViewImageColumn";
-            this.nuticonDataGridViewImageColumn.ReadOnly = true;
-            // 
             // Nome
             // 
             this.Nome.DataPropertyName = "Nome";
@@ -374,6 +380,14 @@
             this.Sobrenome.HeaderText = "Sobrenome";
             this.Sobrenome.Name = "Sobrenome";
             this.Sobrenome.ReadOnly = true;
+            // 
+            // ativo
+            // 
+            this.ativo.DataPropertyName = "ativo";
+            this.ativo.HeaderText = "ativo";
+            this.ativo.Name = "ativo";
+            this.ativo.ReadOnly = true;
+            this.ativo.Visible = false;
             // 
             // cpf
             // 
@@ -417,19 +431,6 @@
             // 
             this.nutricionistaTableAdapter.ClearBeforeFill = true;
             // 
-            // cb_filtroAtivo
-            // 
-            this.cb_filtroAtivo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_filtroAtivo.FormattingEnabled = true;
-            this.cb_filtroAtivo.Items.AddRange(new object[] {
-            "S",
-            "N"});
-            this.cb_filtroAtivo.Location = new System.Drawing.Point(611, 18);
-            this.cb_filtroAtivo.Name = "cb_filtroAtivo";
-            this.cb_filtroAtivo.Size = new System.Drawing.Size(90, 21);
-            this.cb_filtroAtivo.TabIndex = 12;
-            this.cb_filtroAtivo.SelectedValueChanged += new System.EventHandler(this.cb_filtroAtivo_SelectedValueChanged);
-            // 
             // MntNutricionista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -438,9 +439,13 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MntNutricionista";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Manutenção de Cadastro de Nutricionistas";
             this.Load += new System.EventHandler(this.MntNutricionista_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

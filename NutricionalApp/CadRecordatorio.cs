@@ -34,6 +34,7 @@ namespace NutricionalApp
         public CadRecordatorio()
         {
             InitializeComponent();
+            this.TopMost = true;
             dt_DataHoraRec.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             dt_DataHoraRec.Value = DateTime.Now;
             dt_DataHoraRec.MaxDate = DateTime.Now;
@@ -110,7 +111,7 @@ namespace NutricionalApp
                 return;
             }
 
-            if (MessageBox.Show("Deseja Iniciar o Recordatorio deste Paciente ?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MessageBox.Show("Deseja Iniciar o Recordatório deste Paciente ?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 using (var db = new DatabaseConnection())
                 {

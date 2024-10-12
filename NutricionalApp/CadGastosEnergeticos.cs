@@ -33,6 +33,7 @@ namespace NutricionalApp
         public CadGastosEnergeticos()
         {
             InitializeComponent();
+            this.TopMost = true;
         }
 
 

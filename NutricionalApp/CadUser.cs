@@ -24,6 +24,7 @@ namespace NutricionalApp
         public CadUser()
         {
             InitializeComponent();
+            this.TopMost = true;
             dtNasc.MaxDate = DateTime.Now;
             cbSexo.SelectedIndex = 1;
         }

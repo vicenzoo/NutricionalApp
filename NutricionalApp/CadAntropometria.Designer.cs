@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadAntropometria));
             this.cb_Antropometrias = new System.Windows.Forms.ComboBox();
             this.txt_DescricaoNome = new System.Windows.Forms.TextBox();
             this.cb_Pacientes = new System.Windows.Forms.ComboBox();
@@ -121,6 +122,7 @@
             this.l_idade = new System.Windows.Forms.Label();
             this.bt_EditarAntrometria = new System.Windows.Forms.Button();
             this.bt_adicionarAntrometria = new System.Windows.Forms.Button();
+            this.label29 = new System.Windows.Forms.Label();
             this.tabFormulario.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gr_Torax.SuspendLayout();
@@ -970,7 +972,7 @@
             this.gr_SobrePaciente.Controls.Add(this.label2);
             this.gr_SobrePaciente.Location = new System.Drawing.Point(12, 96);
             this.gr_SobrePaciente.Name = "gr_SobrePaciente";
-            this.gr_SobrePaciente.Size = new System.Drawing.Size(736, 66);
+            this.gr_SobrePaciente.Size = new System.Drawing.Size(765, 66);
             this.gr_SobrePaciente.TabIndex = 35;
             this.gr_SobrePaciente.TabStop = false;
             this.gr_SobrePaciente.Text = "Sobre o Paciente:";
@@ -1062,11 +1064,22 @@
             this.bt_adicionarAntrometria.UseVisualStyleBackColor = true;
             this.bt_adicionarAntrometria.Click += new System.EventHandler(this.bt_adicionarAntrometria_Click);
             // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(381, 9);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(36, 13);
+            this.label29.TabIndex = 42;
+            this.label29.Text = "Novo:";
+            // 
             // CadAntropometria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(241)))));
             this.ClientSize = new System.Drawing.Size(806, 591);
+            this.Controls.Add(this.label29);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.gr_SobrePaciente);
             this.Controls.Add(this.l_sexo);
@@ -1078,9 +1091,13 @@
             this.Controls.Add(this.bt_adicionarAntrometria);
             this.Controls.Add(this.cb_Pacientes);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CadAntropometria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Medidas Antropometria";
             this.Load += new System.EventHandler(this.CadAntropometria_Load);
             this.tabFormulario.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -1202,5 +1219,6 @@
         private System.Windows.Forms.Label l_idade;
         private System.Windows.Forms.Label CLASSIFICACAORCQ;
         private System.Windows.Forms.Button bt_imprimirRel;
+        private System.Windows.Forms.Label label29;
     }
 }

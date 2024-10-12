@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadRecordatorio));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label9 = new System.Windows.Forms.Label();
@@ -70,20 +71,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.gr_Resultados = new System.Windows.Forms.GroupBox();
+            this.l_Qnt = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.l_Calorias = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.l_Lipidios = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.l_Carboidratos = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.l_Proteinas = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.bt_ExcluirIntem = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label10 = new System.Windows.Forms.Label();
-            this.l_Proteinas = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.l_Carboidratos = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.l_Lipidios = new System.Windows.Forms.Label();
-            this.l_Calorias = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.l_Qnt = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gr_itens.SuspendLayout();
@@ -138,7 +139,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(136, 13);
             this.label9.TabIndex = 12;
-            this.label9.Text = "Recordatorios do Paciente:";
+            this.label9.Text = "Recordatórios do Paciente:";
             // 
             // bt_EditarRec
             // 
@@ -177,7 +178,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 13);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Novo Recordatorio:";
+            this.label2.Text = "Novo Recordatório:";
             // 
             // gr_itens
             // 
@@ -528,6 +529,116 @@
             this.gr_Resultados.TabStop = false;
             this.gr_Resultados.Text = "Resultados:";
             // 
+            // l_Qnt
+            // 
+            this.l_Qnt.AutoSize = true;
+            this.l_Qnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l_Qnt.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.l_Qnt.Location = new System.Drawing.Point(409, 190);
+            this.l_Qnt.Name = "l_Qnt";
+            this.l_Qnt.Size = new System.Drawing.Size(39, 20);
+            this.l_Qnt.TabIndex = 24;
+            this.l_Qnt.Text = "Qnt.";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label7.Location = new System.Drawing.Point(253, 188);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(157, 22);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "Quantidade Total:";
+            // 
+            // l_Calorias
+            // 
+            this.l_Calorias.AutoSize = true;
+            this.l_Calorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l_Calorias.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.l_Calorias.Location = new System.Drawing.Point(351, 219);
+            this.l_Calorias.Name = "l_Calorias";
+            this.l_Calorias.Size = new System.Drawing.Size(66, 20);
+            this.l_Calorias.TabIndex = 22;
+            this.l_Calorias.Text = "Calorias";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label13.Location = new System.Drawing.Point(253, 217);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(102, 22);
+            this.label13.TabIndex = 21;
+            this.label13.Text = "Total Kcal.:";
+            // 
+            // l_Lipidios
+            // 
+            this.l_Lipidios.AutoSize = true;
+            this.l_Lipidios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l_Lipidios.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.l_Lipidios.Location = new System.Drawing.Point(86, 219);
+            this.l_Lipidios.Name = "l_Lipidios";
+            this.l_Lipidios.Size = new System.Drawing.Size(62, 20);
+            this.l_Lipidios.TabIndex = 20;
+            this.l_Lipidios.Text = "Lípidios";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label12.Location = new System.Drawing.Point(6, 217);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(83, 22);
+            this.label12.TabIndex = 19;
+            this.label12.Text = "Lípidios:";
+            // 
+            // l_Carboidratos
+            // 
+            this.l_Carboidratos.AutoSize = true;
+            this.l_Carboidratos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l_Carboidratos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.l_Carboidratos.Location = new System.Drawing.Point(125, 190);
+            this.l_Carboidratos.Name = "l_Carboidratos";
+            this.l_Carboidratos.Size = new System.Drawing.Size(100, 20);
+            this.l_Carboidratos.TabIndex = 18;
+            this.l_Carboidratos.Text = "Carboidratos";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label11.Location = new System.Drawing.Point(6, 188);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(124, 22);
+            this.label11.TabIndex = 17;
+            this.label11.Text = "Carboidratos:";
+            // 
+            // l_Proteinas
+            // 
+            this.l_Proteinas.AutoSize = true;
+            this.l_Proteinas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l_Proteinas.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.l_Proteinas.Location = new System.Drawing.Point(98, 161);
+            this.l_Proteinas.Name = "l_Proteinas";
+            this.l_Proteinas.Size = new System.Drawing.Size(76, 20);
+            this.l_Proteinas.TabIndex = 16;
+            this.l_Proteinas.Text = "Proteínas";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label10.Location = new System.Drawing.Point(6, 159);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(97, 22);
+            this.label10.TabIndex = 15;
+            this.label10.Text = "Proteínas:";
+            // 
             // bt_ExcluirIntem
             // 
             this.bt_ExcluirIntem.Image = global::NutricionalApp.Properties.Resources.Close_16;
@@ -567,136 +678,26 @@
             // 
             // chart1
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
+            chartArea5.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea5);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend4.Name = "Legend1";
-            this.chart1.Legends.Add(legend4);
+            legend5.Name = "Legend1";
+            this.chart1.Legends.Add(legend5);
             this.chart1.Location = new System.Drawing.Point(3, 16);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
-            series4.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            series4.BorderColor = System.Drawing.Color.Black;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series4.Font = new System.Drawing.Font("Arial", 10F);
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chart1.Series.Add(series4);
+            series5.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            series5.BorderColor = System.Drawing.Color.Black;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series5.Font = new System.Drawing.Font("Arial", 10F);
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.chart1.Series.Add(series5);
             this.chart1.Size = new System.Drawing.Size(810, 207);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
             this.chart1.Visible = false;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label10.Location = new System.Drawing.Point(6, 159);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(97, 22);
-            this.label10.TabIndex = 15;
-            this.label10.Text = "Proteínas:";
-            // 
-            // l_Proteinas
-            // 
-            this.l_Proteinas.AutoSize = true;
-            this.l_Proteinas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_Proteinas.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.l_Proteinas.Location = new System.Drawing.Point(98, 161);
-            this.l_Proteinas.Name = "l_Proteinas";
-            this.l_Proteinas.Size = new System.Drawing.Size(76, 20);
-            this.l_Proteinas.TabIndex = 16;
-            this.l_Proteinas.Text = "Proteínas";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(6, 188);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(124, 22);
-            this.label11.TabIndex = 17;
-            this.label11.Text = "Carboidratos:";
-            // 
-            // l_Carboidratos
-            // 
-            this.l_Carboidratos.AutoSize = true;
-            this.l_Carboidratos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_Carboidratos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.l_Carboidratos.Location = new System.Drawing.Point(125, 190);
-            this.l_Carboidratos.Name = "l_Carboidratos";
-            this.l_Carboidratos.Size = new System.Drawing.Size(100, 20);
-            this.l_Carboidratos.TabIndex = 18;
-            this.l_Carboidratos.Text = "Carboidratos";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(6, 217);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(83, 22);
-            this.label12.TabIndex = 19;
-            this.label12.Text = "Lípidios:";
-            // 
-            // l_Lipidios
-            // 
-            this.l_Lipidios.AutoSize = true;
-            this.l_Lipidios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_Lipidios.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.l_Lipidios.Location = new System.Drawing.Point(86, 219);
-            this.l_Lipidios.Name = "l_Lipidios";
-            this.l_Lipidios.Size = new System.Drawing.Size(62, 20);
-            this.l_Lipidios.TabIndex = 20;
-            this.l_Lipidios.Text = "Lípidios";
-            // 
-            // l_Calorias
-            // 
-            this.l_Calorias.AutoSize = true;
-            this.l_Calorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_Calorias.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.l_Calorias.Location = new System.Drawing.Point(351, 219);
-            this.l_Calorias.Name = "l_Calorias";
-            this.l_Calorias.Size = new System.Drawing.Size(66, 20);
-            this.l_Calorias.TabIndex = 22;
-            this.l_Calorias.Text = "Calorias";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label13.Location = new System.Drawing.Point(253, 217);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(102, 22);
-            this.label13.TabIndex = 21;
-            this.label13.Text = "Total Kcal.:";
-            // 
-            // l_Qnt
-            // 
-            this.l_Qnt.AutoSize = true;
-            this.l_Qnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_Qnt.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.l_Qnt.Location = new System.Drawing.Point(409, 190);
-            this.l_Qnt.Name = "l_Qnt";
-            this.l_Qnt.Size = new System.Drawing.Size(39, 20);
-            this.l_Qnt.TabIndex = 24;
-            this.l_Qnt.Text = "Qnt.";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(253, 188);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(157, 22);
-            this.label7.TabIndex = 23;
-            this.label7.Text = "Quantidade Total:";
             // 
             // CadRecordatorio
             // 
@@ -704,9 +705,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(841, 496);
             this.Controls.Add(this.tabControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CadRecordatorio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Recordatório 24 Horas";
             this.Load += new System.EventHandler(this.CadRecordatorio_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

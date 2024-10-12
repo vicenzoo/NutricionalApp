@@ -17,6 +17,7 @@ namespace NutricionalApp
         public MntNutricionista()
         {
             InitializeComponent();
+            this.TopMost = true;
         }
 
         private void MntNutricionista_Load(object sender, EventArgs e)

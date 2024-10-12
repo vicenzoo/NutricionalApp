@@ -30,6 +30,7 @@ namespace NutricionalApp
         public CadPlanoAlimentar()
         {
             InitializeComponent();
+            this.TopMost = true;
             dt_DataHoraPlano.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             dt_DataHoraPlano.Value = DateTime.Now;
             dt_DataHoraPlano.MinDate = DateTime.Now;
