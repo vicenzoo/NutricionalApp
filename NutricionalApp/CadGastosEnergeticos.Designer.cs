@@ -82,6 +82,7 @@
             this.l_sexo = new System.Windows.Forms.Label();
             this.bt_EditarGasto = new System.Windows.Forms.Button();
             this.bt_adicionarGasto = new System.Windows.Forms.Button();
+            this.bt_SalvarPDF = new System.Windows.Forms.Button();
             this.gr_ExibeDados.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -210,6 +211,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.bt_SalvarPDF);
             this.groupBox2.Controls.Add(this.bt_validar);
             this.groupBox2.Controls.Add(this.l_obsMassaMagra);
             this.groupBox2.Controls.Add(this.l_MassaMagra);
@@ -233,7 +235,7 @@
             // bt_validar
             // 
             this.bt_validar.Image = global::NutricionalApp.Properties.Resources.Calculator_48;
-            this.bt_validar.Location = new System.Drawing.Point(657, 193);
+            this.bt_validar.Location = new System.Drawing.Point(659, 112);
             this.bt_validar.Name = "bt_validar";
             this.bt_validar.Size = new System.Drawing.Size(75, 84);
             this.bt_validar.TabIndex = 48;
@@ -276,9 +278,9 @@
             // 
             this.bt_Salvar.Enabled = false;
             this.bt_Salvar.Image = global::NutricionalApp.Properties.Resources.Save_48;
-            this.bt_Salvar.Location = new System.Drawing.Point(657, 283);
+            this.bt_Salvar.Location = new System.Drawing.Point(659, 286);
             this.bt_Salvar.Name = "bt_Salvar";
-            this.bt_Salvar.Size = new System.Drawing.Size(75, 89);
+            this.bt_Salvar.Size = new System.Drawing.Size(75, 84);
             this.bt_Salvar.TabIndex = 45;
             this.bt_Salvar.Text = "Salvar";
             this.bt_Salvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -662,6 +664,19 @@
             this.bt_adicionarGasto.UseVisualStyleBackColor = true;
             this.bt_adicionarGasto.Click += new System.EventHandler(this.bt_adicionarRec_Click);
             // 
+            // bt_SalvarPDF
+            // 
+            this.bt_SalvarPDF.Enabled = false;
+            this.bt_SalvarPDF.Image = global::NutricionalApp.Properties.Resources.PDF_48;
+            this.bt_SalvarPDF.Location = new System.Drawing.Point(659, 199);
+            this.bt_SalvarPDF.Name = "bt_SalvarPDF";
+            this.bt_SalvarPDF.Size = new System.Drawing.Size(75, 84);
+            this.bt_SalvarPDF.TabIndex = 49;
+            this.bt_SalvarPDF.Text = "Salvar PDF";
+            this.bt_SalvarPDF.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.bt_SalvarPDF.UseVisualStyleBackColor = true;
+            this.bt_SalvarPDF.Click += new System.EventHandler(this.bt_SalvarPDF_Click);
+            // 
             // CadGastosEnergeticos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -763,5 +778,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label l_Calorias;
         private System.Windows.Forms.Button bt_ExcluirAtv;
+        private System.Windows.Forms.Button bt_SalvarPDF;
     }
 }

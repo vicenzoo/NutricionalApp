@@ -1,4 +1,6 @@
-﻿using Npgsql;
+﻿using MigraDocCore.DocumentObjectModel;
+using MigraDocCore.Rendering;
+using Npgsql;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -19,6 +22,7 @@ namespace NutricionalApp
     {
         int GastoEnergeticoID = 0;
         int NutricionistaID = 0;
+        string NutricionistaNome;
         int PacienteId = 0;
         int NivelId = 0;
         decimal calcNivelID = 0;
@@ -27,7 +31,7 @@ namespace NutricionalApp
         int ProtocoloID = 0;
         string tipoSexo;
         int idadePaciente = 0;
-        string queryAtvFisica  = "SELECT \"id_gastoAtv\", \"atividade\", \"met\", \"frequencia\", \"duracao\", \"calorias\" FROM \"public\".\"vw_gastoatividade_detalhado\" Where gastos_id = @filtro";
+        string queryAtvFisica = "SELECT \"id_gastoAtv\", \"atividade\", \"met\", \"frequencia\", \"duracao\", \"calorias\" FROM \"public\".\"vw_gastoatividade_detalhado\" Where gastos_id = @filtro";
 
 
         public CadGastosEnergeticos()
@@ -41,8 +45,9 @@ namespace NutricionalApp
         {
             dt_tempo.Value = DateTime.Today.Date;
 
-            FormMain GetIDNutricionista = Application.OpenForms.OfType<FormMain>().FirstOrDefault(); //Função para Pegar o Numero de ID do Nutricionista
-            NutricionistaID = Convert.ToInt32(GetIDNutricionista.IDLabel.Text.Substring(1));
+            FormMain GetNutricionista = Application.OpenForms.OfType<FormMain>().FirstOrDefault(); //Função para Pegar o Numero de ID do Nutricionista
+            NutricionistaID = Convert.ToInt32(GetNutricionista.IDLabel.Text.Substring(1));
+            NutricionistaNome = GetNutricionista.NomeLabel.Text;
 
             using (var db = new DatabaseConnection())
             {
@@ -89,7 +94,7 @@ namespace NutricionalApp
             using (var db = new DatabaseConnection())
             {
                 db.OpenConnection();
-                db.GetGastoEnergeticoCombobox(PacienteId, cb_Gastoenergico,txt_Altura,txt_Peso,l_idade,l_sexo);
+                db.GetGastoEnergeticoCombobox(PacienteId, cb_Gastoenergico, txt_Altura, txt_Peso, l_idade, l_sexo);
             }
         }
 
@@ -163,7 +168,7 @@ namespace NutricionalApp
                 int idProtocolo = ProtocoloSelecionado.Id;
                 ProtocoloID = idProtocolo;
             }
-            if(ProtocoloSelecionado.Descricao == "KATCH-MCARDLE 1996")
+            if (ProtocoloSelecionado.Descricao == "KATCH-MCARDLE 1996")
             {
                 txt_massa_magra.Clear();
                 l_MassaMagra.Visible = true;
@@ -185,7 +190,7 @@ namespace NutricionalApp
             {
                 int CalcFreq = Convert.ToInt32(txt_frequencia.Text);
 
-                if(cb_QntAtividade.SelectedIndex == 0)
+                if (cb_QntAtividade.SelectedIndex == 0)
                 {
                     l_frequencia.Text = Convert.ToString(CalcFreq*7); //Dia
                 }
@@ -342,11 +347,12 @@ namespace NutricionalApp
                                 cb_Gastoenergico.Enabled = false;
                                 txt_DescricaoNome.Enabled = false;
                                 bt_adicionarGasto.Enabled = false;
+                                bt_SalvarPDF.Enabled = true;
 
 
                                 db.CarregarDados(queryAtvFisica, filtro, dataGridView1);
 
-                                if (dataGridView1.Rows.Count > 0) 
+                                if (dataGridView1.Rows.Count > 0)
                                 {
                                     bt_ExcluirAtv.Enabled = true;
                                     bt_adicionarItemAtividade.Enabled =true;
@@ -451,6 +457,7 @@ namespace NutricionalApp
             bt_adicionarItemAtividade.Enabled = true;
 
             bt_Salvar.Enabled = true;
+            bt_SalvarPDF.Enabled = true;
         }
 
         private void bt_Salvar_Click(object sender, EventArgs e)
@@ -754,7 +761,7 @@ namespace NutricionalApp
                     }
                     dataGridView1.Rows.RemoveAt(rowIndex);
                     AtualizarDataGridView();
-                    bt_EditarRec_Click(sender,e);
+                    bt_EditarRec_Click(sender, e);
                 }
             }
             else
@@ -762,5 +769,70 @@ namespace NutricionalApp
                 dataGridView1.Focus();
             }
         }
+
+        private void bt_SalvarPDF_Click(object sender, EventArgs e)
+        {
+            string NomePaciente = cb_Pacientes.SelectedItem.ToString();
+
+            // Criação de um novo documento
+            Document document = new Document();
+            document.Info.Title = "Avaliação Antropometrica de: " +  NomePaciente;
+            document.Info.Subject = "Avaliação Antropometrica";
+            document.Info.Author = NutricionistaNome;
+
+            // Adiciona uma seção ao documento
+            Section section = document.AddSection();
+
+            // Adiciona informações ao documento
+            Paragraph Titulo = section.AddParagraph("Avaliação Antropométrica. ");
+            Titulo.Format.Font.Size = 16;
+            Titulo.Format.Font.Bold = true; // Define o texto em negrito
+            Titulo.Format.Alignment = ParagraphAlignment.Center; // Centraliza o texto
+            Paragraph Subtitulo = section.AddParagraph("Realizada por: " + NutricionistaNome);
+            Subtitulo.Format.Font.Size = 8;
+            Subtitulo.Format.Font.Color =  new MigraDocCore.DocumentObjectModel.Color(128, 128, 128);
+            Subtitulo.Format.Font.Italic = true; // Define o texto em negrito
+            Subtitulo.Format.Alignment = ParagraphAlignment.Center; // Centraliza o texto
+
+            section.AddParagraph("");
+            section.AddParagraph("");
+
+            Paragraph Paciente = section.AddParagraph(NomePaciente);
+            Paciente.Format.Font.Bold = true;
+            Paciente.Format.Font.Size = 12;
+            section.AddParagraph("");
+
+            section.AddParagraph("TMB: " + GEB.Text).Format.Font.Bold = true;
+            section.AddParagraph("VET: " + VET.Text).Format.Font.Bold = true;
+            if (gr_VENTA.Visible)
+            {
+                section.AddParagraph("VENTA: " + VENTA.Text).Format.Font.Bold = true;
+            }
+
+            section.AddParagraph("");
+            section.AddParagraph("");
+
+            // Adiciona um espaço para a sugestão do nutricionista
+            section.AddParagraph("\nObservações:").Format.Font.Bold = true;
+            section.AddParagraph("\n_____________________________________________");
+            section.AddParagraph("_____________________________________________");
+            section.AddParagraph("_____________________________________________");
+
+
+            // Criação do renderizador PDF
+            PdfDocumentRenderer renderer = new PdfDocumentRenderer(true)
+            {
+                Document = document
+            };
+
+            // Gera o PDF
+            renderer.RenderDocument();
+            string filename = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Avaliação Energetica " + NomePaciente + ".pdf";
+            renderer.PdfDocument.Save(filename);
+
+            // Exibe uma mensagem de sucesso
+            MessageBox.Show($"PDF gerado em: {filename}");
+        }
     }
 }
+
