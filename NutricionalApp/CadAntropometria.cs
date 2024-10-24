@@ -32,6 +32,12 @@ namespace NutricionalApp
             this.TopMost = true;
         }
 
+        private void CadAntropometria_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FormMain HabilitaLogout = Application.OpenForms.OfType<FormMain>().FirstOrDefault();
+            HabilitaLogout.Logout.Enabled = true;
+        }
+
         private void CadAntropometria_Load(object sender, EventArgs e)
         {
             FormMain GetNutricionista = Application.OpenForms.OfType<FormMain>().FirstOrDefault(); //Função para Pegar o Numero de ID do Nutricionista
@@ -93,6 +99,12 @@ namespace NutricionalApp
             {
                 db.OpenConnection();
                 db.GetAntropometriaCombobox(PacienteId, cb_Antropometrias,l_idade,l_sexo);
+
+                if (cb_Antropometrias.Items.Count == 0)
+                {
+                    bt_EditarAntrometria.Enabled = false;
+                }
+
             }
         }
 
@@ -710,6 +722,7 @@ namespace NutricionalApp
             // Exibe uma mensagem de sucesso
             MessageBox.Show($"PDF gerado em: {filename}");
         }
+
     }
 
 

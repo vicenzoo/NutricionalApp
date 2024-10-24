@@ -40,6 +40,11 @@ namespace NutricionalApp
             this.TopMost = true;
         }
 
+        private void CadGastosEnergeticos_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FormMain HabilitaLogout = Application.OpenForms.OfType<FormMain>().FirstOrDefault();
+            HabilitaLogout.Logout.Enabled = true;
+        }
 
         private void CadGastosEnergeticos_Load(object sender, EventArgs e)
         {
@@ -95,6 +100,11 @@ namespace NutricionalApp
             {
                 db.OpenConnection();
                 db.GetGastoEnergeticoCombobox(PacienteId, cb_Gastoenergico, txt_Altura, txt_Peso, l_idade, l_sexo);
+
+                if (cb_Gastoenergico.Items.Count == 0)
+                {
+                    bt_EditarGasto.Enabled = false;
+                }
             }
         }
 
@@ -784,7 +794,7 @@ namespace NutricionalApp
             Section section = document.AddSection();
 
             // Adiciona informações ao documento
-            Paragraph Titulo = section.AddParagraph("Avaliação Antropométrica. ");
+            Paragraph Titulo = section.AddParagraph("Avaliação de Gastos Energéticos. ");
             Titulo.Format.Font.Size = 16;
             Titulo.Format.Font.Bold = true; // Define o texto em negrito
             Titulo.Format.Alignment = ParagraphAlignment.Center; // Centraliza o texto
@@ -833,6 +843,8 @@ namespace NutricionalApp
             // Exibe uma mensagem de sucesso
             MessageBox.Show($"PDF gerado em: {filename}");
         }
+
+
     }
 }
 

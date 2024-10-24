@@ -289,6 +289,7 @@ namespace NutricionalApp
                 //user.MdiParent = this;
                 user.Owner = this;
                 user.Show();
+                bt_Logout.Enabled = false;
             }
             else
             {
@@ -345,6 +346,7 @@ namespace NutricionalApp
                 recordatorio.Owner = this;
                 recordatorio.Show();
                 recordatorio.PesquisarPaciente(CadUser.userNome);
+                bt_Logout.Enabled = false;
             }
             else
             {
@@ -368,6 +370,7 @@ namespace NutricionalApp
                 GastoEnergetico.Owner = this;
                 GastoEnergetico.Show();
                 GastoEnergetico.PesquisarPaciente(CadUser.userNome);
+                bt_Logout.Enabled = false;
             }
             else
             {
@@ -392,6 +395,7 @@ namespace NutricionalApp
                 antropometria.Owner = this;
                 antropometria.Show();
                 antropometria.PesquisarPaciente(CadUser.userNome);
+                bt_Logout.Enabled = false;
             }
             else
             {
@@ -415,6 +419,7 @@ namespace NutricionalApp
                 planoAlimentar.Owner = this;
                 planoAlimentar.Show();
                 planoAlimentar.PesquisarPaciente(CadUser.userNome);
+                bt_Logout.Enabled = false;
             }
             else
             {
@@ -437,6 +442,7 @@ namespace NutricionalApp
                 //manutencaoNutri.MdiParent = this;
                 manutencaoNutri.Owner = this;
                 manutencaoNutri.Show();
+                bt_Logout.Enabled = false;
             }
             else
             {

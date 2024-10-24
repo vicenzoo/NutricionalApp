@@ -1098,6 +1098,7 @@
             this.Name = "CadAntropometria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Medidas Antropometria";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CadAntropometria_FormClosed);
             this.Load += new System.EventHandler(this.CadAntropometria_Load);
             this.tabFormulario.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

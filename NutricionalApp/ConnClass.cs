@@ -466,6 +466,80 @@ namespace NutricionalApp
             }
         }
 
+        public void GetRecordatorioComboboxFiltroID(int id_Rec, ComboBox comboBox)
+        {
+            using (var db = new DatabaseConnection())
+            {
+                db.OpenConnection();
+
+
+                using (var comm = new NpgsqlCommand("SELECT id_rec, paciente_id, nutricionista_id, ativo, descricao_nome FROM public.recordatorio_24h where id_rec = @id_rec", db.GetConnection()))
+                {
+                    comm.Parameters.AddWithValue("@id_rec", id_Rec);
+
+                    try
+                    {
+                        using (var reader = comm.ExecuteReader())
+                        {
+                            comboBox.Items.Clear();
+
+                            while (reader.Read())
+                            {
+
+                                int idrec = Convert.ToInt32(reader["id_rec"]);
+                                string descricaoRecordatorio = reader["descricao_nome"].ToString();
+
+                                comboBox.Items.Add(new Recordatorio(idrec, descricaoRecordatorio));
+                            }
+
+                            // Verifica se encontrou
+                            if (comboBox.Items.Count > 0)
+                            {
+
+                                comboBox.SelectedIndex = 0;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Nenhum Recordatorio encontrado para esse Paciente.");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao obter os Recordatorio: {ex.Message}");
+                    }
+                }
+            }
+        }
+
+        public void ExcluirRecordatorio(int id)
+        {
+            using (var db = new DatabaseConnection())
+            {
+                using (NpgsqlConnection connection = db.GetConnection())
+                {
+                    try
+                    {
+                        connection.Open();
+                        string query = "DELETE FROM recordatorio_24h WHERE id_rec = @id_rec";
+
+                        using (NpgsqlCommand cmd = new NpgsqlCommand(query, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@id_rec", id);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Tratar exceção conforme necessário
+                        Console.WriteLine("Erro ao excluir item: " + ex.Message);
+                        throw;
+                    }
+                }
+
+            }
+        }
+
         public class Perfil
         {
             public Image Imagem { get; set; }
@@ -546,6 +620,7 @@ namespace NutricionalApp
                             else
                             {
                                 MessageBox.Show("Nenhum item encontrado.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                dataGridView.Columns.Clear();
                             }
                         }
                     }
@@ -1106,6 +1181,52 @@ namespace NutricionalApp
                 using (var comm = new NpgsqlCommand("SELECT id_plano, paciente_id, nutricionista_id, ativo, descricao FROM public.plano_alimentar where paciente_id = @paciente_id", db.GetConnection()))
                 {
                     comm.Parameters.AddWithValue("@paciente_id", Id_Paciente);
+
+                    try
+                    {
+                        using (var reader = comm.ExecuteReader())
+                        {
+                            comboBox.Items.Clear();
+
+                            while (reader.Read())
+                            {
+
+                                int idPlanoAli = Convert.ToInt32(reader["id_plano"]);
+                                string descricaoPlanoAlimentar = reader["descricao"].ToString();
+
+                                comboBox.Items.Add(new PlanoAlimentar(idPlanoAli, descricaoPlanoAlimentar));
+                            }
+
+                            // Verifica se encontrou
+                            if (comboBox.Items.Count > 0)
+                            {
+
+                                comboBox.SelectedIndex = 0;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Nenhum Plano Alimentar encontrado para esse Paciente.");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao obter os Plano Alimentar: {ex.Message}");
+                    }
+                }
+            }
+        }
+
+        public void GetPlanoAlimentarComboboxFiltroID(int id_plano, ComboBox comboBox)
+        {
+            using (var db = new DatabaseConnection())
+            {
+                db.OpenConnection();
+
+
+                using (var comm = new NpgsqlCommand("SELECT id_plano, paciente_id, nutricionista_id, ativo, descricao FROM public.plano_alimentar where id_plano = @id_plano", db.GetConnection()))
+                {
+                    comm.Parameters.AddWithValue("@id_plano", id_plano);
 
                     try
                     {

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadRecordatorio));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -45,7 +45,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.datarecDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.horaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descricaoalimentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vwitensrecordatoriodetalhadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -71,6 +71,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.gr_Resultados = new System.Windows.Forms.GroupBox();
+            this.bt_Excluir = new System.Windows.Forms.Button();
+            this.bt_salvarPDF = new System.Windows.Forms.Button();
             this.l_Qnt = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.l_Calorias = new System.Windows.Forms.Label();
@@ -107,7 +109,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(841, 496);
+            this.tabControl1.Size = new System.Drawing.Size(841, 503);
             this.tabControl1.TabIndex = 2;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -128,7 +130,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(833, 470);
+            this.tabPage1.Size = new System.Drawing.Size(833, 477);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Dados";
             // 
@@ -228,7 +230,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.datarecDataGridViewTextBoxColumn,
-            this.horaDataGridViewTextBoxColumn,
+            this.hora,
             this.quantidadeDataGridViewTextBoxColumn,
             this.descricaoalimentoDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.vwitensrecordatoriodetalhadoBindingSource;
@@ -250,13 +252,13 @@
             this.datarecDataGridViewTextBoxColumn.ReadOnly = true;
             this.datarecDataGridViewTextBoxColumn.Width = 75;
             // 
-            // horaDataGridViewTextBoxColumn
+            // hora
             // 
-            this.horaDataGridViewTextBoxColumn.DataPropertyName = "hora";
-            this.horaDataGridViewTextBoxColumn.HeaderText = "Hora";
-            this.horaDataGridViewTextBoxColumn.Name = "horaDataGridViewTextBoxColumn";
-            this.horaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.horaDataGridViewTextBoxColumn.Width = 50;
+            this.hora.DataPropertyName = "hora";
+            this.hora.HeaderText = "Hora";
+            this.hora.Name = "hora";
+            this.hora.ReadOnly = true;
+            this.hora.Width = 50;
             // 
             // quantidadeDataGridViewTextBoxColumn
             // 
@@ -502,13 +504,15 @@
             this.tabPage4.Controls.Add(this.groupBox1);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(833, 470);
+            this.tabPage4.Size = new System.Drawing.Size(833, 477);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Resultados Gerais";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // gr_Resultados
             // 
+            this.gr_Resultados.Controls.Add(this.bt_Excluir);
+            this.gr_Resultados.Controls.Add(this.bt_salvarPDF);
             this.gr_Resultados.Controls.Add(this.l_Qnt);
             this.gr_Resultados.Controls.Add(this.label7);
             this.gr_Resultados.Controls.Add(this.l_Calorias);
@@ -528,6 +532,32 @@
             this.gr_Resultados.TabIndex = 2;
             this.gr_Resultados.TabStop = false;
             this.gr_Resultados.Text = "Resultados:";
+            // 
+            // bt_Excluir
+            // 
+            this.bt_Excluir.Enabled = false;
+            this.bt_Excluir.Image = global::NutricionalApp.Properties.Resources.Delete_48;
+            this.bt_Excluir.Location = new System.Drawing.Point(499, 190);
+            this.bt_Excluir.Name = "bt_Excluir";
+            this.bt_Excluir.Size = new System.Drawing.Size(154, 54);
+            this.bt_Excluir.TabIndex = 42;
+            this.bt_Excluir.Text = "Excluir Recordatório";
+            this.bt_Excluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bt_Excluir.UseVisualStyleBackColor = true;
+            this.bt_Excluir.Click += new System.EventHandler(this.bt_ExcluirAtv_Click);
+            // 
+            // bt_salvarPDF
+            // 
+            this.bt_salvarPDF.Enabled = false;
+            this.bt_salvarPDF.Image = global::NutricionalApp.Properties.Resources.PDF_48;
+            this.bt_salvarPDF.Location = new System.Drawing.Point(659, 190);
+            this.bt_salvarPDF.Name = "bt_salvarPDF";
+            this.bt_salvarPDF.Size = new System.Drawing.Size(154, 54);
+            this.bt_salvarPDF.TabIndex = 41;
+            this.bt_salvarPDF.Text = "Salvar PDF";
+            this.bt_salvarPDF.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bt_salvarPDF.UseVisualStyleBackColor = true;
+            this.bt_salvarPDF.Click += new System.EventHandler(this.bt_salvarPDF_Click);
             // 
             // l_Qnt
             // 
@@ -641,6 +671,7 @@
             // 
             // bt_ExcluirIntem
             // 
+            this.bt_ExcluirIntem.Enabled = false;
             this.bt_ExcluirIntem.Image = global::NutricionalApp.Properties.Resources.Close_16;
             this.bt_ExcluirIntem.Location = new System.Drawing.Point(659, 161);
             this.bt_ExcluirIntem.Name = "bt_ExcluirIntem";
@@ -678,22 +709,22 @@
             // 
             // chart1
             // 
-            chartArea5.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea5);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend5.Name = "Legend1";
-            this.chart1.Legends.Add(legend5);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(3, 16);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
-            series5.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            series5.BorderColor = System.Drawing.Color.Black;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series5.Font = new System.Drawing.Font("Arial", 10F);
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            this.chart1.Series.Add(series5);
+            series1.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            series1.BorderColor = System.Drawing.Color.Black;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Font = new System.Drawing.Font("Arial", 10F);
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(810, 207);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
@@ -703,7 +734,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(841, 496);
+            this.ClientSize = new System.Drawing.Size(841, 503);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -712,6 +743,7 @@
             this.Name = "CadRecordatorio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recordatório 24 Horas";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CadRecordatorio_FormClosed);
             this.Load += new System.EventHandler(this.CadRecordatorio_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -766,10 +798,6 @@
         private System.Windows.Forms.GroupBox gr_Resultados;
         private System.Windows.Forms.Button bt_ExcluirIntem;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn datarecDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn horaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantidadeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descricaoalimentoDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cb_filtro;
         private System.Windows.Forms.RadioButton rb_grPersonalizado;
@@ -787,5 +815,11 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label l_Qnt;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button bt_salvarPDF;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datarecDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hora;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantidadeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descricaoalimentoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button bt_Excluir;
     }
 }

@@ -1,4 +1,7 @@
-﻿using Npgsql;
+﻿using MigraDocCore.DocumentObjectModel.Internals;
+using MigraDocCore.DocumentObjectModel;
+using MigraDocCore.Rendering;
+using Npgsql;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,6 +15,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static NutricionalApp.DatabaseConnection;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using MigraDocCore.DocumentObjectModel.Tables;
 
 namespace NutricionalApp
 {
@@ -21,6 +25,7 @@ namespace NutricionalApp
         int NutricionistaID = 0;
         int TacoID = 0;
         int RecordatorioID = 0;
+        string NutricionistaNome;
         float TACOGramas = 0;
         float TACOcarboidrato = 0; //Carboidratos
         float TACOEnergiaKcal = 0, TACOProteinas = 0; //Calorias
@@ -28,6 +33,7 @@ namespace NutricionalApp
         float TACOfibras = 0; // Fibras Totais
         float TACOvitamina_a = 0, TACOvitamina_c = 0; //Vitaminas
         float TACOCalcio = 0, TACOferro =0, TACOmagensio = 0; //Minerais
+        bool HabilitaTroca = false;
 
 
 
@@ -40,10 +46,17 @@ namespace NutricionalApp
             dt_DataHoraRec.MaxDate = DateTime.Now;
         }
 
+        private void CadRecordatorio_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FormMain HabilitaLogout = Application.OpenForms.OfType<FormMain>().FirstOrDefault();
+            HabilitaLogout.Logout.Enabled = true;
+        }
+
         private void CadRecordatorio_Load(object sender, EventArgs e)
         {
-            FormMain GetIDNutricionista = Application.OpenForms.OfType<FormMain>().FirstOrDefault(); //Função para Pegar o Numero de ID do Nutricionista
-            NutricionistaID = Convert.ToInt32(GetIDNutricionista.IDLabel.Text.Substring(1));
+            FormMain GetNutricionista = Application.OpenForms.OfType<FormMain>().FirstOrDefault(); //Função para Pegar o Numero de ID do Nutricionista
+            NutricionistaID = Convert.ToInt32(GetNutricionista.IDLabel.Text.Substring(1));
+            NutricionistaNome = GetNutricionista.NomeLabel.Text;
 
             using (var db = new DatabaseConnection())
             {
@@ -78,7 +91,7 @@ namespace NutricionalApp
             }
         }
 
-            private void cb_Pacientes_SelectedIndexChanged(object sender, EventArgs e)
+        private void cb_Pacientes_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Obtenha o paciente selecionado
             Paciente pacienteSelecionado = (Paciente)cb_Pacientes.SelectedItem;
@@ -99,6 +112,11 @@ namespace NutricionalApp
             {
                 db.OpenConnection();
                 db.GetRecordatorioCombobox(PacienteId, cb_Recordatorios);
+
+                if (cb_Recordatorios.Items.Count == 0)
+                {
+                    bt_EditarRec.Enabled = false;
+                }
             }
 
         }
@@ -120,7 +138,8 @@ namespace NutricionalApp
                     using (var comm = new NpgsqlCommand(
                      "INSERT INTO public.recordatorio_24h " +
                         "(data_inclusao,descricao_nome, paciente_id, nutricionista_id, ativo) " +
-                        "VALUES (@data_inclusao,@descricao_nome, @paciente_id, @nutricionista_id, @ativo)",
+                        "VALUES (@data_inclusao,@descricao_nome, @paciente_id, @nutricionista_id, @ativo) " +
+                        "RETURNING id_rec",
                         db.GetConnection()))
                     {
 
@@ -133,6 +152,11 @@ namespace NutricionalApp
                         gr_itens.Visible = true;
                         bt_adicionarRec.Enabled = false;
                         bt_EditarRec.Enabled = false;
+                        txt_DescricaoNome.Enabled = false;
+                        gr_selecao.Visible = true;
+                        gr_itens.Visible = true;
+                        cb_Recordatorios.Enabled = false;
+                        cb_Pacientes.Enabled = false;
                         try
                         {
                             var recId = comm.ExecuteScalar();
@@ -140,7 +164,12 @@ namespace NutricionalApp
                             if (recId != null)
                             {
                                 RecordatorioID = Convert.ToInt32(recId); // Converte o valor para int se não for null
-                                //MessageBox.Show($"Recordatório adicionado com ID: {RecordatorioID}", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                                         //MessageBox.Show($"Recordatório adicionado com ID: {RecordatorioID}", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                cb_Pacientes_SelectedIndexChanged(sender, e);
+                                db.GetRecordatorioComboboxFiltroID(Convert.ToInt32(recId), cb_Recordatorios);
+                                HabilitaTroca = true;
+                                bt_EditarRec.Enabled = false;
+                                bt_adicionarRec.Enabled = false;
                             }
                         }
                         catch (Exception error)
@@ -161,7 +190,7 @@ namespace NutricionalApp
                     }
                 }
 
-                cb_Pacientes_SelectedIndexChanged(sender,e);
+                
 
             }
             else
@@ -253,6 +282,10 @@ namespace NutricionalApp
                 bt_EditarRec.Enabled = true;
 
             }
+            else
+            {
+                bt_EditarRec.Enabled = false;
+            }
         }
 
         private void bt_EditarRec_Click(object sender, EventArgs e)
@@ -273,18 +306,23 @@ namespace NutricionalApp
                 string query = "SELECT descricaoperiodo,data_rec,hora,quantidade,descricao_alimento FROM vw_itensrecordatorio_detalhado WHERE recordatorio_id = @Filtro";
 
                 db.CarregarDados(query, RecordatorioID, dataGridView1);
+                HabilitaTroca = true;
             }
 
             bt_adicionarRec.Enabled = false;
-            cb_Pacientes.Enabled = false;
+            bt_EditarRec.Enabled = false;
+            txt_DescricaoNome.Enabled = false;
             txt_DescricaoNome.Text = "";
             gr_selecao.Visible = true;
             gr_itens.Visible = true;
+            cb_Recordatorios.Enabled = false;
+            cb_Pacientes.Enabled = false;
 
         }
 
         private void bt_adicionarItemRec_Click(object sender, EventArgs e)
         {
+
             if (MessageBox.Show("Deseja adicionar esse item ao Recordatório?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 using (var db = new DatabaseConnection())
@@ -463,6 +501,7 @@ namespace NutricionalApp
             }
         }
 
+
         private void AtualizarDataGridView()
         {
             using (var db = new DatabaseConnection())
@@ -483,11 +522,26 @@ namespace NutricionalApp
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedIndex == 1)
+            if (HabilitaTroca)
             {
-                AtualizarDataGridView2();
+                if (tabControl1.SelectedIndex == 1 && cb_Recordatorios.SelectedItem != null)
+                {
+                    AtualizarDataGridView2();
+                }
+            }
+            else
+            {
+                chart1.Series.Clear();
+                dataGridView2.Columns.Clear();
+                l_Calorias.Text = "";
+                l_Carboidratos.Text = "";
+                l_Lipidios.Text = "";
+                l_Proteinas.Text = "";
+                l_Qnt.Text = "";
             }
         }
+
+
 
         public void AtualizarDataGridView2()
         {
@@ -498,88 +552,106 @@ namespace NutricionalApp
                     // Recarregar os dados no DataGridView2
                     string query = "SELECT ir.id_itensrec, tt.descricao, ir.quantidade,ir.gramas,ir.calorias_totais,ir.carboidratos_totais,ir.proteinas_totais,ir.fibras_totais,ir.gorduras_totais,ir.vitamina_a,ir.vitamina_c,ir.calcio_total,ir.ferro_total,ir.magnesio_total FROM itens_recordatorio ir JOIN tabela_taco4 tt ON ir.taco_id = tt.id  WHERE recordatorio_id = @Filtro";
                     db.CarregarDados(query, RecordatorioID, dataGridView2);
-                    dataGridView2.Columns["id_itensrec"].Width  = 50;
-                    dataGridView2.Columns["id_itensrec"].HeaderText = "ID";
-                    dataGridView2.Columns["descricao"].Width  = 150;
-                    dataGridView2.Columns["descricao"].HeaderText = "Descrição";
-                    dataGridView2.Columns["quantidade"].Width  = 50;
-                    dataGridView2.Columns["quantidade"].HeaderText = "Qnt.";
-                    dataGridView2.Columns["carboidratos_totais"].HeaderText = "Carboidrato  (g)";
-                    dataGridView2.Columns["carboidratos_totais"].Width  = 75;
-                    dataGridView2.Columns["gorduras_totais"].HeaderText = "Lipideos (g)";
-                    dataGridView2.Columns["gorduras_totais"].Width  = 75;
-                    dataGridView2.Columns["proteinas_totais"].HeaderText = "Proteina  (g)";
-                    dataGridView2.Columns["proteinas_totais"].Width  = 75;
-                    dataGridView2.Columns["calorias_totais"].HeaderText = "Total Kcal. (kcal)";
-                    dataGridView2.Columns["calorias_totais"].Width  = 75;
-                    dataGridView2.Columns["vitamina_a"].HeaderText = "Vitamina A  (g)";
-                    dataGridView2.Columns["vitamina_a"].Width  = 75;
-                    dataGridView2.Columns["vitamina_c"].HeaderText = "Vitamina C  (g)";
-                    dataGridView2.Columns["vitamina_c"].Width  = 75;
-                    dataGridView2.Columns["calcio_total"].HeaderText = "Calcio  (g)";
-                    dataGridView2.Columns["calcio_total"].Width  = 75;
-                    dataGridView2.Columns["ferro_total"].HeaderText = "Ferro  (g)";
-                    dataGridView2.Columns["ferro_total"].Width  = 75;
-                    dataGridView2.Columns["magnesio_total"].HeaderText = "Magnesio  (g)";
-                    dataGridView2.Columns["magnesio_total"].Width  = 75;
 
-                    decimal SomaCalorias = 0, SomaCarboidratos = 0, SomaGorduras = 0, SomaProteinas = 0, SomaQnt = 0;
-
-                    foreach (DataGridViewRow row in dataGridView2.Rows)
+                    if (dataGridView2.RowCount > 0 && dataGridView2.Rows[0].Cells[0].Value != null)
                     {
-                        if (row.Cells["calorias_totais"].Value != null)
+                        dataGridView2.Columns["id_itensrec"].Width  = 50;
+                        dataGridView2.Columns["id_itensrec"].HeaderText = "ID";
+                        dataGridView2.Columns["id_itensrec"].Visible = false;
+                        dataGridView2.Columns["descricao"].Width  = 150;
+                        dataGridView2.Columns["descricao"].HeaderText = "Descrição";
+                        dataGridView2.Columns["quantidade"].Width  = 50;
+                        dataGridView2.Columns["quantidade"].HeaderText = "Qnt.";
+                        dataGridView2.Columns["carboidratos_totais"].HeaderText = "Carboidrato  (g)";
+                        dataGridView2.Columns["carboidratos_totais"].Width  = 75;
+                        dataGridView2.Columns["gorduras_totais"].HeaderText = "Lipideos (g)";
+                        dataGridView2.Columns["gorduras_totais"].Width  = 75;
+                        dataGridView2.Columns["proteinas_totais"].HeaderText = "Proteina  (g)";
+                        dataGridView2.Columns["proteinas_totais"].Width  = 75;
+                        dataGridView2.Columns["calorias_totais"].HeaderText = "Total Kcal. (kcal)";
+                        dataGridView2.Columns["calorias_totais"].Width  = 75;
+                        dataGridView2.Columns["vitamina_a"].HeaderText = "Vitamina A  (g)";
+                        dataGridView2.Columns["vitamina_a"].Width  = 75;
+                        dataGridView2.Columns["vitamina_c"].HeaderText = "Vitamina C  (g)";
+                        dataGridView2.Columns["vitamina_c"].Width  = 75;
+                        dataGridView2.Columns["calcio_total"].HeaderText = "Calcio  (g)";
+                        dataGridView2.Columns["calcio_total"].Width  = 75;
+                        dataGridView2.Columns["ferro_total"].HeaderText = "Ferro  (g)";
+                        dataGridView2.Columns["ferro_total"].Width  = 75;
+                        dataGridView2.Columns["magnesio_total"].HeaderText = "Magnesio  (g)";
+                        dataGridView2.Columns["magnesio_total"].Width  = 75;
+
+                        decimal SomaCalorias = 0, SomaCarboidratos = 0, SomaGorduras = 0, SomaProteinas = 0, SomaQnt = 0;
+
+                        foreach (DataGridViewRow row in dataGridView2.Rows)
                         {
-                            SomaCalorias += Convert.ToDecimal(row.Cells["calorias_totais"].Value);
-                            l_Calorias.Text = Convert.ToString(SomaCalorias) + " kcal";
+                            if (row.Cells["calorias_totais"].Value != null)
+                            {
+                                SomaCalorias += Convert.ToDecimal(row.Cells["calorias_totais"].Value);
+                                l_Calorias.Text = Convert.ToString(SomaCalorias) + " kcal";
+                            }
+                            if (row.Cells["carboidratos_totais"].Value != null)
+                            {
+                                SomaCarboidratos += Convert.ToDecimal(row.Cells["carboidratos_totais"].Value);
+                                l_Carboidratos.Text = Convert.ToString(SomaCarboidratos) + "g";
+                            }
+                            if (row.Cells["gorduras_totais"].Value != null)
+                            {
+                                SomaGorduras += Convert.ToDecimal(row.Cells["gorduras_totais"].Value);
+                                l_Lipidios.Text = Convert.ToString(SomaGorduras) + " g";
+                            }
+                            if (row.Cells["proteinas_totais"].Value != null)
+                            {
+                                SomaProteinas += Convert.ToDecimal(row.Cells["proteinas_totais"].Value);
+                                l_Proteinas.Text = Convert.ToString(SomaProteinas) + " g";
+                            }
+                            if (row.Cells["gramas"].Value != null)
+                            {
+                                SomaQnt += Convert.ToDecimal(row.Cells["gramas"].Value);
+                                l_Qnt.Text = Convert.ToString(SomaQnt) + " g";
+                            }
                         }
-                        if (row.Cells["carboidratos_totais"].Value != null)
+
+                        chart1.Visible = true;
+                        chart1.Series.Clear();
+
+                        // Adiciona uma nova série
+                        var series = new System.Windows.Forms.DataVisualization.Charting.Series
                         {
-                            SomaCarboidratos += Convert.ToDecimal(row.Cells["carboidratos_totais"].Value);
-                            l_Carboidratos.Text = Convert.ToString(SomaCarboidratos) + "g";
-                        }
-                        if (row.Cells["gorduras_totais"].Value != null)
-                        {
-                            SomaGorduras += Convert.ToDecimal(row.Cells["gorduras_totais"].Value);
-                            l_Lipidios.Text = Convert.ToString(SomaGorduras) + " g";
-                        }
-                        if (row.Cells["proteinas_totais"].Value != null)
-                        {
-                            SomaProteinas += Convert.ToDecimal(row.Cells["proteinas_totais"].Value);
-                            l_Proteinas.Text = Convert.ToString(SomaProteinas) + " g";
-                        }
-                        if (row.Cells["gramas"].Value != null)
-                        {
-                            SomaQnt += Convert.ToDecimal(row.Cells["gramas"].Value);
-                            l_Qnt.Text = Convert.ToString(SomaQnt) + " g";
-                        }
+                            Name = "Nutrientes",
+                            IsVisibleInLegend = true,
+                            IsXValueIndexed = true,
+                            ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie,
+                            Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent
+                        };
+
+                        // Adiciona os dados
+                        //series.Points.AddXY("Calorias", SomaCalorias);
+                        series.Points.AddXY("Carboidratos", SomaCarboidratos);
+                        series.Points.AddXY("Gorduras", SomaGorduras);
+                        series.Points.AddXY("Proteínas", SomaProteinas);
+
+                        //Borda
+                        series.BorderColor = System.Drawing.Color.Black;
+
+                        // Adiciona a série ao gráfico
+                        chart1.Series.Add(series);
+                        bt_ExcluirIntem.Enabled = true;
+                        bt_salvarPDF.Enabled = true;
+                        bt_Excluir.Enabled = true;
                     }
-
-                    chart1.Visible = true;
-                    chart1.Series.Clear();
-
-                    // Adiciona uma nova série
-                    var series = new System.Windows.Forms.DataVisualization.Charting.Series
+                    else
                     {
-                        Name = "Nutrientes",
-                        IsVisibleInLegend = true,
-                        IsXValueIndexed = true,
-                        ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie,
-                        Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent
-                    };
-
-                    // Adiciona os dados
-                    //series.Points.AddXY("Calorias", SomaCalorias);
-                    series.Points.AddXY("Carboidratos", SomaCarboidratos);
-                    series.Points.AddXY("Gorduras", SomaGorduras);
-                    series.Points.AddXY("Proteínas", SomaProteinas);
-
-                    //Borda
-                    series.BorderColor = Color.Black;
-
-                    // Adiciona a série ao gráfico
-                    chart1.Series.Add(series);
-
-
+                        chart1.Series.Clear();
+                        bt_ExcluirIntem.Enabled = false;
+                        bt_salvarPDF.Enabled = false;
+                        bt_Excluir.Enabled = false;
+                        l_Calorias.Text = "";
+                        l_Carboidratos.Text = "";
+                        l_Lipidios.Text = "";
+                        l_Proteinas.Text = "";
+                        l_Qnt.Text = "";
+                    }
 
 
                 }
@@ -608,11 +680,184 @@ namespace NutricionalApp
                     }
                     dataGridView2.Rows.RemoveAt(rowIndex);
                     AtualizarDataGridView();
+                    dataGridView1.Refresh();
                 }
             }
             else
             {
                 dataGridView2.Focus();
+            }
+        }
+
+        private void bt_salvarPDF_Click(object sender, EventArgs e)
+        {
+            string NomePaciente = cb_Pacientes.SelectedItem.ToString();
+
+            // Criação de um novo documento
+            Document document = new Document();
+            document.Info.Title = "Recordatório 24 horas de: " +  NomePaciente;
+            document.Info.Subject = "Recordatório 24 horas";
+            document.Info.Author = NutricionistaNome;
+
+            // Adiciona uma seção ao documento
+            Section section = document.AddSection();
+
+            // Adiciona informações ao documento
+            Paragraph Titulo = section.AddParagraph("Recordatório 24 horas ");
+            Titulo.Format.Font.Size = 16;
+            Titulo.Format.Font.Bold = true; // Define o texto em negrito
+            Titulo.Format.Alignment = ParagraphAlignment.Center; // Centraliza o texto
+            Paragraph Subtitulo = section.AddParagraph("Realizada por: " + NutricionistaNome);
+            Subtitulo.Format.Font.Size = 8;
+            Subtitulo.Format.Font.Color =  new MigraDocCore.DocumentObjectModel.Color(128, 128, 128);
+            Subtitulo.Format.Font.Italic = true; // Define o texto em negrito
+            Subtitulo.Format.Alignment = ParagraphAlignment.Center; // Centraliza o texto
+            section.PageSetup.Orientation = MigraDocCore.DocumentObjectModel.Orientation.Landscape;
+            section.AddParagraph("");
+            section.AddParagraph("");
+
+            Paragraph Paciente = section.AddParagraph("Paciente: " + NomePaciente);
+            Paciente.Format.Font.Bold = true;
+            Paciente.Format.Font.Size = 12;
+            section.AddParagraph("");
+
+
+            // Adiciona a tabela
+            Table tabelaResultados = section.AddTable();
+            tabelaResultados.Borders.Width = 0.75;
+
+            // Definir as colunas da tabela com larguras ajustadas
+                tabelaResultados.AddColumn(Unit.FromCentimeter(0.5));  // # 
+                tabelaResultados.AddColumn(Unit.FromCentimeter(1.6));  // Hora 
+                tabelaResultados.AddColumn(Unit.FromCentimeter(4.5));  // Descrição 
+                tabelaResultados.AddColumn(Unit.FromCentimeter(1.2));  // Quantidade
+                tabelaResultados.AddColumn(Unit.FromCentimeter(2.2));  // Carboidrato
+                tabelaResultados.AddColumn(Unit.FromCentimeter(2.2));  // Lipídeos 
+                tabelaResultados.AddColumn(Unit.FromCentimeter(2.2));  // Proteína 
+                tabelaResultados.AddColumn(Unit.FromCentimeter(2.2));  // Total Kcal
+                tabelaResultados.AddColumn(Unit.FromCentimeter(2.2));  // Vitamina A 
+                tabelaResultados.AddColumn(Unit.FromCentimeter(2.2));  // Vitamina C
+                tabelaResultados.AddColumn(Unit.FromCentimeter(2.0));  // Cálcio
+                tabelaResultados.AddColumn(Unit.FromCentimeter(2.0));  // Ferro 
+                tabelaResultados.AddColumn(Unit.FromCentimeter(2.0));  // Magnésio
+
+            // Adiciona uma linha de cabeçalho
+            Row titulo = tabelaResultados.AddRow();
+            titulo.Shading.Color = Colors.LightGray;
+            titulo.Format.Font.Bold = true;
+
+            // Preencher os títulos das colunas
+            titulo.Cells[0].AddParagraph("#");
+            titulo.Cells[1].AddParagraph("Hora");
+            titulo.Cells[2].AddParagraph("Descrição");
+            titulo.Cells[3].AddParagraph("Qnt.");
+            titulo.Cells[4].AddParagraph("Carboidrato (g)");
+            titulo.Cells[5].AddParagraph("Lipídeos (g)");
+            titulo.Cells[6].AddParagraph("Proteína (g)");
+            titulo.Cells[7].AddParagraph("Total Kcal (kcal)");
+            titulo.Cells[8].AddParagraph("Vitamina A (g)");
+            titulo.Cells[9].AddParagraph("Vitamina C (g)");
+            titulo.Cells[10].AddParagraph("Cálcio (g)");
+            titulo.Cells[11].AddParagraph("Ferro (g)");
+            titulo.Cells[12].AddParagraph("Magnésio (g)");
+
+            // Adiciona as linhas de dados
+            for (int i = 0; i < dataGridView2.Rows.Count; i++)
+            {
+                Row linha = tabelaResultados.AddRow();
+
+
+                linha.Cells[0].AddParagraph(i.ToString());
+
+                if (dataGridView2.Rows[i].Cells["descricao"].Value != null)
+                    linha.Cells[2].AddParagraph(dataGridView2.Rows[i].Cells["descricao"].Value.ToString());
+
+                if (dataGridView2.Rows[i].Cells["quantidade"].Value != null)
+                    linha.Cells[3].AddParagraph(dataGridView2.Rows[i].Cells["quantidade"].Value.ToString());
+
+                if (dataGridView2.Rows[i].Cells["carboidratos_totais"].Value != null)
+                    linha.Cells[4].AddParagraph(dataGridView2.Rows[i].Cells["carboidratos_totais"].Value.ToString());
+
+                if (dataGridView2.Rows[i].Cells["gorduras_totais"].Value != null)
+                    linha.Cells[5].AddParagraph(dataGridView2.Rows[i].Cells["gorduras_totais"].Value.ToString());
+
+                if (dataGridView2.Rows[i].Cells["proteinas_totais"].Value != null)
+                    linha.Cells[6].AddParagraph(dataGridView2.Rows[i].Cells["proteinas_totais"].Value.ToString());
+
+                if (dataGridView2.Rows[i].Cells["calorias_totais"].Value != null)
+                    linha.Cells[7].AddParagraph(dataGridView2.Rows[i].Cells["calorias_totais"].Value.ToString());
+
+                if (dataGridView2.Rows[i].Cells["vitamina_a"].Value != null)
+                    linha.Cells[8].AddParagraph(dataGridView2.Rows[i].Cells["vitamina_a"].Value.ToString());
+
+                if (dataGridView2.Rows[i].Cells["vitamina_c"].Value != null)
+                    linha.Cells[9].AddParagraph(dataGridView2.Rows[i].Cells["vitamina_c"].Value.ToString());
+
+                if (dataGridView2.Rows[i].Cells["calcio_total"].Value != null)
+                    linha.Cells[10].AddParagraph(dataGridView2.Rows[i].Cells["calcio_total"].Value.ToString());
+
+                if (dataGridView2.Rows[i].Cells["ferro_total"].Value != null)
+                    linha.Cells[11].AddParagraph(dataGridView2.Rows[i].Cells["ferro_total"].Value.ToString());
+
+                if (dataGridView2.Rows[i].Cells["magnesio_total"].Value != null)
+                    linha.Cells[12].AddParagraph(dataGridView2.Rows[i].Cells["magnesio_total"].Value.ToString());
+
+                if (dataGridView1.Rows[i].Cells["hora"].Value != null)
+                    linha.Cells[1].AddParagraph(dataGridView1.Rows[i].Cells["hora"].Value.ToString());
+            }
+
+            section.AddParagraph("");
+            section.AddParagraph("");
+
+            // Adiciona um espaço para a sugestão do nutricionista
+            section.AddParagraph("\nObservações:").Format.Font.Bold = true;
+            section.AddParagraph("\n_____________________________________________");
+            section.AddParagraph("_____________________________________________");
+            section.AddParagraph("_____________________________________________");
+
+
+            // Criação do renderizador PDF
+            PdfDocumentRenderer renderer = new PdfDocumentRenderer(true)
+            {
+                Document = document
+            };
+
+            // Gera o PDF
+            renderer.RenderDocument();
+            string filename = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Recordatorio24h " + NomePaciente + ".pdf";
+            renderer.PdfDocument.Save(filename);
+
+            // Exibe uma mensagem de sucesso
+            MessageBox.Show($"PDF gerado em: {filename}");
+        }
+
+
+        private void bt_ExcluirAtv_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja excluir esse Recordatório 24 horas Permanentemente?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                using (var db = new DatabaseConnection())
+                {
+                    try
+                    {
+                        db.ExcluirRecordatorio(RecordatorioID);
+                        MessageBox.Show("Recordatório 24 horas Excluído com Sucesso!", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception error)
+                    {
+                        MessageBox.Show($"Erro ao Excluir: {error.Message}!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                tabControl1.SelectedIndex = 0;
+                gr_selecao.Visible = false;
+                gr_itens.Visible = false;
+                bt_adicionarRec.Enabled = true;
+                bt_EditarRec.Enabled = true;
+                cb_Pacientes.Enabled = true;
+                cb_Recordatorios.Enabled = true;
+                HabilitaTroca = false;
+                cb_Pacientes_SelectedIndexChanged(sender, e);
             }
         }
     }

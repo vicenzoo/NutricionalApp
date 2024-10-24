@@ -653,6 +653,7 @@
             this.Name = "CadUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Paciente";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CadUser_FormClosed);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

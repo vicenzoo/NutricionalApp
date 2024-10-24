@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadPlanoAlimentar));
             this.bt_grPersonaliza = new System.Windows.Forms.Button();
             this.txt_gramaPersonalizado = new System.Windows.Forms.TextBox();
@@ -43,7 +43,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.gr_Resultados = new System.Windows.Forms.GroupBox();
-            this.bt_ExcluirAtv = new System.Windows.Forms.Button();
+            this.bt_salvarPDF = new System.Windows.Forms.Button();
+            this.bt_Excluir = new System.Windows.Forms.Button();
             this.l_Qnt = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.l_Calorias = new System.Windows.Forms.Label();
@@ -207,7 +208,8 @@
             // 
             // gr_Resultados
             // 
-            this.gr_Resultados.Controls.Add(this.bt_ExcluirAtv);
+            this.gr_Resultados.Controls.Add(this.bt_salvarPDF);
+            this.gr_Resultados.Controls.Add(this.bt_Excluir);
             this.gr_Resultados.Controls.Add(this.l_Qnt);
             this.gr_Resultados.Controls.Add(this.label7);
             this.gr_Resultados.Controls.Add(this.l_Calorias);
@@ -228,17 +230,31 @@
             this.gr_Resultados.TabStop = false;
             this.gr_Resultados.Text = "Resultados:";
             // 
-            // bt_ExcluirAtv
+            // bt_salvarPDF
             // 
-            this.bt_ExcluirAtv.Image = global::NutricionalApp.Properties.Resources.Delete_48;
-            this.bt_ExcluirAtv.Location = new System.Drawing.Point(659, 192);
-            this.bt_ExcluirAtv.Name = "bt_ExcluirAtv";
-            this.bt_ExcluirAtv.Size = new System.Drawing.Size(154, 60);
-            this.bt_ExcluirAtv.TabIndex = 40;
-            this.bt_ExcluirAtv.Text = "Excluir Plano Alimentar";
-            this.bt_ExcluirAtv.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.bt_ExcluirAtv.UseVisualStyleBackColor = true;
-            this.bt_ExcluirAtv.Click += new System.EventHandler(this.bt_ExcluirAtv_Click);
+            this.bt_salvarPDF.Enabled = false;
+            this.bt_salvarPDF.Image = global::NutricionalApp.Properties.Resources.PDF_48;
+            this.bt_salvarPDF.Location = new System.Drawing.Point(686, 192);
+            this.bt_salvarPDF.Name = "bt_salvarPDF";
+            this.bt_salvarPDF.Size = new System.Drawing.Size(154, 60);
+            this.bt_salvarPDF.TabIndex = 42;
+            this.bt_salvarPDF.Text = "Salvar PDF";
+            this.bt_salvarPDF.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bt_salvarPDF.UseVisualStyleBackColor = true;
+            this.bt_salvarPDF.Click += new System.EventHandler(this.bt_salvarPDF_Click);
+            // 
+            // bt_Excluir
+            // 
+            this.bt_Excluir.Enabled = false;
+            this.bt_Excluir.Image = global::NutricionalApp.Properties.Resources.Delete_48;
+            this.bt_Excluir.Location = new System.Drawing.Point(526, 192);
+            this.bt_Excluir.Name = "bt_Excluir";
+            this.bt_Excluir.Size = new System.Drawing.Size(154, 60);
+            this.bt_Excluir.TabIndex = 40;
+            this.bt_Excluir.Text = "Excluir Plano Alimentar";
+            this.bt_Excluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bt_Excluir.UseVisualStyleBackColor = true;
+            this.bt_Excluir.Click += new System.EventHandler(this.bt_ExcluirAtv_Click);
             // 
             // l_Qnt
             // 
@@ -352,8 +368,9 @@
             // 
             // bt_ExcluirIntem
             // 
+            this.bt_ExcluirIntem.Enabled = false;
             this.bt_ExcluirIntem.Image = global::NutricionalApp.Properties.Resources.Close_16;
-            this.bt_ExcluirIntem.Location = new System.Drawing.Point(659, 161);
+            this.bt_ExcluirIntem.Location = new System.Drawing.Point(686, 161);
             this.bt_ExcluirIntem.Name = "bt_ExcluirIntem";
             this.bt_ExcluirIntem.Size = new System.Drawing.Size(154, 27);
             this.bt_ExcluirIntem.TabIndex = 13;
@@ -389,22 +406,22 @@
             // 
             // chart1
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(3, 16);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
-            series3.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            series3.BorderColor = System.Drawing.Color.Black;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series3.Font = new System.Drawing.Font("Arial", 10F);
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
+            series1.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            series1.BorderColor = System.Drawing.Color.Black;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Font = new System.Drawing.Font("Arial", 10F);
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(842, 207);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
@@ -668,6 +685,7 @@
             this.Name = "CadPlanoAlimentar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Plano Alimentar";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CadPlanoAlimentar_FormClosed);
             this.Load += new System.EventHandler(this.CadPlanoAlimentar_Load);
             this.tabPage4.ResumeLayout(false);
             this.gr_Resultados.ResumeLayout(false);
@@ -735,6 +753,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cb_Taco;
         private System.Windows.Forms.DateTimePicker dt_DataHoraPlano;
-        private System.Windows.Forms.Button bt_ExcluirAtv;
+        private System.Windows.Forms.Button bt_Excluir;
+        private System.Windows.Forms.Button bt_salvarPDF;
     }
 }

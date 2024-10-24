@@ -21,6 +21,12 @@ namespace NutricionalApp
         bool DataNasc = false;
         public static string userNome { get; set; }
 
+        private void CadUser_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FormMain HabilitaLogout = Application.OpenForms.OfType<FormMain>().FirstOrDefault();
+            HabilitaLogout.Logout.Enabled = true;
+        }
+
         public CadUser()
         {
             InitializeComponent();
@@ -435,5 +441,7 @@ namespace NutricionalApp
                 PlanoAlimentar.ShowPlanoAlimentar(); // Chama o método público
             }
         }
+
+
     }
 }
