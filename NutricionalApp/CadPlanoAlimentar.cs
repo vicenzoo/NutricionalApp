@@ -291,7 +291,7 @@ namespace NutricionalApp
                     return;
                 }
 
-                string query = "SELECT descricaoperiodo,data,hora,quantidade,descricao_alimento FROM vw_itensplanoAlimentar_detalhado WHERE plano_alimentar_id = @Filtro";
+                string query = "SELECT descricaoperiodo,data,hora,quantidade,descricao_alimento FROM vw_itensplanoAlimentar_detalhado WHERE plano_id = @Filtro";
 
                 db.CarregarDados(query, PlanoAlimentarID, dataGridView1);
 
@@ -329,10 +329,10 @@ namespace NutricionalApp
                     db.OpenConnection();
                     using (var comm = new NpgsqlCommand(
                          "INSERT INTO public.itens_plano_alimentar " +
-                         "(plano_alimentar_id, data, hora, taco_id, descricao, quantidade,gramas,"
+                         "(plano_id, data, hora, taco_id, descricao, quantidade,gramas,"
                          +"calorias_totais,carboidratos_totais,proteinas_totais,gorduras_totais,"
                          +"fibras_totais,vitamina_a,vitamina_c,calcio_total,ferro_total,magnesio_total"+") " +
-                         "VALUES (@plano_alimentar_id, @data, @hora, @taco_id, @descricao, @quantidade,@gramas,"
+                         "VALUES (@plano_id, @data, @hora, @taco_id, @descricao, @quantidade,@gramas,"
                          +"@calorias_totais,@carboidratos_totais,@proteinas_totais,@gorduras_totais,"
                          +"@fibras_totais,@vitamina_a,@vitamina_c,@calcio_total,@ferro_total,@magnesio_total)",
                          db.GetConnection()))
@@ -351,7 +351,7 @@ namespace NutricionalApp
                         float totalmagnesio = (TACOmagensio/100)*TACOGramas;
 
                         // Adicionando os parâmetros com seus respectivos valores
-                        comm.Parameters.AddWithValue("@plano_alimentar_id", PlanoAlimentarID);
+                        comm.Parameters.AddWithValue("@plano_id", PlanoAlimentarID);
                         comm.Parameters.AddWithValue("@data", dt_DataHoraPlano.Value.Date);
                         comm.Parameters.AddWithValue("@hora", dt_DataHoraPlano.Value.TimeOfDay);
                         comm.Parameters.AddWithValue("@taco_id", TacoID);
@@ -396,7 +396,7 @@ namespace NutricionalApp
                 try
                 {
                     // Recarregar os dados no DataGridView
-                    string query = "SELECT descricaoperiodo, data, hora, quantidade, descricao_alimento FROM vw_itensplanoAlimentar_detalhado WHERE plano_alimentar_id = @Filtro";
+                    string query = "SELECT descricaoperiodo, data, hora, quantidade, descricao_alimento FROM vw_itensplanoAlimentar_detalhado WHERE plano_id = @Filtro";
                     db.CarregarDados(query, PlanoAlimentarID, dataGridView1);
 
                     if (dataGridView1.RowCount > 0 && dataGridView1.Rows[0].Cells[0].Value != null)
@@ -434,7 +434,7 @@ namespace NutricionalApp
 
                             string query = "SELECT descricaoperiodo,data, hora, quantidade, descricao_alimento " +
                                              "FROM vw_itensplanoAlimentar_detalhado " +
-                                              "WHERE plano_alimentar_id = @Filtro " +
+                                              "WHERE plano_id = @Filtro " +
                                               "AND descricaoperiodo LIKE @DescricaoPeriodo";
 
                             using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
@@ -539,7 +539,7 @@ namespace NutricionalApp
                 try
                 {
                     // Recarregar os dados no DataGridView2
-                    string query = "SELECT ip.id_itensplano, tt.descricao, ip.quantidade,ip.gramas,ip.calorias_totais,ip.carboidratos_totais,ip.proteinas_totais,ip.fibras_totais,ip.gorduras_totais,ip.vitamina_a,ip.vitamina_c,ip.calcio_total,ip.ferro_total,ip.magnesio_total FROM itens_plano_alimentar ip JOIN tabela_taco4 tt ON ip.taco_id = tt.id  WHERE plano_alimentar_id = @Filtro";
+                    string query = "SELECT ip.id_itensplano, tt.descricao, ip.quantidade,ip.gramas,ip.calorias_totais,ip.carboidratos_totais,ip.proteinas_totais,ip.fibras_totais,ip.gorduras_totais,ip.vitamina_a,ip.vitamina_c,ip.calcio_total,ip.ferro_total,ip.magnesio_total FROM itens_plano_alimentar ip JOIN tabela_taco4 tt ON ip.taco_id = tt.id  WHERE plano_id = @Filtro";
                     db.CarregarDados(query, PlanoAlimentarID, dataGridView2);
 
                     if (dataGridView2.RowCount > 0 && dataGridView2.Rows[0].Cells[0].Value != null)
